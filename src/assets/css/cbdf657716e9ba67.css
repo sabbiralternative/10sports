@@ -1,0 +1,727 @@
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+body {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--bg-color-appBg);
+  touch-action: manipulation;
+  -ms-touch-action: manipulation;
+  -webkit-overflow-scrolling: touch;
+  height: 100dvh;
+  min-height: -webkit-fill-available;
+  width: 100dvw;
+}
+
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:active,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover {
+  background-color: transparent !important;
+  -webkit-box-shadow: inset 0 0 0 30px transparent !important;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+#loginRegLayOut input:-webkit-autofill,
+#loginRegLayOut input:-webkit-autofill:active,
+#loginRegLayOut input:-webkit-autofill:focus,
+#loginRegLayOut input:-webkit-autofill:hover {
+  -webkit-box-shadow: inset 0 0 0 30px transparent !important;
+  -webkit-text-fill-color: var(--text-color-loginInputTextColor) !important;
+  background-color: transparent !important;
+  -webkit-transition: background-color 5000s ease-in-out 0s !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+#loginRegLayOut input {
+  caret-color: var(--text-color-loginInputTextColor) !important;
+}
+
+.mobileLogoHeight {
+  height: 30px;
+}
+
+.onesignal-bell-launcher {
+  transform: scale(0.85) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 700;
+  src: url(../../assets/Fonts/Lato/Lato-Bold.ttf) format("truetype");
+  font-preload: true;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../../assets/Fonts/Lato/Lato-Regular.ttf) format("truetype");
+  font-preload: true;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../../assets/Fonts/Inter/static/Inter-Regular.ttf) format("truetype");
+  font-preload: true;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 700;
+  src: url(../../assets/Fonts/Inter/static/Inter-Bold.ttf) format("truetype");
+  font-preload: true;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../../assets/Fonts/helvetica-neue-5/HelveticaNeueMedium.otf)
+    format("truetype");
+  font-preload: true;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: 300;
+  src: url(../../assets/Fonts/helvetica-neue-5/HelveticaNeueBold.otf)
+    format("truetype");
+  font-preload: true;
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  src: url(../../assets/Fonts/Roboto/Roboto-Regular.ttf) format("truetype");
+  font-preload: true;
+}
+
+@font-face {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 500;
+  src: url(../../assets/Fonts/Manrope/static/Manrope-Regular.ttf)
+    format("truetype");
+  font-preload: true;
+}
+
+@font-face {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 700;
+  src: url(../../assets/Fonts/Manrope/static/Manrope-Bold.ttf)
+    format("truetype");
+  font-preload: true;
+}
+
+.font-lato {
+  font-family: Lato;
+}
+
+.font-lato-dark {
+  font-family: Lato, sans-serif;
+}
+
+.font-roboto {
+  font-family: Roboto !important;
+}
+
+.font-inherit {
+  font-family: inherit;
+}
+
+.font-monospace {
+  font-family: monospace, monospace;
+}
+
+.font-lato-bold {
+  font-family: Lato, sans-serif;
+}
+
+.font-source {
+  font-family: Lato, Sans Pro;
+}
+
+.font-inter,
+.font-inter-bold {
+  font-family: Inter, sans-serif;
+}
+
+.font-helvetica-neue,
+.font-helvetica-neue-bold {
+  font-family: Helvetica Neue, sans-serif, BBAlpha Sans;
+}
+
+.font-manrope-bold,
+.font-manrope-regular {
+  font-family: Manrope;
+}
+
+.marquee-scroll {
+  animation: marquee linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--icon-color-primary);
+  border-radius: 8px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.scaleHorizontally {
+  animation: scaleHorizontally 0.4s ease-in-out;
+}
+
+.scaleHorizontallyClose {
+  animation: scaleHorizontallyClose 0.5s ease-in-out;
+}
+
+@keyframes scaleHorizontallyClose {
+  0% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+}
+
+@keyframes scaleHorizontally {
+  0% {
+    opacity: 0.5;
+    transform: scaleX(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+}
+
+.backdrop-blur-2 {
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+}
+
+.backdrop-blur-4 {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.backdrop-blur-6 {
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.btn-danger:hover,
+.btn-dark:hover,
+.btn-info:hover,
+.btn-light:hover,
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-success:hover,
+.btn-warning:hover {
+  opacity: 0.9;
+}
+
+.btn-danger:active,
+.btn-dark:active,
+.btn-info:active,
+.btn-light:active,
+.btn-primary:active,
+.btn-secondary:active,
+.btn-success:active,
+.btn-warning:active {
+  opacity: 1;
+}
+
+input::-moz-placeholder {
+  color: #999;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+.popUpOpenAnimation {
+  animation: popUpOpenAnimation 0.3s ease-in-out;
+}
+
+.autoAnimate {
+  transition-duration: 0.3s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes popUpOpenAnimation {
+  0% {
+    opacity: 0.5;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.popUpCloseAnimation {
+  animation: popUpCloseAnimation 0.3s ease-in-out;
+}
+
+@keyframes popUpCloseAnimation {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0.5;
+    transform: scale(0);
+  }
+}
+
+.flip-180 {
+  animation: flip-180 2s ease-in-out forwards;
+  transform-style: preserve-3d;
+}
+
+@keyframes flip-180 {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(180deg);
+  }
+}
+
+.scaleVerticalOpen {
+  animation: scaleVerticalOpen 0.2s ease-in-out;
+}
+
+.scaleVerticalClose {
+  animation: scaleVerticalClose 0.3s ease-in-out;
+}
+
+@keyframes scaleVerticalOpen {
+  0% {
+    opacity: 0.5;
+    transform: scaleY(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes scaleVerticalClose {
+  0% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  to {
+    opacity: 0.5;
+    transform: scaleY(0);
+  }
+}
+
+.openDrawer {
+  animation: openDrawer 0.25s ease-in-out;
+}
+
+.openDrawerFromRight {
+  animation: openDrawerFromRight 0.25s ease-in-out;
+}
+
+.closeDraerFromRight {
+  animation: closeDrawerFromRight 0.3s ease-in-out;
+}
+
+.openDrawerFromLeft {
+  animation: openDrawerFromLeft 0.25s ease-in-out;
+}
+
+@keyframes openDrawerFromLeft {
+  0% {
+    opacity: 0.5;
+    transform: translateX(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes openDrawerFromRight {
+  0% {
+    opacity: 0.5;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.dropDownTransition {
+  animation: dropDownTransition 0.3s ease-in-out;
+}
+
+@keyframes dropDownTransition {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes closeDrawerFromRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0.5;
+    transform: translateX(100%);
+  }
+}
+
+.closeDrawer {
+  animation: closeDrawer 0.29s ease-in-out;
+}
+
+@keyframes openDrawer {
+  0% {
+    opacity: 0.5;
+    transform: translateX(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes closeDrawer {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0.5;
+    transform: translateX(-100%);
+  }
+}
+
+.popUpBoxShadow {
+  box-shadow: 0 4px 16px rgba(17, 17, 26, 0.1),
+    0 8px 32px rgba(17, 17, 26, 0.05);
+}
+
+.toast-animation {
+  animation: toast-animation 0.1s ease-in-out;
+}
+
+@keyframes toast-animation {
+  0% {
+    opacity: 0.5;
+    scale: 0.3;
+    transform: translateY(-10%);
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+    transform: translateY(0);
+  }
+}
+
+.rotate {
+  animation: rotates 1s ease-in-out;
+}
+
+@keyframes rotates {
+  0% {
+    transform: rotateY(90deg);
+  }
+}
+
+.fadein {
+  animation: fadein 1s ease-in-out;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+}
+
+.loading,
+.loading__ring {
+  height: var(--loader-size);
+  width: var(--loader-size);
+}
+
+.loading__ring {
+  position: absolute;
+}
+
+.loading__ring:first-child {
+  transform: skew(30deg, 20deg);
+}
+
+.loading__ring:last-child {
+  transform: skew(-30deg, -20deg) scaleX(-1);
+}
+
+.loading__ring:last-child svg {
+  animation-delay: -0.5s;
+}
+
+.loading__ring svg {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.popupAnimation {
+  animation: popupAnimation 0.5s ease-in-out;
+}
+
+@keyframes popupAnimation {
+  0% {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+#scrollShow {
+  overflow: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: 0 !important;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#scrollShow::-webkit-scrollbar {
+  display: none;
+}
+
+#stakeInput::-moz-placeholder {
+  color: var(--color-oddInputColor);
+  font-size: 13px;
+}
+
+#stakeInput::placeholder {
+  color: var(--color-oddInputColor);
+  font-size: 13px;
+}
+
+#hideScrollBar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+}
+
+.increaseStakesValueDark {
+  animation: boxShadowForStakeDark 0.3s ease-in-out;
+}
+
+@keyframes boxShadowForStakeDark {
+  0% {
+    box-shadow: inset 0 0 40px 0 hsla(0, 0%, 85%, 0.18),
+      inset 0 0 40px 0 hsla(0, 1%, 81%, 0.15),
+      inset 0 0 36px -24px hsla(0, 0%, 87%, 0.1);
+  }
+
+  to {
+    box-shadow: none !important;
+  }
+}
+
+.increaseStakesValue {
+  animation: boxShadowForStake 0.3s ease-in-out;
+}
+
+@keyframes boxShadowForStake {
+  0% {
+    box-shadow: inset 0 0 40px 0 hsla(0, 0%, 85%, 0.5),
+      inset 0 0 40px 0 hsla(0, 1%, 81%, 0.5), inset 0 0 36px -24px #ddd;
+  }
+
+  to {
+    box-shadow: none !important;
+  }
+}
+
+.translateHight {
+  animation: transformHight 1s ease-in-out forwards;
+  height: 0;
+}
+
+@keyframes transformHight {
+  0% {
+    height: 10%;
+  }
+
+  10% {
+    height: 20%;
+  }
+
+  20% {
+    height: 30%;
+  }
+
+  30% {
+    height: 40%;
+  }
+
+  40% {
+    height: 50%;
+  }
+
+  50% {
+    height: 60%;
+  }
+
+  60% {
+    height: 70%;
+  }
+
+  70% {
+    height: 80%;
+  }
+
+  80% {
+    height: 90%;
+  }
+
+  to {
+    height: 100%;
+  }
+}
+
+.scrollInfinity {
+  animation: scrollInf 30s linear infinite;
+}
+
+.highLightChange {
+  animation: highLightChange 0.3s ease-in-out;
+}
+
+@keyframes highLightChange {
+  0% {
+    background-color: var(--bg-color-highLightChangeColor);
+  }
+}
+
+@keyframes scrollInf {
+  to {
+    transform: translate(-100%);
+  }
+}
+
+#slideset1 > * {
+  animation: autoplay1 16s infinite;
+  position: absolute;
+  visibility: hidden;
+}
+
+#slideset1 > :first-child {
+  animation-delay: 0s;
+}
+
+#slideset1 > :nth-child(2) {
+  animation-delay: 4s;
+}
+
+#slideset1 > :nth-child(3) {
+  animation-delay: 8s;
+}
+
+#slideset1 > :nth-child(4) {
+  animation-delay: 12s;
+}
+
+@keyframes autoplay1 {
+  0% {
+    visibility: visible;
+  }
+
+  25% {
+    visibility: hidden;
+  }
+}
