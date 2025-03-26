@@ -1,11 +1,14 @@
 import { useDispatch } from "react-redux";
 import { setGroup } from "../../../redux/features/global/globalSlice";
+import { useNavigate } from "react-router-dom";
 
 const LeftDeskSidebar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSetGroup = (group) => {
     dispatch(setGroup(group));
+    navigate("/");
   };
   return (
     <aside

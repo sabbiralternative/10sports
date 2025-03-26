@@ -1,4 +1,17 @@
+import { useEffect, useState } from "react";
+import OpenBet from "./OpenBet";
+import BetSlip from "./BetSlip";
+import { useSelector } from "react-redux";
+
 const RightDeskSidebar = () => {
+  const { placeBetValues } = useSelector((state) => state.event);
+  const [tab, setTab] = useState("openBet");
+
+  useEffect(() => {
+    if (placeBetValues) {
+      setTab("betSlip");
+    }
+  }, [placeBetValues]);
   return (
     <aside
       title="Menu 2"
@@ -9,20 +22,29 @@ const RightDeskSidebar = () => {
         <div className="w-full flex flex-col gap-y-1 py-2">
           <div className="w-full flex items-center gap-1">
             <div className="flex gap-1 w-3/4 rounded-lg p-0.5 border border-border_color_primary">
-              <button className="text-xs w-full capitalize whitespace-nowrap rounded p-2 bg-bg_color_primary text-text_color_primary1">
+              <button
+                onClick={() => setTab("betSlip")}
+                className={`text-xs w-full capitalize whitespace-nowrap rounded p-2  ${
+                  tab === "betSlip"
+                    ? "bg-bg_brand_secondary text-text_color_primary2"
+                    : "bg-bg_color_primary text-text_color_primary1"
+                }`}
+              >
                 Betslip
               </button>
-              <button className="text-xs w-full capitalize whitespace-nowrap rounded p-2 bg-bg_brand_secondary text-text_color_primary2">
+              <button
+                onClick={() => setTab("openBet")}
+                className={`text-xs w-full capitalize whitespace-nowrap rounded p-2  ${
+                  tab === "openBet"
+                    ? "bg-bg_brand_secondary text-text_color_primary2"
+                    : "bg-bg_color_primary text-text_color_primary1"
+                }`}
+              >
                 Open Bets
               </button>
             </div>
           </div>
-          <h4 className="text-sm font-lato text-center py-4 text-text_color_primary1">
-            Please login to see your open bets.
-            <span className="bg-bg_text_brand_primary bg-clip-text text-transparent cursor-pointer hover:underline">
-              Login
-            </span>
-          </h4>
+          {tab === "openBet" ? <OpenBet /> : <BetSlip />}
         </div>
       </div>
     </aside>

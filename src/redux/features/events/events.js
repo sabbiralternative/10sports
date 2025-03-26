@@ -78,6 +78,15 @@ export const eventsApi = baseApi.injectEndpoints({
         };
       },
     }),
+    video: builder.mutation({
+      query: (payload) => {
+        return {
+          url: `${API.accessToken}`,
+          method: "POST",
+          body: payload,
+        };
+      },
+    }),
   }),
 });
 
@@ -89,4 +98,5 @@ export const {
   useGetLadderMutation,
   useEditButtonValuesMutation,
   useAccountStatementMutation,
+  useVideoMutation,
 } = eventsApi;

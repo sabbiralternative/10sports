@@ -95,7 +95,7 @@ const HeaderBottomNavItem = () => {
         onClick={() => handleSetGroup(4)}
         title="Cricket"
         className="cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] text-text_headerDeskNav flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs"
-        to="?group=4"
+        to="/"
       >
         <span className="text-text_headerDeskNav">
           <svg
@@ -126,7 +126,7 @@ const HeaderBottomNavItem = () => {
         onClick={() => handleSetGroup(1)}
         title="Football"
         className="cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] text-text_headerDeskNav flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs"
-        to="?group=1"
+        to="/"
       >
         <span className="text-text_headerDeskNav">
           <svg
@@ -180,7 +180,7 @@ const HeaderBottomNavItem = () => {
         onClick={() => handleSetGroup(2)}
         title="Tennis"
         className="cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] text-text_headerDeskNav flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs"
-        to="?group=2"
+        to="/"
       >
         <span className="text-text_headerDeskNav">
           <svg
