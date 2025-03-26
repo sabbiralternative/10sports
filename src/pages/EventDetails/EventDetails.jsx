@@ -8,6 +8,7 @@ import Fancy from "../../components/modules/EventDetails/Fancy";
 import Score from "../../components/modules/EventDetails/Score";
 import IframeVideoTab from "../../components/modules/EventDetails/IframeVideoTab";
 import IFrameScore from "../../components/modules/EventDetails/IFrame";
+import HorseGreyhoundEventDetails from "../../components/modules/EventDetails/HorseGreyhoundEventDetails";
 
 const EventDetails = () => {
   const [tab, setTab] = useState("");
@@ -302,9 +303,14 @@ const EventDetails = () => {
                 score={data?.score}
                 setBetType={setTab}
               />
+              {data?.result?.length > 0 && (
+                <MatchOddBookmaker data={data?.result} />
+              )}
+              {data?.result?.length > 0 && <Fancy data={data?.result} />}
 
-              <MatchOddBookmaker data={data?.result} />
-              <Fancy data={data?.result} />
+              {eventTypeId == 7 || eventTypeId == 4339 ? (
+                <HorseGreyhoundEventDetails data={data} />
+              ) : null}
             </div>
           </div>
         </div>

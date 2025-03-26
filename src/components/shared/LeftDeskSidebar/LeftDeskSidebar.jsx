@@ -136,11 +136,13 @@ const LeftDeskSidebar = () => {
             </span>
           </a>
         </li>
-        <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
+        <li
+          onClick={() => navigate("/horse-racing")}
+          className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]"
+        >
           <a
             title="Horse Racing"
             className="flex w-full items-center h-full px-6 justify-start gap-3"
-            href="/horse-racing"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -167,11 +169,13 @@ const LeftDeskSidebar = () => {
             </span>
           </a>
         </li>
-        <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
+        <li
+          onClick={() => navigate("/greyhound-racing")}
+          className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]"
+        >
           <a
             title="Greyhound Racing"
             className="flex w-full items-center h-full px-6 justify-start gap-3"
-            href="/greyhound-racing"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

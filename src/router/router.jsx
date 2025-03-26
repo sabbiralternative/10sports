@@ -3,6 +3,8 @@ import App from "../App";
 import Home from "../pages/Home/Home";
 import PrivateRoute from "./PrivateRoute";
 import EventDetails from "../pages/EventDetails/EventDetails";
+import HorseRacing from "../pages/HorseRacing/HorseRacing";
+import GreyhoundRacing from "../pages/GreyhoundRacing/GreyhoundRacing";
 
 export const router = createBrowserRouter(
   [
@@ -21,6 +23,14 @@ export const router = createBrowserRouter(
         {
           path: "/event-details/:eventTypeId/:eventId",
           element: <EventDetails />,
+        },
+        {
+          path: "/horse-racing",
+          element: <HorseRacing />,
+        },
+        {
+          path: "/greyhound-racing",
+          element: <GreyhoundRacing />,
         },
       ],
     },
