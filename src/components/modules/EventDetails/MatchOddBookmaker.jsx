@@ -9,6 +9,7 @@ import {
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import { Settings } from "../../../api";
 import { handleCashOutPlaceBet } from "../../../utils/handleCashoutPlaceBet";
+import MobileBetSlip from "./MobileBetSlip";
 
 const MatchOddBookmaker = ({ data }) => {
   const filterMatchOddsBookmaker = data?.filter(
@@ -286,7 +287,8 @@ const MatchOddBookmaker = ({ data }) => {
                       </div>
                       <div className=" col-span-5  md:col-span-7  h-12 grid grid-cols-2 md:grid-cols-6 relative">
                         <div className="w-full h-full col-span-6">
-                          <div className="w-full grid grid-cols-12 grid-flow-col overflow-auto h-full gap-x-0.5 py-[1px] pr-[2px]">
+                          {/* Desktop Start */}
+                          <div className="w-full sm:grid grid-cols-12 grid-flow-col overflow-auto h-full gap-x-0.5 py-[1px] pr-[2px] hidden">
                             <div className="w-full col-span-2 h-full">
                               <div
                                 onClick={() =>
@@ -444,8 +446,71 @@ const MatchOddBookmaker = ({ data }) => {
                               </div>
                             </div>
                           </div>
+                          {/* Desktop Start */}
+                          {/* Mobile Start */}
+                          <div
+                            className="w-full overflow-x-auto flex h-full sm:px-[2px] sm:hidden"
+                            id="hideScrollBar"
+                          >
+                            <div className="w-full h-full grid grid-cols-2 gap-x-0.5 py-[1px] pr-[2px]">
+                              <div
+                                onClick={() =>
+                                  handleBetSlip(
+                                    "back",
+                                    game,
+                                    runner,
+                                    runner?.back?.[0]?.price
+                                  )
+                                }
+                                className="w-full h-full"
+                              >
+                                <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {runner?.back?.[0]?.price}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {runner?.back?.[0]?.size}
+                                  </span>
+                                </div>
+                              </div>
+                              <div
+                                onClick={() =>
+                                  handleBetSlip(
+                                    "lay",
+                                    game,
+                                    runner,
+                                    runner?.lay?.[0]?.price
+                                  )
+                                }
+                                className="w-full h-full"
+                              >
+                                <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {runner?.lay?.[0]?.price}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {runner?.lay?.[0]?.price}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          {/* Mobile End */}
                         </div>
                       </div>
+                      {runner?.id === runnerId && <MobileBetSlip />}
                     </div>
                   );
                 })}

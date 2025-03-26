@@ -6,6 +6,7 @@ import {
   setPlaceBetValues,
   setRunnerId,
 } from "../../../redux/features/events/eventSlice";
+import MobileBetSlip from "./MobileBetSlip";
 
 const HorseGreyhoundEventDetails = ({ data }) => {
   const { eventId } = useParams();
@@ -13,6 +14,7 @@ const HorseGreyhoundEventDetails = ({ data }) => {
   const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { runnerId } = useSelector((state) => state.event);
 
   const [timeDiff, setTimeDiff] = useState({
     day: 0,
@@ -420,6 +422,7 @@ const HorseGreyhoundEventDetails = ({ data }) => {
                         </div>
                       </div>
                     </div>
+                    {runnerId === runner?.id && <MobileBetSlip />}
                   </div>
                 );
               })}

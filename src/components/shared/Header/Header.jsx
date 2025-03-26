@@ -10,8 +10,11 @@ import { Settings } from "../../../api";
 import Registration from "../../modals/Registration/Registration";
 import ForgotPassword from "../../modals/ForgotPassword/ForgotPassword";
 import HeaderBottomNavItem from "./HeaderBottomNavItem";
+import MobileLeftDrawer from "./MobileLeftDrawer";
+import { useState } from "react";
 
 const Header = () => {
+  const [showDrawer, setShowDrawer] = useState(false);
   const { showLoginModal, showRegisterModal, showForgotPasswordModal } =
     useSelector((state) => state.global);
   const { logo } = useLogo();
@@ -22,6 +25,10 @@ const Header = () => {
   };
   const showRegister = () => {
     dispatch(setShowRegisterModal(true));
+  };
+
+  const handleShowDrawer = () => {
+    setShowDrawer(true);
   };
 
   return (
@@ -46,6 +53,7 @@ const Header = () => {
               >
                 <div className="flex items-center w-[40px] md:w-fit justify-center lg:hidden">
                   <button
+                    onClick={handleShowDrawer}
                     className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out bg-none border-none h-full flex items-center justify-center active:scale-150 w-[100%] shadow-none px-1 cursor-pointer"
                     type="button"
                   >
@@ -261,6 +269,10 @@ const Header = () => {
             <HeaderBottomNavItem />
           </div>
         </div>
+        <MobileLeftDrawer
+          showDrawer={showDrawer}
+          setShowDrawer={setShowDrawer}
+        />
       </header>
     </>
   );

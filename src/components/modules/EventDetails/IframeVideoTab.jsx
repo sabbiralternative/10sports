@@ -11,7 +11,6 @@ const IframeVideoTab = ({
   betType,
   setBetType,
 }) => {
-  console.log(score);
   const [sportsVideo] = useVideoMutation();
   const { eventId, eventTypeId } = useParams();
   const handleToggle = (t) => {

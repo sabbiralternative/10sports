@@ -1,39 +1,39 @@
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import useBalance from "../../../hooks/balance";
 import { useCurrentBets } from "../../../hooks/currentBets";
+import useBalance from "../../../hooks/balance";
 import { useExposure } from "../../../hooks/exposure";
-import { useEffect, useState } from "react";
 import { useOrderMutation } from "../../../redux/features/events/events";
 import {
   setPlaceBetValues,
-  setPredictOdd,
   setPrice,
+  setRunnerId,
   setStake,
 } from "../../../redux/features/events/eventSlice";
-import { Settings } from "../../../api";
 import { v4 as uuidv4 } from "uuid";
+import { Settings } from "../../../api";
 import toast from "react-hot-toast";
-import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+import { Clock, Minus, Plus } from "../../../assets/Icon/BetSlip";
 import {
   handleDecreasePrice,
   handleIncreasePrice,
 } from "../../../utils/editBetSlipPrice";
-import BetLoading from "../../modules/EventDetails/BetLoading";
-import { Clock, Minus, Plus } from "../../../assets/Icon/BetSlip";
+import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+import BetLoading from "./BetLoading";
 
-const BetSlip = () => {
+const MobileBetSlip = () => {
   const [profit, setProfit] = useState(0);
   const { eventTypeId } = useParams();
   const dispatch = useDispatch();
-  const { token } = useSelector((state) => state.auth);
-  const { price, stake, placeBetValues } = useSelector((state) => state.event);
-  const { eventId } = useParams();
-  const { refetchBalance } = useBalance();
-  const { refetchCurrentBets } = useCurrentBets(eventId);
-  const { refetchExposure } = useExposure(eventId);
-  const [betDelay, setBetDelay] = useState(null);
   const [loading, setLoading] = useState(false);
+  const { eventId } = useParams();
+  const { refetchCurrentBets } = useCurrentBets(eventId);
+  const { refetchBalance } = useBalance();
+  const { refetchExposure } = useExposure(eventId);
+  const { placeBetValues, price, stake } = useSelector((state) => state?.event);
+  const { token } = useSelector((state) => state?.auth);
+
   const [createOrder] = useOrderMutation();
   const buttonValues = localStorage.getItem("buttonValue");
   let parseButtonValues = [];
@@ -41,23 +41,17 @@ const BetSlip = () => {
     parseButtonValues = JSON.parse(buttonValues);
   }
 
-  useEffect(() => {
-    if (betDelay <= 0) {
-      setBetDelay(null);
-    }
+  const [betDelay, setBetDelay] = useState("");
 
+  useEffect(() => {
     dispatch(setPrice(placeBetValues?.price));
     dispatch(
       setStake(
         placeBetValues?.totalSize > 0
-          ? placeBetValues?.totalSize.toFixed(2)
+          ? placeBetValues?.totalSize?.toFixed(2)
           : null
       )
     );
-  }, [placeBetValues, betDelay, dispatch]);
-
-  useEffect(() => {
-    dispatch(setPredictOdd([]));
   }, [placeBetValues, dispatch]);
 
   let payload = {};
@@ -101,7 +95,9 @@ const BetSlip = () => {
   }
 
   /* Handle bets */
+
   const handleOrderBets = async () => {
+    setLoading(true);
     const payloadData = [
       {
         ...payload,
@@ -110,7 +106,6 @@ const BetSlip = () => {
         isbetDelay: Settings.betDelay,
       },
     ];
-    setLoading(true);
     let delay = 0;
     if (
       (eventTypeId == 4 || eventTypeId == 2) &&
@@ -132,23 +127,31 @@ const BetSlip = () => {
       delay = Settings.betDelay ? placeBetValues?.betDelay * 1000 : 0;
     }
 
+    // Introduce a delay before calling the API
     setTimeout(async () => {
-      const res = await createOrder(payloadData).unwrap();
+      try {
+        const res = await createOrder(payloadData).unwrap();
 
-      if (res?.success) {
-        setLoading(false);
-        refetchExposure();
-        refetchBalance();
-        refetchCurrentBets();
-        dispatch(setShowLoginModal(false));
+        if (res?.success) {
+          setLoading(false);
+          refetchExposure();
+          refetchBalance();
+          dispatch(setRunnerId(null));
+          refetchCurrentBets();
+          setBetDelay("");
+          toast.success(res?.result?.result?.placed?.[0]?.message);
+        } else {
+          setLoading(false);
+          toast.error(
+            res?.error?.status?.[0]?.description || res?.error?.errorMessage
+          );
+          setBetDelay("");
+          setBetDelay(false);
+        }
+      } catch (err) {
+        console.log(err);
+        toast.error("Something went wrong. Please try again.");
         setBetDelay("");
-        toast.success(res?.result?.result?.placed?.[0]?.message);
-      } else {
-        setLoading(false);
-        toast.error(
-          res?.error?.status?.[0]?.description || res?.error?.errorMessage
-        );
-        setBetDelay(null);
       }
     }, delay);
   };
@@ -180,23 +183,30 @@ const BetSlip = () => {
     return hasDecimal ? parseFloat(value?.toFixed(2)) : value;
   };
 
+  const handleCancelBet = () => {
+    dispatch(setRunnerId(null));
+    dispatch(setPlaceBetValues(null));
+  };
+  const handleShowLoginModal = () => {
+    dispatch(setShowLoginModal(true));
+  };
+
   return (
-    <div className="relative">
+    <>
       {loading && (
         <BetLoading
-          absolute={true}
           betDelay={betDelay}
           setBetDelay={setBetDelay}
+          absolute={false}
         />
       )}
-      {placeBetValues && (
+      <div className=" col-span-12 h-max w-full lg:hidden">
         <div
-          title="Selected - New Zealand v Pakistan - New Zealand - 448"
+          title="Selected - Rajasthan Royals v Kolkata Knight Riders - Rajasthan Royals - 2954266"
           className="  w-full h-max bg-bg_color_betSlipBgColor font-lato origin-top transition-all flex flex-col ease-in-out p-2 pb-3 rounded-sm border-[2px] border-b-[5px] border-backBtn transition-all duration-300 ease-in-out overflow-hidden transform-gpu"
-          style={{ height: "max-content" }}
         >
           <div className=" w-full grid grid-cols-12 gap-2">
-            <div title="Odds: 1.47" className="col-span-5 flex flex-col gap-1">
+            <div title="Odds: 2.18" className="col-span-5 flex flex-col gap-1">
               <label className="text-text_color_primary1 sm:text-xs text-[10px] font-normal">
                 ODDS
               </label>
@@ -216,28 +226,28 @@ const BetSlip = () => {
                     <Minus />
                   </button>
                 )}
-
                 <input
-                  onChange={(e) => dispatch(setPrice(e.target.value))}
                   placeholder="Enter Odds"
                   inputMode="numeric"
                   className="block w-full focus:outline-none  text-sm w-full h-full py-2 text-center rounded-[4px] flex items-center justify-center text-text_color_primary1 bg-bg_color_input_bg focus:border-border_color_activeInput active:border-border_color_activeInput"
                   type="number"
                   value={price}
                 />
-                <button
-                  onClick={() =>
-                    handleIncreasePrice(
-                      price,
-                      placeBetValues,
-                      dispatch,
-                      setPrice
-                    )
-                  }
-                  className="overflow-hidden w-full h-full flex items-center justify-center bg-bg_color_betSlipOddIncDecrBtnsGrd rounded-e-[4px] border border-border_color_primary4 border-r-0 text-xl font-normal text-center"
-                >
-                  <Plus />
-                </button>
+                {!placeBetValues?.isWeak && (
+                  <button
+                    onClick={() =>
+                      handleIncreasePrice(
+                        price,
+                        placeBetValues,
+                        dispatch,
+                        setPrice
+                      )
+                    }
+                    className="overflow-hidden w-full h-full flex items-center justify-center bg-bg_color_betSlipOddIncDecrBtnsGrd rounded-e-[4px] border border-border_color_primary4 border-r-0 text-xl font-normal text-center"
+                  >
+                    <Plus />
+                  </button>
+                )}
               </div>
             </div>
             <div
@@ -252,12 +262,11 @@ const BetSlip = () => {
                 <span>Max mkt : 0</span>
               </label>
               <input
-                onChange={(e) => dispatch(setStake(e.target.value))}
                 id="stakeInput"
                 inputMode="numeric"
                 className="block w-full focus:outline-none  text-md w-full h-full text-center focus:bg-bg_color_input_bg flex items-center justify-center border-[0.75px]  text-text_color_primary1 border-border_color_primary  placeholder:text-text_color_primary1 5 rounded-sm  text-text_color_primary1 bg-transparent
-                  focus:border-oddInputBorderActive active:border-oddInputBorderActive
-                   "
+                    focus:border-oddInputBorderActive active:border-oddInputBorderActive
+                     "
                 placeholder={`Max bet: ${placeBetValues?.maxLiabilityPerBet}`}
                 value={stake !== null && stake}
                 type="number"
@@ -275,8 +284,8 @@ const BetSlip = () => {
                     key={i}
                     onClick={() => dispatch(setStake(button?.value))}
                     className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out col-span-4 w-full overflow-hidden text-[12px] font-semibold rounded-[4px] text-text_color_primary2 text-center py-1.5 bg-transparent border border-border_color_primary4 
-              cursor-pointer
-              "
+                cursor-pointer
+                "
                     type="button"
                   >
                     <span>+ {button?.value}</span>
@@ -287,45 +296,19 @@ const BetSlip = () => {
           </div>
           <div className=" w-full grid mt-[15px] grid-cols-12 gap-2">
             <button
-              onClick={() => {
-                dispatch(setPredictOdd([]));
-                dispatch(setPlaceBetValues(null));
-              }}
+              onClick={handleCancelBet}
               type="button"
               className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  col-span-6 py-1 w-full flex items-center justify-center  text-sm bg-transperent text-text_color_betSlipCancelBtnColor font-medium border border-border_color_brand_secondary rounded-md 
-      cursor-pointer
-      "
+        cursor-pointer
+        "
             >
               <span className=" text-text_brand_primary font-bold text-sm md:text-base leading-5">
                 Cancel Bet
               </span>
             </button>
-            {token ? (
+            {!token ? (
               <button
-                onClick={handleOrderBets}
-                className="relative text-text_color_primary2 disabled:cursor-not-allowed px-2 py-1 rounded-md w-full col-span-6 border flex items-center justify-between  bg-bg_color_placeBetBtnGrd border-transparent"
-              >
-                <div className=" flex items-start justify-start flex-col">
-                  <span className=" text-text_color_primary2 text-sm font-bold">
-                    Place Bet
-                  </span>
-                  <div className=" text-text_color_primary2 text-xs">
-                    <span>Profit : </span>
-                    <span>{profit}</span>
-                  </div>
-                </div>
-                <div className="flex items-center justify-center gap-x-1">
-                  <span>
-                    <Clock />
-                  </span>
-                  <span className="font-normal text-text_color_primary2">
-                    {placeBetValues?.betDelay}s
-                  </span>
-                </div>
-              </button>
-            ) : (
-              <button
-                onClick={() => dispatch(setShowLoginModal(true))}
+                onClick={handleShowLoginModal}
                 className="relative text-text_color_primary2 disabled:cursor-not-allowed px-2 py-1 rounded-md w-full col-span-6 border flex items-center justify-between  bg-bg_color_disableBackGroundColorfForPlaceBetBtn border-transparent"
               >
                 <div className=" flex items-start justify-start flex-col">
@@ -346,12 +329,35 @@ const BetSlip = () => {
                   </span>
                 </div>
               </button>
+            ) : (
+              <button
+                onClick={handleOrderBets}
+                className="relative text-text_color_primary2 disabled:cursor-not-allowed px-2 py-1 rounded-md w-full col-span-6 border flex items-center justify-between  bg-bg_color_placeBetBtnGrd border-transparent"
+              >
+                <div className=" flex items-start justify-start flex-col">
+                  <span className=" text-text_color_primary2 text-sm font-bold">
+                    Place Bet
+                  </span>
+                  <div className=" text-text_color_primary2 text-xs">
+                    <span>Profit : </span>
+                    <span>{profit}</span>
+                  </div>
+                </div>
+                <div className="flex items-center justify-center gap-x-1">
+                  <span>
+                    <Clock />
+                  </span>
+                  <span className="font-normal text-text_color_tertiary3">
+                    {placeBetValues?.betDelay}s
+                  </span>
+                </div>
+              </button>
             )}
           </div>
         </div>
-      )}
-    </div>
+      </div>
+    </>
   );
 };
 
-export default BetSlip;
+export default MobileBetSlip;

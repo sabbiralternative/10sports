@@ -404,3 +404,12 @@ html * {
   }
 }
 /* Horse banner */
+
+/* Bet slip loading */
+.bg-bg_CasinoPopupBg {
+  background-color: #000000b3;
+}
+
+.bg-bg_Quaternary {
+  background-color: #fff;
+}

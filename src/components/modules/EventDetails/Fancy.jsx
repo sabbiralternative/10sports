@@ -8,6 +8,7 @@ import {
   setRunnerId,
 } from "../../../redux/features/events/eventSlice";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+import MobileBetSlip from "./MobileBetSlip";
 
 const Fancy = ({ data }) => {
   const fancyData = data?.filter(
@@ -319,6 +320,7 @@ const Fancy = ({ data }) => {
                         </div>
                       </span>
                     </div>
+                    {runnerId === game?.id && <MobileBetSlip />}
                   </div>
                 </div>
               </div>

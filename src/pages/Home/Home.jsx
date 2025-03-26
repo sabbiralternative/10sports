@@ -6,9 +6,18 @@ import IndianCardGame from "../../components/modules/Home/IndianCardGame";
 import InPlay from "../../components/modules/Home/InPlay";
 import TrendingCasino from "../../components/modules/Home/TrendingCasino";
 import UpcomingEvents from "../../components/modules/Home/UpcomingEvents";
+import Group from "../../components/modules/Home/Group";
+import { useGroupQuery } from "../../redux/features/events/events";
 
 const Home = () => {
   const { group } = useSelector((state) => state.global);
+
+  const { data } = useGroupQuery(
+    { sportsType: group },
+    {
+      pollingInterval: 1000,
+    }
+  );
   return (
     <div className="w-full  h-max  lg:w-[54%] lg:pt-2">
       <div
@@ -21,8 +30,8 @@ const Home = () => {
             <TrendingCasino />
           </>
         )}
-
-        <InPlay />
+        <Group data={data} />
+        {/* <InPlay /> */}
         {!group && (
           <>
             <GameProvider />
