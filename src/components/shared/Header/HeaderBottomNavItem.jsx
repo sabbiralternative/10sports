@@ -11,10 +11,13 @@ import {
   SlotGame,
   Tennis,
 } from "../../../assets/Icon/SidebarIcon";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { LanguageKey } from "../../../const";
+import { languageValue } from "../../../utils/language";
 
 const HeaderBottomNavItem = () => {
+  const { valueByLanguage } = useLanguage();
   const dispatch = useDispatch();
-
   const handleSetGroup = (group) => {
     dispatch(setGroup(group));
   };
@@ -63,7 +66,7 @@ const HeaderBottomNavItem = () => {
           </svg>
         </span>
         <span className="font font-lato text-[12px] text-text_brand_primary font-semibold">
-          Home
+          {languageValue(valueByLanguage, LanguageKey.HOME)}
         </span>
       </Link>
       <Link
@@ -76,7 +79,7 @@ const HeaderBottomNavItem = () => {
           <Cricket height={16} width={16} />
         </span>
         <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
-          Cricket
+          {languageValue(valueByLanguage, LanguageKey.CRICKET)}
         </span>
       </Link>
       <Link
@@ -89,7 +92,7 @@ const HeaderBottomNavItem = () => {
           <Football height={16} width={16} />
         </span>
         <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
-          Football
+          {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
         </span>
       </Link>
       <Link
@@ -102,7 +105,7 @@ const HeaderBottomNavItem = () => {
           <Tennis height={16} width={16} />
         </span>
         <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
-          Tennis
+          {languageValue(valueByLanguage, LanguageKey.TENNIS)}
         </span>
       </Link>
       <Link
@@ -114,7 +117,7 @@ const HeaderBottomNavItem = () => {
           <HorseRacing height={16} width={16} />
         </span>
         <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
-          Horse Racing
+          {languageValue(valueByLanguage, LanguageKey.HORSE)}
         </span>
       </Link>
       <Link
@@ -137,7 +140,7 @@ const HeaderBottomNavItem = () => {
           </svg>
         </span>
         <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
-          Greyhound Racing
+          {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
         </span>
       </Link>
       {/* aura slot live casino */}
@@ -193,7 +196,7 @@ const HeaderBottomNavItem = () => {
           <LiveCasino height={16} width={16} />
         </span>
         <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
-          Live Casino
+          {languageValue(valueByLanguage, LanguageKey.LIVE_CASINO)}
         </span>
       </Link>
       <Link
@@ -205,7 +208,7 @@ const HeaderBottomNavItem = () => {
           <SlotGame height={16} width={16} />
         </span>
         <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
-          Slots
+          {languageValue(valueByLanguage, LanguageKey.SLOTS)}
         </span>
       </Link>
     </div>

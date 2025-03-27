@@ -13,8 +13,12 @@ import {
   Tennis,
 } from "../../../assets/Icon/SidebarIcon";
 import { Settings } from "../../../api";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const LeftDeskSidebar = () => {
+  const { valueByLanguage } = useLanguage();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -39,7 +43,7 @@ const LeftDeskSidebar = () => {
           >
             <Cricket />
             <span className="font-medium text-start text-text_color_primary1">
-              Cricket
+              {languageValue(valueByLanguage, LanguageKey.CRICKET)}
             </span>
           </a>
         </li>
@@ -53,7 +57,7 @@ const LeftDeskSidebar = () => {
           >
             <Football />
             <span className="font-medium text-start text-text_color_primary1">
-              Football
+              {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
             </span>
           </a>
         </li>
@@ -68,7 +72,7 @@ const LeftDeskSidebar = () => {
           >
             <Tennis />
             <span className="font-medium text-start text-text_color_primary1">
-              Tennis
+              {languageValue(valueByLanguage, LanguageKey.TENNIS)}
             </span>
           </a>
         </li>
@@ -82,7 +86,7 @@ const LeftDeskSidebar = () => {
           >
             <HorseRacing />
             <span className="font-medium text-start text-text_color_primary1">
-              Horse Racing
+              {languageValue(valueByLanguage, LanguageKey.HORSE)}
             </span>
           </a>
         </li>
@@ -96,7 +100,7 @@ const LeftDeskSidebar = () => {
           >
             <GreyhoundRacing />
             <span className="font-medium text-start text-text_color_primary1">
-              Greyhound Racing
+              {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
             </span>
           </a>
         </li>
@@ -160,7 +164,7 @@ const LeftDeskSidebar = () => {
           >
             <LiveCasino />
             <span className="font-medium text-start text-text_color_primary1">
-              Live Casino
+              {languageValue(valueByLanguage, LanguageKey.LIVE_CASINO)}
             </span>
           </Link>
         </li>
@@ -173,7 +177,7 @@ const LeftDeskSidebar = () => {
           >
             <SlotGame />
             <span className="font-medium text-start text-text_color_primary1">
-              Slots
+              {languageValue(valueByLanguage, LanguageKey.SLOTS)}
             </span>
           </Link>
         </li>

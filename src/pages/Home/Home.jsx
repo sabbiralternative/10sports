@@ -3,7 +3,6 @@ import Banner from "../../components/modules/Home/Banner";
 import FAQ from "../../components/modules/Home/FAQ";
 import GameProvider from "../../components/modules/Home/GameProvider";
 import IndianCardGame from "../../components/modules/Home/IndianCardGame";
-import InPlay from "../../components/modules/Home/InPlay";
 import TrendingCasino from "../../components/modules/Home/TrendingCasino";
 import UpcomingEvents from "../../components/modules/Home/UpcomingEvents";
 import Group from "../../components/modules/Home/Group";

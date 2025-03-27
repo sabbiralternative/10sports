@@ -11,9 +11,18 @@ import Registration from "../../modals/Registration/Registration";
 import ForgotPassword from "../../modals/ForgotPassword/ForgotPassword";
 import HeaderBottomNavItem from "./HeaderBottomNavItem";
 import MobileLeftDrawer from "./MobileLeftDrawer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import moment from "moment";
+import Language from "../../modals/Language/Language";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
+import SearchBox from "./SearchBox";
 
 const Header = () => {
+  const { language, valueByLanguage } = useLanguage();
+  const [showLanguageModal, setShowLanguageModal] = useState(false);
+  const [time, setTime] = useState();
   const [showDrawer, setShowDrawer] = useState(false);
   const { showLoginModal, showRegisterModal, showForgotPasswordModal } =
     useSelector((state) => state.global);
@@ -31,8 +40,17 @@ const Header = () => {
     setShowDrawer(true);
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setTime(moment().format("h:mm:ss a"));
+    }, 1000);
+  }, [time]);
+
   return (
     <>
+      {showLanguageModal && (
+        <Language setShowLanguageModal={setShowLanguageModal} />
+      )}
       {showLoginModal && <Login />}
       {showRegisterModal && <Registration />}
       {showForgotPasswordModal && <ForgotPassword />}
@@ -102,35 +120,14 @@ const Header = () => {
                   </Link>
                 </div>
               </div>
-              <div
-                id="searchBox"
-                className="text-text_color_primary2 relative hidden max-w-96 font-lato lg:block flex-grow"
-              >
-                <div className="relative w-full max-w-[450px]">
-                  <input
-                    className="border-1 peer w-full appearance-none text-xs pl-9 py-2 border rounded-full md:text-[14px] bg-bg_color_primary text-text_color_primary1 border-border_color_primary"
-                    placeholder="Search Events(At least 3 letters)..."
-                    type="text"
-                  />
-                  <svg
-                    fill="var(--icon-color-primary)"
-                    className="absolute top-1/2 left-3 -translate-y-1/2"
-                    width={16}
-                    height={16}
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z" />
-                  </svg>
-                </div>
-              </div>
+              <SearchBox />
               <div id="currentDateTime" className="hidden font-lato lg:block">
                 <div className="w-full text-text_color_primary4 text-[10px] lg:text-[12px] flex flex-col px-2">
                   <div className="flex gap-1 items-center text-nowrap whitespace-nowrap">
-                    Mar 25th, 2025 ( GMT +5.5:30 )
+                    {moment().format("MMMM Do YYYY")}
                   </div>
                   <span className="text-text_color_primary2 text-xs lg:text-[14px] text-nowrap whitespace-nowrap font-semibold">
-                    12:39:55
+                    {time}
                   </span>
                 </div>
               </div>
@@ -180,7 +177,7 @@ const Header = () => {
                       </svg>
                     </span>
                     <span className="text-xxs text-text_color_primary2 md:text-text_color_primary2 font-normal font-lato md:font-semibold md:text-xs xs:text-xs">
-                      Log In
+                      {languageValue(valueByLanguage, LanguageKey.LOGIN)}
                     </span>
                   </button>
                   {Settings.registration && (
@@ -210,59 +207,62 @@ const Header = () => {
                         </svg>
                       </span>
                       <span className="text-xxs text-text_brand_secondary md:text-text_color_primary1 font-lato md:font-semibold md:text-xs xs:text-xs">
-                        Sign Up
+                        {languageValue(valueByLanguage, LanguageKey.REGISTER)}
                       </span>
                     </button>
                   )}
                 </div>
-                <button
-                  className="relative overflow-hidden hidden lg:flex items-center ml-2 text-text_color_primary2 justify-center text-xs py-2 px-2 rounded-full bg-bg_color_secondary border border-border_color_primary"
-                  type="button"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={24}
-                    height={24}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-4 h-4 mr-0.5"
+                {Settings.language && (
+                  <button
+                    onClick={() => setShowLanguageModal(true)}
+                    className="relative overflow-hidden hidden lg:flex items-center ml-2 text-text_color_primary2 justify-center text-xs py-2 px-2 rounded-full bg-bg_color_secondary border border-border_color_primary capitalize"
+                    type="button"
                   >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
-                    <path d="M3.6 9h16.8" />
-                    <path d="M3.6 15h16.8" />
-                    <path d="M11.5 3a17 17 0 0 0 0 18" />
-                    <path d="M12.5 3a17 17 0 0 1 0 18" />
-                  </svg>
-                  EN
-                  <svg
-                    fill="currentColor"
-                    width={16}
-                    height={16}
-                    version="1.1"
-                    id="Layer_1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 330 330"
-                    className="w-3 h-3 ml-2"
-                  >
-                    <g id="SVGRepo_bgCarrier" strokeWidth={0} />
-                    <g
-                      id="SVGRepo_tracerCarrier"
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width={24}
+                      height={24}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                    />
-                    <g id="SVGRepo_iconCarrier">
-                      <path
-                        id="XMLID_225_"
-                        d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"
+                      className="w-4 h-4 mr-0.5"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                      <path d="M3.6 9h16.8" />
+                      <path d="M3.6 15h16.8" />
+                      <path d="M11.5 3a17 17 0 0 0 0 18" />
+                      <path d="M12.5 3a17 17 0 0 1 0 18" />
+                    </svg>
+                    {language}
+                    <svg
+                      fill="currentColor"
+                      width={16}
+                      height={16}
+                      version="1.1"
+                      id="Layer_1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 330 330"
+                      className="w-3 h-3 ml-2"
+                    >
+                      <g id="SVGRepo_bgCarrier" strokeWidth={0} />
+                      <g
+                        id="SVGRepo_tracerCarrier"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
-                    </g>
-                  </svg>
-                </button>
+                      <g id="SVGRepo_iconCarrier">
+                        <path
+                          id="XMLID_225_"
+                          d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"
+                        />
+                      </g>
+                    </svg>
+                  </button>
+                )}
               </div>
             </div>
 

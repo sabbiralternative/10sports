@@ -13,8 +13,12 @@ import { Settings } from "../../../api";
 import { setUser } from "../../../redux/features/auth/authSlice";
 import toast from "react-hot-toast";
 import images from "../../../assets/images";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { LanguageKey } from "../../../const";
+import { languageValue } from "../../../utils/language";
 
 const Login = () => {
+  const { valueByLanguage } = useLanguage();
   const [passwordType, setPasswordType] = useState(true);
   const { logo } = useLogo();
   const dispatch = useDispatch();
@@ -139,7 +143,7 @@ const Login = () => {
         >
           <div className="w-full max-h-[35px] flex items-center justify-between">
             <p className=" text-text_color_loginTextColor font-bold text-[22px]">
-              Sign In
+              {languageValue(valueByLanguage, LanguageKey.LOGIN)}
             </p>
             <div className="relative overflow-hidden max-h-[60px] max-w-[141.428571429px] h-auto ">
               <img
@@ -291,7 +295,7 @@ const Login = () => {
                     className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out w-full text-text_color_loginButtonTextColor  bg-bg_color_LoginBtnBgColor shadow-lg rounded-md xs:text-[15px] px-5 py-2 flex items-center justify-center gap-x-2 font-lato-bold font-semibold text-base 
                     cursor-pointer"
                   >
-                    Sign In
+                    {languageValue(valueByLanguage, LanguageKey.LOGIN)}
                   </button>
                 </div>
                 {Settings.demoLogin && (

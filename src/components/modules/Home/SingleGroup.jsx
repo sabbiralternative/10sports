@@ -6,9 +6,18 @@ import {
   Upcoming,
 } from "../../../assets/Icon/Index";
 import { useSelector } from "react-redux";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const SingleGroup = ({ data, filterData, title, margin }) => {
-  const eventName = { 4: "Cricket", 2: "Tennis", 1: "Football", 5: "Kabbadi" };
+  const { valueByLanguage } = useLanguage();
+  const eventName = {
+    4: languageValue(valueByLanguage, LanguageKey.CRICKET),
+    2: languageValue(valueByLanguage, LanguageKey.TENNIS),
+    1: languageValue(valueByLanguage, LanguageKey.FOOTBALL),
+    5: languageValue(valueByLanguage, LanguageKey.KABADDI),
+  };
   const { group } = useSelector((state) => state.global);
   const navigate = useNavigate();
   const navigateGameList = (keys) => {

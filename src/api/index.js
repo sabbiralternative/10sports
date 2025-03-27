@@ -54,6 +54,7 @@ export const API = {
   utr: "",
   auraWolf: "",
   liveCasinoLobby: "",
+  banner: "",
 };
 
 export const Settings = {
@@ -85,4 +86,5 @@ export const Settings = {
   slotWolf: "",
   liveCasinoWolf: "",
   auraWolf: "",
+  language: "",
 };

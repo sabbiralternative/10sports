@@ -4,8 +4,12 @@ import { useDispatch } from "react-redux";
 import { setGroup } from "../../../redux/features/global/globalSlice";
 import { useNavigate } from "react-router-dom";
 import { Settings } from "../../../api";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
+  const { language, valueByLanguage } = useLanguage();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const drawerRef = useRef();
@@ -87,7 +91,10 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                   fill="#8B191B"
                 />
               </svg>
-              <span>Cricket</span>
+              <span>
+                {" "}
+                {languageValue(valueByLanguage, LanguageKey.CRICKET)}
+              </span>
             </a>
             <a
               onClick={() => setGroupType(1, "/")}
@@ -146,7 +153,10 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                   fill="white"
                 />
               </svg>
-              <span>Football</span>
+              <span>
+                {" "}
+                {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
+              </span>
             </a>
             <a
               className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
@@ -173,7 +183,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                   fill="#7FBA42"
                 />
               </svg>
-              <span>Tennis</span>
+              <span> {languageValue(valueByLanguage, LanguageKey.TENNIS)}</span>
             </a>
             <a
               className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
@@ -200,7 +210,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                   />
                 </g>
               </svg>
-              <span>Horse Racing</span>
+              <span> {languageValue(valueByLanguage, LanguageKey.HORSE)}</span>
             </a>
             <a
               onClick={() => handleNavigate("/greyhound-racing")}
@@ -232,7 +242,10 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                   />
                 </g>
               </svg>
-              <span>Greyhound Racing</span>
+              <span>
+                {" "}
+                {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
+              </span>
             </a>
           </li>
           <li>
@@ -480,7 +493,10 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                   d="M24.5 12.9h-.9l-1.7 5h.9l.5-1.5h1.5l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2zM42.7 38.8h-.9l-1.7 5h.9l.5-1.5H43l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2z"
                 />
               </svg>
-              <span>Live Casino</span>
+              <span>
+                {" "}
+                {languageValue(valueByLanguage, LanguageKey.LIVE_CASINO)}
+              </span>
             </a>
             <a
               className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
@@ -511,7 +527,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                   </clipPath>
                 </defs>
               </svg>
-              <span>Slot Games</span>
+              <span> {languageValue(valueByLanguage, LanguageKey.SLOTS)}</span>
             </a>
           </li>
 
@@ -713,7 +729,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
             </a>
           </li>
           <span
-            className="flex items-center justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
+            className="flex items-center justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold capitalize"
             title="Language"
           >
             <svg
@@ -734,7 +750,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
               <path d="M11.5 3a17 17 0 0 0 0 18" />
               <path d="M12.5 3a17 17 0 0 1 0 18" />
             </svg>
-            <span>English (EN)</span>
+            <span>{language}</span>
           </span>
           <li className=" px-3 py-2">
             <span className="flex text-center bg-bg_text_brand_primary bg-clip-text text-transparent text-sm xs:text-base font-medium">

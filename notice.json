@@ -6,7 +6,7 @@
   "result": {
     "settings": {
       "siteTitle": "Jainbook",
-      "siteUrl": "11xgame.club",
+      "siteUrl": "magicwin.zip",
       "interval": "600",
       "casino": "mac88",
       "liveCasinoType": "ultrawin",
@@ -38,10 +38,9 @@
       "fantasy": true,
       "ourVirtual": true,
       "b2c": true,
-      "language": false,
+      "language": true,
       "build": "development",
       "betDelay": false,
-
       "auraWolf": true,
       "liveCasinoWolf": false,
       "slotWolf": false
@@ -123,7 +122,8 @@
       "forgotPassword": "https://api7.live/api/exchange/diamond/forgotPassword",
       "utr": "https://b2c.bet/deposit/utr",
       "auraWolf": "https://api7.live/api/exchange/diamond/auraWolf",
-      "liveCasinoLobby": "https://api7.live/api/exchange/diamond/liveCasinoLobby"
+      "liveCasinoLobby": "https://api7.live/api/exchange/diamond/liveCasinoLobby",
+      "banner": "https://api7.live/api/exchange/diamond/banner"
     }
   },
   "success": true
