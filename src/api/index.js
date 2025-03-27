@@ -52,6 +52,8 @@ export const API = {
   mac88All: "",
   forgotPassword: "",
   utr: "",
+  auraWolf: "",
+  liveCasinoLobby: "",
 };
 
 export const Settings = {
@@ -80,4 +82,7 @@ export const Settings = {
   aura: "",
   referral: "",
   b2c: "",
+  slotWolf: "",
+  liveCasinoWolf: "",
+  auraWolf: "",
 };

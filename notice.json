@@ -40,7 +40,11 @@
       "b2c": true,
       "language": false,
       "build": "development",
-      "betDelay": false
+      "betDelay": false,
+
+      "auraWolf": true,
+      "liveCasinoWolf": false,
+      "slotWolf": false
     },
 
     "endpoint": {
@@ -117,7 +121,9 @@
       "singleDiamondRules": "https://api7.live/api/exchange/diamond/rules",
       "mac88All": "https://cache7.live/api/exchange/diamond/mac88",
       "forgotPassword": "https://api7.live/api/exchange/diamond/forgotPassword",
-      "utr": "https://b2c.bet/deposit/utr"
+      "utr": "https://b2c.bet/deposit/utr",
+      "auraWolf": "https://api7.live/api/exchange/diamond/auraWolf",
+      "liveCasinoLobby": "https://api7.live/api/exchange/diamond/liveCasinoLobby"
     }
   },
   "success": true

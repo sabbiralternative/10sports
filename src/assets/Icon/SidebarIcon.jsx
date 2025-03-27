@@ -1,9 +1,9 @@
-//Cricket, Football, Election, Tennis, HorseTacing, GreyhoundRacing, IndianCardGame, SportsBook, LiveCasino, Aviator, SlotGame, BlogNews
-export const Cricket = () => {
+//Cricket, Football, Election, Tennis, HorseTacing, GreyhoundRacing, IndianCardGame, SportsBook, LiveCasino, Aviator, SlotGame, BlogNews, Aura
+export const Cricket = ({ height = 20, width = 20 }) => {
   return (
     <svg
-      width={20}
-      height={20}
+      width={height}
+      height={width}
       viewBox="0 0 19 18"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -22,12 +22,12 @@ export const Cricket = () => {
     </svg>
   );
 };
-export const Football = () => {
+export const Football = ({ height = 20, width = 20 }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={20}
-      height={20}
+      width={height}
+      height={width}
       viewBox="0 0 12 12"
       fill="var(--icon-color-primary)"
     >
@@ -45,11 +45,11 @@ export const Football = () => {
     </svg>
   );
 };
-export const Election = () => {
+export const Election = ({ height = 20, width = 20 }) => {
   return (
     <svg
-      width={20}
-      height={20}
+      width={height}
+      height={width}
       viewBox="0 0 16 13"
       fill="var(--icon-color-primary)"
       xmlns="http://www.w3.org/2000/svg"
@@ -61,11 +61,11 @@ export const Election = () => {
     </svg>
   );
 };
-export const Tennis = () => {
+export const Tennis = ({ height = 20, width = 20 }) => {
   return (
     <svg
-      width={20}
-      height={20}
+      width={height}
+      height={width}
       viewBox="0 0 20 20"
       fill="var(--icon-color-primary)"
       xmlns="http://www.w3.org/2000/svg"
@@ -85,13 +85,13 @@ export const Tennis = () => {
     </svg>
   );
 };
-export const HorseRacing = () => {
+export const HorseRacing = ({ height = 20, width = 20 }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width={20}
-      height={20}
+      width={height}
+      height={width}
       x={0}
       y={0}
       viewBox="0 0 196.285 196.285"
@@ -109,13 +109,13 @@ export const HorseRacing = () => {
     </svg>
   );
 };
-export const GreyhoundRacing = () => {
+export const GreyhoundRacing = ({ height = 20, width = 20 }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width={20}
-      height={20}
+      width={height}
+      height={width}
       x={0}
       y={0}
       viewBox="0 0 420.326 420.326"
@@ -138,11 +138,11 @@ export const GreyhoundRacing = () => {
     </svg>
   );
 };
-export const IndiaCardGame = () => {
+export const IndiaCardGame = ({ height = 20, width = 20 }) => {
   return (
     <svg
-      width={20}
-      height={20}
+      width={height}
+      height={width}
       viewBox="0 0 15 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -154,11 +154,11 @@ export const IndiaCardGame = () => {
     </svg>
   );
 };
-export const SportsBook = () => {
+export const SportsBook = ({ height = 20, width = 20 }) => {
   return (
     <svg
-      width={20}
-      height={20}
+      width={height}
+      height={width}
       viewBox="0 0 17 19"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -182,12 +182,12 @@ export const SportsBook = () => {
     </svg>
   );
 };
-export const LiveCasino = () => {
+export const LiveCasino = ({ height = 20, width = 20 }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={20}
-      height={20}
+      width={height}
+      height={width}
       viewBox="0 0 48 48"
     >
       <path
@@ -238,11 +238,11 @@ export const LiveCasino = () => {
     </svg>
   );
 };
-export const Aviator = () => {
+export const Aviator = ({ height = 20, width = 20 }) => {
   return (
     <svg
-      width={20}
-      height={20}
+      width={height}
+      height={width}
       viewBox="0 0 64 64"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -256,11 +256,11 @@ export const Aviator = () => {
     </svg>
   );
 };
-export const SlotGame = () => {
+export const SlotGame = ({ height = 20, width = 20 }) => {
   return (
     <svg
-      width={20}
-      height={20}
+      width={height}
+      height={width}
       viewBox="0 0 17 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -284,13 +284,13 @@ export const SlotGame = () => {
     </svg>
   );
 };
-export const BlogNews = () => {
+export const BlogNews = ({ height = 20, width = 20 }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width={20}
-      height={20}
+      width={height}
+      height={width}
       x={0}
       y={0}
       viewBox="0 0 32 32"
@@ -309,6 +309,22 @@ export const BlogNews = () => {
           opacity={1}
         />
       </g>
+    </svg>
+  );
+};
+export const Aura = ({ height = 20, width = 20 }) => {
+  return (
+    <svg
+      width={height}
+      height={width}
+      viewBox="0 0 15 16"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.7793 5.44C8.75526 3.192 7.71226 1.393 7.00526 0C6.29726 1.393 5.25526 3.192 2.23126 5.44C-2.92574 9.273 1.92826 14.622 6.19626 11.678C5.91826 13.505 4.96926 14.837 4.00526 15.411V16.001H10.0053V15.411C9.04126 14.837 8.09226 13.505 7.81426 11.678C12.0823 14.622 16.9363 9.273 11.7793 5.44Z"
+        fill="currentColor"
+      />
     </svg>
   );
 };

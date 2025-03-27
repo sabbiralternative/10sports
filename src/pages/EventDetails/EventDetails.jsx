@@ -11,7 +11,6 @@ import IFrameScore from "../../components/modules/EventDetails/IFrame";
 import HorseGreyhoundEventDetails from "../../components/modules/EventDetails/HorseGreyhoundEventDetails";
 import DesktopEventHeader from "../../components/modules/EventDetails/DesktopEventHeader";
 import MobileEventHeader from "../../components/modules/EventDetails/MobileEventHeader";
-import OpenBets from "../../components/modules/EventDetails/OpenBets";
 
 const EventDetails = () => {
   const [tab, setTab] = useState("");
@@ -117,7 +116,7 @@ const EventDetails = () => {
         <div className="no-scrollbar min-h-[calc(100dvh-56px)] md:mb-3">
           <DesktopEventHeader />
           <MobileEventHeader />
-          <OpenBets />
+
           <div className=" w-full text-selection-none pb-3 lg:pb-0">
             <div className=" px-2 font-helvetica-neue">
               {eventTypeId == 4 &&

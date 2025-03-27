@@ -1,20 +1,18 @@
 import { useDispatch } from "react-redux";
 import { setGroup } from "../../../redux/features/global/globalSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
+  Aura,
   Aviator,
-  BlogNews,
   Cricket,
-  Election,
   Football,
   GreyhoundRacing,
   HorseRacing,
-  IndiaCardGame,
   LiveCasino,
   SlotGame,
-  SportsBook,
   Tennis,
 } from "../../../assets/Icon/SidebarIcon";
+import { Settings } from "../../../api";
 
 const LeftDeskSidebar = () => {
   const dispatch = useDispatch();
@@ -59,17 +57,7 @@ const LeftDeskSidebar = () => {
             </span>
           </a>
         </li>
-        <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
-          <a
-            title="Election"
-            className="flex w-full items-center h-full px-6 justify-start gap-3"
-          >
-            <Election />
-            <span className="font-medium text-start text-text_color_primary1">
-              Election
-            </span>
-          </a>
-        </li>
+
         <li
           onClick={() => handleSetGroup(2)}
           className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]"
@@ -112,77 +100,94 @@ const LeftDeskSidebar = () => {
             </span>
           </a>
         </li>
+
+        {Settings.auraWolf && (
+          <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
+            {" "}
+            <Link
+              title="Aura"
+              className="flex w-full items-center h-full px-6 justify-start gap-3"
+              to={`/wolf/auraWolf`}
+            >
+              <span className="text-text_headerDeskNav">
+                <Aura />
+              </span>
+              <span className="font-medium text-start text-text_color_primary1">
+                Aura
+              </span>
+            </Link>
+          </li>
+        )}
+        {Settings.liveCasinoWolf && (
+          <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
+            {" "}
+            <Link
+              title="Aura"
+              className="flex w-full items-center h-full px-6 justify-start gap-3"
+              to={`/wolf/liveCasinoWolf`}
+            >
+              <span className="text-text_headerDeskNav">
+                <Aura />
+              </span>
+              <span className="font-medium text-start text-text_color_primary1">
+                Live Casino Wolf
+              </span>
+            </Link>
+          </li>
+        )}
+        {Settings.slotWolf && (
+          <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
+            {" "}
+            <Link
+              title="Aura"
+              className="flex w-full items-center h-full px-6 justify-start gap-3"
+              to={`/wolf/slotWolf`}
+            >
+              <span className="text-text_headerDeskNav">
+                <Aura />
+              </span>
+              <span className="font-medium text-start text-text_color_primary1">
+                Slot Wolf
+              </span>
+            </Link>
+          </li>
+        )}
         <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
-          <a
-            title="Indian Card Games"
-            className="flex w-full items-center h-full px-6 justify-start gap-3"
-            href
-          >
-            <IndiaCardGame />
-            <span className="font-medium text-start text-text_color_primary1">
-              Indian Card Games
-            </span>
-          </a>
-        </li>
-        <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
-          <a
-            title="Sportsbook"
-            className="flex w-full items-center h-full px-6 justify-start gap-3"
-            href="/sportsbook"
-          >
-            <SportsBook />
-            <span className="font-medium text-start text-text_color_primary1">
-              Sportsbook
-            </span>
-          </a>
-        </li>
-        <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
-          <a
+          <Link
             title="Live Casino"
             className="flex w-full items-center h-full px-6 justify-start gap-3"
-            href="casino"
+            to="/live-casino"
           >
             <LiveCasino />
             <span className="font-medium text-start text-text_color_primary1">
               Live Casino
             </span>
-          </a>
+          </Link>
+        </li>
+
+        <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
+          <Link
+            title="Slot Games"
+            className="flex w-full items-center h-full px-6 justify-start gap-3"
+            to="/slot-games"
+          >
+            <SlotGame />
+            <span className="font-medium text-start text-text_color_primary1">
+              Slots
+            </span>
+          </Link>
         </li>
         <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
-          <a
+          <Link
             title="Aviator"
             className="flex w-full items-center h-full px-6 justify-start gap-3"
-            href="aviator"
+            to="/"
           >
             <Aviator />
             <span className="font-medium text-start text-text_color_primary1">
               Aviator
             </span>
-          </a>
-        </li>
-        <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
-          <a
-            title="Slot Games"
-            className="flex w-full items-center h-full px-6 justify-start gap-3"
-            href="/slot-games"
-          >
-            <SlotGame />
-            <span className="font-medium text-start text-text_color_primary1">
-              Slot Games
-            </span>
-          </a>
-        </li>
-        <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
-          <a
-            title="Blogs & News"
-            className="flex w-full items-center h-full px-6 justify-start gap-3"
-            href="/blogs"
-          >
-            <BlogNews />
-            <span className="font-medium text-start text-text_color_primary1">
-              Blogs &amp; News
-            </span>
-          </a>
+          </Link>
         </li>
       </ul>
     </aside>

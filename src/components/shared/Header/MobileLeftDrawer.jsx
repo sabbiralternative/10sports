@@ -3,6 +3,7 @@ import useCloseModalClickOutside from "../../../hooks/closeModal";
 import { useDispatch } from "react-redux";
 import { setGroup } from "../../../redux/features/global/globalSlice";
 import { useNavigate } from "react-router-dom";
+import { Settings } from "../../../api";
 
 const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
   const navigate = useNavigate();
@@ -233,53 +234,199 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
               </svg>
               <span>Greyhound Racing</span>
             </a>
-            <a
-              className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
-              title="Election"
-              href="/election"
-            >
-              <svg
-                width={20}
-                height={20}
-                viewBox="0 0 16 13"
-                fill="var(--icon-color-brand-secondary)"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M15 2H11V1C11 0.45 10.55 0 10 0H6C5.45 0 5 0.45 5 1V2H1C0.45 2 0 2.45 0 3V12C0 12.55 0.45 13 1 13H15C15.55 13 16 12.55 16 12V3C16 2.45 15.55 2 15 2ZM6 1.002C6.001 1.001 6.001 1.001 6.002 1H9.998C9.999 1.001 9.999 1.001 10 1.002V2H6V1.002ZM15 6H13V7.5C13 7.775 12.775 8 12.5 8H11.5C11.225 8 11 7.775 11 7.5V6H5V7.5C5 7.775 4.775 8 4.5 8H3.5C3.225 8 3 7.775 3 7.5V6H1V5H15V6Z"
-                  fill="var(--icon-color-brand-secondary)"
-                />
-              </svg>
-              <span>Election</span>
-            </a>
           </li>
           <li>
             <h3 className=" w-full h-max px-6 pt-4 pb-2 text-[13px] text-text_color_tertiary5 uppercase font-normal">
               Casino
             </h3>
-            <a
-              className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
-              title="Indian Card Games"
-              href="/livegames/aura/FAWK"
-            >
-              <svg
-                width={20}
-                height={20}
-                viewBox="0 0 15 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            {Settings.auraWolf && (
+              <a
+                className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
+                title="Casino"
+                onClick={() => handleNavigate("/wolf/auraWolf")}
               >
-                <path
-                  d="M11.7793 5.44C8.75526 3.192 7.71226 1.393 7.00526 0C6.29726 1.393 5.25526 3.192 2.23126 5.44C-2.92574 9.273 1.92826 14.622 6.19626 11.678C5.91826 13.505 4.96926 14.837 4.00526 15.411V16.001H10.0053V15.411C9.04126 14.837 8.09226 13.505 7.81426 11.678C12.0823 14.622 16.9363 9.273 11.7793 5.44Z"
-                  fill="var(--icon-color-brand-primary)"
-                />
-              </svg>
-              <span>Indian Card Games</span>
-            </a>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width={20}
+                  height={20}
+                  viewBox="0 0 48 48"
+                >
+                  <path
+                    fill="#333"
+                    d="M43.8 31.1 25.4 1.4c-.2-.3-.5-.6-.9-.7-.4-.1-.8 0-1.1.2L.8 14.8c-.3.2-.6.5-.7.9-.1.4 0 .8.2 1.1l18.3 29.8c.3.5.8.7 1.3.7.3 0 .5-.1.8-.2l22.6-13.9c.3-.2.6-.5.7-.9.1-.4 0-.8-.2-1.2z"
+                  />
+                  <path
+                    fill="#d2d2d2"
+                    d="M8.7 6.5h26.6v35H8.7z"
+                    transform="rotate(-31.647 22.023 23.998)"
+                  />
+                  <path
+                    fill="#333"
+                    d="M46.9 38.2 37.4 4.6c-.2-.8-1.1-1.3-1.9-1L9.9 10.8c-.4.1-.7.4-.9.7s-.2.8-.1 1.1l9.5 33.6c.2.7.8 1.1 1.4 1.1.1 0 .3 0 .4-.1L45.9 40c.4-.1.7-.4.9-.7s.2-.7.1-1.1z"
+                  />
+                  <path
+                    fill="#333"
+                    d="M8.9 12.6c-.1-.4-.1-.8.1-1.1l-2.2 1.3c0 .1 0 .3.1.4l6.2 21.7 3.8 6.2-8-28.5zM26.6 6.1l-1.1-1.8-8.9 2.5-6.2 3.9z"
+                    opacity=".15"
+                  />
+                  <path
+                    fill="#e9e9e9"
+                    d="M14.6 7.9h26.6v35H14.6z"
+                    transform="rotate(-15.825 27.896 25.408)"
+                  />
+                  <path
+                    fill="#333"
+                    d="M46.5 9.4H19.9c-.8 0-1.5.7-1.5 1.5v35c0 .8.7 1.5 1.5 1.5h26.6c.8 0 1.5-.7 1.5-1.5v-35c0-.8-.7-1.5-1.5-1.5z"
+                  />
+                  <path fill="#fff" d="M19.9 10.9h26.6v35H19.9z" />
+                  <path
+                    fill="#333"
+                    d="m37.2 9.4-.6-2h-9.2l-7.1 2zM18.4 10.9c0-.4.2-.8.5-1.1l-2.4.7v23l2 7.1V10.9z"
+                    opacity=".15"
+                  />
+                  <path
+                    fill="#333"
+                    d="M36.1 21.6c-1.1 0-2.1.4-2.9 1-.8-.6-1.8-1-2.9-1-2.6 0-4.8 2.1-4.8 4.8 0 4.4 6.2 8.2 6.9 8.6l.8.4.8-.4c.7-.4 6.9-4.2 6.9-8.6-.1-2.7-2.2-4.8-4.8-4.8z"
+                  />
+                  <path
+                    fill="#e44b4b"
+                    d="M39.3 26.4c0 3.7-6.2 7.3-6.2 7.3S27 30.1 27 26.4c0-1.8 1.5-3.3 3.3-3.3 1.3 0 2.3.7 2.9 1.8.5-1 1.6-1.8 2.9-1.8 1.8 0 3.2 1.4 3.2 3.3z"
+                  />
+                  <path
+                    fill="#333"
+                    d="M24.5 12.9h-.9l-1.7 5h.9l.5-1.5h1.5l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2zM42.7 38.8h-.9l-1.7 5h.9l.5-1.5H43l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2z"
+                  />
+                </svg>
+                <span>Aura</span>
+              </a>
+            )}
+            {Settings.liveCasinoWolf && (
+              <a
+                className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
+                title="Casino"
+                onClick={() => handleNavigate("/wolf/liveCasinoWolf")}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width={20}
+                  height={20}
+                  viewBox="0 0 48 48"
+                >
+                  <path
+                    fill="#333"
+                    d="M43.8 31.1 25.4 1.4c-.2-.3-.5-.6-.9-.7-.4-.1-.8 0-1.1.2L.8 14.8c-.3.2-.6.5-.7.9-.1.4 0 .8.2 1.1l18.3 29.8c.3.5.8.7 1.3.7.3 0 .5-.1.8-.2l22.6-13.9c.3-.2.6-.5.7-.9.1-.4 0-.8-.2-1.2z"
+                  />
+                  <path
+                    fill="#d2d2d2"
+                    d="M8.7 6.5h26.6v35H8.7z"
+                    transform="rotate(-31.647 22.023 23.998)"
+                  />
+                  <path
+                    fill="#333"
+                    d="M46.9 38.2 37.4 4.6c-.2-.8-1.1-1.3-1.9-1L9.9 10.8c-.4.1-.7.4-.9.7s-.2.8-.1 1.1l9.5 33.6c.2.7.8 1.1 1.4 1.1.1 0 .3 0 .4-.1L45.9 40c.4-.1.7-.4.9-.7s.2-.7.1-1.1z"
+                  />
+                  <path
+                    fill="#333"
+                    d="M8.9 12.6c-.1-.4-.1-.8.1-1.1l-2.2 1.3c0 .1 0 .3.1.4l6.2 21.7 3.8 6.2-8-28.5zM26.6 6.1l-1.1-1.8-8.9 2.5-6.2 3.9z"
+                    opacity=".15"
+                  />
+                  <path
+                    fill="#e9e9e9"
+                    d="M14.6 7.9h26.6v35H14.6z"
+                    transform="rotate(-15.825 27.896 25.408)"
+                  />
+                  <path
+                    fill="#333"
+                    d="M46.5 9.4H19.9c-.8 0-1.5.7-1.5 1.5v35c0 .8.7 1.5 1.5 1.5h26.6c.8 0 1.5-.7 1.5-1.5v-35c0-.8-.7-1.5-1.5-1.5z"
+                  />
+                  <path fill="#fff" d="M19.9 10.9h26.6v35H19.9z" />
+                  <path
+                    fill="#333"
+                    d="m37.2 9.4-.6-2h-9.2l-7.1 2zM18.4 10.9c0-.4.2-.8.5-1.1l-2.4.7v23l2 7.1V10.9z"
+                    opacity=".15"
+                  />
+                  <path
+                    fill="#333"
+                    d="M36.1 21.6c-1.1 0-2.1.4-2.9 1-.8-.6-1.8-1-2.9-1-2.6 0-4.8 2.1-4.8 4.8 0 4.4 6.2 8.2 6.9 8.6l.8.4.8-.4c.7-.4 6.9-4.2 6.9-8.6-.1-2.7-2.2-4.8-4.8-4.8z"
+                  />
+                  <path
+                    fill="#e44b4b"
+                    d="M39.3 26.4c0 3.7-6.2 7.3-6.2 7.3S27 30.1 27 26.4c0-1.8 1.5-3.3 3.3-3.3 1.3 0 2.3.7 2.9 1.8.5-1 1.6-1.8 2.9-1.8 1.8 0 3.2 1.4 3.2 3.3z"
+                  />
+                  <path
+                    fill="#333"
+                    d="M24.5 12.9h-.9l-1.7 5h.9l.5-1.5h1.5l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2zM42.7 38.8h-.9l-1.7 5h.9l.5-1.5H43l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2z"
+                  />
+                </svg>
+                <span>Live Casino Wolf</span>
+              </a>
+            )}
+            {Settings.slotWolf && (
+              <a
+                className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
+                title="Casino"
+                onClick={() => handleNavigate("/wolf/slotWolf")}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width={20}
+                  height={20}
+                  viewBox="0 0 48 48"
+                >
+                  <path
+                    fill="#333"
+                    d="M43.8 31.1 25.4 1.4c-.2-.3-.5-.6-.9-.7-.4-.1-.8 0-1.1.2L.8 14.8c-.3.2-.6.5-.7.9-.1.4 0 .8.2 1.1l18.3 29.8c.3.5.8.7 1.3.7.3 0 .5-.1.8-.2l22.6-13.9c.3-.2.6-.5.7-.9.1-.4 0-.8-.2-1.2z"
+                  />
+                  <path
+                    fill="#d2d2d2"
+                    d="M8.7 6.5h26.6v35H8.7z"
+                    transform="rotate(-31.647 22.023 23.998)"
+                  />
+                  <path
+                    fill="#333"
+                    d="M46.9 38.2 37.4 4.6c-.2-.8-1.1-1.3-1.9-1L9.9 10.8c-.4.1-.7.4-.9.7s-.2.8-.1 1.1l9.5 33.6c.2.7.8 1.1 1.4 1.1.1 0 .3 0 .4-.1L45.9 40c.4-.1.7-.4.9-.7s.2-.7.1-1.1z"
+                  />
+                  <path
+                    fill="#333"
+                    d="M8.9 12.6c-.1-.4-.1-.8.1-1.1l-2.2 1.3c0 .1 0 .3.1.4l6.2 21.7 3.8 6.2-8-28.5zM26.6 6.1l-1.1-1.8-8.9 2.5-6.2 3.9z"
+                    opacity=".15"
+                  />
+                  <path
+                    fill="#e9e9e9"
+                    d="M14.6 7.9h26.6v35H14.6z"
+                    transform="rotate(-15.825 27.896 25.408)"
+                  />
+                  <path
+                    fill="#333"
+                    d="M46.5 9.4H19.9c-.8 0-1.5.7-1.5 1.5v35c0 .8.7 1.5 1.5 1.5h26.6c.8 0 1.5-.7 1.5-1.5v-35c0-.8-.7-1.5-1.5-1.5z"
+                  />
+                  <path fill="#fff" d="M19.9 10.9h26.6v35H19.9z" />
+                  <path
+                    fill="#333"
+                    d="m37.2 9.4-.6-2h-9.2l-7.1 2zM18.4 10.9c0-.4.2-.8.5-1.1l-2.4.7v23l2 7.1V10.9z"
+                    opacity=".15"
+                  />
+                  <path
+                    fill="#333"
+                    d="M36.1 21.6c-1.1 0-2.1.4-2.9 1-.8-.6-1.8-1-2.9-1-2.6 0-4.8 2.1-4.8 4.8 0 4.4 6.2 8.2 6.9 8.6l.8.4.8-.4c.7-.4 6.9-4.2 6.9-8.6-.1-2.7-2.2-4.8-4.8-4.8z"
+                  />
+                  <path
+                    fill="#e44b4b"
+                    d="M39.3 26.4c0 3.7-6.2 7.3-6.2 7.3S27 30.1 27 26.4c0-1.8 1.5-3.3 3.3-3.3 1.3 0 2.3.7 2.9 1.8.5-1 1.6-1.8 2.9-1.8 1.8 0 3.2 1.4 3.2 3.3z"
+                  />
+                  <path
+                    fill="#333"
+                    d="M24.5 12.9h-.9l-1.7 5h.9l.5-1.5h1.5l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2zM42.7 38.8h-.9l-1.7 5h.9l.5-1.5H43l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2z"
+                  />
+                </svg>
+                <span>Slot Wolf</span>
+              </a>
+            )}
+
             <a
               className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
               title="Casino"
-              href="/casino"
+              onClick={() => handleNavigate("/live-casino")}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -333,12 +480,12 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                   d="M24.5 12.9h-.9l-1.7 5h.9l.5-1.5h1.5l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2zM42.7 38.8h-.9l-1.7 5h.9l.5-1.5H43l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2z"
                 />
               </svg>
-              <span>Casino</span>
+              <span>Live Casino</span>
             </a>
             <a
               className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
               title="Slot Games"
-              href="/slot-games"
+              onClick={() => handleNavigate("/slot-games")}
             >
               <svg
                 width={20}
@@ -367,39 +514,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
               <span>Slot Games</span>
             </a>
           </li>
-          <li>
-            <a
-              className="flex items-center justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
-              title="Sportsbook(80+)"
-              href="/sportsbook"
-            >
-              <svg
-                width={20}
-                height={20}
-                viewBox="0 0 17 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11.7049 9.67407C11.4822 9.67407 11.3018 9.49359 11.3018 9.27097C11.3018 9.04835 11.4822 8.86787 11.7049 8.86787C13.9299 8.86522 15.7331 7.06211 15.7357 4.83703V1.61235H12.108C11.8853 1.61235 11.7049 1.43187 11.7049 1.20925C11.7049 0.986634 11.8853 0.806152 12.108 0.806152H16.1388C16.3615 0.806152 16.5419 0.986634 16.5419 1.20925V4.83703C16.5388 7.50715 14.375 9.67097 11.7049 9.67407Z"
-                  fill="#FFA000"
-                />
-                <path
-                  d="M4.83704 9.67456C2.16692 9.67146 0.00309873 7.50764 0 4.83752V1.20974C0 0.987123 0.180482 0.806641 0.403099 0.806641H4.43394C4.65656 0.806641 4.83704 0.987123 4.83704 1.20974C4.83704 1.43236 4.65656 1.61284 4.43394 1.61284H0.80616V4.83752C0.808843 7.06259 2.61196 8.86571 4.83704 8.8684C5.05966 8.8684 5.24014 9.04888 5.24014 9.27149C5.2401 9.49407 5.05966 9.67456 4.83704 9.67456Z"
-                  fill="#FFA000"
-                />
-                <path
-                  d="M10.4899 15.9049L10.3187 15.7393C9.65185 15.0925 9.46858 7.28414 9.45459 6.64213C9.45113 6.47879 9.30968 6.34812 9.1364 6.34814H7.86366C7.69062 6.34812 7.54929 6.47845 7.54547 6.64154C7.53211 7.28355 7.34883 15.0907 6.68128 15.7387L6.51009 15.9043C5.63635 16.7521 3 17.3647 3 18.0481C3 18.2138 3.14247 18.3481 3.31819 18.3481H13.6818C13.8575 18.3481 14 18.2138 14 18.0481C14 17.3647 11.3637 16.7521 10.4899 15.9049Z"
-                  fill="#FFA000"
-                />
-                <path
-                  d="M13.1084 0H3.43435C3.21173 0 3.03125 0.180482 3.03125 0.403099V7.8525C3.06904 10.7307 5.39312 13.0548 8.27139 13.0926C11.1497 13.0548 13.4737 10.7307 13.5115 7.85246V0.403099C13.5115 0.180482 13.331 0 13.1084 0Z"
-                  fill="#FFC107"
-                />
-              </svg>
-              <span>Sportsbook(80+)</span>
-            </a>
-          </li>
+
           <li>
             <h3 className=" w-full h-max px-6 pt-4 pb-2 text-[13px] text-text_color_tertiary5 uppercase font-normal">
               Others
