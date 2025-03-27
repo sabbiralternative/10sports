@@ -10,6 +10,7 @@ const Banner = () => {
     <>
       {data?.banner?.length > 0 && (
         <Swiper
+          slidesPerView={1}
           autoplay={{
             delay: 5000,
             disableOnInteraction: false,
@@ -35,7 +36,7 @@ const Banner = () => {
                     key={i}
                   >
                     <div className="w-full h-full swiper-slide">
-                      <img src={image} alt="" draggable="false" />
+                      <img src={image} alt="" />
                     </div>
                   </SwiperSlide>
                 );

@@ -8,6 +8,7 @@ import GreyhoundRacing from "../pages/GreyhoundRacing/GreyhoundRacing";
 import AuraSlotLiveCasino from "../pages/AuraSlotLiveCasino/AuraSlotLiveCasino";
 import LiveCasino from "../pages/LiveCasino/LiveCasino";
 import SlotGames from "../pages/SlotGames/SlotGames";
+import IFrame from "../pages/IFrame/IFrame";
 
 export const router = createBrowserRouter(
   [
@@ -46,6 +47,10 @@ export const router = createBrowserRouter(
         {
           path: "/slot-games",
           element: <SlotGames />,
+        },
+        {
+          path: "/:route/:name/:gameId",
+          element: <IFrame />,
         },
       ],
     },
