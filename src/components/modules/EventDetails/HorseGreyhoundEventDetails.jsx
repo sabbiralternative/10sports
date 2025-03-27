@@ -7,6 +7,7 @@ import {
   setRunnerId,
 } from "../../../redux/features/events/eventSlice";
 import MobileBetSlip from "./MobileBetSlip";
+import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 
 const HorseGreyhoundEventDetails = ({ data }) => {
   const { eventId } = useParams();
@@ -135,7 +136,7 @@ const HorseGreyhoundEventDetails = ({ data }) => {
 
       dispatch(setPlaceBetValues(betData));
     } else {
-      navigate("/login");
+      dispatch(setShowLoginModal(true));
     }
   };
   return (

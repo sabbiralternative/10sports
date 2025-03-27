@@ -1,19 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { AxiosSecure } from "../lib/AxiosSecure";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API } from "../api";
+import { logout } from "../redux/features/auth/authSlice";
 
 export const useBalance = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
   return useQuery({
     queryKey: ["balance"],
     queryFn: async () => {
       const res = await AxiosSecure.post(API.balance);
       if (res?.data?.success === false && token) {
-        // localStorage.clear();
-        // navigate("/login");
+        dispatch(logout());
       } else if (res?.data?.success && token) {
         const data = res.data?.result;
         return data;

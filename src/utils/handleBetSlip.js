@@ -2,6 +2,7 @@ import {
   setPlaceBetValues,
   setRunnerId,
 } from "../redux/features/events/eventSlice";
+import { setShowLoginModal } from "../redux/features/global/globalSlice";
 
 export const handleBetSlip = (
   betType,
@@ -9,8 +10,7 @@ export const handleBetSlip = (
   runner,
   exposer,
   dispatch,
-  token,
-  navigate
+  token
 ) => {
   if (token) {
     let selectionId;
@@ -106,6 +106,6 @@ export const handleBetSlip = (
 
     dispatch(setPlaceBetValues(betData));
   } else {
-    navigate("/login");
+    dispatch(setShowLoginModal(true));
   }
 };
