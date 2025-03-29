@@ -12,7 +12,6 @@ import { useForm } from "react-hook-form";
 import { Settings } from "../../../api";
 import { setUser } from "../../../redux/features/auth/authSlice";
 import toast from "react-hot-toast";
-import images from "../../../assets/images";
 import { useLanguage } from "../../../context/LanguageProvider";
 import { LanguageKey } from "../../../const";
 import { languageValue } from "../../../utils/language";
@@ -167,30 +166,9 @@ const Login = () => {
                     className="flex flex-col w-full relative"
                   >
                     <span className="text-text_color_loginTextColor font-normal text-sm w-full px-1 pb-1">
-                      Mobile Number
+                      Mobile/Username
                     </span>
                     <div className="flex items-center w-full text-text_color_loginInputTextColor text-sm bg-bg_color_input_bg rounded-lg border w-full focus-within:border-border_color_activeInput px-1.5 border-border_color_primary1 py-2.5">
-                      <div className="flex-shrink-0 w-max">
-                        <div className="w-max  transition-none h-full">
-                          <button
-                            type="button"
-                            className="flex w-max items-center  h-full justify-between  px-1 text-text_color_loginInputTextColor"
-                            disabled=""
-                          >
-                            <div className=" flex items-center justify-center h-full">
-                              +91
-                              <div className="relative overflow-hidden w-max h-max ml-1">
-                                <img
-                                  src={images.india}
-                                  alt="India"
-                                  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
-                                  className="  w-4 h-4"
-                                />
-                              </div>
-                            </div>
-                          </button>
-                        </div>
-                      </div>
                       <input
                         {...register("username", { required: true })}
                         className="text-text_color_loginInputTextColor bg-transparent px-1.5 flex-grow min-w-0 border-none focus:outline-none bg-transparent"

@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 const FAQ = () => {
+  const [tab, setTab] = useState(null);
   return (
     <div className="w-full pb-4 px-2">
       <article className="bg-bg_color_primary rounded-md font-lato">
@@ -39,7 +42,10 @@ const FAQ = () => {
         </h2>
         <article
           className="w-full text-text_color_primary1 scroll-smooth transition-all duration-300 ease-in-out border-t-border_color_primary px-2 overflow-y-auto"
-          style={{ height: "0px", maxHeight: "50vh" }}
+          style={{
+            height: tab === 1 ? "max-content" : "0px",
+            maxHeight: "50vh",
+          }}
         >
           <p>
             <span style={{ color: "hsl(0, 0%, 100%)" }}>

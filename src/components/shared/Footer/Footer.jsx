@@ -91,8 +91,6 @@ const Footer = () => {
                   className="flex items-center justify-center overflow-hidden rounded-md"
                 >
                   <a
-                    title="https://telegram.me/tensportsofficial"
-                    href="https://telegram.me/tensportsofficial"
                     target="_blank"
                     className="flex items-center justify-center rounded-md bg-bg_color_secondary size-[45px] md:size-[50px] hover:scale-[110%] transition-all duration-300 hover:shadow-lg hover:opacity-90"
                   >
@@ -143,12 +141,7 @@ const Footer = () => {
                   onClick={openWhatsapp}
                   className="flex items-center justify-center overflow-hidden rounded-md"
                 >
-                  <a
-                    title="https://walink.live/10sportsho"
-                    href="https://walink.live/10sportsho"
-                    target="_blank"
-                    className="flex items-center justify-center rounded-md bg-bg_color_secondary size-[45px] md:size-[50px] hover:scale-[110%] transition-all duration-300 hover:shadow-lg hover:opacity-90"
-                  >
+                  <a className="flex items-center justify-center rounded-md bg-bg_color_secondary size-[45px] md:size-[50px] hover:scale-[110%] transition-all duration-300 hover:shadow-lg hover:opacity-90">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={24}

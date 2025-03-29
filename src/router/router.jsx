@@ -9,6 +9,7 @@ import LiveCasino from "../pages/LiveCasino/LiveCasino";
 import SlotGames from "../pages/SlotGames/SlotGames";
 import IFrame from "../pages/IFrame/IFrame";
 import ScrollToTop from "../components/shared/ScrollToTop/ScrollToTop";
+import AccountStatement from "../pages/AccountStatement/AccountStatement";
 
 export const router = createBrowserRouter(
   [
@@ -52,6 +53,10 @@ export const router = createBrowserRouter(
         {
           path: "/:route/:name/:gameId",
           element: <IFrame />,
+        },
+        {
+          path: "/account-statement",
+          element: <AccountStatement />,
         },
       ],
     },

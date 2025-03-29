@@ -34,7 +34,7 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.0.2",
     "redux-persist": "^6.0.0",
-    "rsuite": "^5.77.0",
+    "rsuite": "^5.79.0",
     "swiper": "^11.1.15",
     "uuid": "^11.0.5"
   },

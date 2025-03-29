@@ -190,7 +190,7 @@ const Registration = () => {
                       <input
                         onChange={(e) => handleMobileInputChange(e)}
                         className="text-text_color_loginInputTextColor bg-transparent px-1.5 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
-                        placeholder="Enter  Mobile/Username"
+                        placeholder="Enter Mobile Number"
                         aria-label="Mobile Number"
                         id="loginFormMobileUserIdInput"
                         type="text"
