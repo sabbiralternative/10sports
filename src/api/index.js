@@ -55,6 +55,7 @@ export const API = {
   auraWolf: "",
   liveCasinoLobby: "",
   banner: "",
+  lotusHomeLobby: "",
 };
 
 export const Settings = {

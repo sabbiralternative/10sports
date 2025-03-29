@@ -35,7 +35,7 @@ const LeftDeskSidebar = () => {
       <ul className="flex border rounded-lg border-border_color_primary bg-bg_color_primary overflow-x-hidden flex-col w-full">
         <li
           onClick={() => handleSetGroup(4)}
-          className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]"
+          className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav"
         >
           <a
             title="Cricket"
@@ -49,7 +49,7 @@ const LeftDeskSidebar = () => {
         </li>
         <li
           onClick={() => handleSetGroup(1)}
-          className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]"
+          className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav"
         >
           <a
             title="Football"
@@ -64,7 +64,7 @@ const LeftDeskSidebar = () => {
 
         <li
           onClick={() => handleSetGroup(2)}
-          className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]"
+          className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav"
         >
           <a
             title="Tennis"
@@ -78,7 +78,7 @@ const LeftDeskSidebar = () => {
         </li>
         <li
           onClick={() => navigate("/horse-racing")}
-          className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]"
+          className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav"
         >
           <a
             title="Horse Racing"
@@ -92,7 +92,7 @@ const LeftDeskSidebar = () => {
         </li>
         <li
           onClick={() => navigate("/greyhound-racing")}
-          className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]"
+          className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav"
         >
           <a
             title="Greyhound Racing"
@@ -106,7 +106,7 @@ const LeftDeskSidebar = () => {
         </li>
 
         {Settings.auraWolf && (
-          <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
+          <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav">
             {" "}
             <Link
               title="Aura"
@@ -123,7 +123,7 @@ const LeftDeskSidebar = () => {
           </li>
         )}
         {Settings.liveCasinoWolf && (
-          <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
+          <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav">
             {" "}
             <Link
               title="Aura"
@@ -140,7 +140,7 @@ const LeftDeskSidebar = () => {
           </li>
         )}
         {Settings.slotWolf && (
-          <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
+          <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav">
             {" "}
             <Link
               title="Aura"
@@ -156,7 +156,7 @@ const LeftDeskSidebar = () => {
             </Link>
           </li>
         )}
-        <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
+        <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav">
           <Link
             title="Live Casino"
             className="flex w-full items-center h-full px-6 justify-start gap-3"
@@ -169,7 +169,7 @@ const LeftDeskSidebar = () => {
           </Link>
         </li>
 
-        <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
+        <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav">
           <Link
             title="Slot Games"
             className="flex w-full items-center h-full px-6 justify-start gap-3"
@@ -181,7 +181,7 @@ const LeftDeskSidebar = () => {
             </span>
           </Link>
         </li>
-        <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%]">
+        <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav">
           <Link
             title="Aviator"
             className="flex w-full items-center h-full px-6 justify-start gap-3"

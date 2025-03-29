@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useLogo } from "../../../context/ApiProvider";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  setGroup,
   setShowLoginModal,
   setShowRegisterModal,
 } from "../../../redux/features/global/globalSlice";
@@ -90,6 +91,7 @@ const Header = () => {
                   <Link
                     className="h-full w-auto flex items-center justify-center xs"
                     to="/"
+                    onClick={() => dispatch(setGroup(0))}
                   >
                     <div className="relative overflow-hidden hidden sm:block ml-2">
                       <img

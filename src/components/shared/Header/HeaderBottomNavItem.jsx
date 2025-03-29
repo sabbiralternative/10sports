@@ -1,5 +1,5 @@
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 import { setGroup } from "../../../redux/features/global/globalSlice";
 import { Settings } from "../../../api";
 import {
@@ -16,25 +16,32 @@ import { LanguageKey } from "../../../const";
 import { languageValue } from "../../../utils/language";
 
 const HeaderBottomNavItem = () => {
+  const { group } = useSelector((state) => state.global);
+  const location = useLocation();
   const { valueByLanguage } = useLanguage();
   const dispatch = useDispatch();
   const handleSetGroup = (group) => {
     dispatch(setGroup(group));
+    window.scrollTo(0, 0);
   };
   return (
     <div className="flex w-full overflow-x-auto bg-bg_headerDeskNavMenu no-scrollbar py-[5px] px-3 items-start md:items-center md:justify-center">
       <Link
         onClick={() => handleSetGroup(0)}
         title="Home"
-        className="cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
-        text-text_headerDeskNav bg-bg_headerDeskNavmenuEle"
+        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
+        ${
+          location.pathname === "/" && group === 0
+            ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+            : "text-text_headerDeskNav"
+        }`}
         to="/"
       >
         <span className="">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width={16}
-            height={16}
+            width="16"
+            height="16"
             viewBox="0 0 12 12"
             fill="none"
           >
@@ -42,7 +49,7 @@ const HeaderBottomNavItem = () => {
               <path
                 d="M11.4 0.6H9.6V0H2.4V0.6H0.6C0.24 0.6 0 0.84 0 1.2V2.64C0 4.02 1.02 5.16 2.4 5.34V5.4C2.4 7.14 3.6 8.58 5.22 8.94L4.8 10.2H3.42C3.18 10.2 2.94 10.38 2.88 10.62L2.4 12H9.6L9.12 10.62C9.06 10.38 8.82 10.2 8.58 10.2H7.2L6.78 8.94C8.4 8.58 9.6 7.14 9.6 5.4V5.34C10.98 5.16 12 4.02 12 2.64V1.2C12 0.84 11.76 0.6 11.4 0.6ZM2.4 4.14C1.74 3.96 1.2 3.36 1.2 2.64V1.8H2.4V4.14ZM7.2 6L6 5.34L4.8 6L5.1 4.8L4.2 3.6H5.46L6 2.4L6.54 3.6H7.8L6.9 4.8L7.2 6ZM10.8 2.64C10.8 3.36 10.26 4.02 9.6 4.14V1.8H10.8V2.64Z"
                 fill="url(#paint0_linear_145_9104)"
-              />
+              ></path>
             </g>
             <defs>
               <linearGradient
@@ -53,79 +60,96 @@ const HeaderBottomNavItem = () => {
                 y2="1.30581"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stopColor="var(--icon-color-brand-primary)" />
-                <stop
-                  offset={1}
-                  stopColor="var(--icon-color-brand-secondary)"
-                />
+                <stop stopColor="currentColor"></stop>
+                <stop offset="1" stopColor="currentColor"></stop>
               </linearGradient>
               <clipPath id="clip0_145_9104">
-                <rect width={12} height={12} fill="white" />
+                <rect width="12" height="12" fill="white"></rect>
               </clipPath>
             </defs>
           </svg>
         </span>
-        <span className="font font-lato text-[12px] text-text_brand_primary font-semibold">
+        <span className="font font-lato text-[12px]  font-semibold">
           {languageValue(valueByLanguage, LanguageKey.HOME)}
         </span>
       </Link>
       <Link
         onClick={() => handleSetGroup(4)}
         title="Cricket"
-        className="cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] text-text_headerDeskNav flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs"
+        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+          location.pathname === "/" && group === 4
+            ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+            : "text-text_headerDeskNav"
+        }`}
         to="/"
       >
-        <span className="text-text_headerDeskNav">
+        <span>
           <Cricket height={16} width={16} />
         </span>
-        <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
+        <span className="font font-lato text-[12px]  font-normal">
           {languageValue(valueByLanguage, LanguageKey.CRICKET)}
         </span>
       </Link>
       <Link
         onClick={() => handleSetGroup(1)}
         title="Football"
-        className="cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] text-text_headerDeskNav flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs"
+        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+          location.pathname === "/" && group === 1
+            ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+            : "text-text_headerDeskNav"
+        }`}
         to="/"
       >
-        <span className="text-text_headerDeskNav">
+        <span>
           <Football height={16} width={16} />
         </span>
-        <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
+        <span className="font font-lato text-[12px] font-normal">
           {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
         </span>
       </Link>
       <Link
         onClick={() => handleSetGroup(2)}
         title="Tennis"
-        className="cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] text-text_headerDeskNav flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs"
+        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+          location.pathname === "/" && group === 2
+            ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+            : "text-text_headerDeskNav"
+        }`}
         to="/"
       >
-        <span className="text-text_headerDeskNav">
+        <span>
           <Tennis height={16} width={16} />
         </span>
-        <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
+        <span className="font font-lato text-[12px]  font-normal">
           {languageValue(valueByLanguage, LanguageKey.TENNIS)}
         </span>
       </Link>
       <Link
         title="Horse Racing"
-        className="cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] text-text_headerDeskNav flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs"
+        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+          location.pathname === "/horse-racing"
+            ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+            : "text-text_headerDeskNav"
+        }`}
         to="/horse-racing"
       >
-        <span className="text-text_headerDeskNav">
+        <span>
           <HorseRacing height={16} width={16} />
         </span>
-        <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
+        <span className="font font-lato text-[12px]  font-normal">
           {languageValue(valueByLanguage, LanguageKey.HORSE)}
         </span>
       </Link>
       <Link
         title="Greyhound Racing"
-        className="cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] text-text_headerDeskNav flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs"
+        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+          location.pathname === "/greyhound-racing"
+            ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+            : "text-text_headerDeskNav"
+        }`}
         to="/greyhound-racing"
       >
-        <span className="text-text_headerDeskNav">
+        <span>
           <svg
             width="16"
             height="16"
@@ -139,7 +163,7 @@ const HeaderBottomNavItem = () => {
             ></path>
           </svg>
         </span>
-        <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
+        <span className="font font-lato text-[12px] font-normal">
           {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
         </span>
       </Link>
@@ -147,27 +171,33 @@ const HeaderBottomNavItem = () => {
       {Settings.auraWolf && (
         <Link
           title="Aura"
-          className="cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] text-text_headerDeskNav flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs"
+          className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+            location.pathname === "/wolf/auraWolf"
+              ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+              : "text-text_headerDeskNav"
+          }`}
           to={`/wolf/auraWolf`}
         >
-          <span className="text-text_headerDeskNav">
+          <span>
             <Aura height={16} width={16} />
           </span>
-          <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
-            Aura
-          </span>
+          <span className="font font-lato text-[12px]  font-normal">Aura</span>
         </Link>
       )}
       {Settings.liveCasinoWolf && (
         <Link
           title="Aura"
-          className="cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] text-text_headerDeskNav flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs"
+          className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+            location.pathname === "/wolf/liveCasinoWolf"
+              ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+              : "text-text_headerDeskNav"
+          }`}
           to={`/wolf/liveCasinoWolf`}
         >
-          <span className="text-text_headerDeskNav">
+          <span>
             <Aura height={16} width={16} />
           </span>
-          <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
+          <span className="font font-lato text-[12px] font-normal">
             Live Casino Wolf
           </span>
         </Link>
@@ -175,13 +205,17 @@ const HeaderBottomNavItem = () => {
       {Settings.slotWolf && (
         <Link
           title="Aura"
-          className="cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] text-text_headerDeskNav flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs"
+          className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+            location.pathname === "/wolf/slotWolf"
+              ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+              : "text-text_headerDeskNav"
+          }`}
           to={`/wolf/slotWolf`}
         >
-          <span className="text-text_headerDeskNav">
+          <span>
             <Aura height={16} width={16} />
           </span>
-          <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
+          <span className="font font-lato text-[12px] font-normal">
             Slot Wolf
           </span>
         </Link>
@@ -189,25 +223,33 @@ const HeaderBottomNavItem = () => {
 
       <Link
         title="Live Casino"
-        className="cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] text-text_headerDeskNav flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs"
+        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+          location.pathname === "/live-casino"
+            ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+            : "text-text_headerDeskNav"
+        }`}
         to="/live-casino"
       >
-        <span className="text-text_headerDeskNav">
+        <span>
           <LiveCasino height={16} width={16} />
         </span>
-        <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
+        <span className="font font-lato text-[12px] font-normal">
           {languageValue(valueByLanguage, LanguageKey.LIVE_CASINO)}
         </span>
       </Link>
       <Link
         title="Slots"
-        className="cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] text-text_headerDeskNav flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs"
+        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+          location.pathname === "/slot-games"
+            ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+            : "text-text_headerDeskNav"
+        }`}
         to="/slot-games"
       >
-        <span className="text-text_headerDeskNav">
+        <span>
           <SlotGame height={16} width={16} />
         </span>
-        <span className="font font-lato text-[12px] text-text_headerDeskNav font-normal">
+        <span className="font font-lato text-[12px]  font-normal">
           {languageValue(valueByLanguage, LanguageKey.SLOTS)}
         </span>
       </Link>

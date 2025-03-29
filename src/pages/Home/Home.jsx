@@ -2,13 +2,16 @@ import { useSelector } from "react-redux";
 import Banner from "../../components/modules/Home/Banner";
 import FAQ from "../../components/modules/Home/FAQ";
 import GameProvider from "../../components/modules/Home/GameProvider";
-import IndianCardGame from "../../components/modules/Home/IndianCardGame";
+import PopularGames from "../../components/modules/Home/PopularGames";
 import TrendingCasino from "../../components/modules/Home/TrendingCasino";
-import UpcomingEvents from "../../components/modules/Home/UpcomingEvents";
+
 import Group from "../../components/modules/Home/Group";
 import { useGroupQuery } from "../../redux/features/events/events";
+import { useLotusHomeLobby } from "../../hooks/lotusHomeLobby";
+import IndianCardGames from "../../components/modules/Home/IndianCardGames";
 
 const Home = () => {
+  const { data: lotusLobby } = useLotusHomeLobby();
   const { group } = useSelector((state) => state.global);
 
   const { data } = useGroupQuery(
@@ -17,6 +20,7 @@ const Home = () => {
       pollingInterval: 1000,
     }
   );
+
   return (
     <div className="w-full  h-max  lg:w-[54%] lg:pt-2">
       <div
@@ -26,16 +30,17 @@ const Home = () => {
         {!group && (
           <>
             <Banner />
-            <TrendingCasino />
+
+            <TrendingCasino trendingGames={lotusLobby?.trendingGames} />
           </>
         )}
         <Group data={data} />
         {/* <InPlay /> */}
         {!group && (
           <>
-            <GameProvider />
-            <IndianCardGame />
-            <UpcomingEvents />
+            <GameProvider casinoProviders={lotusLobby?.casinoProviders} />
+            <IndianCardGames />
+            <PopularGames popularGames={lotusLobby?.popularGames} />
           </>
         )}
       </div>

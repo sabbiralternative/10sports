@@ -10,7 +10,7 @@ import { AxiosSecure } from "../../lib/AxiosSecure";
 import WarningCondition from "../../components/shared/WarningCondition/WarningCondition";
 
 const AuraSlotLiveCasino = () => {
-  const { wolfType } = useParams();
+  const { wolfType = "auraWolf" } = useParams();
   const [showLeftDropdown, setShowLeftDropdown] = useState(false);
   const [showRightDropdown, setShowRightDropdown] = useState(false);
   const [gameList, setGameList] = useState("All");
