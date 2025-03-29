@@ -58,7 +58,7 @@ const Header = () => {
       <header
         id="10sports-header"
         title="10sports-header"
-        className="w-full h-max"
+        className="w-full h-max fixed top-0  z-[100]"
       >
         <div className="flex flex-col">
           <div className="flex flex-col shadow-lg autoAnimate">

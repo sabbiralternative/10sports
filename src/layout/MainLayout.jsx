@@ -10,10 +10,10 @@ const MainLayout = () => {
   const location = useLocation();
 
   return (
-    <div className="w-dvw app-bg h-[100dvh] overflow-x-hidden no-scrollbar flex flex-col">
+    <div className="w-dvw app-bg   no-scrollbar flex flex-col">
       <WhatsApp />
       <Header />
-      <div className="flex-1 overflow-y-auto show-scrollbar scroll-smooth flex flex-col h-full">
+      <div className="flex-1 overflow-y-auto show-scrollbar scroll-auto flex flex-col h-full pt-[110px]">
         <main
           className={`flex items-start h-max justify-start w-full ${
             hideSidebarRoutes?.includes(location.pathname) ||
