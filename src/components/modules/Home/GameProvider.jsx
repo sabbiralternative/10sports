@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Settings } from "../../../api";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import toast from "react-hot-toast";
 import WarningCondition from "../../shared/WarningCondition/WarningCondition";
+import { scrollToLeft, scrollToRight } from "../../../utils/scroll";
 
 const GameProvider = ({ casinoProviders }) => {
+  const ref = useRef();
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [showWarning, setShowWarning] = useState(false);
@@ -79,6 +81,7 @@ const GameProvider = ({ casinoProviders }) => {
                 See All
               </button>
               <button
+                onClick={() => scrollToLeft(ref)}
                 className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out flex w-[22px] h-[22px] justify-center items-center bg-bg_color_quaternary rounded cursor-pointer"
                 type="button"
               >
@@ -98,6 +101,7 @@ const GameProvider = ({ casinoProviders }) => {
                 </svg>
               </button>
               <button
+                onClick={() => scrollToRight(ref)}
                 className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out flex w-[22px] h-[22px] justify-center items-center bg-bg_color_quaternary rounded cursor-pointer"
                 type="button"
               >
@@ -118,7 +122,10 @@ const GameProvider = ({ casinoProviders }) => {
               </button>
             </div>
           </div>
-          <div className="w-full p-2.5 gap-y-2 gap-x-2 grid grid-rows-2 grid-flow-col sm:grid-cols-3 overflow-x-auto no-scrollbar scroll-smooth">
+          <div
+            ref={ref}
+            className="w-full p-2.5 gap-y-2 gap-x-2 grid grid-rows-2 grid-flow-col sm:grid-cols-3 overflow-x-auto no-scrollbar scroll-smooth"
+          >
             {casinoProviders?.map((game, idx) => {
               return (
                 <div

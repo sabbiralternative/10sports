@@ -1,12 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { API } from "../../../api";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { AxiosSecure } from "../../../lib/AxiosSecure";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+import { scrollToLeft, scrollToRight } from "../../../utils/scroll";
 
 const IndianCardGames = () => {
+  const ref = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { token, bonusToken } = useSelector((state) => state.auth);
@@ -85,6 +87,7 @@ const IndianCardGames = () => {
               See All
             </button>
             <button
+              onClick={() => scrollToLeft(ref)}
               className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out flex w-[22px] h-[22px] justify-center items-center bg-bg_color_quaternary rounded cursor-pointer"
               type="button"
             >
@@ -104,6 +107,7 @@ const IndianCardGames = () => {
               </svg>
             </button>
             <button
+              onClick={() => scrollToRight(ref)}
               className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out flex w-[22px] h-[22px] justify-center items-center bg-bg_color_quaternary rounded cursor-pointer"
               type="button"
             >
@@ -125,6 +129,7 @@ const IndianCardGames = () => {
           </div>
         </div>
         <div
+          ref={ref}
           title="Indian Card Games"
           className="p-2.5 transition-all ease-in-out duration-200 w-full gap-1 overflow-x-auto scroll-smooth no-scrollbar grid grid-flow-col grid-rows-3"
         >

@@ -1,14 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Settings } from "../../../api";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 0;
 import toast from "react-hot-toast";
 import WarningCondition from "../../shared/WarningCondition/WarningCondition";
+import { scrollToLeft, scrollToRight } from "../../../utils/scroll";
 
 /* eslint-disable react/no-unknown-property */
 const TrendingCasino = ({ trendingGames }) => {
+  const ref = useRef();
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [showWarning, setShowWarning] = useState(false);
@@ -94,6 +96,7 @@ const TrendingCasino = ({ trendingGames }) => {
             </div>
             <div className="flex w-[108.75px] items-center justify-end gap-[5px]">
               <button
+                onClick={() => scrollToLeft(ref)}
                 className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out flex w-[22px] h-[22px] justify-center items-center bg-bg_color_quaternary rounded cursor-pointer"
                 type="button"
               >
@@ -113,6 +116,7 @@ const TrendingCasino = ({ trendingGames }) => {
                 </svg>
               </button>
               <button
+                onClick={() => scrollToRight(ref)}
                 className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out flex w-[22px] h-[22px] justify-center items-center bg-bg_color_quaternary rounded cursor-pointer"
                 type="button"
               >
@@ -133,7 +137,10 @@ const TrendingCasino = ({ trendingGames }) => {
               </button>
             </div>
           </div>
-          <div className="flex overflow-x-scroll no-scrollbar scroll-smooth gap-x-1 p-2.5">
+          <div
+            ref={ref}
+            className="flex overflow-x-scroll no-scrollbar scroll-smooth gap-x-1 p-2.5"
+          >
             {trendingGames &&
               filteredGames?.length > 0 &&
               filteredGames?.map((game, idx) => {

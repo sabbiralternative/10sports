@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Settings } from "../../../api";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import toast from "react-hot-toast";
 import WarningCondition from "../../shared/WarningCondition/WarningCondition";
+import { scrollToLeft, scrollToRight } from "../../../utils/scroll";
 
 const PopularGames = ({ popularGames }) => {
+  const ref = useRef();
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [showWarning, setShowWarning] = useState(false);
@@ -79,6 +81,7 @@ const PopularGames = ({ popularGames }) => {
                 See All
               </button>
               <button
+                onClick={() => scrollToLeft(ref)}
                 className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out flex w-[22px] h-[22px] justify-center items-center bg-bg_color_quaternary rounded cursor-pointer"
                 type="button"
               >
@@ -98,6 +101,7 @@ const PopularGames = ({ popularGames }) => {
                 </svg>
               </button>
               <button
+                onClick={() => scrollToRight(ref)}
                 className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out flex w-[22px] h-[22px] justify-center items-center bg-bg_color_quaternary rounded cursor-pointer"
                 type="button"
               >
@@ -119,6 +123,7 @@ const PopularGames = ({ popularGames }) => {
             </div>
           </div>
           <div
+            ref={ref}
             title="Indian Card Games"
             className="p-2.5 transition-all ease-in-out duration-200 w-full gap-1 overflow-x-auto scroll-smooth no-scrollbar grid grid-flow-col grid-rows-3"
           >
