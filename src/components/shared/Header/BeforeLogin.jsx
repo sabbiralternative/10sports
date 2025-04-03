@@ -101,6 +101,31 @@ const BeforeLogin = ({ setShowLanguageModal }) => {
           </button>
         )}
       </div>
+      <div className="w-max flex items-center gap-1 justify-center  rounded lg:hidden">
+        <button
+          onClick={showLogin}
+          id="loginButton"
+          className="flex  hover:opacity-100 w-max font-extrabold items-center justify-center  bg-bg_color_LoginBtnBgColor rounded-md px-2.5 py-1.5"
+        >
+          <span className=" text-x text-text_color_loginButtonTextColor font-lato md:font-semibold xs:text-xs  md:text-sm font-[800]">
+            Log In
+          </span>
+        </button>
+        {Settings.registration && (
+          <button
+            onClick={showRegister}
+            title="signUpButton"
+            id="signUpButton"
+            className="flex hover:opacity-100 w-max font-extrabold items-center justify-center   bg-bg_color_SignUpBtnBgColor rounded-md px-2.5 py-1.5 
+                    false
+                    "
+          >
+            <span className=" text-x   bg-bg_color_signUpTextColor bg-clip-text text-transparent  font-lato md:font-semibold xs:text-xs  md:text-sm font-[800]">
+              Sign Up
+            </span>
+          </button>
+        )}
+      </div>
       {Settings.language && (
         <button
           onClick={() => setShowLanguageModal(true)}

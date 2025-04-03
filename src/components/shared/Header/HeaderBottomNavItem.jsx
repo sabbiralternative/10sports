@@ -29,7 +29,7 @@ const HeaderBottomNavItem = () => {
       <Link
         onClick={() => handleSetGroup(0)}
         title="Home"
-        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
+        className={`cursor-pointer uppercase min-h-[28px]  min-w-[80px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
         ${
           location.pathname === "/" && group === 0
             ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
@@ -76,7 +76,7 @@ const HeaderBottomNavItem = () => {
       <Link
         onClick={() => handleSetGroup(4)}
         title="Cricket"
-        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[100px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
           location.pathname === "/" && group === 4
             ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
             : "text-text_headerDeskNav"
@@ -93,7 +93,7 @@ const HeaderBottomNavItem = () => {
       <Link
         onClick={() => handleSetGroup(1)}
         title="Football"
-        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[100px] px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
           location.pathname === "/" && group === 1
             ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
             : "text-text_headerDeskNav"
@@ -110,7 +110,7 @@ const HeaderBottomNavItem = () => {
       <Link
         onClick={() => handleSetGroup(2)}
         title="Tennis"
-        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
           location.pathname === "/" && group === 2
             ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
             : "text-text_headerDeskNav"
@@ -126,7 +126,7 @@ const HeaderBottomNavItem = () => {
       </Link>
       <Link
         title="Horse Racing"
-        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
           location.pathname === "/horse-racing"
             ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
             : "text-text_headerDeskNav"
@@ -142,7 +142,7 @@ const HeaderBottomNavItem = () => {
       </Link>
       <Link
         title="Greyhound Racing"
-        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[120px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
           location.pathname === "/greyhound-racing"
             ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
             : "text-text_headerDeskNav"
@@ -171,7 +171,7 @@ const HeaderBottomNavItem = () => {
       {Settings.auraWolf && (
         <Link
           title="Aura"
-          className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+          className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
             location.pathname === "/wolf/auraWolf"
               ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
               : "text-text_headerDeskNav"
@@ -187,7 +187,7 @@ const HeaderBottomNavItem = () => {
       {Settings.liveCasinoWolf && (
         <Link
           title="Aura"
-          className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+          className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
             location.pathname === "/wolf/liveCasinoWolf"
               ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
               : "text-text_headerDeskNav"
@@ -205,7 +205,7 @@ const HeaderBottomNavItem = () => {
       {Settings.slotWolf && (
         <Link
           title="Aura"
-          className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+          className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
             location.pathname === "/wolf/slotWolf"
               ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
               : "text-text_headerDeskNav"
@@ -223,7 +223,7 @@ const HeaderBottomNavItem = () => {
 
       <Link
         title="Live Casino"
-        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[120px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
           location.pathname === "/live-casino"
             ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
             : "text-text_headerDeskNav"
@@ -239,7 +239,7 @@ const HeaderBottomNavItem = () => {
       </Link>
       <Link
         title="Slots"
-        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap w-max px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+        className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
           location.pathname === "/slot-games"
             ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
             : "text-text_headerDeskNav"
