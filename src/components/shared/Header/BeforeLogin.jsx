@@ -40,6 +40,7 @@ const BeforeLogin = ({ setShowLanguageModal }) => {
           </svg>
         </span>
       </div>
+
       <div className="w-max hidden items-center justify-center gap-1 rounded-full lg:flex">
         <button
           onClick={showLogin}

@@ -6,6 +6,10 @@ const AfterLogin = ({ setShowLanguageModal, setShowRightDrawer }) => {
   const { language } = useLanguage();
   const { data } = useBalance();
 
+  const showRightDrawer = () => {
+    setShowRightDrawer(true);
+  };
+
   return (
     <>
       <div
@@ -116,8 +120,8 @@ const AfterLogin = ({ setShowLanguageModal, setShowRightDrawer }) => {
           </span>
         </button>
       </div>
-      <div className="w-max flex items-center justify-center">
-        <div
+      <div className="w-full lg:w-max flex items-center justify-center">
+        {/* <div
           id="mobileSearchIcon"
           className=" lg:hidden mr-[2px] flex items-center justify-center"
         >
@@ -135,36 +139,11 @@ const AfterLogin = ({ setShowLanguageModal, setShowRightDrawer }) => {
               ></path>
             </svg>
           </span>
-          <div className=" w-max h-max relative font-lato">
-            <div
-              className="bg-none border-none shadow-none px-1 mr-2 cursor-pointer transition-all ease-in-out duration-200 active:scale-105"
-              style={{ position: "relative" }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="var(--icon-color-brand-secondary)"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"></path>
-                <path d="M9 17v1a3 3 0 0 0 6 0v-1"></path>
-              </svg>
-              <div className="absolute top-[-8px] right-[-1px] text-text_color_loginButtonTextColor bg-bg_color_LoginBtnBgColor font-lato font-bold text-[12px] rounded-[50%] w-[18px] h-[18px] flex items-center justify-center ">
-                <span> 0</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        </div> */}
 
         <div className=" w-max hidden items-center justify-center gap-1 rounded-full  lg:flex">
           <button
-            onClick={() => setShowRightDrawer(true)}
+            onClick={showRightDrawer}
             title="loginButton"
             id="loginButton"
             className="relative flex rounded-full gap-1 border border-quaternary hover:opacity-100 w-max font-extrabold items-center justify-center pr-4 pl-3 py-2  bg-bg_brand_secondary"
@@ -191,6 +170,46 @@ const AfterLogin = ({ setShowLanguageModal, setShowRightDrawer }) => {
             </span>
           </button>
         </div>
+        <div className=" flex justify-end items-center h-max lg:hidden gap-x-1.5 w-full">
+          <button
+            type="button"
+            className="inline-block  leading-normal relative   transition duration-150 ease-in-out overflow-hidden min-h-[35px] relative active:scale-95  xxs:flex items-center h-fit justify-center bg-bg_color_DepositBtnBg  rounded-md px-2 py-1.5   text-sm   text-center 
+            cursor-pointer
+            "
+          >
+            <span className="  font-semibold flex flex-row font-lato md:font-normal sm:text-base xs:text-sm">
+              <span className="text-text_color_primary2">Deposit</span>
+            </span>
+            <span className="shimmer" />
+          </button>
+          <button
+            onClick={showRightDrawer}
+            title="Balance"
+            className="relative overflow-hidden  flex items-center min-h-[35px] justify-center  gap-1 shadow-[0_8px_30px_rgb(0,0,0,0.12)] bg-bg_color_BalanceBtnBg rounded-md px-1.5 py-1.5 text-text_color_primary5"
+            type="button"
+          >
+            <span className="text-xs sm:text-base font-semibold bg-transparent">
+              ₹{data?.availBalance}
+            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={24}
+              height={24}
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="var(--icon-color-brand-secondary)"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+              <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+              <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+            </svg>
+          </button>
+        </div>
+
         {Settings.language && (
           <button
             onClick={() => setShowLanguageModal(true)}

@@ -78,7 +78,7 @@ const SingleGroup = ({ data, filterData, title, margin }) => {
                           <div className="text-selection-none w-full flex items-center justify-start">
                             <span className="w-[5px] h-[5px] p-[1px] mr-[2px]" />
                             <span className="text-[11px] font-bold text-text_color_primary1 truncate sm:text-xs md:text-sm">
-                              {data[key]?.player1}
+                              {data[key]?.eventName}
                             </span>
                           </div>
                         </span>
