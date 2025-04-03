@@ -213,6 +213,7 @@ const MatchOddBookmaker = ({ data }) => {
             (profit) =>
               profit?.gameId === game?.id && profit?.isOnePositiveExposure
           );
+
           return (
             <div key={game?.id} className=" py-1.5">
               <div className=" grid grid-flow-col grid-cols-12 text-text_color_primary1 text-xs font-[500] mb-1.5">
@@ -222,7 +223,8 @@ const MatchOddBookmaker = ({ data }) => {
                   </span>
                   {Settings.betFairCashOut &&
                     game?.runners?.length !== 3 &&
-                    game?.status === "OPEN" && (
+                    game?.status === "OPEN" &&
+                    game?.name !== "toss" && (
                       <button
                         onClick={() =>
                           handleCashOutPlaceBet(
@@ -282,6 +284,30 @@ const MatchOddBookmaker = ({ data }) => {
                             <span className=" truncate w-full capitalize text-text_color_primary1  text-[13px] md:text-sm  font-semibold">
                               {runner?.name}
                             </span>
+                          </div>
+                          <div className="w-full flex flex-row gap-x-1">
+                            {pnl && (
+                              <div
+                                className={`text-[12px] font-bold  ${
+                                  pnl?.pnl > 0
+                                    ? "text-text_color_success"
+                                    : "text-text_color_danger"
+                                }`}
+                              >
+                                {pnl?.pnl}
+                              </div>
+                            )}
+                            {stake && runnerId && predictOddValues && (
+                              <div
+                                className={`text-[12px] font-bold  ${
+                                  predictOddValues?.exposure > 0
+                                    ? "text-text_color_success"
+                                    : "text-text_color_danger"
+                                } `}
+                              >
+                                &gt;&gt; {predictOddValues?.exposure}
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>

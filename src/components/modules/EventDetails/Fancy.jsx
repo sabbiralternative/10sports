@@ -9,6 +9,7 @@ import {
 } from "../../../redux/features/events/eventSlice";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import MobileBetSlip from "./MobileBetSlip";
+import Ladder from "../../modals/Ladder/Ladder";
 
 const Fancy = ({ data }) => {
   const fancyData = data?.filter(
@@ -17,7 +18,7 @@ const Fancy = ({ data }) => {
       fancy.tabGroupName === "Normal" &&
       fancy?.visible == true
   );
-
+  const [marketName, setMarketName] = useState("");
   const [ladderData, setLadderData] = useState([]);
   const { eventId } = useParams();
 
@@ -113,15 +114,27 @@ const Fancy = ({ data }) => {
     pnlBySelection = Object?.values(obj);
   }
 
-  const handleGetLadder = async (marketId) => {
-    const res = await getLadder({ marketId }).unwrap();
+  const handleGetLadder = async (pnl, marketName) => {
+    if (!pnl?.MarketId) {
+      return;
+    }
+    setMarketName(marketName);
+    const res = await getLadder({ marketId: pnl?.MarketId }).unwrap();
 
     if (res.success) {
       setLadderData(res.result);
     }
   };
+
   return (
     <>
+      {ladderData?.length > 0 && (
+        <Ladder
+          setLadderData={setLadderData}
+          ladderData={ladderData}
+          marketName={marketName}
+        />
+      )}
       {fancyData?.length > 0 && (
         <div>
           <div className="text-base font-medium text-center py-1.5">
@@ -168,6 +181,7 @@ const Fancy = ({ data }) => {
           {fancyData?.map((game) => {
             const pnl =
               pnlBySelection?.find((pnl) => pnl?.MarketId === game?.id) || {};
+
             return (
               <div key={game?.id} className=" py-1.5">
                 <div className=" bg-bg_color_primary rounded-[3px] shadow-[0_8px_30px_rgb(0,0,0,0.12)] py-[1px] cursor-pointer">
@@ -179,6 +193,19 @@ const Fancy = ({ data }) => {
                             {game?.name}
                           </span>
                         </div>
+                        {pnl && (
+                          <div className="w-full flex flex-row gap-x-1">
+                            <div
+                              className={`text-[12px] font-bold ${
+                                pnl?.pnl > 0
+                                  ? "text-text_color_success"
+                                  : "text-text_color_danger"
+                              }`}
+                            >
+                              {pnl?.pnl}
+                            </div>
+                          </div>
+                        )}
                       </div>
                       <span className=" col-span-2 md:col-span-1 flex flex-row items-center justify-center gap-x-[2px]">
                         <svg
@@ -203,7 +230,14 @@ const Fancy = ({ data }) => {
                         </span>
                       </span>
                       <span className=" col-span-2 md:col-span-1 flex flex-row items-center justify-center">
-                        <div className="opacity-50 cursor-not-allowed">
+                        <div
+                          onClick={() => handleGetLadder(pnl, game?.name)}
+                          className={`${
+                            pnl?.pnl
+                              ? "opacity-100 cursor-pointer"
+                              : "opacity-50 cursor-not-allowed"
+                          }`}
+                        >
                           <svg
                             height={18}
                             width={18}

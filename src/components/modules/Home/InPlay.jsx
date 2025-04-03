@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 const InPlay = () => {
   const { group } = useSelector((state) => state.global);
-
   const { data } = useGroupQuery(
     { sportsType: group },
     {
@@ -82,16 +81,21 @@ const InPlay = () => {
                   Object.values(data).length > 0 &&
                   Object.keys(filteredData)
                     .sort((keyA, keyB) => data[keyA].sort - data[keyB].sort)
-                    .map((keys) => {
+                    .map((keys, index) => {
                       if (!data?.[keys]?.visible) {
                         return null;
                       }
+
+                      const lastElement =
+                        Object.keys(filteredData)?.length - 1 === index;
 
                       return (
                         <>
                           <div
                             onClick={() => navigateGameList(keys)}
-                            className="col-span-6 h-12 lg:col-span-5 grid grid-cols-7 border-t border-border_color_primary1"
+                            className={`col-span-6 h-12 lg:col-span-5 grid grid-cols-7 border-t border-border_color_primary1 ${
+                              lastElement ? "border-b" : ""
+                            }`}
                           >
                             <span
                               id="inPlayTime"

@@ -10,6 +10,8 @@ import SlotGames from "../pages/SlotGames/SlotGames";
 import IFrame from "../pages/IFrame/IFrame";
 import ScrollToTop from "../components/shared/ScrollToTop/ScrollToTop";
 import AccountStatement from "../pages/AccountStatement/AccountStatement";
+import ChangePassword from "../pages/ChangePassword/ChangePassword";
+import StakeSetting from "../pages/StakeSetting/StakeSetting";
 
 export const router = createBrowserRouter(
   [
@@ -57,6 +59,14 @@ export const router = createBrowserRouter(
         {
           path: "/account-statement",
           element: <AccountStatement />,
+        },
+        {
+          path: "/change-password",
+          element: <ChangePassword />,
+        },
+        {
+          path: "/stake-setting",
+          element: <StakeSetting />,
         },
       ],
     },

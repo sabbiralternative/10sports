@@ -1,4 +1,13 @@
+import { useState } from "react";
+import { useCurrentBets } from "../../../hooks/currentBets";
+import { useParams } from "react-router-dom";
+
 const MobileEventHeader = () => {
+  const [showBet, setShowBet] = useState(true);
+  const [tab, setTab] = useState("live");
+  const { eventId } = useParams();
+  const { data } = useCurrentBets(eventId);
+
   return (
     <>
       <div
@@ -140,6 +149,7 @@ const MobileEventHeader = () => {
             </div>
           </div>
         </div>
+        {/* TAB */}
         <div
           title="Live And Open Bets"
           className=" lg:hidden w-full bg-bg_color_primary shadow-sm"
@@ -149,7 +159,12 @@ const MobileEventHeader = () => {
             className="relative flex w-[100%] rounded-lg  overflow-clip  rounded-none bg-bg_color_primary w-full border-none shadow-none overflow-clip gap-x-2.5 active:scale-100 bg-bg_color_primary"
           >
             <button
-              className=" flex items-center justify-center w-full gap-1.5 tracking-wider  font-lato  py-2.5 uppercase  active:opacity-90 p-3 text-sm font-semibold text-text_brand_primary  bg-clip-text font-bold font-lato text-xs bg-bg_text_brand_primary text-transparent"
+              onClick={() => setTab("live")}
+              className={`flex items-center justify-center w-full gap-1.5 tracking-wider  font-lato  py-2.5 uppercase  active:opacity-90 p-3 text-sm font-semibold   bg-clip-text font-bold font-lato text-xs   ${
+                tab === "live"
+                  ? "text-text_brand_primary "
+                  : "text-text_color_tertiary1"
+              }`}
               style={{ zIndex: 10 }}
             >
               <span>
@@ -158,27 +173,97 @@ const MobileEventHeader = () => {
               LIVE
             </button>
             <button
-              className=" flex items-center justify-center w-full gap-1.5 tracking-wider  font-lato  py-2.5 uppercase  active:opacity-90 p-3 text-sm font-semibold text-text_color_tertiary1 text-text_color_primary3 font-lato font-bold text-xs bg-none"
+              onClick={() => setTab("openBet")}
+              className={`flex items-center justify-center w-full gap-1.5 tracking-wider  font-lato  py-2.5 uppercase  active:opacity-90 p-3 text-sm font-semibold   font-lato font-bold text-xs bg-none ${
+                tab === "openBet"
+                  ? "text-text_brand_primary "
+                  : "text-text_color_tertiary1"
+              }`}
               style={{ zIndex: 10 }}
             >
               OPEN BETS
               <span>
-                <div>(0)</div>
+                <div>({data?.length})</div>
               </span>
             </button>
-            <div
-              className="w-[48%] absolute z-10 transition-all ease-in-out bg-bg_color_brand_primary1 rounded-lg h-[2px]"
-              style={{ zIndex: 9, width: "50%", left: "0%", bottom: "0px" }}
-            />
+            {tab === "live" ? (
+              <div
+                className="w-[48%] absolute z-10 transition-all ease-in-out bg-bg_color_brand_primary1 rounded-lg h-[2px]"
+                style={{ zIndex: 9, width: "50%", left: "0%", bottom: "0px" }}
+              />
+            ) : (
+              <div
+                className="w-[48%] absolute z-10 transition-all ease-in-out bg-bg_color_brand_primary1 rounded-lg h-[2px]"
+                style={{ zIndex: 9, width: "50%", right: "0%", bottom: "0px" }}
+              />
+            )}
           </div>
         </div>
+        {/* TAB */}
       </div>
-      {/* <div
-        title="Live Score"
-        className="  grid grid-cols-1   min-h-[124px]   sm:grid-cols-2 lg:grid-cols-1 sm:gap-x-1 sm:px-0.5 lg:gap-x-0 lg:px-0 w-full  flex-grow sm:hidden"
-      >
-        fdsfdsfdsf
-      </div> */}
+      {tab === "openBet" && (
+        <div title="Open Bets" className>
+          <div className=" flex items-start justify-start flex-col w-full px-2 py-1">
+            <div
+              onClick={() => setShowBet((prev) => !prev)}
+              id="matched_1"
+              className=" w-full flex items-center justify-between bg-bg_brand_secondary transition-all ease-in-out my-1 py-1 rounded-[6px] origin-center active:opacity-95"
+            >
+              <div className="head pl-2">
+                <span className=" text-text_color_primary2 font-lato-bold">
+                  Matched Bets
+                </span>
+              </div>
+              <div className=" cursor-pointer mr-2 transform transition-transform ease-in-out flex items-center justify-center w-max origin-center  active:scale-90 active:opacity-85">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  transform={`${showBet ? "rotate(180)" : ""}`}
+                  viewBox="0 0 512 512"
+                  height={16}
+                  width={16}
+                  fill="var(--icon-color-secondary)"
+                >
+                  <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+                </svg>
+              </div>
+            </div>
+            <div className="BetSections w-full origin-top scaleVerticalOpen">
+              {showBet &&
+                data?.map((bet) => (
+                  <div
+                    key={bet?.betId}
+                    className=" bg-bg_color_primary rounded-md mb-1 px-4 w-full py-3 box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);"
+                  >
+                    <div
+                      id="eventHeader"
+                      className=" font-lato-bold font-semibold"
+                    >
+                      <div
+                        className={`font-medium underline capitalize text-sm  ${
+                          bet?.betType === "Back"
+                            ? "text-text_color_changeAnimationBack"
+                            : "text-text_color_changeAnimationLay"
+                        }`}
+                      >
+                        {bet?.title}
+                      </div>
+                    </div>
+                    <div className=" font-normal text-text_color_primary1  capitalize text-xs font-lato">
+                      {bet?.marketName}
+                    </div>
+                    <div
+                      id="tiem_Date_of_order_0_1743688800000"
+                      className=" text-xs font-lato font-normal text-text_color_primary1"
+                    >
+                      <strong>Placed : </strong>
+                      <span>{bet?.placeDate}</span>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

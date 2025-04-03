@@ -9,6 +9,7 @@ import Group from "../../components/modules/Home/Group";
 import { useGroupQuery } from "../../redux/features/events/events";
 import { useLotusHomeLobby } from "../../hooks/lotusHomeLobby";
 import IndianCardGames from "../../components/modules/Home/IndianCardGames";
+import InPlay from "../../components/modules/Home/InPlay";
 
 const Home = () => {
   const { data: lotusLobby } = useLotusHomeLobby();
@@ -34,7 +35,8 @@ const Home = () => {
             <TrendingCasino trendingGames={lotusLobby?.trendingGames} />
           </>
         )}
-        <Group data={data} />
+        {group ? <Group data={data} /> : <InPlay />}
+
         {/* <InPlay /> */}
         {!group && (
           <>

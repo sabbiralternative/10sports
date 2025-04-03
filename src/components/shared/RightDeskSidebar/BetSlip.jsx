@@ -270,7 +270,7 @@ const BetSlip = () => {
               className=" w-full p-2.5 rounded-md border bg-bg_color_input_bg border-border_color_primary "
             >
               <div className=" grid grid-cols-12 gap-[7px]">
-                {parseButtonValues?.map((button, i) => (
+                {parseButtonValues?.slice?.(0, 6)?.map((button, i) => (
                   <button
                     key={i}
                     onClick={() => dispatch(setStake(button?.value))}
