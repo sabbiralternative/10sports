@@ -62,7 +62,7 @@ const RightDrawer = ({ setShowRightDrawer, showRightDrawer }) => {
   return (
     <div
       className={`fixed top-0 left-0 z-[10000] w-full  h-[100dvh] bg-bg_color_popUpParentBg ${
-        showRightDrawer ? "block" : "hidden"
+        showRightDrawer ? "visible" : "invisible"
       }`}
     >
       <div
@@ -70,7 +70,7 @@ const RightDrawer = ({ setShowRightDrawer, showRightDrawer }) => {
         className={`fixed transition-all ease-in-out  origin-left top-0 right-0 z-50  max-w-sm h-full  overflow-y-auto bg-bg_color_quaternary2 shadow-lg ${
           showRightDrawer
             ? "openDrawerFromRight w-[70%]"
-            : "closeDrawerFromRight w-0"
+            : "closeDraerFromRight w-0 duration-300"
         }`}
       >
         <ul className=" overflow-y-auto h-max divide-y divide-divide_color_primary2">
