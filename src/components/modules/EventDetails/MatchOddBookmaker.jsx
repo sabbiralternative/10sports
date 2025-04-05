@@ -226,6 +226,12 @@ const MatchOddBookmaker = ({ data }) => {
                     game?.status === "OPEN" &&
                     game?.name !== "toss" && (
                       <button
+                        style={{
+                          cursor: `${
+                            !teamProfitForGame ? "not-allowed" : "pointer"
+                          }`,
+                          opacity: `${!teamProfitForGame ? "0.6" : "1"}`,
+                        }}
                         onClick={() =>
                           handleCashOutPlaceBet(
                             game,
@@ -238,9 +244,12 @@ const MatchOddBookmaker = ({ data }) => {
                           )
                         }
                         type="button"
-                        className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out bg-bg_cashOutBtnGrd rounded-md px-2.5 py-1.5 text-center shadow-[inset_-12px_-8px_40px_#46464620] flex items-center justify-center flex-row h-max  max-w-[74%] mr-1 
-    cursor-pointer
-    "
+                        className={`inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  rounded-md px-2.5 py-1.5 text-center shadow-[inset_-12px_-8px_40px_#46464620] flex items-center justify-center flex-row h-max  max-w-[74%] mr-1 
+    cursor-pointer ${
+      teamProfitForGame?.profit > 0
+        ? "bg-bg_cashOutBtnGrd"
+        : "bg-bg_color_clearBtn"
+    }`}
                       >
                         <div className="text-[10px] md:text-sm text-text_color_primary2 whitespace-nowrap  font-semibold">
                           Cashout{" "}

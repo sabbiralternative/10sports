@@ -137,6 +137,7 @@ const MobileBetSlip = () => {
           refetchExposure();
           refetchBalance();
           dispatch(setRunnerId(null));
+          dispatch(setPlaceBetValues(null));
           refetchCurrentBets();
           setBetDelay("");
           toast.success(res?.result?.result?.placed?.[0]?.message);

@@ -8,9 +8,9 @@ import { hideSidebarRoutes } from "../static/hideSidebarRoutes";
 
 const MainLayout = () => {
   const location = useLocation();
-
+  // h-[100dvh]
   return (
-    <div className="w-dvw app-bg   no-scrollbar flex flex-col">
+    <div className="w-dvw app-bg   h-screen  no-scrollbar flex flex-col">
       <WhatsApp />
       <Header />
       <div className="flex-1 overflow-y-auto show-scrollbar scroll-auto flex flex-col h-full pt-[110px]">

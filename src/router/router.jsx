@@ -14,6 +14,10 @@ import ChangePassword from "../pages/ChangePassword/ChangePassword";
 import StakeSetting from "../pages/StakeSetting/StakeSetting";
 import Deposit from "../pages/Deposit/Deposit";
 import Withdraw from "../pages/Withdraw/Withdraw";
+import BonusStatement from "../pages/BonusStatement/BonusStatement";
+import BettingProfitLoss from "../pages/BettingProfitLoss/BettingProfitLoss";
+import SingleBettingProfitLoss from "../pages/SingleBettingProfitLoss/SingleBettingProfitLoss";
+import MyBankDetails from "../pages/MyBankDetails/MyBankDetails";
 
 export const router = createBrowserRouter(
   [
@@ -77,6 +81,22 @@ export const router = createBrowserRouter(
         {
           path: "/withdraw",
           element: <Withdraw />,
+        },
+        {
+          path: "/bonus-statement",
+          element: <BonusStatement />,
+        },
+        {
+          path: "/betting-profit-loss",
+          element: <BettingProfitLoss />,
+        },
+        {
+          path: "/betting-profit-loss/:marketId",
+          element: <SingleBettingProfitLoss />,
+        },
+        {
+          path: "/my-bank-details",
+          element: <MyBankDetails />,
         },
       ],
     },
