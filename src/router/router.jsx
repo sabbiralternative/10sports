@@ -13,6 +13,7 @@ import AccountStatement from "../pages/AccountStatement/AccountStatement";
 import ChangePassword from "../pages/ChangePassword/ChangePassword";
 import StakeSetting from "../pages/StakeSetting/StakeSetting";
 import Deposit from "../pages/Deposit/Deposit";
+import Withdraw from "../pages/Withdraw/Withdraw";
 
 export const router = createBrowserRouter(
   [
@@ -72,6 +73,10 @@ export const router = createBrowserRouter(
         {
           path: "/deposit",
           element: <Deposit />,
+        },
+        {
+          path: "/withdraw",
+          element: <Withdraw />,
         },
       ],
     },
