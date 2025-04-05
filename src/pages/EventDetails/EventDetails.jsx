@@ -114,7 +114,7 @@ const EventDetails = () => {
     >
       <div className="w-full h-full">
         <div className="no-scrollbar min-h-[calc(100dvh-56px)] md:mb-3">
-          <DesktopEventHeader />
+          <DesktopEventHeader data={data} />
           <MobileEventHeader />
 
           <div className=" w-full text-selection-none pb-3 lg:pb-0">

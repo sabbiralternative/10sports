@@ -29,9 +29,9 @@ const BetSlip = () => {
   const { token } = useSelector((state) => state.auth);
   const { price, stake, placeBetValues } = useSelector((state) => state.event);
   const { eventId } = useParams();
-  const { refetchBalance } = useBalance();
-  const { refetchCurrentBets } = useCurrentBets(eventId);
-  const { refetchExposure } = useExposure(eventId);
+  const { refetch: refetchBalance } = useBalance();
+  const { refetch: refetchCurrentBets } = useCurrentBets(eventId);
+  const { refetch: refetchExposure } = useExposure(eventId);
   const [betDelay, setBetDelay] = useState(null);
   const [loading, setLoading] = useState(false);
   const [createOrder] = useOrderMutation();

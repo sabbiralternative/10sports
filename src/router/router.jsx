@@ -12,6 +12,7 @@ import ScrollToTop from "../components/shared/ScrollToTop/ScrollToTop";
 import AccountStatement from "../pages/AccountStatement/AccountStatement";
 import ChangePassword from "../pages/ChangePassword/ChangePassword";
 import StakeSetting from "../pages/StakeSetting/StakeSetting";
+import Deposit from "../pages/Deposit/Deposit";
 
 export const router = createBrowserRouter(
   [
@@ -67,6 +68,10 @@ export const router = createBrowserRouter(
         {
           path: "/stake-setting",
           element: <StakeSetting />,
+        },
+        {
+          path: "/deposit",
+          element: <Deposit />,
         },
       ],
     },

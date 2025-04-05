@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { useLanguage } from "../../../context/LanguageProvider";
 import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import ScoreHome from "./ScoreHome";
 
 const SingleGroup = ({ data, filterData, title, margin }) => {
   const { valueByLanguage } = useLanguage();
@@ -62,14 +63,15 @@ const SingleGroup = ({ data, filterData, title, margin }) => {
                       onClick={() => navigateGameList(key)}
                       className="col-span-6 h-12 lg:col-span-5 grid grid-cols-7 border-t border-border_color_primary1"
                     >
-                      <span
+                      {/* <span
                         id="inPlayTime"
                         className="flex items-center justify-center flex-col col-span-2 pl-[1px] pr-[1px] active:scale-[94%] transition-all ease-in-out duration-100"
                       >
                         <span className="text-text_color_InPlayEventsScoreAndTime text-[8px] xs:text-[9px] md:text-[10px] font-semibold w-full text-center">
                           22-03-2025 8:30 PM
                         </span>
-                      </span>
+                      </span> */}
+                      <ScoreHome data={data} keys={key} />
                       <div
                         id="inPlayTeamName"
                         className="cursor-pointer text-selection-none flex items-center justify-start col-span-5 px-1 relative border-l border-r border-border_color_primary active:scale-[94%] transition-all ease-in-out duration-100"

@@ -14,7 +14,6 @@ const OpenBet = () => {
     dispatch(setShowLoginModal(true));
   };
 
-  console.log(data);
   return (
     <>
       {token ? (

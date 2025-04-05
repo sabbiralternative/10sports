@@ -182,6 +182,7 @@ const RightDrawer = ({ setShowRightDrawer, showRightDrawer }) => {
                 className="flex items-center justify-center w-full gap-1"
               >
                 <button
+                  onClick={() => handleNavigate("/deposit")}
                   className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  flex bg-none border-none shadow-none    w-full 
       cursor-pointer
       "
@@ -228,6 +229,7 @@ const RightDrawer = ({ setShowRightDrawer, showRightDrawer }) => {
                   </span>
                 </button>
                 <button
+                  onClick={() => handleNavigate("/withdraw")}
                   className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  flex bg-none border-none shadow-none    w-full 
       cursor-pointer
       "

@@ -3,6 +3,7 @@ import { useGroupQuery } from "../../../redux/features/events/events";
 import { useNavigate } from "react-router-dom";
 import { Cricket, InPlayIcon, Tennis } from "../../../assets/Icon/Index";
 import { useSelector } from "react-redux";
+import ScoreHome from "./ScoreHome";
 
 const InPlay = () => {
   const { group } = useSelector((state) => state.global);
@@ -97,14 +98,15 @@ const InPlay = () => {
                               lastElement ? "border-b" : ""
                             }`}
                           >
-                            <span
+                            {/* <span
                               id="inPlayTime"
                               className="flex items-center justify-center flex-col col-span-2 pl-[1px] pr-[1px] active:scale-[94%] transition-all ease-in-out duration-100"
                             >
                               <span className="text-text_color_InPlayEventsScoreAndTime text-[8px] xs:text-[9px] md:text-[10px] font-semibold w-full text-center">
-                                22-03-2025 8:30 PM
+                                {data[keys]?.date}
                               </span>
-                            </span>
+                            </span> */}
+                            <ScoreHome data={data} keys={keys} />
                             <div
                               id="inPlayTeamName"
                               className="cursor-pointer text-selection-none flex items-center justify-start col-span-5 px-1 relative border-l border-r border-border_color_primary active:scale-[94%] transition-all ease-in-out duration-100"

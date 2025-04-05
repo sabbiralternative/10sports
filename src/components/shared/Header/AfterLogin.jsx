@@ -1,13 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import { Settings } from "../../../api";
 import { useLanguage } from "../../../context/LanguageProvider";
 import useBalance from "../../../hooks/balance";
 
 const AfterLogin = ({ setShowLanguageModal, setShowRightDrawer }) => {
+  const navigate = useNavigate();
   const { language } = useLanguage();
   const { data } = useBalance();
 
   const showRightDrawer = () => {
     setShowRightDrawer(true);
+  };
+
+  const handleNavigate = (link) => {
+    navigate(link);
   };
 
   return (
@@ -28,6 +34,7 @@ const AfterLogin = ({ setShowLanguageModal, setShowRightDrawer }) => {
         className=" hidden lg:flex items-center justify-center gap-1"
       >
         <button
+          onClick={() => handleNavigate("/deposit")}
           className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out bg-none border-none shadow-none 
       cursor-pointer
       "
@@ -74,6 +81,7 @@ const AfterLogin = ({ setShowLanguageModal, setShowRightDrawer }) => {
           </span>
         </button>
         <button
+          onClick={() => handleNavigate("/withdraw")}
           className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out bg-none border-none shadow-none 
       cursor-pointer
       "

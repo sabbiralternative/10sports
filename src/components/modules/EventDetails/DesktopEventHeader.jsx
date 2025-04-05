@@ -1,4 +1,4 @@
-const DesktopEventHeader = () => {
+const DesktopEventHeader = ({ data }) => {
   return (
     <div className=" sm:flex flex-col w-full hidden">
       <div className="flex flex-row w-full justify-between items-center px-2 mt-2 bg-bg_appBg rounded-sm py-2">
@@ -6,7 +6,7 @@ const DesktopEventHeader = () => {
           className=" flex items-center justify-start gap-x-3 w-[92%]"
           id="playIcon"
         >
-          <span className="min-w-[4%]">
+          {/* <span className="min-w-[4%]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={18}
@@ -63,18 +63,18 @@ const DesktopEventHeader = () => {
                 </clipPath>
               </defs>
             </svg>
-          </span>
+          </span> */}
           <span className=" bg-bg_text_brand_primary text-transparent bg-clip-text font-lato text-xl font-bold">
             <span className=" capitalize w-max break-words">
-              Gujarat Titans
+              {data?.result?.[0]?.eventName}
             </span>
-            <span className="ml-[2px]">vs</span>
+            {/* <span className="ml-[2px]">vs</span>
             <span className=" capitalize w-max ml-[2px] break-words">
               Punjab Kings
-            </span>
+            </span> */}
           </span>
         </div>
-        <div className=" flex items-center justify-center gap-x-2">
+        {/* <div className=" flex items-center justify-center gap-x-2">
           <span className=" w-max break-words bg-bg_text_brand_primary text-transparent bg-clip-text font-lato text-xs font-bold">
             Opens in 3 hours 44 minutes
           </span>
@@ -112,7 +112,7 @@ const DesktopEventHeader = () => {
               </defs>
             </svg>
           </span>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
 import { AxiosSecure } from "../lib/AxiosSecure";
 import { useDispatch, useSelector } from "react-redux";
 import { API } from "../api";
