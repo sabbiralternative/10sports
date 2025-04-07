@@ -17,12 +17,16 @@ import BeforeLogin from "./BeforeLogin";
 
 const Header = () => {
   const { token } = useSelector((state) => state.auth);
-  const [showLanguageModal, setShowLanguageModal] = useState(false);
+
   const [time, setTime] = useState();
   const [showDrawer, setShowDrawer] = useState(false);
   const [showRightDrawer, setShowRightDrawer] = useState(false);
-  const { showLoginModal, showRegisterModal, showForgotPasswordModal } =
-    useSelector((state) => state.global);
+  const {
+    showLoginModal,
+    showRegisterModal,
+    showForgotPasswordModal,
+    showLanguageModal,
+  } = useSelector((state) => state.global);
   const { logo } = useLogo();
   const dispatch = useDispatch();
 
@@ -38,9 +42,7 @@ const Header = () => {
 
   return (
     <>
-      {showLanguageModal && (
-        <Language setShowLanguageModal={setShowLanguageModal} />
-      )}
+      {showLanguageModal && <Language />}
       {showLoginModal && <Login />}
       {showRegisterModal && <Registration />}
       {showForgotPasswordModal && <ForgotPassword />}
@@ -125,12 +127,9 @@ const Header = () => {
 
               {/* Before login */}
               {!token ? (
-                <BeforeLogin setShowLanguageModal={setShowLanguageModal} />
+                <BeforeLogin />
               ) : (
-                <AfterLogin
-                  setShowRightDrawer={setShowRightDrawer}
-                  setShowLanguageModal={setShowLanguageModal}
-                />
+                <AfterLogin setShowRightDrawer={setShowRightDrawer} />
               )}
             </div>
 

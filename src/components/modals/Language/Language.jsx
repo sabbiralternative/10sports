@@ -3,8 +3,11 @@ import useCloseModalClickOutside from "../../../hooks/closeModal";
 import { useLanguage } from "../../../context/LanguageProvider";
 import { useGetLanguage } from "../../../hooks/language.hook";
 import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { setShowLanguageModal } from "../../../redux/features/global/globalSlice";
 
-const Language = ({ setShowLanguageModal }) => {
+const Language = () => {
+  const dispatch = useDispatch();
   const [selectedLan, setSelectedLag] = useState(
     localStorage.getItem("language") || null
   );
@@ -18,7 +21,7 @@ const Language = ({ setShowLanguageModal }) => {
       return toast.error("Please select a language");
     }
     localStorage.setItem("language", selectedLan);
-    setShowLanguageModal(false);
+    closeModal();
     setLanguage(selectedLan);
   };
   const modalRef = useRef();
@@ -27,7 +30,7 @@ const Language = ({ setShowLanguageModal }) => {
   });
 
   const closeModal = () => {
-    setShowLanguageModal(false);
+    dispatch(setShowLanguageModal(false));
   };
   return (
     <div className="fixed bottom-0 left-0 right-0 top-0 overflow-hidden flex h-[100dvh] w-dvw items-center justify-center bg-bg_color_popUpParentBg overflow-y-hidden z-[10000]">

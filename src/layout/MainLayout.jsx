@@ -8,7 +8,7 @@ import { hideSidebarRoutes } from "../static/hideSidebarRoutes";
 
 const MainLayout = () => {
   const location = useLocation();
-  // h-[100dvh]
+
   return (
     <div className="w-dvw app-bg   h-screen  no-scrollbar flex flex-col">
       <WhatsApp />
@@ -32,7 +32,7 @@ const MainLayout = () => {
             <RightDeskSidebar />
           ) : null}
         </main>
-        <Footer />
+        {location.pathname === "/" && <Footer />}
       </div>
     </div>
   );

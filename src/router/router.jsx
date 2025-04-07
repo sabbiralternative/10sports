@@ -18,6 +18,10 @@ import BonusStatement from "../pages/BonusStatement/BonusStatement";
 import BettingProfitLoss from "../pages/BettingProfitLoss/BettingProfitLoss";
 import SingleBettingProfitLoss from "../pages/SingleBettingProfitLoss/SingleBettingProfitLoss";
 import MyBankDetails from "../pages/MyBankDetails/MyBankDetails";
+import ResponsibleGambling from "../pages/ResponsibleGambling/ResponsibleGambling";
+import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
+import ExclusionPolicy from "../pages/ExclusionPolicy/ExclusionPolicy";
+import Rules from "../pages/Rules/Rules";
 
 export const router = createBrowserRouter(
   [
@@ -97,6 +101,22 @@ export const router = createBrowserRouter(
         {
           path: "/my-bank-details",
           element: <MyBankDetails />,
+        },
+        {
+          path: "/responsible-gambling",
+          element: <ResponsibleGambling />,
+        },
+        {
+          path: "/privacy-policy",
+          element: <PrivacyPolicy />,
+        },
+        {
+          path: "/exclusion-policy",
+          element: <ExclusionPolicy />,
+        },
+        {
+          path: "/rules",
+          element: <Rules />,
         },
       ],
     },

@@ -7,6 +7,7 @@ const initialState = {
   showRegisterModal: false,
   showForgotPasswordModal: false,
   selectedCategory: "ALL",
+  showLanguageModal: false,
 };
 
 const stateSlice = createSlice({
@@ -31,6 +32,9 @@ const stateSlice = createSlice({
     setSelectedCategory: (state, action) => {
       state.selectedCategory = action.payload;
     },
+    setShowLanguageModal: (state, action) => {
+      state.showLanguageModal = action.payload;
+    },
   },
 });
 
@@ -41,6 +45,7 @@ export const {
   setShowForgotPasswordModal,
   setShowRegisterModal,
   setSelectedCategory,
+  setShowLanguageModal,
 } = stateSlice.actions;
 
 export default stateSlice.reducer;

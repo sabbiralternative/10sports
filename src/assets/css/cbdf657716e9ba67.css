@@ -67,7 +67,7 @@ input:-webkit-autofill:hover {
   font-family: Lato;
   font-style: normal;
   font-weight: 700;
-  src: url(../../assets/Fonts/Lato/Lato-Bold.ttf) format("truetype");
+  src: url("/src/assets/Fonts/Lato/Lato-Bold.ttf") format("truetype");
   font-preload: true;
 }
 
@@ -76,39 +76,39 @@ input:-webkit-autofill:hover {
   font-family: Lato;
   font-style: normal;
   font-weight: 400;
-  src: url(../../assets/Fonts/Lato/Lato-Regular.ttf) format("truetype");
+  src: url("/src/assets/Fonts/Lato/Lato-Regular.ttf") format("truetype");
   font-preload: true;
 }
 
-@font-face {
+/* @font-face {
   font-display: swap;
   font-family: Inter;
   font-style: normal;
   font-weight: 400;
   src: url(../../assets/Fonts/Inter/static/Inter-Regular.ttf) format("truetype");
   font-preload: true;
-}
+} */
 
-@font-face {
+/* @font-face {
   font-display: swap;
   font-family: Inter;
   font-style: normal;
   font-weight: 700;
   src: url(../../assets/Fonts/Inter/static/Inter-Bold.ttf) format("truetype");
   font-preload: true;
-}
+} */
 
 @font-face {
   font-display: swap;
   font-family: Helvetica Neue;
   font-style: normal;
   font-weight: 400;
-  src: url(../../assets/Fonts/helvetica-neue-5/HelveticaNeueMedium.otf)
+  src: url("/src/assets/Fonts/helvetica-neue-5/HelveticaNeueMedium.otf")
     format("truetype");
   font-preload: true;
 }
 
-@font-face {
+/* @font-face {
   font-display: swap;
   font-family: Helvetica Neue;
   font-style: normal;
@@ -116,33 +116,33 @@ input:-webkit-autofill:hover {
   src: url(../../assets/Fonts/helvetica-neue-5/HelveticaNeueBold.otf)
     format("truetype");
   font-preload: true;
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
   src: url(../../assets/Fonts/Roboto/Roboto-Regular.ttf) format("truetype");
   font-preload: true;
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: Manrope;
   font-style: normal;
   font-weight: 500;
   src: url(../../assets/Fonts/Manrope/static/Manrope-Regular.ttf)
     format("truetype");
   font-preload: true;
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: Manrope;
   font-style: normal;
   font-weight: 700;
   src: url(../../assets/Fonts/Manrope/static/Manrope-Bold.ttf)
     format("truetype");
   font-preload: true;
-}
+} */
 
 .font-lato {
   font-family: Lato;

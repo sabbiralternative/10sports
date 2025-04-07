@@ -2,8 +2,11 @@ import { useNavigate } from "react-router-dom";
 import { Settings } from "../../../api";
 import { useLanguage } from "../../../context/LanguageProvider";
 import useBalance from "../../../hooks/balance";
+import { useDispatch } from "react-redux";
+import { setShowLanguageModal } from "../../../redux/features/global/globalSlice";
 
-const AfterLogin = ({ setShowLanguageModal, setShowRightDrawer }) => {
+const AfterLogin = ({ setShowRightDrawer }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { language } = useLanguage();
   const { data } = useBalance();
@@ -220,7 +223,7 @@ const AfterLogin = ({ setShowLanguageModal, setShowRightDrawer }) => {
 
         {Settings.language && (
           <button
-            onClick={() => setShowLanguageModal(true)}
+            onClick={() => dispatch(setShowLanguageModal(true))}
             className="relative overflow-hidden hidden lg:flex items-center ml-2 text-text_color_primary2 justify-center text-xs py-2 px-2 rounded-full bg-bg_color_secondary border border-border_color_primary capitalize"
             type="button"
           >

@@ -1,6 +1,7 @@
 import { useLanguage } from "../../../context/LanguageProvider";
 import { useDispatch } from "react-redux";
 import {
+  setShowLanguageModal,
   setShowLoginModal,
   setShowRegisterModal,
 } from "../../../redux/features/global/globalSlice";
@@ -8,7 +9,7 @@ import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import { Settings } from "../../../api";
 
-const BeforeLogin = ({ setShowLanguageModal }) => {
+const BeforeLogin = () => {
   const { language, valueByLanguage } = useLanguage();
   const dispatch = useDispatch();
 
@@ -129,7 +130,7 @@ const BeforeLogin = ({ setShowLanguageModal }) => {
       </div>
       {Settings.language && (
         <button
-          onClick={() => setShowLanguageModal(true)}
+          onClick={() => dispatch(setShowLanguageModal(true))}
           className="relative overflow-hidden hidden lg:flex items-center ml-2 text-text_color_primary2 justify-center text-xs py-2 px-2 rounded-full bg-bg_color_secondary border border-border_color_primary capitalize"
           type="button"
         >
