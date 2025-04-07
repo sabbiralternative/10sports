@@ -22,7 +22,6 @@ const HeaderBottomNavItem = () => {
   const dispatch = useDispatch();
   const handleSetGroup = (group) => {
     dispatch(setGroup(group));
-    window.scrollTo(0, 0);
   };
   return (
     <div className="flex w-full overflow-x-auto bg-bg_headerDeskNavMenu no-scrollbar py-[5px] px-3 items-start md:items-center md:justify-center">

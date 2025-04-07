@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import { useEffect } from "react";
 import { Settings } from "./api";
@@ -9,12 +9,7 @@ import { logout } from "./redux/features/auth/authSlice";
 function App() {
   const disabledDevtool = Settings.disabledDevtool;
   const navigate = useNavigate();
-  const location = useLocation();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
 
   useEffect(() => {
     if (disabledDevtool) {
