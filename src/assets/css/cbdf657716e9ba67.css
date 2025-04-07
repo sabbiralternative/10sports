@@ -67,7 +67,7 @@ input:-webkit-autofill:hover {
   font-family: Lato;
   font-style: normal;
   font-weight: 700;
-  src: url("/src/assets/Fonts/Lato/Lato-Bold.ttf") format("truetype");
+  src: url("/Fonts/Lato/Lato-Bold.ttf") format("truetype");
   font-preload: true;
 }
 
@@ -76,7 +76,7 @@ input:-webkit-autofill:hover {
   font-family: Lato;
   font-style: normal;
   font-weight: 400;
-  src: url("/src/assets/Fonts/Lato/Lato-Regular.ttf") format("truetype");
+  src: url("/Fonts/Lato/Lato-Regular.ttf") format("truetype");
   font-preload: true;
 }
 
@@ -103,8 +103,7 @@ input:-webkit-autofill:hover {
   font-family: Helvetica Neue;
   font-style: normal;
   font-weight: 400;
-  src: url("/src/assets/Fonts/helvetica-neue-5/HelveticaNeueMedium.otf")
-    format("truetype");
+  src: url("/Fonts/helvetica-neue-5/HelveticaNeueMedium.otf") format("truetype");
   font-preload: true;
 }
 
