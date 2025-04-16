@@ -1,3 +1,294 @@
+:root {
+  --bg-color-secondary: #23201f;
+  --bg-color-tertiary: #48494b;
+  --bg-color-tertiary1: #475569;
+  --bg-color-tertiary2: #000;
+  --bg-color-quaternary: #545454;
+  --bg-color-quaternary3: #e8e8e8;
+  --bg-color-quaternary4: #9a9898;
+  --bg-color-quaternary5: #f8f9fa;
+  --bg-color-quaternary6: #e6e6e6;
+  --bg-color-quaternary7: #f3f4f6;
+  --bg-color-quaternary8: #6b7280;
+  --bg-color-quaternary9: #9ca3af;
+  --bg-color-casinoProvider: #e8e8e8;
+  --bg-color-suspendedBgColor: #d3ebfe;
+  --bg-color-quaternary1: #505050;
+  --bg-color-cr-1: #e0f7fa;
+  --bg-color-cr-2: #e1f5fe;
+  --bg-color-cr-3: #e8f5e9;
+  --bg-color-cr-4: #fff3e0;
+  --bg-color-cr-5: #fffde7;
+  --bg-color-cr-6: #fbe9e7;
+  --bg-color-cr-w: #efebe9;
+  --bg-color-cr-wd: #ede7f6;
+  --bg-color-cr-nb: #e8eaf6;
+  --bg-color-cr-lb: #f3e5f5;
+  --bg-color-cr-default: #f7f7f7;
+  --bg-color-input-bg: #23201f;
+  --bg-color-LoginPopUpBg: #333;
+  --bg-color-loginTabsBg: hsla(0, 0%, 100%, 0.1);
+  --bg-color-skeletonBgLoaderColor: #464646;
+  --bg-color-skeletonBgLoaderColor1: #23201f;
+  --bg-color-success: #4cae50;
+  --bg-color-warning: #fbc02d;
+  --bg-color-danger: #eb244f;
+  --bg-color-info: #0288d1;
+  --bg-color-popUpParentBg: #00000066;
+  --bg-color-lightGray: #ebebeb;
+  --bg-color-loaderBg: #9a989816;
+  --bg-color-chatIssueBg: #f4f4f412;
+  --bg-color-chatClientBg: var(--bg-color-primary);
+  --bg-color-chatOpenBtnBg: #37f;
+  --bg-color-chatResolvedBtnBg: #4cae50;
+  --bg-color-chatDeferredBtnBg: #fbc02d;
+  --bg-color-chatCloseBtnBg: #eb244f;
+  --bg-color-chatAssignedBtnBg: #0288d1;
+  --bg-color-chatInProgressBtnBg: #f38221;
+  --bg-color-chatRescheduledBtnBg: #9ca3af;
+  --bg-color-chatCreatedBtnBg: #6b7280;
+  --bg-color-backBtnBg: #a7d8fd;
+  --bg-color-layBtnBg: #f9c9d4;
+  --bg-color-highLightChangeColor: #ffb;
+  --bg-color-sideBarDeskBg: #f1e9e6;
+  --bg-color-confirmBetBackColor: #ebf1ff;
+  --bg-color-confirmBetLayColor: #f9e7eb;
+  --bg-color-casinoPopupBg: #000000b3;
+  --bg-color-backgroundColorForOddChange: #fef8d3;
+  --bg-color-disableBackGroundColorfForPlaceBetBtn: #979797;
+
+  --bg-color-inPlayBlockBg: linear-gradient(
+    90deg,
+    #bd3726 -13.95%,
+    #333 74.01%
+  );
+  --bg-color-UpcomingBg: linear-gradient(90deg, #bd3726 -13.95%, #333 74.01%);
+  --bg-color-competetionInPlayUpComingBg: linear-gradient(
+    90deg,
+    #bd3726,
+    #f9b134
+  );
+  --bg-color-scoreAndAndroidAppBtn: linear-gradient(90deg, #23201f, #23201f);
+  --bg-color-cashOutBtnGrd: linear-gradient(89deg, #40af52, #2e924b 89.28%);
+  --bg-color-lossGrd: linear-gradient(90deg, #0f2326, #bd3726);
+  --bg-color-homeDepositBtnBgColor: linear-gradient(90deg, #17c964, #2e924b);
+  --bg-color-homeWithdrawBtnBgColor: linear-gradient(90deg, #bd3726, #f9b134);
+  --bg-color-transactionPendingBg: linear-gradient(
+    90deg,
+    #fbc439,
+    #fd9b07 89.28%
+  );
+  --bg-color-transactionFailedBg: linear-gradient(
+    90deg,
+    #eb244f,
+    #a90f31 89.28%
+  );
+  --bg-color-transactionSuccessBg: linear-gradient(
+    90deg,
+    #40af52,
+    #2e924b 89.28%
+  );
+  --bg-color-transactionInitiatedBg: linear-gradient(
+    90deg,
+    #618cbe,
+    #536c8a 89.28%
+  );
+  --bg-color-bonusCard: linear-gradient(
+    111deg,
+    #d82f0a -25.88%,
+    #ca27d8 116.27%
+  );
+  --bg-color-bonus-active: #ffc700;
+  --bg-color-bonus-expired: #cd3c5b;
+  --bg-color-bonus-expired-time: hsla(0, 0%, 100%, 0.2);
+  --bg-color-bonus-claim-now: #0ed80a;
+  --bg-color-wageredColor: #00000033;
+  --bg-color-giftCardInputBg: #ffffff26;
+  --bg-color-bonus: linear-gradient(90deg, #4c0ad8, #c509c9);
+  --bg-color-bonus1: linear-gradient(90deg, #ffb700, #ffd466, #ffb800);
+  --bg-color-GiftCardBg: linear-gradient(90deg, #743899, #9b1d39);
+  --bg-color-redeemBtnBg: linear-gradient(89deg, #f6b129, #dab557 98.98%);
+  --bg-color-superOverBannerGradient: linear-gradient(
+    91deg,
+    #091162 10.1%,
+    #2a38b6 63.73%,
+    #0736ae00 104.08%
+  );
+  --bg-color-SignUpBtnBgColor: linear-gradient(90deg, #48494b, #48494b);
+  --bg-color-BuyCryptoBtnBg: linear-gradient(90deg, #48494b, #48494b);
+  --bg-color-BalanceBtnBg: linear-gradient(
+    to right,
+    var(--bg-color-tertiary),
+    var(--bg-color-tertiary)
+  );
+
+  --bg-color-betSlipBgColor: #fff;
+  --bg-color-minBtn: linear-gradient(90deg, #44b5d9, #2c8ba9);
+  --bg-color-maxBtn: linear-gradient(90deg, #2e924b, #40af52);
+  --bg-color-editStakes: linear-gradient(90deg, #b0b0b0, #747474);
+  --bg-color-clearBtn: linear-gradient(90deg, #8d1d35, #cd3c5b);
+  --bg-color-ballRunning: linear-gradient(90deg, #a7d8fd, #f9c9d4);
+  --bg-color-bonusButtonBg1: #ffc700;
+  --bg-color-bonusButtonBg2: #cd3c5b;
+  --bg-color-bonusGradient1: #4c0ad8;
+  --bg-color-bonusGradient2: #c509c9;
+  --bg-color-bonusGradient3: #4883e7;
+  --bg-color-bonusGradient4: #ae09c9;
+  --bg-color-bonusRibbonBg1: #ffb700;
+  --bg-color-bonusRibbonBg2: #ffd466;
+  --bg-color-bonusRibbonBg3: #ffb800;
+  --bg-color-accountStatementBg1: #05ff0e26;
+  --bg-color-accountStatementBg2: #ff050526;
+  --bg-color-ternary14: hsla(0, 0%, 100%, 0.05);
+  --bg-color-teranry15: #bbbec3;
+  --bg-color-success2: #4dc759;
+  --bg-color-slate500: #64748b;
+  --bg-color-betSlipBgColor: #333;
+  --bg-color-selectedOddColor: #fff;
+  --bg-color-casinoProvider: #f3f4f6;
+  --bg-color-switchAfterCheck: #01a950;
+  --bg-color-switchBtnRound: #fff;
+  --bg-color-betSlipOddIncDecrBtnsGrd: linear-gradient(
+    62.57deg,
+    #bd3726 34.17%,
+    #6d261d 104.5%
+  );
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --loader-size: 100px;
+  --border-primary: #0f2326;
+  --border-oddInputColor: #595b6a;
+  --border-ternary6: #e6e6e6;
+  --border-secondary: #60a3b3;
+  --border-teranry2: #d1d5db;
+  --border-success: #29ab2b;
+  --border-secondary1: #3b82f6;
+  --border-quaternary: #f38221;
+  --border-backBtn: #a7d8fd;
+  --border-layBtn: #f9c9d4;
+  --border-oddInputBorderActive: #0f2326;
+  --border-oddInputBorder: #b9b8b8;
+  --border-borderColorOfMarket: #d1d1d1;
+  --border-borderColorFoprOddChange: #f6d69b;
+  --border-depositBtn: #17c964;
+  --border-withDrawBtn: #0f2326;
+  --border-inActivePlaceBtnColor: #e6e6e6;
+  --border-quinary: #9a9898;
+  --border-bgGray300: #d1d5db;
+  --border-betSlipLoginBtnBg: #bd3726;
+  --border-disableBackGroundColorfForPlaceBetBtn: #979797;
+  --border-ternary5: #b0b0b0;
+  --border-ternary3: #d1d5db;
+  --border-giftInputBorderColor: #ffffff4d;
+  --border-ternary4: rgba(0, 0, 0, 0.2);
+  --border-borderOfFancyPremiumTab: #d55c76;
+  --border-borderinActiveFancyPremiumTab: #e6e6e6;
+  --border-depostPayBg: #f2f2f2;
+  --border-ternary8: #4a5568;
+  --border-betSlipCancelBtnColor: #8c8c8c;
+  --border-danger: #e90038;
+  --border-notesBorderColor: #dadada;
+  --border-borderColorForDepositPaymentMethod: #007df1;
+  --icon-color-brand-primary: #bd3726;
+  --icon-color-brand-secondary: #f38221;
+  --icon-color-brand-tertiary: #f9b134;
+  --icon-color-brand-tertiary1: #d3d3d3;
+  --icon-color-primary: #d2d2d2;
+  --icon-color-secondary: #fff;
+  --icon-color-ternary: #bd3726;
+  --icon-color-quaternary: #f38221;
+  --icon-color-quinary: #bd3726;
+  --icon-color-primary1: #f38221;
+  --icon-color-primary2: #8c8c8c;
+  --icon-color-menuSearchIconsColor: #cc5f36;
+  --icon-color-betSlipIconsColor: #b0b0b0;
+  --icon-color-favouriteIconColor: #dfc548;
+  --icon-color-rulesOpenIconColor: #9d9d9d;
+  --icon-color-success: #4cae50;
+
+  --text-color-headerDeskNav: #d2d2d2;
+  --text-color-brand-secondary: linear-gradient(
+    95deg,
+    #f38221 -8.6%,
+    #f9b134 110.45%
+  );
+  --text-color-primary: #fff;
+  --text-color-brand-withOutGrd-primary: #f38221;
+  --text-color-primary1: #fff;
+  --text-color-primary2: #fff;
+  --text-color-primary3: #e6e6e6;
+  --text-color-primary4: #eed1d5;
+  --text-color-primary5: #f9e7eb;
+  --text-color-secondary: #f38221;
+  --text-color-ternary: #000;
+  --text-color-tertiary1: #9a9898;
+  --text-color-tertiary2: #9c9c9c;
+  --text-color-tertiary3: #b0b0b0;
+  --text-color-tertiary4: #626262;
+  --text-color-tertiary5: #b5b5b5;
+  --text-color-tertiary6: #d2d2d2;
+  --text-color-loginTextColor: var(--text-color-primary1);
+  --text-color-loginInputTextColor: var(--text-color-primary1);
+  --text-color-loginButtonTextColor: var(--text-color-primary2);
+  --text-color-suspendedFontColor: #1e3f5a;
+  --text-color-InPlayEventsScoreAndTime: #4cae50;
+  --text-color-UpcomingEventsScoreAndTime: #f9b134;
+  --text-color-cr-1: #00796b;
+  --text-color-cr-2: #0288d1;
+  --text-color-cr-3: #2e7d32;
+  --text-color-cr-4: #ef6c00;
+  --text-color-cr-5: #fbc02d;
+  --text-color-cr-6: #d84315;
+  --text-color-cr-w: #5d4037;
+  --text-color-cr-wd: #512da8;
+  --text-color-cr-nb: #303f9f;
+  --text-color-cr-lb: #8e24aa;
+  --text-color-cr-default: #000;
+  --text-color-error-message: #fff;
+  --text-color-changeAnimationBack: #0a8bed;
+  --text-color-changeAnimationLay: #f67d99;
+  --text-color-betSlipCancelBtnColor: #8c8c8c;
+  --text-color-layTextColorConfirmBet: #cd3c5b;
+  --text-color-backTextColorConfirmBet: #5c92ff;
+  --text-color-oddValue: #000;
+  --text-color-chatBoxText: #f3f3f3;
+  --text-color-chatBoxText1: #f3f3f390;
+  --text-color-success: #4cae50;
+  --text-color-danger: #eb244f;
+  --text-color-info: #0288d1;
+  --text-color-warning: #fbc02d;
+  --border-color-primary: #545454;
+  --border-color-primary1: #676767;
+  --border-color-primary2: #737373;
+  --border-color-primary3: #333;
+  --border-color-primary4: #bd3725;
+  --border-color-primary5: #c4c4c4;
+  --border-color-primary6: #d2d2d2;
+  --border-color-brand_primary: #f38221;
+  --border-color-brand_secondary: #f38221;
+  --border-color-brand_secondary1: #f38221;
+  --border-color-depositPaymentMethod: #f38221;
+  --border-color-activeInput: #d2d2d2;
+  --border-color-cr-1: #00796b;
+  --border-color-cr-2: #0288d1;
+  --border-color-cr-3: #2e7d32;
+  --border-color-cr-4: #ef6c00;
+  --border-color-cr-5: #fbc02d;
+  --border-color-cr-6: #d84315;
+  --border-color-cr-w: #5d4037;
+  --border-color-cr-wd: #512da8;
+  --border-color-cr-nb: #303f9f;
+  --border-color-cr-lb: #8e24aa;
+  --border-color-cr-default: #000;
+  --border-color-success: #29ab2b;
+  --border-color-danger: #e90038;
+  --border-color-info: #0288d1;
+  --border-color-warning: #fbc02d;
+  --border-color-homeDepositBtnBgColor: #17c964;
+  --border-color-homeWithdrawBtnBgColor: #bd3726;
+}
+
 *,
 :after,
 :before {
@@ -3054,7 +3345,7 @@ video {
   background-color: var(--bg-color-switchBtnRound);
 }
 .bg-bg_appBg {
-  background-color: var(--bg-color-appBg);
+  background-color: var(--app-bg);
 }
 .bg-bg_color_LoginPopUpBg {
   background-color: var(--bg-color-LoginPopUpBg);
@@ -3087,7 +3378,7 @@ video {
   background-color: var(--bg-color-bonus-expired-time);
 }
 .bg-bg_color_brand_primary1 {
-  background-color: var(--bg-color-brand-primary1);
+  background-color: var(--bg-active-primary);
 }
 .bg-bg_color_brand_primary2 {
   background-color: var(--bg-color-brand-primary2);
@@ -3216,7 +3507,7 @@ video {
   background-color: var(--bg-color-loginTabsBg);
 }
 .bg-bg_color_placeBetBtnGrd {
-  background-color: var(--bg-color-placeBetBtnGrd);
+  background-color: var(--bg-active-primary);
 }
 .bg-bg_color_popUpParentBg {
   background-color: var(--bg-color-popUpParentBg);
@@ -3319,10 +3610,10 @@ video {
   background-image: var(--bg-color-UpcomingBg);
 }
 .bg-bg_brand_primary {
-  background-image: var(--bg-color-brand_primary);
+  background-color: var(--bg-active-primary);
 }
 .bg-bg_brand_secondary {
-  background-image: var(--bg-color-brand_secondary);
+  background-color: var(--bg-active-primary);
 }
 .bg-bg_cashOutBtnGrd {
   background-image: var(--bg-color-cashOutBtnGrd);
@@ -3334,13 +3625,13 @@ video {
   background-image: var(--bg-color-BuyCryptoBtnBg);
 }
 .bg-bg_color_DepositBtnBg {
-  background-image: var(--bg-color-DepositBtnBg);
+  background-color: var(--bg-active-primary);
 }
 .bg-bg_color_GiftCardBg {
   background-image: var(--bg-color-GiftCardBg);
 }
 .bg-bg_color_LoginBtnBgColor {
-  background-image: var(--bg-color-LoginBtnBgColor);
+  background-color: var(--bg-active-primary);
 }
 .bg-bg_color_SignUpBtnBgColor {
   background-image: var(--bg-color-SignUpBtnBgColor);
@@ -3382,7 +3673,7 @@ video {
   background-image: var(--bg-color-minBtn);
 }
 .bg-bg_color_placeBetBtnGrd {
-  background-image: var(--bg-color-placeBetBtnGrd);
+  background-color: var(--bg-active-primary);
 }
 .bg-bg_color_promotionButton {
   background-image: var(--bg-color-promotionButton);
@@ -3394,7 +3685,7 @@ video {
   background-image: var(--bg-color-redeemBtnBg);
 }
 .bg-bg_color_signUpTextColor {
-  background-image: var(--text-color-signUpTextColor);
+  background-color: var(--bg-active-primary);
 }
 .bg-bg_color_transactionFailedBg {
   background-image: var(--bg-color-transactionFailedBg);
@@ -3442,7 +3733,7 @@ video {
   background-image: var(--bg-color-scoreAndAndroidAppBtn);
 }
 .bg-bg_text_brand_primary {
-  background-image: var(--text-color-brand-primary);
+  background-color: var(--bg-active-primary);
 }
 .bg-bg_text_brand_secondary {
   background-image: var(--text-color-brand-secondary);
@@ -4703,334 +4994,9 @@ video {
 .\!\[clip\:rect\(0\2c 0\2c 0\2c 0\)\] {
   clip: rect(0, 0, 0, 0) !important;
 }
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  --loader-size: 100px;
-  --border-primary: #0f2326;
-  --border-oddInputColor: #595b6a;
-  --border-ternary6: #e6e6e6;
-  --border-secondary: #60a3b3;
-  --border-teranry2: #d1d5db;
-  --border-success: #29ab2b;
-  --border-secondary1: #3b82f6;
-  --border-quaternary: #f38221;
-  --border-backBtn: #a7d8fd;
-  --border-layBtn: #f9c9d4;
-  --border-oddInputBorderActive: #0f2326;
-  --border-oddInputBorder: #b9b8b8;
-  --border-borderColorOfMarket: #d1d1d1;
-  --border-borderColorFoprOddChange: #f6d69b;
-  --border-depositBtn: #17c964;
-  --border-withDrawBtn: #0f2326;
-  --border-inActivePlaceBtnColor: #e6e6e6;
-  --border-quinary: #9a9898;
-  --border-bgGray300: #d1d5db;
-  --border-betSlipLoginBtnBg: #bd3726;
-  --border-disableBackGroundColorfForPlaceBetBtn: #979797;
-  --border-ternary5: #b0b0b0;
-  --border-ternary3: #d1d5db;
-  --border-giftInputBorderColor: #ffffff4d;
-  --border-ternary4: rgba(0, 0, 0, 0.2);
-  --border-borderOfFancyPremiumTab: #d55c76;
-  --border-borderinActiveFancyPremiumTab: #e6e6e6;
-  --border-depostPayBg: #f2f2f2;
-  --border-ternary8: #4a5568;
-  --border-betSlipCancelBtnColor: #8c8c8c;
-  --border-danger: #e90038;
-  --border-notesBorderColor: #dadada;
-  --border-borderColorForDepositPaymentMethod: #007df1;
-  --icon-color-brand-primary: #bd3726;
-  --icon-color-brand-primary1: #f38221;
-  --icon-color-brand-secondary: #f38221;
-  --icon-color-brand-tertiary: #f9b134;
-  --icon-color-brand-tertiary1: #d3d3d3;
-  --icon-color-primary: #d2d2d2;
-  --icon-color-secondary: #fff;
-  --icon-color-ternary: #bd3726;
-  --icon-color-quaternary: #f38221;
-  --icon-color-quinary: #bd3726;
-  --icon-color-primary1: #f38221;
-  --icon-color-primary2: #8c8c8c;
-  --icon-color-menuSearchIconsColor: #cc5f36;
-  --icon-color-betSlipIconsColor: #b0b0b0;
-  --icon-color-favouriteIconColor: #dfc548;
-  --icon-color-rulesOpenIconColor: #9d9d9d;
-  --icon-color-success: #4cae50;
-  --text-color-brand-primary: linear-gradient(
-    95deg,
-    #f38221 -8.6%,
-    #f9b134 110.45%
-  );
-  --text-color-headerDeskNav: #d2d2d2;
-  --text-color-brand-secondary: linear-gradient(
-    95deg,
-    #f38221 -8.6%,
-    #f9b134 110.45%
-  );
-  --text-color-primary: #fff;
-  --text-color-brand-withOutGrd-primary: #f38221;
-  --text-color-primary1: #fff;
-  --text-color-primary2: #fff;
-  --text-color-primary3: #e6e6e6;
-  --text-color-primary4: #eed1d5;
-  --text-color-primary5: #f9e7eb;
-  --text-color-secondary: #f38221;
-  --text-color-ternary: #000;
-  --text-color-tertiary1: #9a9898;
-  --text-color-tertiary2: #9c9c9c;
-  --text-color-tertiary3: #b0b0b0;
-  --text-color-tertiary4: #626262;
-  --text-color-tertiary5: #b5b5b5;
-  --text-color-tertiary6: #d2d2d2;
-  --text-color-loginTextColor: var(--text-color-primary1);
-  --text-color-signUpTextColor: var(--text-color-brand-primary);
-  --text-color-loginInputTextColor: var(--text-color-primary1);
-  --text-color-loginButtonTextColor: var(--text-color-primary2);
-  --text-color-suspendedFontColor: #1e3f5a;
-  --text-color-InPlayEventsScoreAndTime: #4cae50;
-  --text-color-UpcomingEventsScoreAndTime: #f9b134;
-  --text-color-cr-1: #00796b;
-  --text-color-cr-2: #0288d1;
-  --text-color-cr-3: #2e7d32;
-  --text-color-cr-4: #ef6c00;
-  --text-color-cr-5: #fbc02d;
-  --text-color-cr-6: #d84315;
-  --text-color-cr-w: #5d4037;
-  --text-color-cr-wd: #512da8;
-  --text-color-cr-nb: #303f9f;
-  --text-color-cr-lb: #8e24aa;
-  --text-color-cr-default: #000;
-  --text-color-error-message: #fff;
-  --text-color-changeAnimationBack: #0a8bed;
-  --text-color-changeAnimationLay: #f67d99;
-  --text-color-betSlipCancelBtnColor: #8c8c8c;
-  --text-color-layTextColorConfirmBet: #cd3c5b;
-  --text-color-backTextColorConfirmBet: #5c92ff;
-  --text-color-oddValue: #000;
-  --text-color-chatBoxText: #f3f3f3;
-  --text-color-chatBoxText1: #f3f3f390;
-  --text-color-success: #4cae50;
-  --text-color-danger: #eb244f;
-  --text-color-info: #0288d1;
-  --text-color-warning: #fbc02d;
-  --bg-color-headerBg: linear-gradient(90deg, #bd3726 -13.95%, #2c2c2c 83.91%);
-  --bg-headerDeskNavMenu: #23201f;
-  --bg-headerDeskNavmenuEle: #48494b;
-  --bg-color-appBg: #23201f;
-  --bg-color-primary: #333;
-  --bg-color-secondary: #23201f;
-  --bg-color-tertiary: #48494b;
-  --bg-color-tertiary1: #475569;
-  --bg-color-tertiary2: #000;
-  --bg-color-quaternary: #545454;
-  --bg-color-quaternary2: #545454;
-  --bg-color-quaternary3: #e8e8e8;
-  --bg-color-quaternary4: #9a9898;
-  --bg-color-quaternary5: #f8f9fa;
-  --bg-color-quaternary6: #e6e6e6;
-  --bg-color-quaternary7: #f3f4f6;
-  --bg-color-quaternary8: #6b7280;
-  --bg-color-quaternary9: #9ca3af;
-  --bg-color-casinoProvider: #e8e8e8;
-  --bg-color-suspendedBgColor: #d3ebfe;
-  --bg-color-brand-primary1: #f38221;
-  --bg-color-brand-secondary1: #f9b134;
-  --bg-color-quaternary1: #505050;
-  --bg-color-cr-1: #e0f7fa;
-  --bg-color-cr-2: #e1f5fe;
-  --bg-color-cr-3: #e8f5e9;
-  --bg-color-cr-4: #fff3e0;
-  --bg-color-cr-5: #fffde7;
-  --bg-color-cr-6: #fbe9e7;
-  --bg-color-cr-w: #efebe9;
-  --bg-color-cr-wd: #ede7f6;
-  --bg-color-cr-nb: #e8eaf6;
-  --bg-color-cr-lb: #f3e5f5;
-  --bg-color-cr-default: #f7f7f7;
-  --bg-color-input-bg: #23201f;
-  --bg-color-LoginPopUpBg: #333;
-  --bg-color-LoginBtnBgColor: var(--text-color-brand-primary);
-  --bg-color-loginTabsBg: hsla(0, 0%, 100%, 0.1);
-  --bg-color-skeletonBgLoaderColor: #464646;
-  --bg-color-skeletonBgLoaderColor1: #23201f;
-  --bg-color-success: #4cae50;
-  --bg-color-warning: #fbc02d;
-  --bg-color-danger: #eb244f;
-  --bg-color-info: #0288d1;
-  --bg-color-popUpParentBg: #00000066;
-  --bg-color-lightGray: #ebebeb;
-  --bg-color-loaderBg: #9a989816;
-  --bg-color-chatIssueBg: #f4f4f412;
-  --bg-color-chatClientBg: var(--bg-color-primary);
-  --bg-color-chatOpenBtnBg: #37f;
-  --bg-color-chatResolvedBtnBg: #4cae50;
-  --bg-color-chatDeferredBtnBg: #fbc02d;
-  --bg-color-chatCloseBtnBg: #eb244f;
-  --bg-color-chatAssignedBtnBg: #0288d1;
-  --bg-color-chatInProgressBtnBg: #f38221;
-  --bg-color-chatRescheduledBtnBg: #9ca3af;
-  --bg-color-chatCreatedBtnBg: #6b7280;
-  --bg-color-backBtnBg: #a7d8fd;
-  --bg-color-layBtnBg: #f9c9d4;
-  --bg-color-highLightChangeColor: #ffb;
-  --bg-color-sideBarDeskBg: #f1e9e6;
-  --bg-color-confirmBetBackColor: #ebf1ff;
-  --bg-color-confirmBetLayColor: #f9e7eb;
-  --bg-color-casinoPopupBg: #000000b3;
-  --bg-color-backgroundColorForOddChange: #fef8d3;
-  --bg-color-disableBackGroundColorfForPlaceBetBtn: #979797;
-  --bg-color-brand_primary: linear-gradient(
-    95deg,
-    #f38221 -8.6%,
-    #f9b134 110.45%
-  );
-  --bg-color-brand_secondary: linear-gradient(
-    95deg,
-    #f38221 -8.6%,
-    #f9b134 110.45%
-  );
-  --bg-color-placeBetBtnGrd: linear-gradient(90deg, #f38221, #f9b134);
-  --bg-color-inPlayBlockBg: linear-gradient(
-    90deg,
-    #bd3726 -13.95%,
-    #333 74.01%
-  );
-  --bg-color-UpcomingBg: linear-gradient(90deg, #bd3726 -13.95%, #333 74.01%);
-  --bg-color-competetionInPlayUpComingBg: linear-gradient(
-    90deg,
-    #bd3726,
-    #f9b134
-  );
-  --bg-color-scoreAndAndroidAppBtn: linear-gradient(90deg, #23201f, #23201f);
-  --bg-color-cashOutBtnGrd: linear-gradient(89deg, #40af52, #2e924b 89.28%);
-  --bg-color-lossGrd: linear-gradient(90deg, #0f2326, #bd3726);
-  --bg-color-homeDepositBtnBgColor: linear-gradient(90deg, #17c964, #2e924b);
-  --bg-color-homeWithdrawBtnBgColor: linear-gradient(90deg, #bd3726, #f9b134);
-  --bg-color-transactionPendingBg: linear-gradient(
-    90deg,
-    #fbc439,
-    #fd9b07 89.28%
-  );
-  --bg-color-transactionFailedBg: linear-gradient(
-    90deg,
-    #eb244f,
-    #a90f31 89.28%
-  );
-  --bg-color-transactionSuccessBg: linear-gradient(
-    90deg,
-    #40af52,
-    #2e924b 89.28%
-  );
-  --bg-color-transactionInitiatedBg: linear-gradient(
-    90deg,
-    #618cbe,
-    #536c8a 89.28%
-  );
-  --bg-color-bonusCard: linear-gradient(
-    111deg,
-    #d82f0a -25.88%,
-    #ca27d8 116.27%
-  );
-  --bg-color-bonus-active: #ffc700;
-  --bg-color-bonus-expired: #cd3c5b;
-  --bg-color-bonus-expired-time: hsla(0, 0%, 100%, 0.2);
-  --bg-color-bonus-claim-now: #0ed80a;
-  --bg-color-wageredColor: #00000033;
-  --bg-color-giftCardInputBg: #ffffff26;
-  --bg-color-bonus: linear-gradient(90deg, #4c0ad8, #c509c9);
-  --bg-color-bonus1: linear-gradient(90deg, #ffb700, #ffd466, #ffb800);
-  --bg-color-GiftCardBg: linear-gradient(90deg, #743899, #9b1d39);
-  --bg-color-redeemBtnBg: linear-gradient(89deg, #f6b129, #dab557 98.98%);
-  --bg-color-superOverBannerGradient: linear-gradient(
-    91deg,
-    #091162 10.1%,
-    #2a38b6 63.73%,
-    #0736ae00 104.08%
-  );
-  --bg-color-SignUpBtnBgColor: linear-gradient(90deg, #48494b, #48494b);
-  --bg-color-BuyCryptoBtnBg: linear-gradient(90deg, #48494b, #48494b);
-  --bg-color-BalanceBtnBg: linear-gradient(
-    to right,
-    var(--bg-color-tertiary),
-    var(--bg-color-tertiary)
-  );
-  --bg-color-DepositBtnBg: var(--text-color-brand-primary);
-  --bg-color-betSlipBgColor: #fff;
-  --bg-color-minBtn: linear-gradient(90deg, #44b5d9, #2c8ba9);
-  --bg-color-maxBtn: linear-gradient(90deg, #2e924b, #40af52);
-  --bg-color-editStakes: linear-gradient(90deg, #b0b0b0, #747474);
-  --bg-color-clearBtn: linear-gradient(90deg, #8d1d35, #cd3c5b);
-  --bg-color-ballRunning: linear-gradient(90deg, #a7d8fd, #f9c9d4);
-  --bg-color-bonusButtonBg1: #ffc700;
-  --bg-color-bonusButtonBg2: #cd3c5b;
-  --bg-color-bonusGradient1: #4c0ad8;
-  --bg-color-bonusGradient2: #c509c9;
-  --bg-color-bonusGradient3: #4883e7;
-  --bg-color-bonusGradient4: #ae09c9;
-  --bg-color-bonusRibbonBg1: #ffb700;
-  --bg-color-bonusRibbonBg2: #ffd466;
-  --bg-color-bonusRibbonBg3: #ffb800;
-  --bg-color-accountStatementBg1: #05ff0e26;
-  --bg-color-accountStatementBg2: #ff050526;
-  --bg-color-ternary14: hsla(0, 0%, 100%, 0.05);
-  --bg-color-teranry15: #bbbec3;
-  --bg-color-success2: #4dc759;
-  --bg-color-slate200: #e2e8f0;
-  --bg-color-slate300: #cbd5e1;
-  --bg-color-slate500: #64748b;
-  --bg-color-slate800: #1e293b;
-  --bg-color-purple700: #7e22ce;
-  --bg-color-betSlipBgColor: #333;
-  --bg-color-selectedOddColor: #fff;
-  --bg-color-casinoProvider: #f3f4f6;
-  --bg-color-blogCategory1: linear-gradient(90deg, #ae2c80, #831a5f);
-  --bg-color-blogCategory2: linear-gradient(90deg, #249e2a, #1d8622);
-  --bg-color-blogCategory3: linear-gradient(90deg, #304a8e, #466ac5);
-  --bg-color-blogCategory4: linear-gradient(90deg, #930d2a, #930d2a);
-  --bg-color-blogCategory5: linear-gradient(90deg, #652ea7, #581584);
-  --bg-color-blogCategory6: linear-gradient(90deg, #146789, #239acd);
-  --bg-color-switchBeforeCheck: #0000001a;
-  --bg-color-switchAfterCheck: #01a950;
-  --bg-color-switchBtnRound: #fff;
-  --bg-color-betSlipOddIncDecrBtnsGrd: linear-gradient(
-    62.57deg,
-    #bd3726 34.17%,
-    #6d261d 104.5%
-  );
-  --border-color-primary: #545454;
-  --border-color-primary1: #676767;
-  --border-color-primary2: #737373;
-  --border-color-primary3: #333;
-  --border-color-primary4: #bd3725;
-  --border-color-primary5: #c4c4c4;
-  --border-color-primary6: #d2d2d2;
-  --border-color-brand_primary: #f38221;
-  --border-color-brand_secondary: #f38221;
-  --border-color-brand_secondary1: #f38221;
-  --border-color-depositPaymentMethod: #f38221;
-  --border-color-activeInput: #d2d2d2;
-  --border-color-cr-1: #00796b;
-  --border-color-cr-2: #0288d1;
-  --border-color-cr-3: #2e7d32;
-  --border-color-cr-4: #ef6c00;
-  --border-color-cr-5: #fbc02d;
-  --border-color-cr-6: #d84315;
-  --border-color-cr-w: #5d4037;
-  --border-color-cr-wd: #512da8;
-  --border-color-cr-nb: #303f9f;
-  --border-color-cr-lb: #8e24aa;
-  --border-color-cr-default: #000;
-  --border-color-success: #29ab2b;
-  --border-color-danger: #e90038;
-  --border-color-info: #0288d1;
-  --border-color-warning: #fbc02d;
-  --border-color-homeDepositBtnBgColor: #17c964;
-  --border-color-homeWithdrawBtnBgColor: #bd3726;
-}
+
 .app-bg {
-  background-color: #23201f;
+  background-color: var(--app-bg);
   background-position: start;
   background-repeat: repeat;
   background-size: 300%;
@@ -6720,7 +6686,7 @@ span.ripple {
   background-color: var(--bg-color-success);
 }
 .checked\:bg-bg_text_brand_primary:checked {
-  background-image: var(--text-color-brand-primary);
+  background-color: var(--bg-active-primary);
 }
 .checked\:before\:opacity-\[0\.16\]:checked:before {
   content: var(--tw-content);
@@ -6755,7 +6721,7 @@ span.ripple {
   content: var(--tw-content);
 }
 .checked\:after\:bg-bg_brand_primary:checked:after {
-  background-image: var(--bg-color-brand_primary);
+  background-color: var(--bg-active-primary);
   content: var(--tw-content);
 }
 .checked\:after\:content-\[\'\'\]:checked:after {
@@ -6870,7 +6836,7 @@ span.ripple {
   background-color: transparent;
 }
 .hover\:bg-bg_text_brand_primary:hover {
-  background-image: var(--text-color-brand-primary);
+  background-color: var(--bg-active-primary);
 }
 .hover\:bg-bg_text_brand_secondary:hover {
   background-image: var(--text-color-brand-secondary);
@@ -8131,7 +8097,7 @@ span.ripple {
     content: var(--tw-content);
   }
   .dark\:checked\:after\:bg-bg_brand_primary:checked:after {
-    background-image: var(--bg-color-brand_primary);
+    background-color: var(--bg-active-primary);
     content: var(--tw-content);
   }
 
@@ -8190,7 +8156,7 @@ span.ripple {
   content: var(--tw-content);
 }
 .\[\&\>span\]\:before\:bg-bg_color_brand_primary1 > span:before {
-  background-color: var(--bg-color-brand-primary1);
+  background-color: var(--bg-active-primary);
   content: var(--tw-content);
 }
 @supports (-webkit-touch-callout: none) {

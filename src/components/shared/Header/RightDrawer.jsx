@@ -7,7 +7,11 @@ import useBalance from "../../../hooks/balance";
 import useWhatsApp from "../../../hooks/whatsapp";
 import { Settings } from "../../../api";
 
-const RightDrawer = ({ setShowRightDrawer, showRightDrawer }) => {
+const RightDrawer = ({
+  setShowRightDrawer,
+  showRightDrawer,
+  setShowReferral,
+}) => {
   const { user, token } = useSelector((state) => state.auth);
   const { data } = useBalance();
   const { data: socialLink } = useWhatsApp();
@@ -563,6 +567,81 @@ const RightDrawer = ({ setShowRightDrawer, showRightDrawer }) => {
                     </span>
                     <span className="font-medium text-sm xs:text-base text-text_color_primary1">
                       Bonus Statement
+                    </span>
+                  </div>
+                </a>
+              </div>
+              {Settings.referral && (
+                <div className="w-full">
+                  <a
+                    title="Bonus Statement"
+                    onClick={() => {
+                      setShowReferral(true);
+                      setShowRightDrawer(false);
+                    }}
+                  >
+                    <div className="flex transition-all px-0.5 rounded-sm ease-in-out duration-150 hover:bg-bg_color_quaternary2  active:scale-[99%] items-center justify-start gap-3 w-full py-2 cursor-pointer">
+                      <span className="w-4 h-auto xs:w-5 text-text_color_primary1">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          strokeWidth="2"
+                          stroke="var(--icon-color-brand-secondary)"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path
+                            stroke="none"
+                            d="M0 0h24v24H0z"
+                            fill="none"
+                          ></path>
+                          <path d="M3 8m0 1a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1z"></path>
+                          <path d="M12 8l0 13"></path>
+                          <path d="M19 12v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-7"></path>
+                          <path d="M7.5 8a2.5 2.5 0 0 1 0 -5a4.8 8 0 0 1 4.5 5a4.8 8 0 0 1 4.5 -5a2.5 2.5 0 0 1 0 5"></path>
+                        </svg>
+                      </span>
+                      <span className="font-medium text-sm xs:text-base text-text_color_primary1">
+                        Referral
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              )}
+              <div className="w-full">
+                <a
+                  title="Bonus Statement"
+                  onClick={() => handleNavigate("/referral-statement")}
+                >
+                  <div className="flex transition-all px-0.5 rounded-sm ease-in-out duration-150 hover:bg-bg_color_quaternary2  active:scale-[99%] items-center justify-start gap-3 w-full py-2 cursor-pointer">
+                    <span className="w-4 h-auto xs:w-5 text-text_color_primary1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2"
+                        stroke="var(--icon-color-brand-secondary)"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path
+                          stroke="none"
+                          d="M0 0h24v24H0z"
+                          fill="none"
+                        ></path>
+                        <path d="M3 8m0 1a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1z"></path>
+                        <path d="M12 8l0 13"></path>
+                        <path d="M19 12v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-7"></path>
+                        <path d="M7.5 8a2.5 2.5 0 0 1 0 -5a4.8 8 0 0 1 4.5 5a4.8 8 0 0 1 4.5 -5a2.5 2.5 0 0 1 0 5"></path>
+                      </svg>
+                    </span>
+                    <span className="font-medium text-sm xs:text-base text-text_color_primary1">
+                      Referral Statement
                     </span>
                   </div>
                 </a>

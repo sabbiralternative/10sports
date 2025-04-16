@@ -14,10 +14,11 @@ import SearchBox from "./SearchBox";
 import AfterLogin from "./AfterLogin";
 import RightDrawer from "./RightDrawer";
 import BeforeLogin from "./BeforeLogin";
+import Referral from "../../modals/Referral/Referral";
 
 const Header = () => {
   const { token } = useSelector((state) => state.auth);
-
+  const [showReferral, setShowReferral] = useState(false);
   const [time, setTime] = useState();
   const [showDrawer, setShowDrawer] = useState(false);
   const [showRightDrawer, setShowRightDrawer] = useState(false);
@@ -42,6 +43,7 @@ const Header = () => {
 
   return (
     <>
+      {showReferral && <Referral setShowReferral={setShowReferral} />}
       {showLanguageModal && <Language />}
       {showLoginModal && <Login />}
       {showRegisterModal && <Registration />}
@@ -141,6 +143,7 @@ const Header = () => {
           setShowDrawer={setShowDrawer}
         />
         <RightDrawer
+          setShowReferral={setShowReferral}
           showRightDrawer={showRightDrawer}
           setShowRightDrawer={setShowRightDrawer}
         />

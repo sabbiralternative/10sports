@@ -25,7 +25,7 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
         }
       );
     }
-  }, [amount, handleDepositBreakdown, setTab]);
+  }, [amount, handleDepositBreakdown]);
   return (
     <div className="w-full h-full  lg:w-[54%] lg:pt-2">
       <div className="mx-2 font-lato h-full pb-10">

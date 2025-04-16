@@ -22,6 +22,8 @@ import ResponsibleGambling from "../pages/ResponsibleGambling/ResponsibleGamblin
 import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 import ExclusionPolicy from "../pages/ExclusionPolicy/ExclusionPolicy";
 import Rules from "../pages/Rules/Rules";
+import ReferralStatement from "../pages/ReferralStatement/ReferralStatement";
+import NotFound from "../pages/NotFound/NotFound";
 
 export const router = createBrowserRouter(
   [
@@ -33,6 +35,7 @@ export const router = createBrowserRouter(
           <App />
         </>
       ),
+      errorElement: <NotFound />,
       children: [
         {
           index: true,
@@ -69,6 +72,10 @@ export const router = createBrowserRouter(
         {
           path: "/account-statement",
           element: <AccountStatement />,
+        },
+        {
+          path: "/referral-statement",
+          element: <ReferralStatement />,
         },
         {
           path: "/change-password",
