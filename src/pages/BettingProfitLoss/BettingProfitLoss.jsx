@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useAccountStatement } from "../../hooks/accountStatement";
 import { useSelector } from "react-redux";
+import moment from "moment";
 
 const BettingProfitLoss = () => {
   const fromDate = new Date(new Date().setDate(new Date().getDate() - 7))
@@ -13,7 +14,7 @@ const BettingProfitLoss = () => {
     to: toDate,
     type: "GR",
   };
-  console.log(payload);
+
   const { data } = useAccountStatement(payload);
   const navigate = useNavigate();
   const token = useSelector((state) => state.auth);
@@ -38,6 +39,9 @@ const BettingProfitLoss = () => {
             const filterData = data?.result?.filter(
               (item) => item.settledTime?.split(" ")[0] === category
             );
+            const totalPnl = filterData?.reduce((acc, curr) => {
+              return acc + curr.memberWin;
+            }, 0);
             return (
               <div
                 key={category}
@@ -46,12 +50,23 @@ const BettingProfitLoss = () => {
               >
                 <div className="w-full text-text_color_primary2 rounded-[4px] flex items-center justify-between px-2.5 py-[9px] bg-bg_text_brand_primary">
                   <div className="text-xs text-text_color_primary2 font-manrope-bold font-[600] leading-[140%]">
-                    {category}
+                    {moment(category).format("Do-MMM-YYYY")}
                   </div>
                   <div className="text-xs text-text_color_primary2 font-manrope-bold font-[600] flex items-center justify-center leading-[140%]">
-                    <span>P&amp;L</span>
+                    <span>Total PL</span>
                     <span className="-mt-0.5 ml-1">:</span>
-                    <span className="ml-1">112</span>
+                    <span
+                      className={`ml-1 ${
+                        totalPnl > 0
+                          ? "text-text_color_success"
+                          : totalPnl < 0
+                          ? "text-text_color_danger"
+                          : "text-white"
+                      }`}
+                      style={{ textShadow: "1px 1px #000000" }}
+                    >
+                      {totalPnl}
+                    </span>
                   </div>
                 </div>
                 {filterData?.map((item) => (
@@ -65,27 +80,25 @@ const BettingProfitLoss = () => {
                     </div>
                     <div className="w-full bg-bg_color_tertiary1 px-2.5 py-2 flex items-center justify-between font-manrope-regular text-xs sm:text-sm">
                       <span className="text-text_color_primary1 w-1/2 border-r border-r-border_color_primary flex items-center justify-start gap-x-1">
-                        <span>Commission:</span>
-                        <span className="font-semibold text-text_color_danger">
-                          ₹ {item?.memberComm}
-                        </span>
-                      </span>
-                      <span className="text-text_color_primary1 w-1/2 flex items-center justify-end gap-x-1">
-                        <span>Net Win:</span>
-                        <span className="font-semibold text-text_color_success">
+                        <span>PL:</span>
+                        <span
+                          className={`font-semibold  ${
+                            item?.memberWin > 0
+                              ? "text-text_color_success"
+                              : item?.memberWin < 0
+                              ? "text-text_color_danger"
+                              : "text-black"
+                          }`}
+                        >
                           ₹ {item?.memberWin}
                         </span>
                       </span>
-                    </div>
-                    <div className="flex items-center justify-start flex-col w-full px-2.5 py-2 text-xs sm:text-sm font-manrope-regular text-text_color_primary1">
-                      <div className="flex items-center justify-between w-full font-[500] text-text_color_primary1">
-                        <span>Start Time</span>
-                        <span className="uppercase">N/A</span>
-                      </div>
-                      <div className="flex items-center justify-between w-full font-[500] text-text_color_primary1">
-                        <span>Settled Time</span>
-                        <span className="uppercase">{item?.settledTime}</span>
-                      </div>
+                      <span className="text-text_color_primary1 w-1/2 flex items-center justify-end gap-x-1">
+                        <span>Balance:</span>
+                        <span className="font-semibold ">
+                          ₹ {item?.balance}
+                        </span>
+                      </span>
                     </div>
                   </div>
                 ))}
