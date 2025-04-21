@@ -413,3 +413,57 @@ html * {
 .bg-bg_Quaternary {
   background-color: #fff;
 }
+
+/*!  Footer Games*/
+
+.popUpOpenAnimation1 {
+  animation: popUpOpenAnimation1 0.3s ease-in-out;
+}
+.popUpOpenAnimation2 {
+  animation: popUpOpenAnimation2 0.3s ease-in-out;
+}
+
+.max-w-screen-xsm {
+  max-width: 430px;
+}
+
+.shadow-passwordRulesBox {
+  --tw-shadow: -4px -9px 63px 3px rgba(0, 0, 0, 0.1),
+    0px 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: -4px -9px 63px 3px var(--tw-shadow-color),
+    0px 8px 10px -6px var(--tw-shadow-color);
+}
+.shadow-passwordRulesBox {
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes popUpOpenAnimation1 {
+  0% {
+    opacity: 0.5;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes popUpOpenAnimation2 {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0.5;
+    transform: scale(0);
+  }
+}
+/*!  Footer Games*/
