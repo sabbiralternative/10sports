@@ -17,8 +17,20 @@ const WhatsApp = () => {
   useEffect(() => {
     refetch();
   }, [token, refetch]);
+
   return (
     <>
+      {socialLink?.telegramLink ? (
+        <div
+          onClick={() => window.open(socialLink?.telegramLink, "_blank")}
+          title="WhatsAppContact"
+          className="fixed cursor-pointer top-[calc(100dvh-130px)] left-3 z-50 flex w-max h-max items-center justify-center rounded-full transition-all duration-500"
+        >
+          <div className="h-full bg-transparent mt-[-3px] ml-[-3px]">
+            <img className="h-14 w-14" src="/icon/telegram.png" alt="" />
+          </div>
+        </div>
+      ) : null}
       {socialLink?.whatsapplink || socialLink?.branchWhatsapplink ? (
         <div
           onClick={navigateWhatsApp}
