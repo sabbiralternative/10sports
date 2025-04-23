@@ -27,7 +27,11 @@ const WhatsApp = () => {
           className="fixed cursor-pointer top-[calc(100dvh-130px)] left-3 z-50 flex w-max h-max items-center justify-center rounded-full transition-all duration-500"
         >
           <div className="h-full bg-transparent mt-[-3px] ml-[-3px]">
-            <img className="h-14 w-14" src="/icon/telegram.png" alt="" />
+            <img
+              className="h-[44px] w-[44px]"
+              src="/icon/telegram.png"
+              alt=""
+            />
           </div>
         </div>
       ) : null}

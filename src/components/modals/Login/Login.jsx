@@ -15,8 +15,10 @@ import toast from "react-hot-toast";
 import { useLanguage } from "../../../context/LanguageProvider";
 import { LanguageKey } from "../../../const";
 import { languageValue } from "../../../utils/language";
+import images from "../../../assets/images";
 
 const Login = () => {
+  const [tab, setTab] = useState("mobile");
   const { valueByLanguage } = useLanguage();
   const [passwordType, setPasswordType] = useState(true);
   const { logo } = useLogo();
@@ -155,6 +157,29 @@ const Login = () => {
           </div>
           <div className="w-full h-max grid grid-cols-1 lg:grid-cols-2 gap-x-4 items-center justify-center">
             <div className="flex flex-col  items-start gap-y-4 h-max col-span-1 lg:col-span-2 w-full">
+              <div className="w-full cursor-pointer bg-bg_color_loginTabsBg px-2 py-1.5 rounded-lg flex items-center justify-center gap-2.5 transition-all duration-300 ease-in-out relative">
+                <div
+                  onClick={() => setTab("mobile")}
+                  className={`min-w-[45%] cursor-pointer text-[13px] flex items-center justify-center py-2 md:text-sm lg:text-base font-bold leading-4  rounded-md  text-text_color_loginButtonTextColor ${
+                    tab === "mobile"
+                      ? "bg-bg_color_LoginBtnBgColor"
+                      : "bg-transparent"
+                  }`}
+                >
+                  Mobile Number
+                </div>
+                <div
+                  onClick={() => setTab("userId")}
+                  className={`min-w-[45%] cursor-pointer text-[13px] flex items-center justify-center py-2 md:text-sm lg:text-base font-bold leading-4  rounded-md  text-text_color_loginTextColor ${
+                    tab === "userId"
+                      ? "bg-bg_color_LoginBtnBgColor"
+                      : "bg-transparent"
+                  }`}
+                >
+                  User Id
+                </div>
+              </div>
+
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="w-full gap-y-4 flex flex-col"
@@ -166,13 +191,40 @@ const Login = () => {
                     className="flex flex-col w-full relative"
                   >
                     <span className="text-text_color_loginTextColor font-normal text-sm w-full px-1 pb-1">
-                      Mobile/Username
+                      {tab === "mobile" ? "Mobile Number" : "User Id"}
                     </span>
                     <div className="flex items-center w-full text-text_color_loginInputTextColor text-sm bg-bg_color_input_bg rounded-lg border w-full focus-within:border-border_color_activeInput px-1.5 border-border_color_primary1 py-2.5">
+                      {tab === "mobile" && (
+                        <div className="flex-shrink-0 w-max">
+                          <div className="w-max  transition-none h-full">
+                            <button
+                              type="button"
+                              className="flex w-max items-center  h-full justify-between  px-1 text-text_color_loginInputTextColor"
+                              disabled=""
+                            >
+                              <div className=" flex items-center justify-center h-full">
+                                +91
+                                <div className="relative overflow-hidden w-max h-max ml-1">
+                                  <img
+                                    src={images.india}
+                                    alt="India"
+                                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
+                                    className="  w-4 h-4"
+                                  />
+                                </div>
+                              </div>
+                            </button>
+                          </div>
+                        </div>
+                      )}
                       <input
                         {...register("username", { required: true })}
                         className="text-text_color_loginInputTextColor bg-transparent px-1.5 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
-                        placeholder="Enter  Mobile/Username"
+                        placeholder={`${
+                          tab === "mobile"
+                            ? "Enter Mobile Number"
+                            : "Enter User Id"
+                        }`}
                         aria-label="Mobile Number"
                         id="loginFormMobileUserIdInput"
                         type="text"
@@ -290,7 +342,84 @@ const Login = () => {
                   </div>
                 )}
               </form>
-
+              <div className="w-full flex items-center gap-4">
+                <div className="h-px flex-1 bg-bg_color_quaternary3"></div>
+                <span className="text-text_color_loginTextColor  text-sm font-medium uppercase">
+                  OR
+                </span>
+                <div className="h-px flex-1 bg-bg_color_quaternary3"></div>
+              </div>
+              <div
+                title="loginWithGoogle"
+                className=" w-full flex items-center justify-between gap-x-2"
+              >
+                <div className=" w-full flex items-center justify-center cursor-pointer">
+                  <button
+                    disabled
+                    className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out w-full font-medium text-[12px] xs:text-[15px] px-5 py-2  flex items-center justify-center gap-x-2 border rounded-lg font-lato-bold lg:text-base bg-transparent border border-border_color_primary1 text-text_color_loginTextColor  
+      cursor-pointer
+      "
+                    type="button"
+                  >
+                    <span>
+                      <svg
+                        width="21"
+                        height="20"
+                        viewBox="0 0 21 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g
+                          id="Fill Ion Icons"
+                          clipPath="url(#clip0_2432_31527)"
+                        >
+                          <path
+                            id="Vector"
+                            d="M19.9946 8.26138L11.8368 8.26099C11.4766 8.26099 11.1846 8.55294 11.1846 8.91317V11.5192C11.1846 11.8794 11.4766 12.1714 11.8368 12.1714H16.4307C15.9277 13.4769 14.9888 14.5702 13.7909 15.2649L15.7498 18.6559C18.892 16.8386 20.7498 13.65 20.7498 10.0805C20.7498 9.57228 20.7123 9.20896 20.6374 8.79985C20.5804 8.48903 20.3106 8.26138 19.9946 8.26138Z"
+                            fill="#167EE6"
+                          ></path>
+                          <path
+                            id="Vector_2"
+                            d="M10.7501 16.0871C8.50185 16.0871 6.5392 14.8587 5.4851 13.041L2.09424 14.9955C3.81982 17.9862 7.0524 20.0001 10.7501 20.0001C12.564 20.0001 14.2756 19.5117 15.7501 18.6606V18.6559L13.7912 15.2649C12.8952 15.7846 11.8583 16.0871 10.7501 16.0871Z"
+                            fill="#12B347"
+                          ></path>
+                          <path
+                            id="Vector_3"
+                            d="M15.75 18.6606V18.6559L13.7911 15.2649C12.8951 15.7845 11.8583 16.087 10.75 16.087V20.0001C12.5639 20.0001 14.2756 19.5117 15.75 18.6606Z"
+                            fill="#0F993E"
+                          ></path>
+                          <path
+                            id="Vector_4"
+                            d="M4.66305 9.99999C4.66305 8.89183 4.96547 7.85507 5.48504 6.95909L2.09418 5.00464C1.23836 6.47444 0.75 8.1814 0.75 9.99999C0.75 11.8186 1.23836 13.5255 2.09418 14.9953L5.48504 13.0409C4.96547 12.1449 4.66305 11.1082 4.66305 9.99999Z"
+                            fill="#FFD500"
+                          ></path>
+                          <path
+                            id="Vector_5"
+                            d="M10.7501 3.91305C12.2161 3.91305 13.5628 4.43398 14.6146 5.30051C14.8741 5.51426 15.2512 5.49883 15.4889 5.26113L17.3354 3.41465C17.6051 3.14496 17.5859 2.70352 17.2978 2.45359C15.5355 0.924726 13.2425 0 10.7501 0C7.0524 0 3.81982 2.01395 2.09424 5.00465L5.4851 6.9591C6.5392 5.14141 8.50186 3.91305 10.7501 3.91305Z"
+                            fill="#FF4B26"
+                          ></path>
+                          <path
+                            id="Vector_6"
+                            d="M14.6145 5.30051C14.874 5.51426 15.2512 5.49883 15.4889 5.26113L17.3354 3.41465C17.605 3.14496 17.5858 2.70352 17.2977 2.45359C15.5354 0.924688 13.2425 0 10.75 0V3.91305C12.216 3.91305 13.5627 4.43398 14.6145 5.30051Z"
+                            fill="#D93F21"
+                          ></path>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_2432_31527">
+                            <rect
+                              width="20"
+                              height="20"
+                              fill="white"
+                              transform="translate(0.75)"
+                            ></rect>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </span>
+                    <span>Google</span>
+                  </button>
+                </div>
+              </div>
               {Settings.registration && (
                 <div
                   title="registerNowButton"
