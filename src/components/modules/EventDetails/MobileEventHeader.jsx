@@ -12,7 +12,7 @@ const MobileEventHeader = () => {
     <>
       <div
         id="eventDetails4-Bangladesh-vs-Zimbabwe"
-        className=" w-full sticky top-0 flex items-center justify-start flex-col"
+        className=" w-full sticky top-0 flex items-center justify-start flex-col lg:hidden"
         style={{ zIndex: 20 }}
       >
         <div
@@ -264,7 +264,7 @@ const MobileEventHeader = () => {
 
       <div
         title="Live Score"
-        className="  grid grid-cols-1   min-h-[124px]   sm:grid-cols-2 lg:grid-cols-1 sm:gap-x-1 sm:px-0.5 lg:gap-x-0 lg:px-0 w-full  flex-grow"
+        className="  grid grid-cols-1   min-h-[124px]   sm:grid-cols-2 lg:grid-cols-1 sm:gap-x-1 sm:px-0.5 lg:gap-x-0 lg:px-0 w-full  flex-grow lg:hidden"
       >
         <div className=" col-span-1 w-full h-max">
           <div className="bg-bg_color_primary font-lato py-1">
