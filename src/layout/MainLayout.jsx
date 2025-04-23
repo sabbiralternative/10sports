@@ -27,7 +27,7 @@ const MainLayout = () => {
       <Header />
       <div
         ref={ref}
-        className="flex-1 overflow-y-auto show-scrollbar scroll-auto flex flex-col h-full pt-[110px]"
+        className="flex-1 overflow-y-auto show-scrollbar scroll-auto flex flex-col h-full pt-[100px] lg:pt-[110px]"
       >
         <main
           className={`flex items-start h-max justify-start w-full ${

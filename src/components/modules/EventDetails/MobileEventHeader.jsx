@@ -12,7 +12,7 @@ const MobileEventHeader = () => {
     <>
       <div
         id="eventDetails4-Bangladesh-vs-Zimbabwe"
-        className=" w-full sticky top-0 flex items-center justify-start flex-col lg:hidden"
+        className=" w-full  top-0 flex items-center justify-start flex-col lg:hidden"
         style={{ zIndex: 20 }}
       >
         <div
