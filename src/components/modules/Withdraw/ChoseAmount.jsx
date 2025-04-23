@@ -13,14 +13,14 @@ const ChooseAmount = ({ setTab, setAmount, amount }) => {
   return (
     <div className="w-full h-full  lg:w-[54%] lg:pt-2">
       <div className="px-2 font-lato flex flex-col items-start justify-start gap-y-2 mt-1 md:mt-[0px] pb-10">
-        <div className="text-base text-text_color_primary1 font-roboto w-full font-[700] flex flex-col items-start justify-start gap-y-1">
+        <div className="text-base text-text_color_primary1  w-full font-[700] flex flex-col items-start justify-start gap-y-1">
           <span className="text-sm md:text-base">
             Please fill in all required fields*
           </span>
         </div>
         <div className="rounded-lg bg-bg_color_primary text-text_color_primary1 py-2 px-3.5 flex flex-col items-start justify-start w-full gap-y-0.5">
           <div className="w-full flex items-start justify-start gap-y-[0.5] flex-col">
-            <span className="text-sm mt-1 bg-bg_text_brand_primary rounded font-roboto shadow-md text-text_color_primary2 px-2 py-1 my-1">
+            <span className="text-sm mt-1 bg-bg_text_brand_primary rounded  shadow-md text-text_color_primary2 px-2 py-1 my-1">
               Available to withdrawal : ₹ {data?.mainWallet}
             </span>
             <div className="flex flex-col w-full">

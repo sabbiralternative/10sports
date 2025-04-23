@@ -34,7 +34,7 @@ const OldAccount = ({ amount, bankAccounts }) => {
       {bankAccounts?.length > 0 ? (
         <form
           onSubmit={handleWithdraw}
-          className="w-full flex flex-col items-start justify-start gap-y-4"
+          className="w-full flex flex-col items-start justify-start gap-y-4 font font-lato"
           data-gtm-form-interact-id="0"
         >
           <div className="rounded-lg bg-bg_color_primary text-text_color_primary1 py-2 px-3.5 flex flex-col items-start justify-start w-full gap-y-0.5">

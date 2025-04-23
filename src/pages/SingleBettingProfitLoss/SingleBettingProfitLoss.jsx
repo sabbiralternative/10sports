@@ -34,7 +34,7 @@ const SingleBettingProfitLoss = () => {
   }
 
   return (
-    <div className="w-full h-full flex flex-col gap-2 p-2 text-text_color_primary1 font-manrope-regular text-sm">
+    <div className="w-full h-full flex flex-col gap-2 p-2 text-text_color_primary1 font font-lato text-sm">
       <div className="flex flex-col bg-bg_color_primary rounded-md overflow-hidden shadow-lg">
         <div className="bg-bg_text_brand_primary py-2 px-4 text-text_color_primary2 font-semibold">
           {data?.result?.[0]?.eventName}

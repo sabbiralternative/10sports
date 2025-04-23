@@ -34,7 +34,7 @@ const RemoveAccount = ({ setRemoveBank, removeBank }) => {
   return (
     <div
       id="popup-modal"
-      className="z-[1000] absolute top-0 right-[0.5px] md:right-0 overflow-hidden flex w-full h-screen min-h-[100dvh] items-center justify-center bg-bg_CasinoPopupBg"
+      className="z-[1000] absolute top-0 right-[0.5px] md:right-0 overflow-hidden flex w-full h-screen min-h-[100dvh] items-center justify-center bg-bg_CasinoPopupBg font font-lato"
     >
       <div
         ref={deleteBankRef}

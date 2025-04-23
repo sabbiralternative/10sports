@@ -125,10 +125,10 @@ const NewAccount = ({ setTab }) => {
     }
   }, [timer]);
   return (
-    <form onSubmit={handleAddBank} className="w-full">
+    <form onSubmit={handleAddBank} className="w-full font font-lato">
       <div className="rounded-lg bg-bg_color_primary text-text_color_primary1 py-2 px-3.5 flex flex-col items-start justify-start w-full gap-y-0.5">
         <div className="flex flex-col w-full">
-          <div className="ml-1 text-sm">UPI ID (Optional)</div>
+          <div className="ml-1 text-sm font">UPI ID (Optional)</div>
           <div className="flex items-center w-full bg-bg_color_input_bg w-full py-2 px-2 rounded-lg border">
             <input
               className="text-sm px-1 flex-grow min-w-0 border-none focus:outline-none bg-transparent"

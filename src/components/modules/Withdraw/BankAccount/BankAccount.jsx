@@ -19,11 +19,10 @@ const BankAccount = ({ amount }) => {
     }
   }, [data]);
 
-  console.log(data);
   return (
     <div className="w-full h-full  lg:w-[54%] lg:pt-2">
       <div className="px-2 font-lato flex flex-col items-start justify-start gap-y-2 mt-1 md:mt-[0px] pb-10">
-        <div className="text-base text-text_color_primary1 font-roboto w-full font-[700] flex flex-col items-start justify-start gap-y-1">
+        <div className="text-base text-text_color_primary1  w-full font-[700] flex flex-col items-start justify-start gap-y-1">
           <span className="text-sm md:text-base">
             Please fill in all required fields*
           </span>

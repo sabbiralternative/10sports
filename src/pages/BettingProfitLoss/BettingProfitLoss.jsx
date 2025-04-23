@@ -29,7 +29,7 @@ const BettingProfitLoss = () => {
   );
 
   return (
-    <div className="w-full h-full  lg:w-[54%] lg:pt-2">
+    <div className="w-full h-full  lg:w-[54%] lg:pt-2 font font-lato">
       <div className="flex flex-col h-full">
         <div className="pt-2 lg:pt-0 border-t border-border_color_primary lg:border-none">
           <div className="relative w-full" />
@@ -46,13 +46,13 @@ const BettingProfitLoss = () => {
               <div
                 key={category}
                 title="Profit & Loss Statement"
-                className="w-full px-1 my-1.5"
+                className="w-full px-1 my-1.5 font font-lato"
               >
                 <div className="w-full text-text_color_primary2 rounded-[4px] flex items-center justify-between px-2.5 py-[9px] bg-bg_text_brand_primary">
-                  <div className="text-xs text-text_color_primary2 font-manrope-bold font-[600] leading-[140%]">
+                  <div className="text-xs text-text_color_primary2  font-[600] leading-[140%]">
                     {moment(category).format("Do-MMM-YYYY")}
                   </div>
-                  <div className="text-xs text-text_color_primary2 font-manrope-bold font-[600] flex items-center justify-center leading-[140%]">
+                  <div className="text-xs text-text_color_primary2  font-[600] flex items-center justify-center leading-[140%]">
                     <span>Total PL</span>
                     <span className="-mt-0.5 ml-1">:</span>
                     <span
@@ -75,10 +75,10 @@ const BettingProfitLoss = () => {
                     key={item?.eventId}
                     className="w-full flex bg-bg_color_primary active:scale-95 transition-all ease-in-out duration-200 flex-col rounded-[4px] items-center justify-start gap-y-1 my-1 shadow-md cursor-pointer"
                   >
-                    <div className="w-full text-start font-manrope-regular bg-bg_text_brand_primary bg-clip-text text-transparent px-2.5 py-2 text-xs font-[550] capitalize">
+                    <div className="w-full text-start  bg-bg_text_brand_primary bg-clip-text text-transparent px-2.5 py-2 text-xs font-[550] capitalize">
                       <span>{item?.narration}</span>
                     </div>
-                    <div className="w-full bg-bg_color_tertiary1 px-2.5 py-2 flex items-center justify-between font-manrope-regular text-xs sm:text-sm">
+                    <div className="w-full bg-bg_color_tertiary1 px-2.5 py-2 flex items-center justify-between  text-xs sm:text-sm">
                       <span className="text-text_color_primary1 w-1/2 border-r border-r-border_color_primary flex items-center justify-start gap-x-1">
                         <span>PL:</span>
                         <span
