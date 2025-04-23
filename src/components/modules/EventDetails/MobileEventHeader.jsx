@@ -1,15 +1,34 @@
-// import { useState } from "react";
-// import { useCurrentBets } from "../../../hooks/currentBets";
-// import { useParams } from "react-router-dom";
+import { useCurrentBets } from "../../../hooks/currentBets";
+import { useParams } from "react-router-dom";
+import { Settings } from "../../../api";
+import { useState } from "react";
+import { useVideoMutation } from "../../../redux/features/events/events";
+import EventRules from "../../modals/EventRules/EventRules";
 
-const MobileEventHeader = () => {
-  // const [showBet, setShowBet] = useState(true);
-  // const [tab, setTab] = useState("live");
-  // const { eventId } = useParams();
-  // const { data } = useCurrentBets(eventId);
+const MobileEventHeader = ({ data, score }) => {
+  const [showRules, setShowRules] = useState(false);
+  const [tab, setTab] = useState("live");
+  const [sportsVideo] = useVideoMutation();
+  const { eventId, eventTypeId } = useParams();
+  const { data: currentBets } = useCurrentBets(eventId);
+  const [iFrame, setIFrame] = useState("");
+
+  const handleGetVideo = async () => {
+    const payload = {
+      eventTypeId: eventTypeId,
+      eventId: eventId,
+      type: "video",
+      casinoCurrency: Settings.casinoCurrency,
+    };
+    const res = await sportsVideo(payload).unwrap();
+    if (res?.success) {
+      setIFrame(res?.result?.url);
+    }
+  };
 
   return (
     <>
+      {showRules && <EventRules setShowRules={setShowRules} />}
       <div
         id="eventDetails4-Bangladesh-vs-Zimbabwe"
         className=" w-full  top-0 flex items-center justify-start flex-col lg:hidden"
@@ -65,14 +84,18 @@ const MobileEventHeader = () => {
               </span>
               <div className=" flex flex-col items-start justify-start w-[95%] break-words gap-y-0">
                 <span className=" w-full  text-start font-lato text-base font-bold text-text_color_primary2">
-                  <span className=" capitalize break-words">Bangladesh</span>
+                  {/* <span className=" capitalize break-words">Bangladesh</span>
                   <span className="mx-1">vs</span>
-                  <span className=" capitalize break-words">Zimbabwe</span>
+                  <span className=" capitalize break-words">Zimbabwe</span> */}
+                  {data?.result?.[0]?.eventName}
                 </span>
                 <span className=" w-auto max-w-[90%]"></span>
               </div>
             </div>
-            <div className=" flex items-start justify-start w-max h-full">
+            <div
+              onClick={() => setShowRules(true)}
+              className=" flex items-start justify-start w-max h-full"
+            >
               <svg
                 width="17"
                 height="17"
@@ -237,26 +260,40 @@ const MobileEventHeader = () => {
             className="relative flex w-[100%]  overflow-clip  rounded-none bg-bg_color_primary w-full border-none shadow-none overflow-clip gap-x-2.5 active:scale-100 bg-bg_color_primary"
           >
             <button
-              className=" flex items-center justify-center w-full gap-1.5 tracking-wider  font-lato  py-2.5 uppercase  active:opacity-90 p-3 text-sm font-semibold text-text_brand_primary  bg-clip-text font-bold font-lato text-xs bg-bg_text_brand_primary text-transparent"
+              onClick={() => setTab("live")}
+              className={`flex items-center justify-center w-full gap-1.5 tracking-wider font-lato py-2.5 uppercase active:opacity-90 p-3 text-sm font-semibold text-xs font-bold ${
+                tab === "live"
+                  ? "text-transparent bg-clip-text bg-bg_text_brand_primary text-text_brand_primary"
+                  : "text-text_color_tertiary1 text-text_color_primary3 bg-none"
+              }`}
               style={{ zIndex: 10 }}
             >
               <span>
-                <div className=" w-2 h-2 bg-bg_color_brand_primary1 rounded-full mr"></div>
+                <div className="w-2 h-2 bg-bg_color_brand_primary1 rounded-full mr-1"></div>
               </span>
               LIVE
             </button>
+
             <button
-              className=" flex items-center justify-center w-full gap-1.5 tracking-wider  font-lato  py-2.5 uppercase  active:opacity-90 p-3 text-sm font-semibold text-text_color_tertiary1 text-text_color_primary3 font-lato font-bold text-xs bg-none"
+              onClick={() => setTab("openBets")}
+              className={`flex items-center justify-center w-full gap-1.5 tracking-wider font-lato py-2.5 uppercase active:opacity-90 p-3 text-sm font-semibold text-xs font-bold ${
+                tab === "openBets"
+                  ? "text-transparent bg-clip-text bg-bg_text_brand_primary text-text_brand_primary"
+                  : "text-text_color_tertiary1 text-text_color_primary3 bg-none"
+              }`}
               style={{ zIndex: 10 }}
             >
               OPEN BETS
               <span>
-                <div>(0)</div>
+                <div>({currentBets?.length})</div>
               </span>
             </button>
+
             <div
-              className="w-[48%] absolute z-10 transition-all ease-in-out bg-bg_color_brand_primary1 rounded-lg h-[2px]"
-              style={{ zIndex: 9, width: "50%", left: "0%", bottom: "0px" }}
+              className={`w-[48%] absolute z-10 transition-all ease-in-out bg-bg_color_brand_primary1 rounded-lg h-[2px] ${
+                tab === "live" ? "left-0" : "right-0"
+              }`}
+              style={{ zIndex: 9, width: "50%", bottom: "0px" }}
             ></div>
           </div>
         </div>
@@ -264,107 +301,173 @@ const MobileEventHeader = () => {
 
       <div
         title="Live Score"
-        className="  grid grid-cols-1   min-h-[124px]   sm:grid-cols-2 lg:grid-cols-1 sm:gap-x-1 sm:px-0.5 lg:gap-x-0 lg:px-0 w-full  flex-grow lg:hidden"
+        className="  grid grid-cols-1      sm:grid-cols-2 lg:grid-cols-1 sm:gap-x-1 sm:px-0.5 lg:gap-x-0 lg:px-0 w-full  flex-grow lg:hidden"
       >
-        <div className=" col-span-1 w-full h-max">
-          <div className="bg-bg_color_primary font-lato py-1">
-            <div className="min-w-full snap-center text-text_color_primary1 text-[10px] flex flex-col justify-evenly divide-y divide-divide_color_primary2">
-              <div className="grid grid-cols-10 text-center  gap-2 divide-x divide-divide_color_primary2">
-                <div className="flex flex-col col-span-2">
-                  <span>CRR</span>
-                  <span>3.4</span>
-                </div>
-                <div className="flex flex-col col-span-2">
-                  <span> {"P'SHIP"} R</span>
-                  <span>0</span>
-                </div>
-                <div className="flex flex-col col-span-2">
-                  <span className="text-text_color_tertiary1">
-                    {"P'SHIP"} B
-                  </span>
-                  <span>0</span>
-                </div>
-                <div className="flex flex-col col-span-4">
-                  <span className="text-text_color_tertiary1">LAST WICKET</span>
-                  <div className=" flex items-center justify-center gap-x-0.5">
-                    <span>Taijul Islam</span>
+        {tab === "live" && (
+          <div className=" col-span-1 w-full h-max">
+            <div className="bg-bg_color_primary font-lato py-1">
+              <div className="min-w-full snap-center text-text_color_primary1 text-[10px] flex flex-col justify-evenly divide-y divide-divide_color_primary2">
+                <div className="grid grid-cols-10 text-center  gap-2 divide-x divide-divide_color_primary2">
+                  <div className="flex flex-col col-span-2">
+                    <span>CRR</span>
+                    <span>3.4</span>
+                  </div>
+                  <div className="flex flex-col col-span-2">
+                    <span> {"P'SHIP"} R</span>
+                    <span>0</span>
+                  </div>
+                  <div className="flex flex-col col-span-2">
+                    <span className="text-text_color_tertiary1">
+                      {"P'SHIP"} B
+                    </span>
+                    <span>0</span>
+                  </div>
+                  <div className="flex flex-col col-span-4">
+                    <span className="text-text_color_tertiary1">
+                      LAST WICKET
+                    </span>
                     <div className=" flex items-center justify-center gap-x-0.5">
-                      <span>1</span>
-                      <span>(3)</span>
+                      <span>Taijul Islam</span>
+                      <div className=" flex items-center justify-center gap-x-0.5">
+                        <span>1</span>
+                        <span>(3)</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="grid grid-cols-8 pt-3 text-text_color_tertiary1">
-                <span className="col-span-3 ml-3">Batsmen</span>
-                <span className="col-span-1">R</span>
-                <span className="col-span-1">B</span>
-                <span className="col-span-1">4s</span>
-                <span className="col-span-1">6s</span>
-                <span className="col-span-1">SR</span>
-                <div className=" col-span-3 ml-3 flex items-center justify-start flex-row text-text_color_primary1 gap-x-1">
-                  <span> Jaker Ali</span>
+                <div className="grid grid-cols-8 pt-3 text-text_color_tertiary1">
+                  <span className="col-span-3 ml-3">Batsmen</span>
+                  <span className="col-span-1">R</span>
+                  <span className="col-span-1">B</span>
+                  <span className="col-span-1">4s</span>
+                  <span className="col-span-1">6s</span>
+                  <span className="col-span-1">SR</span>
+                  <div className=" col-span-3 ml-3 flex items-center justify-start flex-row text-text_color_primary1 gap-x-1">
+                    <span> Jaker Ali</span>
+                  </div>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    45
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    103
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    3s
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1 ">
+                    0s
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1 ">
+                    43.69
+                  </span>
+                  <div className=" col-span-3 ml-3 flex items-center justify-start flex-row text-text_color_primary1 gap-x-1">
+                    <span> Hasan Mahmud</span>
+                  </div>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    11
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    43
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    2s
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1 ">
+                    0s
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1 ">
+                    25.58
+                  </span>
                 </div>
-                <span className=" col-span-1 text-text_color_primary1">45</span>
-                <span className=" col-span-1 text-text_color_primary1">
-                  103
-                </span>
-                <span className=" col-span-1 text-text_color_primary1">3s</span>
-                <span className=" col-span-1 text-text_color_primary1 ">
-                  0s
-                </span>
-                <span className=" col-span-1 text-text_color_primary1 ">
-                  43.69
-                </span>
-                <div className=" col-span-3 ml-3 flex items-center justify-start flex-row text-text_color_primary1 gap-x-1">
-                  <span> Hasan Mahmud</span>
+                <div className="grid grid-cols-8 pt-3 text-text_color_tertiary1">
+                  <span className="col-span-3 ml-3">Bowler</span>
+                  <span className="col-span-1">O</span>
+                  <span className="col-span-1">M</span>
+                  <span className="col-span-1">R</span>
+                  <span className="col-span-1">W</span>
+                  <span className="col-span-1">Eco</span>
+                  <span className=" col-span-3 ml-3 text-text_color_primary1">
+                    Victor Nyauchi
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    16.4
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    0
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    36
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    1
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    2.2
+                  </span>
                 </div>
-                <span className=" col-span-1 text-text_color_primary1">11</span>
-                <span className=" col-span-1 text-text_color_primary1">43</span>
-                <span className=" col-span-1 text-text_color_primary1">2s</span>
-                <span className=" col-span-1 text-text_color_primary1 ">
-                  0s
-                </span>
-                <span className=" col-span-1 text-text_color_primary1 ">
-                  25.58
-                </span>
-              </div>
-              <div className="grid grid-cols-8 pt-3 text-text_color_tertiary1">
-                <span className="col-span-3 ml-3">Bowler</span>
-                <span className="col-span-1">O</span>
-                <span className="col-span-1">M</span>
-                <span className="col-span-1">R</span>
-                <span className="col-span-1">W</span>
-                <span className="col-span-1">Eco</span>
-                <span className=" col-span-3 ml-3 text-text_color_primary1">
-                  Victor Nyauchi
-                </span>
-                <span className=" col-span-1 text-text_color_primary1">
-                  16.4
-                </span>
-                <span className=" col-span-1 text-text_color_primary1">0</span>
-                <span className=" col-span-1 text-text_color_primary1">36</span>
-                <span className=" col-span-1 text-text_color_primary1">1</span>
-                <span className=" col-span-1 text-text_color_primary1">
-                  2.2
-                </span>
               </div>
             </div>
           </div>
-        </div>
-        <div className=" col-span-1 h-full">
-          <div className=" w-full px-2">
-            <button
-              className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  w-full py-2 text-sm my-2 font-semibold text-center text-text_color_primary2 bg-bg_brand_primary rounded-md 
-      cursor-pointer
-      "
-              type="button"
-            >
-              Watch And Enjoy Live Action...
-            </button>
-            <div></div>
+        )}
+
+        {tab === "openBets" && currentBets && currentBets?.length > 0 && (
+          <div className="mt-1">
+            {currentBets?.map((bet) => (
+              <div
+                key={bet?.betId}
+                className=" bg-bg_color_primary rounded-md mb-1 px-4 w-full py-3 box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);"
+              >
+                <div id="eventHeader" className=" font-lato-bold font-semibold">
+                  <div
+                    className={`font-medium underline capitalize text-sm  ${
+                      bet?.betType === "Back"
+                        ? "text-text_color_changeAnimationBack"
+                        : "text-text_color_changeAnimationLay"
+                    }`}
+                  >
+                    {bet?.title}
+                  </div>
+                </div>
+                <div className=" font-normal text-text_color_primary1  capitalize text-xs font-lato">
+                  {bet?.marketName}
+                </div>
+                <div
+                  id="tiem_Date_of_order_0_1743688800000"
+                  className=" text-xs font-lato font-normal text-text_color_primary1"
+                >
+                  <strong>Placed : </strong>
+                  <span>{bet?.placeDate}</span>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
+        )}
+
+        {score && score?.hasVideo && !iFrame && (
+          <div onClick={handleGetVideo} className=" col-span-1 h-full">
+            <div className=" w-full px-2">
+              <button
+                className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  w-full py-2 text-sm my-2 font-semibold text-center text-text_color_primary2 bg-bg_brand_primary rounded-md 
+cursor-pointer
+"
+                type="button"
+              >
+                Watch And Enjoy Live Action...
+              </button>
+              <div></div>
+            </div>
+          </div>
+        )}
+
+        {score && iFrame && score?.hasVideo && (
+          <iframe
+            id="videoComponent"
+            className="w-full max-h-[309px] sm:max-h-[144px] lg:max-h-[309px] relative overflow-hidden h-[55vw] md:h-[58vw] bg-transparent"
+            src={iFrame}
+            width="100%"
+            allowfullscreen=""
+          ></iframe>
+        )}
       </div>
     </>
   );

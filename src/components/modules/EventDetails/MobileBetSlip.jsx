@@ -28,9 +28,9 @@ const MobileBetSlip = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const { eventId } = useParams();
-  const { refetchCurrentBets } = useCurrentBets(eventId);
-  const { refetchBalance } = useBalance();
-  const { refetchExposure } = useExposure(eventId);
+  const { refetch: refetchCurrentBets } = useCurrentBets(eventId);
+  const { refetch: refetchBalance } = useBalance();
+  const { refetch: refetchExposure } = useExposure(eventId);
   const { placeBetValues, price, stake } = useSelector((state) => state?.event);
   const { token } = useSelector((state) => state?.auth);
 
@@ -131,7 +131,6 @@ const MobileBetSlip = () => {
     setTimeout(async () => {
       try {
         const res = await createOrder(payloadData).unwrap();
-
         if (res?.success) {
           setLoading(false);
           refetchExposure();
