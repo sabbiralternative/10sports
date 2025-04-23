@@ -6,7 +6,7 @@ const ScoreCard = ({ match_odds }) => {
       <div
         style={{ marginTop: "10px" }}
         _ngcontent-ng-c942213636=""
-        className="live-match-screen ng-star-inserted"
+        className="live-match-screen ng-star-inserted hidden lg:block"
       >
         {match_odds?.[0]?.score?.map((team, i) => {
           return (

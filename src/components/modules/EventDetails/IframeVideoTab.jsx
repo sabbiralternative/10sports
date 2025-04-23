@@ -49,7 +49,7 @@ const IframeVideoTab = ({
   }, [eventId, eventTypeId, score, betType, setBetType]);
 
   return (
-    <div>
+    <div className="hidden lg:block">
       {(score && score?.hasVideo) || score?.tracker ? (
         <div
           style={{
