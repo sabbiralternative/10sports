@@ -226,19 +226,21 @@ const BetSlip = () => {
                   type="number"
                   value={price}
                 />
-                <button
-                  onClick={() =>
-                    handleIncreasePrice(
-                      price,
-                      placeBetValues,
-                      dispatch,
-                      setPrice
-                    )
-                  }
-                  className="overflow-hidden w-full h-full flex items-center justify-center bg-bg_color_betSlipOddIncDecrBtnsGrd rounded-e-[4px] border border-border_color_primary4 border-r-0 text-xl font-normal text-center"
-                >
-                  <Plus />
-                </button>
+                {!placeBetValues?.isWeak && (
+                  <button
+                    onClick={() =>
+                      handleIncreasePrice(
+                        price,
+                        placeBetValues,
+                        dispatch,
+                        setPrice
+                      )
+                    }
+                    className="overflow-hidden w-full h-full flex items-center justify-center bg-bg_color_betSlipOddIncDecrBtnsGrd rounded-e-[4px] border border-border_color_primary4 border-r-0 text-xl font-normal text-center"
+                  >
+                    <Plus />
+                  </button>
+                )}
               </div>
             </div>
             <div
@@ -250,7 +252,7 @@ const BetSlip = () => {
                 className="text-text_color_primary1 sm:text-xs text-[10px] font-normal flex items-center justify-between"
               >
                 <span>STAKE</span>
-                <span>Max mkt : 0</span>
+                {/* <span>Max mkt : 0</span> */}
               </label>
               <input
                 onChange={(e) => dispatch(setStake(e.target.value))}
