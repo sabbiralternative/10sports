@@ -24,6 +24,8 @@ import ExclusionPolicy from "../pages/ExclusionPolicy/ExclusionPolicy";
 import Rules from "../pages/Rules/Rules";
 import ReferralStatement from "../pages/ReferralStatement/ReferralStatement";
 import NotFound from "../pages/NotFound/NotFound";
+import OpenBets from "../pages/OpenBets/OpenBets";
+import DWReport from "../pages/DWReport/DWReport";
 
 export const router = createBrowserRouter(
   [
@@ -96,6 +98,14 @@ export const router = createBrowserRouter(
         {
           path: "/bonus-statement",
           element: <BonusStatement />,
+        },
+        {
+          path: "/open-bets",
+          element: <OpenBets />,
+        },
+        {
+          path: "/transactions",
+          element: <DWReport />,
         },
         {
           path: "/betting-profit-loss",

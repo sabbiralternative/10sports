@@ -1,0 +1,97 @@
+import { useNavigate } from "react-router-dom";
+import { useCurrentBets } from "../../hooks/currentBets";
+
+const OpenBets = () => {
+  const navigate = useNavigate();
+  const { data: currentBets } = useCurrentBets();
+  console.log(currentBets);
+  return (
+    <div
+      className="w-full lg:pt-2  h-full
+     lg:w-[54%]"
+    >
+      <div id="openBetsRightSide" title="Open Bets" className="py-2 px-3">
+        <div className=" flex flex-col w-full  gap-1 text-text_color_primary1">
+          <div className="w-full origin-top scaleVerticalOpen" />
+          <div
+            id="matched_1"
+            className="px-3 py-2 cursor-pointer w-full flex items-center justify-between bg-bg_text_brand_primary rounded "
+          >
+            <span className=" text-text_color_primary2 text-xs">
+              Matched Bets
+            </span>
+            <div className=" flex items-center justify-center autoAnimate ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                transform="rotate(180)"
+                viewBox="0 0 512 512"
+                height={12}
+                width={12}
+                fill="var(--icon-color-secondary)"
+              >
+                <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path>
+              </svg>
+            </div>
+          </div>
+
+          {currentBets?.length > 0 ? (
+            <div className="w-full origin-top scaleVerticalOpen">
+              <div className="flex flex-col gap-1 w-full">
+                {currentBets?.map((bet) => {
+                  return (
+                    <div
+                      key={bet?.betId}
+                      className=" bg-bg_color_primary rounded-md divide-y divide-divide_color_primary1 w-full shadow "
+                    >
+                      <div
+                        id="eventHeader"
+                        className="font-semibold   px-3 py-2"
+                      >
+                        <div
+                          onClick={() => {
+                            navigate(
+                              `/event-details/${bet?.eventTypeId}/${bet?.eventId}`
+                            );
+                          }}
+                          className={`font-medium underline capitalize text-sm cursor-pointer   ${
+                            bet?.betType === "Back"
+                              ? "text-text_color_changeAnimationBack "
+                              : "text-text_color_changeAnimationLay"
+                          }`}
+                        >
+                          {bet?.title}
+                        </div>
+                      </div>
+                      <div className="px-3 py-2 text-text_color_primary1  uppercase font-lato flex flex-col">
+                        <span className=" font-semibold text-xs ">
+                          {bet?.nation}
+                        </span>
+                        <span className=" font-normal text-xs">
+                          {bet?.sports}
+                        </span>
+                      </div>
+                      <div
+                        id="tiem_Date_of_order_0_1745380800000"
+                        className=" text-xs px-3 py-2 text-center bg-bg_color_tertiary1 font-lato font-normal rounded-b-md text-text_color_primary1"
+                      >
+                        PLACED - {bet?.placeDate}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : (
+            <div className="w-full origin-top scaleVerticalOpen">
+              <div className="w-full font-medium text-sm bg-bg_color_primary rounded px-4  py-3 shadow text-text_color_primary1 ">
+                You have no matched Bets.
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default OpenBets;
