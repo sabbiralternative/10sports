@@ -1,14 +1,25 @@
 import { useState } from "react";
+import { Settings } from "../../../api";
 
 const FAQ = () => {
   const [tab, setTab] = useState(null);
+  const handleToggle = (t) => {
+    if (t === tab) {
+      setTab(null);
+    } else {
+      setTab(t);
+    }
+  };
   return (
     <div className="w-full pb-4 px-2">
       <article className="bg-bg_color_primary rounded-md font-lato">
-        <div className="w-full flex items-center justify-center text-text_color_primary1">
+        <div
+          onClick={() => handleToggle(1)}
+          className="w-full flex items-center justify-center text-text_color_primary1"
+        >
           <h1 className="text-sm sm:text-base p-3 font-bold w-full flex items-center justify-between rounded-sm cursor-pointer">
             <span className="font-lato text-[14px]">
-              Best Online Betting Site in India | 10Sports
+              Best Online Betting Site in India | {Settings.siteTitle}
             </span>
             <svg
               fill="var(--icon-color-secondary)"
@@ -18,7 +29,9 @@ const FAQ = () => {
               id="Layer_1"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 330 330"
-              className="w-4 transition-all duration-300 ease-in-out h-4"
+              className={`w-4 transition-all duration-300 ease-in-out h-4 ${
+                tab === 1 ? "-rotate-180" : ""
+              }`}
             >
               <g id="SVGRepo_bgCarrier" strokeWidth={0} />
               <g
@@ -35,10 +48,12 @@ const FAQ = () => {
             </svg>
           </h1>
         </div>
-        <h1 className="hidden">Best Online Betting Site in India | 10Sports</h1>
+        <h1 className="hidden">
+          Best Online Betting Site in India | {Settings.siteTitle}
+        </h1>
         <h2 className="hidden">
-          10sports the top online betting platform in India. Bet on sports, play
-          casino games, and enjoy exciting Bonuses
+          {Settings.siteTitle} the top online betting platform in India. Bet on
+          sports, play casino games, and enjoy exciting Bonuses
         </h2>
         <article
           className="w-full text-text_color_primary1 scroll-smooth transition-all duration-300 ease-in-out border-t-border_color_primary px-2 overflow-y-auto"
@@ -78,7 +93,8 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                Unlock the Thrill: Top Features &amp; Turbo Games on 10sports
+                Unlock the Thrill: Top Features &amp; Turbo Games on{" "}
+                {Settings.siteTitle}
               </span>
             </span>
           </h1>
@@ -110,8 +126,8 @@ const FAQ = () => {
               >
                 In this fast world of cricket and sports, one has to update
                 himself constantly with information and involvement. This is the
-                beginning of 10sportss role, as it is not just updating scores
-                during&nbsp;
+                beginning of {Settings.siteTitle}s role, as it is not just
+                updating scores during&nbsp;
               </span>
               <span
                 style={{
@@ -191,7 +207,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                What is 10sports?
+                What is {Settings.siteTitle}?
               </span>
             </span>
           </h2>
@@ -430,7 +446,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                <strong>10sports</strong>
+                <strong>{Settings.siteTitle}</strong>
               </span>
               <span
                 style={{
@@ -580,7 +596,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                <strong>10sports</strong>
+                <strong>{Settings.siteTitle}</strong>
               </span>
               <span
                 style={{
@@ -933,8 +949,8 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                , 10sports is well-placed to be an area of great interest to
-                fans looking for information on&nbsp;
+                , {Settings.siteTitle} is well-placed to be an area of great
+                interest to fans looking for information on&nbsp;
               </span>
               <span
                 style={{
@@ -1174,14 +1190,15 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                10sports creates a tremendously supportive community for all of
-                its cricket supporters. It is possible to interact with other
-                people, discuss information and even work together to run some
-                kind of strategy for, for example, fantasy teams. This site is
-                more than a website, it is a family-like thing for every cricket
-                fan, as the community plays a role in improving this platform.
-                It is a place and gathering point for people who are fans and
-                devotees of sport to finally feel that they can unite and meet.
+                {Settings.siteTitle} creates a tremendously supportive community
+                for all of its cricket supporters. It is possible to interact
+                with other people, discuss information and even work together to
+                run some kind of strategy for, for example, fantasy teams. This
+                site is more than a website, it is a family-like thing for every
+                cricket fan, as the community plays a role in improving this
+                platform. It is a place and gathering point for people who are
+                fans and devotees of sport to finally feel that they can unite
+                and meet.
               </span>
             </span>
           </p>
@@ -1252,7 +1269,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                <strong>10sports Turbo Games</strong>
+                <strong>{Settings.siteTitle} Turbo Games</strong>
               </span>
               <span
                 style={{
@@ -1546,7 +1563,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                <strong>10sports</strong>
+                <strong>{Settings.siteTitle}</strong>
               </span>
               <span
                 style={{
@@ -1618,7 +1635,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                <strong>10sports</strong>
+                <strong>{Settings.siteTitle}</strong>
               </span>
               <span
                 style={{
@@ -2049,7 +2066,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                <strong>10sports</strong>
+                <strong>{Settings.siteTitle}</strong>
               </span>
               <span
                 style={{
@@ -2124,7 +2141,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                In the end, 10sports stands out among the&nbsp;
+                In the end, {Settings.siteTitle} stands out among the&nbsp;
               </span>
               <span
                 style={{
@@ -2246,7 +2263,7 @@ const FAQ = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://10sports.com/"
+              href="https://{Settings.siteTitle}.com/"
             >
               <span
                 style={{
@@ -2332,7 +2349,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                <strong>10sports</strong>
+                <strong>{Settings.siteTitle}</strong>
               </span>
               <span
                 style={{
@@ -2351,15 +2368,20 @@ const FAQ = () => {
         </article>
         <h3 className="hidden" />
         <h4 className="hidden">
-          10sports the top online betting platform in India. Bet on sports, play
-          casino games, and enjoy exciting Bonuses
+          {Settings.siteTitle} the top online betting platform in India. Bet on
+          sports, play casino games, and enjoy exciting Bonuses
         </h4>
       </article>
       <div className="w-full pt-2">
         <article className="bg-bg_color_primary rounded-md font-lato">
-          <div className="w-full flex items-center justify-center text-text_color_primary1">
+          <div
+            onClick={() => handleToggle(2)}
+            className="w-full flex items-center justify-center text-text_color_primary1"
+          >
             <h1 className="text-sm sm:text-base p-3 font-bold w-full flex items-center justify-between rounded-sm cursor-pointer">
-              <span className="font-lato text-[14px]">FAQs-10SPORTS</span>
+              <span className="font-lato text-[14px]">
+                FAQs-{Settings.siteTitle}{" "}
+              </span>
               <svg
                 fill="var(--icon-color-secondary)"
                 width={16}
@@ -2368,7 +2390,9 @@ const FAQ = () => {
                 id="Layer_1"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 330 330"
-                className="w-4 transition-all duration-300 ease-in-out h-4"
+                className={`w-4 transition-all duration-300 ease-in-out h-4 ${
+                  tab === 2 ? "-rotate-180" : ""
+                }`}
               >
                 <g id="SVGRepo_bgCarrier" strokeWidth={0} />
                 <g
@@ -2387,27 +2411,32 @@ const FAQ = () => {
           </div>
           <ul
             className="list-disc pl-8 text-text_color_primary1 scroll-smooth transition-all duration-300 ease-in-out border-t-border_color_primary px-2 overflow-y-auto"
-            style={{ height: "0px", maxHeight: "50vh" }}
+            style={{
+              height: tab === 2 ? "max-content" : "0px",
+              maxHeight: "50vh",
+            }}
           >
             <li className="py-2">
               <summary className="font-bold">
-                What are jackpot slots, and does 10sports have them?
+                What are jackpot slots, and does {Settings.siteTitle} have them?
               </summary>
               <p>
-                Yes, 10sports.com has dozens of jackpot slots, varying in the
-                mechanics and combination of winning slots/combinations; it is
-                one of the best choices for users interested in casino games in
-                India or gambling in the form of online betting.
+                Yes, {Settings.siteTitle}.com has dozens of jackpot slots,
+                varying in the mechanics and combination of winning
+                slots/combinations; it is one of the best choices for users
+                interested in casino games in India or gambling in the form of
+                online betting.
               </p>
             </li>
             <li className="py-2">
               <summary className="font-bold">
-                Does 10sports offer sports live broadcasting?
+                Does {Settings.siteTitle} offer sports live broadcasting?
               </summary>
               <p>
-                Yes, 10sports.com provides Live streaming of some sports. In an
-                instant, the player can watch and bet, and that leaves it one of
-                the best live sports online betting apps in India.
+                Yes, {Settings.siteTitle}.com provides Live streaming of some
+                sports. In an instant, the player can watch and bet, and that
+                leaves it one of the best live sports online betting apps in
+                India.
               </p>
             </li>
             <li className="py-2">
@@ -2416,8 +2445,9 @@ const FAQ = () => {
                 wrong?
               </summary>
               <p>
-                The support is super fast at 10sports.com. The response comes
-                within a few minutes with 24*7 live chat and email.
+                The support is super fast at {Settings.siteTitle}.com. The
+                response comes within a few minutes with 24*7 live chat and
+                email.
               </p>
             </li>
           </ul>

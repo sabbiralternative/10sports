@@ -7,8 +7,10 @@ import cograE from "../img/cograE.svg";
 import BeGambleAware from "../img/BeGambleAware.svg";
 import bankTransfer from "../img/bankTransfer.svg";
 import upiIcon from "../img/upiIcon.svg";
+import cc from "../img/gaming-1.webp";
 
 export default {
+  cc,
   logo,
   india,
   defaultNotification,

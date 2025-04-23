@@ -25,6 +25,7 @@ const MobileEventHeader = ({ data, score }) => {
       setIFrame(res?.result?.url);
     }
   };
+  const score2 = data?.result?.[0]?.score2;
 
   return (
     <>
@@ -303,112 +304,102 @@ const MobileEventHeader = ({ data, score }) => {
         title="Live Score"
         className="  grid grid-cols-1      sm:grid-cols-2 lg:grid-cols-1 sm:gap-x-1 sm:px-0.5 lg:gap-x-0 lg:px-0 w-full  flex-grow lg:hidden"
       >
-        {tab === "live" && (
-          <div className=" col-span-1 w-full h-max">
-            <div className="bg-bg_color_primary font-lato py-1">
-              <div className="min-w-full snap-center text-text_color_primary1 text-[10px] flex flex-col justify-evenly divide-y divide-divide_color_primary2">
-                <div className="grid grid-cols-10 text-center  gap-2 divide-x divide-divide_color_primary2">
-                  <div className="flex flex-col col-span-2">
-                    <span>CRR</span>
-                    <span>3.4</span>
-                  </div>
-                  <div className="flex flex-col col-span-2">
-                    <span> {"P'SHIP"} R</span>
-                    <span>0</span>
-                  </div>
-                  <div className="flex flex-col col-span-2">
-                    <span className="text-text_color_tertiary1">
-                      {"P'SHIP"} B
-                    </span>
-                    <span>0</span>
-                  </div>
-                  <div className="flex flex-col col-span-4">
-                    <span className="text-text_color_tertiary1">
-                      LAST WICKET
-                    </span>
-                    <div className=" flex items-center justify-center gap-x-0.5">
-                      <span>Taijul Islam</span>
+        {tab === "live" &&
+          eventTypeId == 4 &&
+          data?.result?.[0]?.score2?.length !== 0 &&
+          !Array.isArray(data?.result?.[0]?.score2) && (
+            <div className=" col-span-1 w-full h-max">
+              <div className="bg-bg_color_primary font-lato py-1">
+                <div className="min-w-full snap-center text-text_color_primary1 text-[10px] flex flex-col justify-evenly divide-y divide-divide_color_primary2">
+                  <div className="grid grid-cols-10 text-center  gap-2 divide-x divide-divide_color_primary2">
+                    <div className="flex flex-col col-span-2">
+                      <span>CRR</span>
+                      <span>{score2?.crr}</span>
+                    </div>
+                    <div className="flex flex-col col-span-2">
+                      <span> {"P'SHIP"} R</span>
+                      <span>{score2?.partnership_runs}</span>
+                    </div>
+                    <div className="flex flex-col col-span-2">
+                      <span className="text-text_color_tertiary1">
+                        {"P'SHIP"} B
+                      </span>
+                      <span>{score2?.partnership_balls}</span>
+                    </div>
+                    <div className="flex flex-col col-span-4">
+                      <span className="text-text_color_tertiary1">
+                        LAST WICKET
+                      </span>
                       <div className=" flex items-center justify-center gap-x-0.5">
-                        <span>1</span>
-                        <span>(3)</span>
+                        <span>{score2?.last_wicket}</span>
+                        <div className=" flex items-center justify-center gap-x-0.5">
+                          {/* <span>1</span>
+                        <span>(3)</span> */}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="grid grid-cols-8 pt-3 text-text_color_tertiary1">
-                  <span className="col-span-3 ml-3">Batsmen</span>
-                  <span className="col-span-1">R</span>
-                  <span className="col-span-1">B</span>
-                  <span className="col-span-1">4s</span>
-                  <span className="col-span-1">6s</span>
-                  <span className="col-span-1">SR</span>
-                  <div className=" col-span-3 ml-3 flex items-center justify-start flex-row text-text_color_primary1 gap-x-1">
-                    <span> Jaker Ali</span>
+                  <div className="grid grid-cols-8 pt-3 text-text_color_tertiary1">
+                    <span className="col-span-3 ml-3">Batsmen</span>
+                    <span className="col-span-1">R</span>
+                    <span className="col-span-1">B</span>
+                    <span className="col-span-1">4s</span>
+                    <span className="col-span-1">6s</span>
+                    <span className="col-span-1">SR</span>
+                    {score2?.batsmen?.map((batMen) => (
+                      <>
+                        <div className=" col-span-3 ml-3 flex items-center justify-start flex-row text-text_color_primary1 gap-x-1">
+                          <span> {batMen?.name}</span>
+                        </div>
+                        <span className=" col-span-1 text-text_color_primary1">
+                          {batMen?.runs}
+                        </span>
+                        <span className=" col-span-1 text-text_color_primary1">
+                          {batMen?.balls}
+                        </span>
+                        <span className=" col-span-1 text-text_color_primary1">
+                          {batMen?.four}
+                        </span>
+                        <span className=" col-span-1 text-text_color_primary1 ">
+                          {batMen?.six}
+                        </span>
+                        <span className=" col-span-1 text-text_color_primary1 ">
+                          {batMen?.sr}
+                        </span>
+                      </>
+                    ))}
                   </div>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    45
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    103
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    3s
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1 ">
-                    0s
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1 ">
-                    43.69
-                  </span>
-                  <div className=" col-span-3 ml-3 flex items-center justify-start flex-row text-text_color_primary1 gap-x-1">
-                    <span> Hasan Mahmud</span>
+                  <div className="grid grid-cols-8 pt-3 text-text_color_tertiary1">
+                    <span className="col-span-3 ml-3">Bowler</span>
+                    <span className="col-span-1">O</span>
+                    <span className="col-span-1">M</span>
+                    <span className="col-span-1">R</span>
+                    <span className="col-span-1">W</span>
+                    <span className="col-span-1">Eco</span>
+
+                    <span className=" col-span-3 ml-3 text-text_color_primary1">
+                      {score2?.bowler?.name}
+                    </span>
+                    <span className=" col-span-1 text-text_color_primary1">
+                      {score2?.bowler?.overs}
+                    </span>
+                    <span className=" col-span-1 text-text_color_primary1">
+                      {score2?.bowler?.maidens}
+                    </span>
+                    <span className=" col-span-1 text-text_color_primary1">
+                      {score2?.bowler?.runs}
+                    </span>
+                    <span className=" col-span-1 text-text_color_primary1">
+                      {score2?.bowler?.wickets}
+                    </span>
+                    <span className=" col-span-1 text-text_color_primary1">
+                      {score2?.bowler?.eco}
+                    </span>
                   </div>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    11
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    43
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    2s
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1 ">
-                    0s
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1 ">
-                    25.58
-                  </span>
-                </div>
-                <div className="grid grid-cols-8 pt-3 text-text_color_tertiary1">
-                  <span className="col-span-3 ml-3">Bowler</span>
-                  <span className="col-span-1">O</span>
-                  <span className="col-span-1">M</span>
-                  <span className="col-span-1">R</span>
-                  <span className="col-span-1">W</span>
-                  <span className="col-span-1">Eco</span>
-                  <span className=" col-span-3 ml-3 text-text_color_primary1">
-                    Victor Nyauchi
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    16.4
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    0
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    36
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    1
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    2.2
-                  </span>
                 </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
 
         {tab === "openBets" && currentBets && currentBets?.length > 0 && (
           <div className="mt-1">

@@ -44,7 +44,7 @@ const Login = () => {
       const user = result?.result?.loginName;
       const game = result?.result?.buttonValue?.game;
       const memberId = result?.result?.memberId;
-      dispatch(setUser({ user, token }));
+      dispatch(setUser({ user, token, memberId }));
       localStorage.setItem("memberId", memberId);
       localStorage.setItem("buttonValue", JSON.stringify(game));
       localStorage.setItem("token", token);

@@ -26,6 +26,7 @@ import ReferralStatement from "../pages/ReferralStatement/ReferralStatement";
 import NotFound from "../pages/NotFound/NotFound";
 import OpenBets from "../pages/OpenBets/OpenBets";
 import DWReport from "../pages/DWReport/DWReport";
+import Mac88 from "../pages/Mac88/Mac88";
 
 export const router = createBrowserRouter(
   [
@@ -106,6 +107,10 @@ export const router = createBrowserRouter(
         {
           path: "/transactions",
           element: <DWReport />,
+        },
+        {
+          path: "/mac88",
+          element: <Mac88 />,
         },
         {
           path: "/betting-profit-loss",

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useAccountStatement } from "../../hooks/accountStatement";
-import DateRangePicker from "rsuite/DateRangePicker";
 import "rsuite/DateRangePicker/styles/index.css";
 import moment from "moment";
 import { getFromDate } from "../../utils/fromDate";
+import { DatePicker } from "rsuite";
 
 const AccountStatement = () => {
   const [activeDayTab, setActiveDayTab] = useState(7);
@@ -17,11 +17,6 @@ const AccountStatement = () => {
   };
   const { data } = useAccountStatement(payload);
 
-  const onDatePickerChange = (date) => {
-    setFromDate(date[0]);
-    setToDate(date[1]);
-  };
-
   const changeDateTab = (date) => {
     setActiveDayTab(date);
     setFromDate(getFromDate(date));
@@ -30,7 +25,8 @@ const AccountStatement = () => {
   const uniqueDates = [
     ...new Set(data?.result?.map((bet) => bet.settledTime.split(" ")[0])),
   ];
-
+  console.log(fromDate);
+  console.log(toDate);
   return (
     <div
       className="w-full h-full
@@ -41,9 +37,14 @@ const AccountStatement = () => {
           <div className="relative w-full">
             <div className=" w-full flex flex-col gap-2 bg-bg_color_primary py-2">
               <div className="flex items-center gap-2 w-full px-2">
-                <div className="w-full">
-                  <DateRangePicker
-                    onChange={(date) => onDatePickerChange(date)}
+                <div className="w-full flex items-center gap-4">
+                  <DatePicker
+                    onChange={(date) => setFromDate(date)}
+                    className="w-full"
+                  />
+                  <DatePicker
+                    placement="auto"
+                    onChange={(date) => setToDate(date)}
                     className="w-full"
                   />
                 </div>
