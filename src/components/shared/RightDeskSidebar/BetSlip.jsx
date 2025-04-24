@@ -170,7 +170,15 @@ const BetSlip = () => {
       (placeBetValues?.btype === "BOOKMAKER" ||
         placeBetValues?.btype === "BOOKMAKER2")
     ) {
-      setProfit(formatNumber(1 + price / stake));
+      const bookmaker = 1 + price / 100;
+      const total = bookmaker * stake - stake;
+
+      setProfit(formatNumber(total));
+    } else if (price && stake && placeBetValues?.btype === "FANCY") {
+      const profit =
+        (parseFloat(placeBetValues?.bottomValue) * parseFloat(stake)) /
+        parseFloat(stake);
+      setProfit(profit);
     }
   }, [price, stake, profit, placeBetValues, setProfit]);
 
@@ -312,10 +320,19 @@ const BetSlip = () => {
                   <span className=" text-text_color_primary2 text-sm font-bold">
                     Place Bet
                   </span>
-                  <div className=" text-text_color_primary2 text-xs">
-                    <span>Profit : </span>
-                    <span>{profit}</span>
-                  </div>
+                  {placeBetValues?.back ? (
+                    <div className=" text-text_color_primary2 text-xs">
+                      <span>Profit : </span>
+                      <span>{profit}</span>
+                    </div>
+                  ) : (
+                    <div className=" text-text_color_primary2 text-xs">
+                      <span>Liability : </span>
+                      <span>
+                        {placeBetValues?.btype === "FANCY" ? profit : stake}
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <div className="flex items-center justify-center gap-x-1">
                   <span>

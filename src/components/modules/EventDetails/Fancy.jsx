@@ -28,7 +28,7 @@ const Fancy = ({ data }) => {
   const { data: exposure } = useExposure(eventId);
   const [getLadder] = useGetLadderMutation();
 
-  const handleBetSlip = (betType, games, runner, price) => {
+  const handleBetSlip = (betType, games, runner, price, bottomValue) => {
     if (token) {
       let selectionId;
       let runnerId;
@@ -93,6 +93,7 @@ const Fancy = ({ data }) => {
         marketName: games?.name,
         eventId: games?.eventId,
         totalSize: 0,
+        bottomValue,
       };
       if (games?.btype == "FANCY") {
         dispatch(setRunnerId(games?.id));
@@ -285,7 +286,8 @@ const Fancy = ({ data }) => {
                                 "lay",
                                 game,
                                 game?.runners?.[0],
-                                game?.runners?.[0]?.lay?.[0]?.line
+                                game?.runners?.[0]?.lay?.[0]?.line,
+                                game?.runners?.[0]?.lay?.[0]?.price
                               )
                             }
                             className="w-full col-span-6 h-full"
@@ -311,7 +313,8 @@ const Fancy = ({ data }) => {
                                 "back",
                                 game,
                                 game?.runners?.[0],
-                                game?.runners?.[0]?.back?.[0]?.line
+                                game?.runners?.[0]?.back?.[0]?.line,
+                                game?.runners?.[0]?.back?.[0]?.price
                               )
                             }
                             className="w-full col-span-6 h-full"

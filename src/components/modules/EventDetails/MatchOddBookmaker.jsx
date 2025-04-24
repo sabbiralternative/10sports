@@ -536,7 +536,7 @@ const MatchOddBookmaker = ({ data }) => {
                                     id="oddBtnSize"
                                     className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
                                   >
-                                    {runner?.lay?.[0]?.price}
+                                    {runner?.lay?.[0]?.size}
                                   </span>
                                 </div>
                               </div>

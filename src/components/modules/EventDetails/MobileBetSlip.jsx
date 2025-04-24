@@ -44,7 +44,7 @@ const MobileBetSlip = () => {
   const [betDelay, setBetDelay] = useState("");
 
   useEffect(() => {
-    dispatch(setPrice(placeBetValues?.price));
+    dispatch(setPrice(parseFloat(placeBetValues?.price)));
     dispatch(
       setStake(
         placeBetValues?.totalSize > 0
@@ -95,7 +95,7 @@ const MobileBetSlip = () => {
   }
 
   /* Handle bets */
-
+  // console.log(placeBetValues);
   const handleOrderBets = async () => {
     setLoading(true);
     const payloadData = [
@@ -172,7 +172,15 @@ const MobileBetSlip = () => {
       (placeBetValues?.btype === "BOOKMAKER" ||
         placeBetValues?.btype === "BOOKMAKER2")
     ) {
-      setProfit(formatNumber(1 + price / stake));
+      const bookmaker = 1 + price / 100;
+      const total = bookmaker * stake - stake;
+
+      setProfit(formatNumber(total));
+    } else if (price && stake && placeBetValues?.btype === "FANCY") {
+      const profit =
+        (parseFloat(placeBetValues?.bottomValue) * parseFloat(stake)) /
+        parseFloat(stake);
+      setProfit(profit);
     }
   }, [price, stake, profit, placeBetValues, setProfit]);
 
@@ -348,7 +356,9 @@ const MobileBetSlip = () => {
                   ) : (
                     <div className=" text-text_color_primary2 text-xs">
                       <span>Liability : </span>
-                      <span>{stake}</span>
+                      <span>
+                        {placeBetValues?.btype === "FANCY" ? profit : stake}
+                      </span>
                     </div>
                   )}
                 </div>
