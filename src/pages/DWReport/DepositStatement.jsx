@@ -99,7 +99,7 @@ const DepositStatement = () => {
                                 />
                               </span>
                             )}
-                            <span className="text-start text-lg font-roboto flex items-center tracking-tighter font-bold">
+                            <span className="text-start text-lg flex items-center tracking-tighter font-bold">
                               ₹{data?.amount}
                             </span>
                           </div>

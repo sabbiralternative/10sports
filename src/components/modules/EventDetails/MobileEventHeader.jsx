@@ -4,6 +4,7 @@ import { Settings } from "../../../api";
 import { useState } from "react";
 import { useVideoMutation } from "../../../redux/features/events/events";
 import EventRules from "../../modals/EventRules/EventRules";
+import TennisScore from "./TennisScore";
 
 const MobileEventHeader = ({ data, score }) => {
   const [showRules, setShowRules] = useState(false);
@@ -132,6 +133,8 @@ const MobileEventHeader = ({ data, score }) => {
             </div>
           </div>
         </div>
+        {eventTypeId == 2 && <TennisScore score={data?.score} />}
+
         <div className=" w-full  bg-bg_color_secondary px-0">
           <div className=" flex w-full justify-between items-center px-3.5 py-1 font-lato">
             <div className=" flex items-start justify-start w-max flex-col max-w-[70%]">

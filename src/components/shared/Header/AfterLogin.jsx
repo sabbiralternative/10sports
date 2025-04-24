@@ -186,17 +186,21 @@ cursor-pointer
           </button>
         </div>
         <div className=" flex justify-end items-center h-max lg:hidden gap-x-1.5 w-full">
-          <button
-            type="button"
-            className="inline-block  leading-normal relative   transition duration-150 ease-in-out overflow-hidden min-h-[35px] relative active:scale-95  xxs:flex items-center h-fit justify-center bg-bg_color_DepositBtnBg  rounded-md px-2 py-1.5   text-sm   text-center 
+          {Settings.deposit && (
+            <button
+              onClick={() => navigate("/deposit")}
+              type="button"
+              className="inline-block  leading-normal relative   transition duration-150 ease-in-out overflow-hidden min-h-[35px] relative active:scale-95  xxs:flex items-center h-fit justify-center bg-bg_color_DepositBtnBg  rounded-md px-2 py-1.5   text-sm   text-center 
             cursor-pointer
             "
-          >
-            <span className="  font-semibold flex flex-row font-lato md:font-normal sm:text-base xs:text-sm">
-              <span className="text-text_color_primary2">Deposit</span>
-            </span>
-            <span className="shimmer" />
-          </button>
+            >
+              <span className="  font-semibold flex flex-row font-lato md:font-normal sm:text-base xs:text-sm">
+                <span className="text-text_color_primary2">Deposit</span>
+              </span>
+              <span className="shimmer" />
+            </button>
+          )}
+
           <button
             onClick={showRightDrawer}
             title="Balance"

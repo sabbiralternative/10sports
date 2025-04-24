@@ -12,7 +12,7 @@ const DWReport = () => {
       <div className=" w-full h-full flex flex-col gap-y-2">
         <div className="flex items-center justify-center flex-col h-max w-full relative z-[11]">
           <div className="px-2 w-full pt-2">
-            <div className=" flex flex-row font-manrope-regular items-center justify-start gap-2.5 relative">
+            <div className=" flex flex-row font-lato items-center justify-start gap-2.5 relative">
               <div
                 onClick={() => setTab("deposit")}
                 className="cursor-pointer flex flex-row items-center justify-center"

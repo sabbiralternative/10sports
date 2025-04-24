@@ -364,7 +364,7 @@ const Footer = () => {
               <span>Quick Links</span>
               <span className="absolute bottom-0 origin-left popUpOpenAnimation left-0 w-[75%] h-0.5 bg-bg_text_brand_primary rounded-full" />
             </h2>
-            <div className="w-full grid grid-cols-1 xxs:grid-cols-2 md:grid-cols-3 gap-3 py-2">
+            <div className="w-full grid  xxs:grid-cols-2 md:grid-cols-3 gap-3 py-2">
               <a
                 className="text-sm md:text-base transition-all duration-300 active:text-text_brand_primary hover:text-text_brand_primary relative h-max w-max whitespace-pre max-w-full col-span-1 text-text_color_primary1 undefined"
                 title="FAQs"

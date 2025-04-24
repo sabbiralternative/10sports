@@ -12,6 +12,7 @@ import HorseGreyhoundEventDetails from "../../components/modules/EventDetails/Ho
 import DesktopEventHeader from "../../components/modules/EventDetails/DesktopEventHeader";
 import MobileEventHeader from "../../components/modules/EventDetails/MobileEventHeader";
 import ScoreCard from "../../components/modules/EventDetails/ScoreCard";
+import TennisScore from "../../components/modules/EventDetails/TennisScore";
 
 const EventDetails = () => {
   const [tab, setTab] = useState("");
@@ -121,6 +122,9 @@ const EventDetails = () => {
       <div className="w-full h-full">
         <div className="no-scrollbar min-h-[calc(100dvh-56px)] md:mb-3">
           <DesktopEventHeader data={data} />
+          <div className="hidden lg:block">
+            {eventTypeId == 2 && <TennisScore score={data?.score} />}
+          </div>
           <MobileEventHeader score={data?.score} data={data} />
 
           <div className=" w-full text-selection-none pb-3 lg:pb-0">

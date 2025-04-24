@@ -183,6 +183,21 @@ const HeaderBottomNavItem = () => {
           <span className="font font-lato text-[12px]  font-normal">Aura</span>
         </Link>
       )}
+      {Settings.mac88 && (
+        <Link
+          className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+            location.pathname === "/mac88"
+              ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+              : "text-text_headerDeskNav"
+          }`}
+          to={`/mac88`}
+        >
+          <span>
+            <Aura height={16} width={16} />
+          </span>
+          <span className="font font-lato text-[12px]  font-normal">Mac88</span>
+        </Link>
+      )}
       {Settings.liveCasinoWolf && (
         <Link
           title="Aura"

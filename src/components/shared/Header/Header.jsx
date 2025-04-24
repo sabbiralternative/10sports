@@ -15,6 +15,7 @@ import AfterLogin from "./AfterLogin";
 import RightDrawer from "./RightDrawer";
 import BeforeLogin from "./BeforeLogin";
 import Referral from "../../modals/Referral/Referral";
+import Notification from "./Notification";
 
 const Header = () => {
   const { token } = useSelector((state) => state.auth);
@@ -55,6 +56,7 @@ const Header = () => {
       >
         <div className="flex flex-col">
           <div className="flex flex-col shadow-lg autoAnimate">
+            <Notification />
             <div
               id="header_body"
               className="w-full bg-bg_headerBg h-[54px] lg:h-[72px] pr-[4px] md:px-4 flex items-center justify-between gap-1 relative"

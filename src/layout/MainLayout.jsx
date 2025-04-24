@@ -9,7 +9,7 @@ import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 
 const MainLayout = () => {
-  const { group } = useSelector((state) => state.global);
+  const { group, showNotification } = useSelector((state) => state.global);
   const location = useLocation();
   const ref = useRef();
 
@@ -27,7 +27,11 @@ const MainLayout = () => {
       <Header />
       <div
         ref={ref}
-        className="flex-1 overflow-y-auto show-scrollbar scroll-auto flex flex-col h-full pt-[100px] lg:pt-[110px]"
+        className={`flex-1 overflow-y-auto show-scrollbar scroll-auto flex flex-col h-full ${
+          showNotification
+            ? "pt-[127px] lg:pt-[137px]"
+            : "pt-[100px] lg:pt-[110px]"
+        }`}
       >
         <main
           className={`flex items-start h-max justify-start w-full ${
