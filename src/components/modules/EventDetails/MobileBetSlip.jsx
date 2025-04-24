@@ -203,7 +203,9 @@ const MobileBetSlip = () => {
       <div className=" col-span-12 h-max w-full lg:hidden">
         <div
           title="Selected - Rajasthan Royals v Kolkata Knight Riders - Rajasthan Royals - 2954266"
-          className="  w-full h-max bg-bg_color_betSlipBgColor font-lato origin-top transition-all flex flex-col ease-in-out p-2 pb-3 rounded-sm border-[2px] border-b-[5px] border-backBtn transition-all duration-300 ease-in-out overflow-hidden transform-gpu"
+          className={`w-full h-max bg-bg_color_betSlipBgColor font-lato origin-top transition-all flex flex-col ease-in-out p-2 pb-3 rounded-sm border-[2px] border-b-[5px]  transition-all duration-300 ease-in-out overflow-hidden transform-gpu ${
+            placeBetValues?.back ? "border-backBtn" : "border-layBtn"
+          }`}
         >
           <div className=" w-full grid grid-cols-12 gap-2">
             <div title="Odds: 2.18" className="col-span-5 flex flex-col gap-1">
@@ -259,7 +261,7 @@ const MobileBetSlip = () => {
                 className="text-text_color_primary1 sm:text-xs text-[10px] font-normal flex items-center justify-between"
               >
                 <span>STAKE</span>
-                <span>Max mkt : 0</span>
+                {/* <span>Max mkt : 0</span> */}
               </label>
               <input
                 id="stakeInput"
@@ -338,10 +340,17 @@ const MobileBetSlip = () => {
                   <span className=" text-text_color_primary2 text-sm font-bold">
                     Place Bet
                   </span>
-                  <div className=" text-text_color_primary2 text-xs">
-                    <span>Profit : </span>
-                    <span>{profit}</span>
-                  </div>
+                  {placeBetValues?.back ? (
+                    <div className=" text-text_color_primary2 text-xs">
+                      <span>Profit : </span>
+                      <span>{profit}</span>
+                    </div>
+                  ) : (
+                    <div className=" text-text_color_primary2 text-xs">
+                      <span>Liability : </span>
+                      <span>{stake}</span>
+                    </div>
+                  )}
                 </div>
                 <div className="flex items-center justify-center gap-x-1">
                   <span>
