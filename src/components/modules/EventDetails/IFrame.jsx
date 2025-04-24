@@ -2,7 +2,7 @@ const IFrameScore = ({ score, betType, setBetType, iFrame }) => {
   return (
     <>
       {betType === "video" || betType === "tracker" ? (
-        <div className=" col-span-1 ">
+        <div className="hidden lg:block col-span-1 ">
           <div className=" relative w-full h-auto overflow-hidden bg-transparent ">
             <div
               draggable="false"

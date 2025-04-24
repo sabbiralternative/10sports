@@ -289,7 +289,7 @@ const MobileEventHeader = ({ data, score }) => {
             >
               OPEN BETS
               <span>
-                <div>({currentBets?.length})</div>
+                <div>({currentBets?.length || 0})</div>
               </span>
             </button>
 
@@ -308,101 +308,102 @@ const MobileEventHeader = ({ data, score }) => {
         className="  grid grid-cols-1      sm:grid-cols-2 lg:grid-cols-1 sm:gap-x-1 sm:px-0.5 lg:gap-x-0 lg:px-0 w-full  flex-grow lg:hidden"
       >
         {tab === "live" &&
-          eventTypeId == 4 &&
-          data?.result?.[0]?.score2?.length !== 0 &&
-          !Array.isArray(data?.result?.[0]?.score2) && (
-            <div className=" col-span-1 w-full h-max">
-              <div className="bg-bg_color_primary font-lato py-1">
-                <div className="min-w-full snap-center text-text_color_primary1 text-[10px] flex flex-col justify-evenly divide-y divide-divide_color_primary2">
-                  <div className="grid grid-cols-10 text-center  gap-2 divide-x divide-divide_color_primary2">
-                    <div className="flex flex-col col-span-2">
-                      <span>CRR</span>
-                      <span>{score2?.crr}</span>
-                    </div>
-                    <div className="flex flex-col col-span-2">
-                      <span> {"P'SHIP"} R</span>
-                      <span>{score2?.partnership_runs}</span>
-                    </div>
-                    <div className="flex flex-col col-span-2">
-                      <span className="text-text_color_tertiary1">
-                        {"P'SHIP"} B
-                      </span>
-                      <span>{score2?.partnership_balls}</span>
-                    </div>
-                    <div className="flex flex-col col-span-4">
-                      <span className="text-text_color_tertiary1">
-                        LAST WICKET
-                      </span>
+        eventTypeId == 4 &&
+        data &&
+        data?.result?.[0]?.score2?.length !== 0 &&
+        !Array.isArray(data?.result?.[0]?.score2) ? (
+          <div className=" col-span-1 w-full h-max">
+            <div className="bg-bg_color_primary font-lato py-1">
+              <div className="min-w-full snap-center text-text_color_primary1 text-[10px] flex flex-col justify-evenly divide-y divide-divide_color_primary2">
+                <div className="grid grid-cols-10 text-center  gap-2 divide-x divide-divide_color_primary2">
+                  <div className="flex flex-col col-span-2">
+                    <span>CRR</span>
+                    <span>{score2?.crr}</span>
+                  </div>
+                  <div className="flex flex-col col-span-2">
+                    <span> {"P'SHIP"} R</span>
+                    <span>{score2?.partnership_runs}</span>
+                  </div>
+                  <div className="flex flex-col col-span-2">
+                    <span className="text-text_color_tertiary1">
+                      {"P'SHIP"} B
+                    </span>
+                    <span>{score2?.partnership_balls}</span>
+                  </div>
+                  <div className="flex flex-col col-span-4">
+                    <span className="text-text_color_tertiary1">
+                      LAST WICKET
+                    </span>
+                    <div className=" flex items-center justify-center gap-x-0.5">
+                      <span>{score2?.last_wicket}</span>
                       <div className=" flex items-center justify-center gap-x-0.5">
-                        <span>{score2?.last_wicket}</span>
-                        <div className=" flex items-center justify-center gap-x-0.5">
-                          {/* <span>1</span>
+                        {/* <span>1</span>
                         <span>(3)</span> */}
-                        </div>
                       </div>
                     </div>
                   </div>
-                  <div className="grid grid-cols-8 pt-3 text-text_color_tertiary1">
-                    <span className="col-span-3 ml-3">Batsmen</span>
-                    <span className="col-span-1">R</span>
-                    <span className="col-span-1">B</span>
-                    <span className="col-span-1">4s</span>
-                    <span className="col-span-1">6s</span>
-                    <span className="col-span-1">SR</span>
-                    {score2?.batsmen?.map((batMen) => (
-                      <>
-                        <div className=" col-span-3 ml-3 flex items-center justify-start flex-row text-text_color_primary1 gap-x-1">
-                          <span> {batMen?.name}</span>
-                        </div>
-                        <span className=" col-span-1 text-text_color_primary1">
-                          {batMen?.runs}
-                        </span>
-                        <span className=" col-span-1 text-text_color_primary1">
-                          {batMen?.balls}
-                        </span>
-                        <span className=" col-span-1 text-text_color_primary1">
-                          {batMen?.four}
-                        </span>
-                        <span className=" col-span-1 text-text_color_primary1 ">
-                          {batMen?.six}
-                        </span>
-                        <span className=" col-span-1 text-text_color_primary1 ">
-                          {batMen?.sr}
-                        </span>
-                      </>
-                    ))}
-                  </div>
-                  <div className="grid grid-cols-8 pt-3 text-text_color_tertiary1">
-                    <span className="col-span-3 ml-3">Bowler</span>
-                    <span className="col-span-1">O</span>
-                    <span className="col-span-1">M</span>
-                    <span className="col-span-1">R</span>
-                    <span className="col-span-1">W</span>
-                    <span className="col-span-1">Eco</span>
+                </div>
+                <div className="grid grid-cols-8 pt-3 text-text_color_tertiary1">
+                  <span className="col-span-3 ml-3">Batsmen</span>
+                  <span className="col-span-1">R</span>
+                  <span className="col-span-1">B</span>
+                  <span className="col-span-1">4s</span>
+                  <span className="col-span-1">6s</span>
+                  <span className="col-span-1">SR</span>
+                  {score2?.batsmen?.map((batMen) => (
+                    <>
+                      <div className=" col-span-3 ml-3 flex items-center justify-start flex-row text-text_color_primary1 gap-x-1">
+                        <span> {batMen?.name}</span>
+                      </div>
+                      <span className=" col-span-1 text-text_color_primary1">
+                        {batMen?.runs}
+                      </span>
+                      <span className=" col-span-1 text-text_color_primary1">
+                        {batMen?.balls}
+                      </span>
+                      <span className=" col-span-1 text-text_color_primary1">
+                        {batMen?.four}
+                      </span>
+                      <span className=" col-span-1 text-text_color_primary1 ">
+                        {batMen?.six}
+                      </span>
+                      <span className=" col-span-1 text-text_color_primary1 ">
+                        {batMen?.sr}
+                      </span>
+                    </>
+                  ))}
+                </div>
+                <div className="grid grid-cols-8 pt-3 text-text_color_tertiary1">
+                  <span className="col-span-3 ml-3">Bowler</span>
+                  <span className="col-span-1">O</span>
+                  <span className="col-span-1">M</span>
+                  <span className="col-span-1">R</span>
+                  <span className="col-span-1">W</span>
+                  <span className="col-span-1">Eco</span>
 
-                    <span className=" col-span-3 ml-3 text-text_color_primary1">
-                      {score2?.bowler?.name}
-                    </span>
-                    <span className=" col-span-1 text-text_color_primary1">
-                      {score2?.bowler?.overs}
-                    </span>
-                    <span className=" col-span-1 text-text_color_primary1">
-                      {score2?.bowler?.maidens}
-                    </span>
-                    <span className=" col-span-1 text-text_color_primary1">
-                      {score2?.bowler?.runs}
-                    </span>
-                    <span className=" col-span-1 text-text_color_primary1">
-                      {score2?.bowler?.wickets}
-                    </span>
-                    <span className=" col-span-1 text-text_color_primary1">
-                      {score2?.bowler?.eco}
-                    </span>
-                  </div>
+                  <span className=" col-span-3 ml-3 text-text_color_primary1">
+                    {score2?.bowler?.name}
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    {score2?.bowler?.overs}
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    {score2?.bowler?.maidens}
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    {score2?.bowler?.runs}
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    {score2?.bowler?.wickets}
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    {score2?.bowler?.eco}
+                  </span>
                 </div>
               </div>
             </div>
-          )}
+          </div>
+        ) : null}
 
         {tab === "openBets" && currentBets && currentBets?.length > 0 && (
           <div className="mt-1">
@@ -436,6 +437,11 @@ const MobileEventHeader = ({ data, score }) => {
             ))}
           </div>
         )}
+        {tab === "openBets" && (currentBets?.length === 0 || !currentBets) ? (
+          <div className="mt-1 text-white flex items-center justify-center w-full my-2">
+            No bet available
+          </div>
+        ) : null}
 
         {score && score?.hasVideo && !iFrame && (
           <div onClick={handleGetVideo} className=" col-span-1 h-full">
@@ -454,13 +460,43 @@ cursor-pointer
         )}
 
         {score && iFrame && score?.hasVideo && (
-          <iframe
-            id="videoComponent"
-            className="w-full max-h-[309px] sm:max-h-[144px] lg:max-h-[309px] relative overflow-hidden h-[55vw] md:h-[58vw] bg-transparent"
-            src={iFrame}
-            width="100%"
-            allowfullscreen=""
-          ></iframe>
+          <div className="relative">
+            <iframe
+              id="videoComponent"
+              className="w-full max-h-[309px] sm:max-h-[144px] lg:max-h-[309px] relative overflow-hidden h-[55vw] md:h-[58vw] bg-transparent"
+              src={iFrame}
+              width="100%"
+              allowfullscreen=""
+            ></iframe>
+            <div
+              onClick={() => setIFrame(null)}
+              className="absolute top-1 right-1 z-10 active:scale-90 transition-all duration-300 ease-in-out cursor-pointer"
+            >
+              <svg
+                height="24"
+                width="24"
+                fill="var(--color-quaternary)"
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fad"
+                data-icon="circle-xmark"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+              >
+                <g className="fa-duotone-group">
+                  <path
+                    fill="currentColor"
+                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
+                  ></path>
+                  <path
+                    fill="white"
+                    d="M209 175c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47z"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+          </div>
         )}
       </div>
     </>
