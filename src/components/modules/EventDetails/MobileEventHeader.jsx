@@ -135,7 +135,7 @@ const MobileEventHeader = ({ data, score }) => {
         </div>
         {eventTypeId == 2 && <TennisScore score={data?.score} />}
 
-        <div className=" w-full  bg-bg_color_secondary px-0">
+        {/* <div className=" w-full  bg-bg_color_secondary px-0">
           <div className=" flex w-full justify-between items-center px-3.5 py-1 font-lato">
             <div className=" flex items-start justify-start w-max flex-col max-w-[70%]">
               <div className=" bg-bg_text_brand_primary text-transparent text-start bg-clip-text font-lato font-bold text-sm flex items-start justify-start w-full">
@@ -254,7 +254,7 @@ const MobileEventHeader = ({ data, score }) => {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
         <div
           title="Live And Open Bets"
           className=" lg:hidden w-full bg-bg_color_primary shadow-sm"
