@@ -6,18 +6,18 @@ import { useEffect, useState } from "react";
 import MatchOddBookmaker from "../../components/modules/EventDetails/MatchOddBookmaker";
 import Fancy from "../../components/modules/EventDetails/Fancy";
 // import Score from "../../components/modules/EventDetails/Score";
-import IframeVideoTab from "../../components/modules/EventDetails/IframeVideoTab";
-import IFrameScore from "../../components/modules/EventDetails/IFrame";
+// import IframeVideoTab from "../../components/modules/EventDetails/IframeVideoTab";
+// import Tracker from "../../components/modules/EventDetails/Tracker";
 import HorseGreyhoundEventDetails from "../../components/modules/EventDetails/HorseGreyhoundEventDetails";
 import DesktopEventHeader from "../../components/modules/EventDetails/DesktopEventHeader";
 import MobileEventHeader from "../../components/modules/EventDetails/MobileEventHeader";
 import ScoreCard from "../../components/modules/EventDetails/ScoreCard";
 import TennisScore from "../../components/modules/EventDetails/TennisScore";
-import FootballScore from "../../components/modules/EventDetails/FootballScore";
+// import FootballScore from "../../components/modules/EventDetails/FootballScore";
 
 const EventDetails = () => {
-  const [tab, setTab] = useState("");
-  const [iFrame, setIframe] = useState("");
+  // const [tab, setTab] = useState("");
+  // const [iFrame, setIframe] = useState("");
   const { eventTypeId, eventId } = useParams();
   const [profit, setProfit] = useState(0);
   const dispatch = useDispatch();
@@ -128,11 +128,6 @@ const EventDetails = () => {
           </div>
 
           <MobileEventHeader score={data?.score} data={data} />
-          {eventTypeId == 1 && (
-            <div className="hidden lg:block">
-              <FootballScore score={data?.score} />
-            </div>
-          )}
 
           <div className=" w-full text-selection-none pb-3 lg:pb-0">
             <div className=" px-2 font-helvetica-neue">
@@ -144,7 +139,7 @@ const EventDetails = () => {
                 !Array.isArray(data?.result?.[0]?.score2) && (
                   <Score mobile={false} score2={data?.result?.[0]?.score2} />
                 )} */}
-              <IframeVideoTab
+              {/* <IframeVideoTab
                 iFrame={iFrame}
                 setIframe={setIframe}
                 tab={tab}
@@ -152,13 +147,8 @@ const EventDetails = () => {
                 score={data?.score}
                 betType={tab}
                 setBetType={setTab}
-              />
-              <IFrameScore
-                iFrame={iFrame}
-                betType={tab}
-                score={data?.score}
-                setBetType={setTab}
-              />
+              /> */}
+              {/* <Tracker score={data?.score} /> */}
               {data?.result?.length > 0 && (
                 <MatchOddBookmaker data={data?.result} />
               )}

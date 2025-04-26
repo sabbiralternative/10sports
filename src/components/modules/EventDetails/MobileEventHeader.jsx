@@ -6,6 +6,7 @@ import { useVideoMutation } from "../../../redux/features/events/events";
 import EventRules from "../../modals/EventRules/EventRules";
 import TennisScore from "./TennisScore";
 import FootballScore from "./FootballScore";
+import Tracker from "./Tracker";
 
 const MobileEventHeader = ({ data, score }) => {
   const [showRules, setShowRules] = useState(false);
@@ -34,12 +35,12 @@ const MobileEventHeader = ({ data, score }) => {
       {showRules && <EventRules setShowRules={setShowRules} />}
       <div
         id="eventDetails4-Bangladesh-vs-Zimbabwe"
-        className=" w-full  top-0 flex items-center justify-start flex-col lg:hidden"
+        className=" w-full  top-0 flex items-center justify-start flex-col "
         style={{ zIndex: 20 }}
       >
         <div
           id="eventPageHeader"
-          className=" w-full pl-[4px] pr-[4px] py-1.5 bg-bg_color_primary flex flex-col items-center"
+          className=" w-full pl-[4px] pr-[4px] py-1.5 bg-bg_color_primary flex flex-col items-center lg:hidden"
         >
           <div className=" w-full flex  items-center justify-between">
             <div
@@ -135,7 +136,10 @@ const MobileEventHeader = ({ data, score }) => {
           </div>
         </div>
         {eventTypeId == 2 && <TennisScore score={data?.score} />}
-        {eventTypeId == 1 && <FootballScore score={data?.score} />}
+        <div className="w-full mb-2">
+          {" "}
+          {eventTypeId == 1 && <FootballScore score={data?.score} />}
+        </div>
 
         {/* <div className=" w-full  bg-bg_color_secondary px-0">
           <div className=" flex w-full justify-between items-center px-3.5 py-1 font-lato">
@@ -307,7 +311,7 @@ const MobileEventHeader = ({ data, score }) => {
 
       <div
         title="Live Score"
-        className="  grid grid-cols-1      sm:grid-cols-2 lg:grid-cols-1 sm:gap-x-1 sm:px-0.5 lg:gap-x-0 lg:px-0 w-full  flex-grow lg:hidden"
+        className="  grid grid-cols-1      sm:grid-cols-2 lg:grid-cols-1 sm:gap-x-1 sm:px-0.5 lg:gap-x-0 lg:px-0 w-full  flex-grow "
       >
         {tab === "live" &&
         eventTypeId == 4 &&
@@ -444,7 +448,7 @@ const MobileEventHeader = ({ data, score }) => {
             No bet available
           </div>
         ) : null}
-
+        <Tracker score={score} />
         {score && score?.hasVideo && !iFrame && (
           <div onClick={handleGetVideo} className=" col-span-1 h-full">
             <div className=" w-full px-2">
@@ -462,7 +466,7 @@ cursor-pointer
         )}
 
         {score && iFrame && score?.hasVideo && (
-          <div className="relative">
+          <div className="relative mt-2">
             <iframe
               id="videoComponent"
               className="w-full max-h-[309px] sm:max-h-[144px] lg:max-h-[309px] relative overflow-hidden h-[55vw] md:h-[58vw] bg-transparent"
