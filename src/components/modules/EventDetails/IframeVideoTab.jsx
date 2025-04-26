@@ -49,7 +49,7 @@ const IframeVideoTab = ({
   }, [eventId, eventTypeId, score, betType, setBetType]);
 
   return (
-    <div className="hidden lg:block">
+    <div className="">
       {(score && score?.hasVideo) || score?.tracker ? (
         <div
           style={{
@@ -62,10 +62,11 @@ const IframeVideoTab = ({
         >
           {score && score?.hasVideo && (
             <div
+              className="hidden lg:flex"
               onClick={handleGetVideo}
               style={{
                 flex: 1,
-                display: "flex",
+
                 alignItems: "center",
                 justifyContent: "center",
                 backgroundColor: "white",

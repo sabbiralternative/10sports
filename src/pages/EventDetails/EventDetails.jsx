@@ -13,6 +13,7 @@ import DesktopEventHeader from "../../components/modules/EventDetails/DesktopEve
 import MobileEventHeader from "../../components/modules/EventDetails/MobileEventHeader";
 import ScoreCard from "../../components/modules/EventDetails/ScoreCard";
 import TennisScore from "../../components/modules/EventDetails/TennisScore";
+import FootballScore from "../../components/modules/EventDetails/FootballScore";
 
 const EventDetails = () => {
   const [tab, setTab] = useState("");
@@ -125,7 +126,13 @@ const EventDetails = () => {
           <div className="hidden lg:block">
             {eventTypeId == 2 && <TennisScore score={data?.score} />}
           </div>
+
           <MobileEventHeader score={data?.score} data={data} />
+          {eventTypeId == 1 && (
+            <div className="hidden lg:block">
+              <FootballScore score={data?.score} />
+            </div>
+          )}
 
           <div className=" w-full text-selection-none pb-3 lg:pb-0">
             <div className=" px-2 font-helvetica-neue">
