@@ -91,7 +91,7 @@ const RegistrationForm = ({
       const token = result?.result?.token;
       const bonusToken = result?.result?.bonusToken;
       const user = result?.result?.loginName;
-      const memberId = result?.result?.memberCode;
+      const memberId = result?.result?.memberId;
       const game = result?.result?.buttonValue?.game;
       dispatch(setUser({ user, token, memberId }));
       localStorage.setItem("buttonValue", JSON.stringify(game));

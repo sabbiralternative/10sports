@@ -144,7 +144,7 @@ const RightDrawer = ({
                   <path d="M12 17v.01"></path>
                 </svg>
                 <span className="font-lato-bold font-semibold text-sm xs:text-base text-text_color_primary1">
-                  {memberId}
+                  User ID : {memberId}
                 </span>
               </div>
               <button
