@@ -25,8 +25,7 @@ const AccountStatement = () => {
   const uniqueDates = [
     ...new Set(data?.result?.map((bet) => bet.settledTime.split(" ")[0])),
   ];
-  console.log(fromDate);
-  console.log(toDate);
+
   return (
     <div
       className="w-full h-full

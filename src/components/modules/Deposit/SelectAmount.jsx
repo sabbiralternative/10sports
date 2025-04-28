@@ -8,7 +8,6 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
 
   useEffect(() => {
     if (amount) {
-      console.log(amount);
       const floatAmount = parseFloat(amount);
 
       if (typeof floatAmount !== "number") {

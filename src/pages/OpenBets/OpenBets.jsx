@@ -4,7 +4,7 @@ import { useCurrentBets } from "../../hooks/currentBets";
 const OpenBets = () => {
   const navigate = useNavigate();
   const { data: currentBets } = useCurrentBets();
-  console.log(currentBets);
+
   return (
     <div
       className="w-full lg:pt-2  h-full

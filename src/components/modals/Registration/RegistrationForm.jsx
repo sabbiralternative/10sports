@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../../../context/LanguageProvider";
-import useBalance from "../../../hooks/balance";
+
 import {
   useGetOtpMutation,
   useRegisterMutation,
@@ -30,7 +30,6 @@ const RegistrationForm = ({
   const [countDown, setCountDown] = useState(45);
   const { valueByLanguage } = useLanguage();
   const referralCode = localStorage.getItem("referralCode");
-  const { refetch: refetchBalance } = useBalance();
   const [passType, setPassType] = useState(true);
   const [confirmPassType, setConfirmPassType] = useState(true);
   const [getOTP] = useGetOtpMutation();
@@ -86,7 +85,7 @@ const RegistrationForm = ({
     };
 
     const result = await handleRegister(registerData).unwrap();
-    // console.log(result);
+
     if (result.success) {
       localStorage.removeItem("referralCode");
       const token = result?.result?.token;
@@ -97,8 +96,8 @@ const RegistrationForm = ({
       dispatch(setUser({ user, token, memberId }));
       localStorage.setItem("buttonValue", JSON.stringify(game));
       localStorage.setItem("bonusToken", bonusToken);
+      localStorage.setItem("token", token);
       if (token && user) {
-        refetchBalance();
         dispatch(setShowRegisterModal(false));
         toast.success("Register successful");
       }

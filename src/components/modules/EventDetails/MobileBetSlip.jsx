@@ -95,7 +95,7 @@ const MobileBetSlip = () => {
   }
 
   /* Handle bets */
-  // console.log(placeBetValues);
+
   const handleOrderBets = async () => {
     setLoading(true);
     const payloadData = [

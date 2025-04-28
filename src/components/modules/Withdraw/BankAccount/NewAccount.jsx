@@ -32,7 +32,6 @@ const NewAccount = ({ setTab }) => {
   const handleAddBank = async (e) => {
     e.preventDefault();
 
-    // console.log(bankDetails);
     if (bankDetails.accountNumber != bankDetails.confirmAccountNumber) {
       return toast.error("Account number not matched!");
     }
