@@ -86,7 +86,7 @@ const RegistrationForm = ({
     };
 
     const result = await handleRegister(registerData).unwrap();
-
+    // console.log(result);
     if (result.success) {
       localStorage.removeItem("referralCode");
       const token = result?.result?.token;
