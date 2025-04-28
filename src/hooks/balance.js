@@ -9,6 +9,7 @@ export const useBalance = () => {
   const { token } = useSelector((state) => state.auth);
   return useQuery({
     queryKey: ["balance"],
+    enabled: token ? true : false,
     queryFn: async () => {
       const res = await AxiosSecure.post(API.balance);
       if (res?.data?.success === false && token) {

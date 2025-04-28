@@ -30,7 +30,7 @@ const RegistrationForm = ({
   const [countDown, setCountDown] = useState(45);
   const { valueByLanguage } = useLanguage();
   const referralCode = localStorage.getItem("referralCode");
-  const { refetchBalance } = useBalance();
+  const { refetch: refetchBalance } = useBalance();
   const [passType, setPassType] = useState(true);
   const [confirmPassType, setConfirmPassType] = useState(true);
   const [getOTP] = useGetOtpMutation();
@@ -86,6 +86,7 @@ const RegistrationForm = ({
     };
 
     const result = await handleRegister(registerData).unwrap();
+
     if (result.success) {
       localStorage.removeItem("referralCode");
       const token = result?.result?.token;
