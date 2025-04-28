@@ -15,6 +15,7 @@ const RightDrawer = ({
   setShowReferral,
 }) => {
   const { user, token, memberId } = useSelector((state) => state.auth);
+
   const { data } = useBalance();
   const { data: socialLink } = useWhatsApp();
   const ref = useRef();
