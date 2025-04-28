@@ -205,6 +205,7 @@ const MatchOddBookmaker = ({ data }) => {
     const obj = exposure?.pnlBySelection;
     pnlBySelection = Object?.values(obj);
   }
+
   return (
     <>
       {filterMatchOddsBookmaker?.length > 0 &&

@@ -78,7 +78,7 @@ const RegistrationForm = ({
       password: data?.password,
       confirmPassword: data?.confirmPassword,
       mobile: mobile,
-      otp: data?.otp,
+      otp: otpValues.join(""),
       isOtpAvailable: Settings.otp,
       referralCode: referralCode || data?.referralCode,
       orderId: OTP.orderId,
