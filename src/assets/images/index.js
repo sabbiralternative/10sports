@@ -8,8 +8,10 @@ import BeGambleAware from "../img/BeGambleAware.svg";
 import bankTransfer from "../img/bankTransfer.svg";
 import upiIcon from "../img/upiIcon.svg";
 import cc from "../img/gaming-1.webp";
+import instagram from "../img/instagram.png";
 
 export default {
+  instagram,
   cc,
   logo,
   india,
