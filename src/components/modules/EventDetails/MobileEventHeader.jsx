@@ -135,7 +135,9 @@ const MobileEventHeader = ({ data, score }) => {
             </div>
           </div>
         </div>
-        {eventTypeId == 2 && <TennisScore score={data?.score} />}
+        <div className="block lg:hidden w-full">
+          {eventTypeId == 2 && <TennisScore score={data?.score} />}
+        </div>
         <div className="w-full mb-2">
           {" "}
           {eventTypeId == 1 && <FootballScore score={data?.score} />}
