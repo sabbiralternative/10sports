@@ -4,7 +4,7 @@ import { useBankAccountMutation } from "../../../../redux/features/deposit/event
 import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { AxiosSecure } from "../../../../lib/AxiosSecure";
-import { API } from "../../../../api";
+import { API, Settings } from "../../../../api";
 import { jwtDecode } from "jwt-decode";
 
 const NewAccount = ({ setTab }) => {
@@ -245,7 +245,7 @@ const NewAccount = ({ setTab }) => {
             <div className="w-max min-h-[18px] h-max" />
           </div>
         </div>
-        {mobile && (
+        {mobile && Settings.otp && (
           <div className="flex flex-col w-full">
             <div className="ml-1 text-sm">
               Mobile <span className="text-text_color_danger">*</span>
@@ -287,7 +287,7 @@ const NewAccount = ({ setTab }) => {
             </div>
           </div>
         )}
-        {mobile && (
+        {mobile && Settings.otp && (
           <div className="flex flex-col w-full">
             <div className="ml-1 text-sm">
               OTP <span className="text-text_color_danger">*</span>
