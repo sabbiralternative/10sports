@@ -16,6 +16,7 @@ import RightDrawer from "./RightDrawer";
 import BeforeLogin from "./BeforeLogin";
 import Referral from "../../modals/Referral/Referral";
 import Notification from "./Notification";
+import { Settings } from "../../../api";
 
 const Header = () => {
   const { token } = useSelector((state) => state.auth);
@@ -92,25 +93,24 @@ const Header = () => {
                       <img
                         src={logo}
                         alt="10sports"
-                        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
-                        className="w-full h-full max-h-full object-cover"
+                        className={`object-cover`}
                         loading="eager"
                         title="10sports"
-                        style={{ maxHeight: "40px", maxWidth: "140px" }}
+                        style={{
+                          height: Settings.logoHeight,
+                          width: Settings.logoWidth,
+                        }}
                       />
                     </div>
                     <div className="relative overflow-hidden sm:hidden h-auto xsm:max-w-[120px] sm:max-w-[160px] md:max-w-[180px]">
                       <img
                         src={logo}
                         alt="10sports"
-                        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
-                        className="w-full h-auto max-h-full"
                         loading="eager"
                         title="10sports"
                         style={{
-                          maxHeight: "40px",
-                          maxWidth: "100px",
-                          height: "40px",
+                          height: Settings.logoHeight,
+                          width: Settings.logoWidth,
                         }}
                       />
                     </div>

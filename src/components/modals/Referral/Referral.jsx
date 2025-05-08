@@ -5,6 +5,7 @@ import { handleCopyToClipBoard } from "../../../utils/handleCopyToClipBoard";
 import { ApiContext } from "../../../context/ApiProvider";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
 import useGetIndex from "../../../hooks/useGetIndex";
+import { Settings } from "../../../api";
 
 const Referral = ({ setShowReferral }) => {
   const { logo } = useContext(ApiContext);
@@ -63,6 +64,10 @@ const Referral = ({ setShowReferral }) => {
                             _ngcontent-ng-c526813732=""
                             alt="logo"
                             src={logo}
+                            style={{
+                              height: Settings.logoHeight,
+                              width: Settings.logoWidth,
+                            }}
                             className="ng-star-inserted"
                           />
                         </div>

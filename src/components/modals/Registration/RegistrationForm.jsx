@@ -159,8 +159,10 @@ const RegistrationForm = ({
                 <img
                   src={logo}
                   alt="10sports-Register"
-                  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
-                  className="max-h-[60px] max-w-[141.428571429px] h-auto"
+                  style={{
+                    height: Settings.logoHeight,
+                    width: Settings.logoWidth,
+                  }}
                 />
               </div>
             </div>
