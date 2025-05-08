@@ -53,7 +53,7 @@ const BettingProfitLoss = () => {
                     {moment(category).format("Do-MMM-YYYY")}
                   </div>
                   <div className="text-xs text-text_color_primary2  font-[600] flex items-center justify-center leading-[140%]">
-                    <span>Total PL</span>
+                    <span className="text-primary">Total PL</span>
                     <span className="-mt-0.5 ml-1">:</span>
                     <span
                       className={`ml-1 ${

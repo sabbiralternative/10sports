@@ -136,7 +136,7 @@ const Referral = ({ setShowReferral }) => {
                               setShowReferral(false);
                             }}
                             _ngcontent-ng-c526813732=""
-                            className="btn secondary-btn"
+                            className="btn secondary-btn text-primary"
                           >
                             Copy
                           </button>

@@ -75,7 +75,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-active-primary);
+  background-color: var(--bg-color-headerBg);
 }
 
 .modal-header[_ngcontent-ng-c526813732] .img-wrap[_ngcontent-ng-c526813732] {

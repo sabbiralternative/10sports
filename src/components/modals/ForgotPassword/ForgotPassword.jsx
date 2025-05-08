@@ -186,8 +186,7 @@ const ForgotPassword = () => {
                           <button
                             onClick={handleOTP}
                             type="button"
-                            className="flex w-max items-center  h-full justify-between  px-1 text-text_color_loginInputTextColor bg-bg_color_LoginBtnBgColor py-1 rounded-sm"
-                            disabled=""
+                            className="flex w-max items-center  h-full justify-between  px-1 text-text_color_loginInputTextColor bg-bg_color_LoginBtnBgColor py-1 rounded-sm text-primary"
                           >
                             Get OTP
                           </button>
@@ -248,7 +247,7 @@ const ForgotPassword = () => {
                             xmlns="http://www.w3.org/2000/svg"
                             height="24"
                             width="24"
-                            fill="var(--icon-color-brand-secondary)"
+                            fill="var(--bg-active-primary)"
                             viewBox="0 0 512 512"
                             title="Hide Password"
                             className="cursor-pointer active:scale-95 transition-all duration-300 ml-1"
@@ -263,7 +262,7 @@ const ForgotPassword = () => {
                             height="24"
                             width="24"
                             viewBox="0 0 512 512"
-                            fill="var(--icon-color-brand-secondary)"
+                            fill="var(--bg-active-primary)"
                             title="View Password"
                             className="cursor-pointer active:scale-95 transition-all duration-300 ml-1"
                           >
@@ -271,7 +270,7 @@ const ForgotPassword = () => {
                             <path
                               d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z"
                               fill="none"
-                              stroke="var(--icon-color-brand-secondary)"
+                              stroke="var(--bg-active-primary)"
                               strokeLinecap="round"
                               strokeLinejoin="round"
                               strokeWidth="32"
@@ -281,7 +280,7 @@ const ForgotPassword = () => {
                               cy="256"
                               r="80"
                               fill="none"
-                              stroke="var(--icon-color-brand-secondary)"
+                              stroke="var(--bg-active-primary)"
                               strokeMiterlimit="10"
                               strokeWidth="32"
                             ></circle>
@@ -320,7 +319,7 @@ const ForgotPassword = () => {
                             xmlns="http://www.w3.org/2000/svg"
                             height="24"
                             width="24"
-                            fill="var(--icon-color-brand-secondary)"
+                            fill="var(--bg-active-primary)"
                             viewBox="0 0 512 512"
                             title="Hide Password"
                             className="cursor-pointer active:scale-95 transition-all duration-300 ml-1"
@@ -335,7 +334,7 @@ const ForgotPassword = () => {
                             height="24"
                             width="24"
                             viewBox="0 0 512 512"
-                            fill="var(--icon-color-brand-secondary)"
+                            fill="var(--bg-active-primary)"
                             title="View Password"
                             className="cursor-pointer active:scale-95 transition-all duration-300 ml-1"
                           >
@@ -343,7 +342,7 @@ const ForgotPassword = () => {
                             <path
                               d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z"
                               fill="none"
-                              stroke="var(--icon-color-brand-secondary)"
+                              stroke="var(--bg-active-primary)"
                               strokeLinecap="round"
                               strokeLinejoin="round"
                               strokeWidth="32"
@@ -353,7 +352,7 @@ const ForgotPassword = () => {
                               cy="256"
                               r="80"
                               fill="none"
-                              stroke="var(--icon-color-brand-secondary)"
+                              stroke="var(--bg-active-primary)"
                               strokeMiterlimit="10"
                               strokeWidth="32"
                             ></circle>
@@ -371,7 +370,7 @@ const ForgotPassword = () => {
                   <button
                     type="submit"
                     className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out w-full text-text_color_loginButtonTextColor  bg-bg_color_LoginBtnBgColor shadow-lg rounded-md xs:text-[15px] px-5 py-2 flex items-center justify-center gap-x-2 font-lato-bold font-semibold text-base 
-                    cursor-pointer"
+                    cursor-pointer text-primary"
                   >
                     {languageValue(
                       valueByLanguage,

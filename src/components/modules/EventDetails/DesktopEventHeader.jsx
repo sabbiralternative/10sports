@@ -33,10 +33,10 @@ const DesktopEventHeader = ({ data }) => {
                   y2="18.475"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stopColor="var(--icon-color-brand-secondary)" />
+                  <stop stopColor="var(--bg-active-primary)" />
                   <stop
                     offset={1}
-                    stopColor="var(--icon-color-brand-secondary)"
+                    stopColor="var(--bg-active-primary)"
                   ></stop>
                 </linearGradient>
                 <linearGradient
@@ -47,10 +47,10 @@ const DesktopEventHeader = ({ data }) => {
                   y2="11.0576"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stopColor="var(--icon-color-brand-secondary)" />
+                  <stop stopColor="var(--bg-active-primary)" />
                   <stop
                     offset={1}
-                    stopColor="var(--icon-color-brand-secondary)"
+                    stopColor="var(--bg-active-primary)"
                   ></stop>
                 </linearGradient>
                 <clipPath id="clip0_1717_31137">
@@ -89,15 +89,15 @@ const DesktopEventHeader = ({ data }) => {
               <g clipPath="url(#clip0_1717_31141)">
                 <path
                   d="M8.5 0.5C4.07841 0.5 0.5 4.078 0.5 8.5C0.5 12.9215 4.078 16.5 8.5 16.5C12.9216 16.5 16.5 12.922 16.5 8.5C16.5 4.07847 12.922 0.5 8.5 0.5ZM8.5 15.3837C4.70431 15.3837 1.61628 12.2957 1.61628 8.5C1.61628 4.70428 4.70431 1.61628 8.5 1.61628C12.2957 1.61628 15.3837 4.70428 15.3837 8.5C15.3837 12.2957 12.2957 15.3837 8.5 15.3837Z"
-                  fill="var(--icon-color-brand-secondary)"
+                  fill="var(--bg-active-primary)"
                 />
                 <path
                   d="M8.5003 7.1687C8.02642 7.1687 7.68945 7.36883 7.68945 7.66367V11.6757C7.68945 11.9285 8.02642 12.1812 8.5003 12.1812C8.95311 12.1812 9.32164 11.9285 9.32164 11.6757V7.66361C9.32164 7.36879 8.95311 7.1687 8.5003 7.1687Z"
-                  fill="var(--icon-color-brand-secondary)"
+                  fill="var(--bg-active-primary)"
                 />
                 <path
                   d="M8.50019 4.69409C8.01578 4.69409 7.63672 5.04159 7.63672 5.44175C7.63672 5.84194 8.01581 6.19997 8.50019 6.19997C8.97406 6.19997 9.35319 5.84194 9.35319 5.44175C9.35319 5.04159 8.97403 4.69409 8.50019 4.69409Z"
-                  fill="var(--icon-color-brand-secondary)"
+                  fill="var(--bg-active-primary)"
                 />
               </g>
               <defs>

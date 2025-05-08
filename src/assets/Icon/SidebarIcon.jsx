@@ -301,12 +301,12 @@ export const BlogNews = ({ height = 20, width = 20 }) => {
       <g>
         <path
           d="M27 10h-2V7a3 3 0 0 0-3-3H5a3 3 0 0 0-3 3v20a3 3 0 0 0 3 3h21.5a3.5 3.5 0 0 0 3.5-3.5V13a3 3 0 0 0-3-3zM4 27V7a1 1 0 0 1 1-1h17a1 1 0 0 1 1 1v19.5a3.45 3.45 0 0 0 .35 1.5H5a1 1 0 0 1-1-1zm24-.5a1.5 1.5 0 0 1-3 0V12h2a1 1 0 0 1 1 1z"
-          fill="var(--icon-color-brand-secondary)"
+          fill="var(--bg-active-primary)"
           opacity={1}
         />
         <path
           d="M20 11H10a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2zM20 16H7a1 1 0 0 0 0 2h13a1 1 0 0 0 0-2zM20 21H7a1 1 0 0 0 0 2h13a1 1 0 0 0 0-2z"
-          fill="var(--icon-color-brand-secondary)"
+          fill="var(--bg-active-primary)"
           opacity={1}
         />
       </g>

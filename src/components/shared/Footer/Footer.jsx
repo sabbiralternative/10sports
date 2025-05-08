@@ -139,7 +139,7 @@ const Footer = () => {
                         height={24}
                         viewBox="0 0 24 24"
                         fill="none"
-                        // brandcolor="var(--icon-color-brand-secondary)"
+                        // brandcolor="var(--bg-active-primary)"
                         // brandcolor2="var(--icon-color-brand-tertiary)"
                         className="w-6 h-6 md:w-[28px] md:h-[28px]"
                       >
@@ -166,7 +166,7 @@ const Footer = () => {
                             y2="2.61163"
                             gradientUnits="userSpaceOnUse"
                           >
-                            <stop stopColor="var(--icon-color-brand-secondary)" />
+                            <stop stopColor="var(--bg-active-primary)" />
                             <stop
                               offset={1}
                               stopColor="var(--icon-color-brand-tertiary)"
@@ -180,7 +180,7 @@ const Footer = () => {
                             y2="7.14365"
                             gradientUnits="userSpaceOnUse"
                           >
-                            <stop stopColor="var(--icon-color-brand-secondary)" />
+                            <stop stopColor="var(--bg-active-primary)" />
                             <stop
                               offset={1}
                               stopColor="var(--icon-color-brand-tertiary)"
@@ -194,7 +194,7 @@ const Footer = () => {
                             y2="4.67576"
                             gradientUnits="userSpaceOnUse"
                           >
-                            <stop stopColor="var(--icon-color-brand-secondary)" />
+                            <stop stopColor="var(--bg-active-primary)" />
                             <stop
                               offset={1}
                               stopColor="var(--icon-color-brand-tertiary)"

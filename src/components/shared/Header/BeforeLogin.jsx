@@ -21,7 +21,7 @@ const BeforeLogin = () => {
   };
 
   return (
-    <div className="w-max flex items-center justify-center">
+    <div className=" flex items-center justify-end w-full">
       <div
         id="mobileSearchIcon"
         className="lg:hidden mr-[2px] flex items-center justify-center"
@@ -29,14 +29,14 @@ const BeforeLogin = () => {
         <span className="bg-none border-none shadow-none px-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width={40}
-            height={30}
+            width={30}
+            height={20}
             viewBox="0 0 24 24"
             fill="none"
           >
             <path
               d="M23.7068 22.2929L16.8818 15.468C18.2038 13.835 18.9998 11.76 18.9998 9.50008C18.9998 4.26213 14.7378 0.000152588 9.49988 0.000152588C4.26193 0.000152588 0 4.26208 0 9.50003C0 14.738 4.26197 19 9.49992 19C11.7599 19 13.8349 18.204 15.4678 16.882L22.2928 23.7069C22.4878 23.9019 22.7438 23.9999 22.9998 23.9999C23.2558 23.9999 23.5118 23.9019 23.7068 23.7069C24.0978 23.3159 24.0978 22.6839 23.7068 22.2929ZM9.49992 17C5.36395 17 2 13.636 2 9.50003C2 5.36405 5.36395 2.0001 9.49992 2.0001C13.6359 2.0001 16.9998 5.36405 16.9998 9.50003C16.9998 13.636 13.6359 17 9.49992 17Z"
-              fill="var(--icon-color-brand-secondary)"
+              fill="var(--bg-active-primary)"
             />
           </svg>
         </span>

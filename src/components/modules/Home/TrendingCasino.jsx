@@ -106,7 +106,7 @@ const TrendingCasino = ({ trendingGames }) => {
                   height={18}
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
-                  stroke="var(--icon-color-brand-secondary)"
+                  stroke="var(--bg-active-primary)"
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -126,7 +126,7 @@ const TrendingCasino = ({ trendingGames }) => {
                   height={18}
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
-                  stroke="var(--icon-color-brand-secondary)"
+                  stroke="var(--bg-active-primary)"
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"
