@@ -67,6 +67,7 @@ const Referral = ({ setShowReferral }) => {
                             style={{
                               height: Settings.logoHeight,
                               width: Settings.logoWidth,
+                              objectFit: "contain",
                             }}
                             className="ng-star-inserted"
                           />

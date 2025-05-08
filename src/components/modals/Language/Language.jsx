@@ -102,7 +102,7 @@ const Language = () => {
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
                               height="18"
-                              fill="var(--icon-color-brand-primary)"
+                              fill="var(--bg-active-primary)"
                               viewBox="0 0 448 512"
                               className="w-5 h-5"
                             >

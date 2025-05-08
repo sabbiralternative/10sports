@@ -60,7 +60,7 @@ const Header = () => {
             <Notification />
             <div
               id="header_body"
-              className="w-full bg-bg_headerBg h-[54px] lg:h-[72px] pr-[4px] md:px-4 flex items-center justify-between gap-1 relative"
+              className="w-full bg-bg_headerBg h-[54px] lg:h-[90px] pr-[4px] md:px-4 flex items-center justify-between gap-1 relative"
             >
               <div
                 id="logoContainer"
@@ -99,6 +99,7 @@ const Header = () => {
                         style={{
                           height: Settings.logoHeight,
                           width: Settings.logoWidth,
+                          objectFit: "contain",
                         }}
                       />
                     </div>
@@ -111,6 +112,7 @@ const Header = () => {
                         style={{
                           height: Settings.logoHeight,
                           width: Settings.logoWidth,
+                          objectFit: "contain",
                         }}
                       />
                     </div>

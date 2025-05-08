@@ -51,7 +51,7 @@ const StakeSetting = () => {
                   <div key={idx} className=" bg-bg_color_input_bg">
                     <input
                       {...register(`buttonGameValues.${idx}.value`)}
-                      className=" w-full rounded h-10 px-3 bg-bg_color_input_bg flex justify-center items-center text-base text-text_color_primary1 font-lato  border border-border_color_primary focus:border-border_color_success shadow-sm"
+                      className=" w-full rounded h-10 px-3 bg-bg_color_input_bg flex justify-center items-center text-base text-text_color_primary1 font-lato  border border-border_color_primary focus:border-[var(--bg-active-primary)] shadow-sm"
                     />
                   </div>
                 );
@@ -60,7 +60,7 @@ const StakeSetting = () => {
             <div className=" w-full flex items-center justify-center">
               <button
                 type="submit"
-                className="flex items-center justify-center gap-1 p-2 bg-bg_color_success mt-2 w-full sm:max-w-[350px] rounded font-semibold text-text_color_primary2 disabled:opacity-80"
+                className="flex items-center justify-center gap-1 p-2 bg-[var(--bg-active-primary)] mt-2 w-full sm:max-w-[350px] rounded font-semibold text-text_color_primary2 disabled:opacity-80 text-primary"
               >
                 Edit
               </button>

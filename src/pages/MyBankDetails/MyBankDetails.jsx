@@ -212,7 +212,7 @@ const MyBankDetails = () => {
                             }}
                           >
                             {" "}
-                            <MdDelete size={20} />
+                            <MdDelete className="text-primary" size={20} />
                           </button>
                         )}
 

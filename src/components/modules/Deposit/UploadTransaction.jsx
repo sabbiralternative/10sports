@@ -197,7 +197,7 @@ const UploadTransaction = ({ paymentId, amount }) => {
           <input
             onChange={handleUTRChange}
             onKeyDown={handleKeyDown}
-            className="block w-full focus:outline-none border-[1px] px-3 py-2.5 rounded-[4px] bg-bg_color_input_bg font-semibold text-base border-[var(--bg-active-primary)] focus:border-border_color_brand_secondary"
+            className="block w-full focus:outline-none border-[1px] px-3 py-2.5 rounded-[4px] bg-bg_color_input_bg font-semibold text-base border-[var(--bg-active-primary)] "
             placeholder="6 to 23 Digit UTR/RRN Number"
             autoComplete="off"
             type="text"

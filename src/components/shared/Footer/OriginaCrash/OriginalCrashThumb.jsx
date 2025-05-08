@@ -66,13 +66,13 @@ const OriginalCrashThumb = ({
     <>
       {!iFrame ? (
         <div
-          className={`origin-bottom-right max-w-screen-xsm w-[90%] h-[85%] fixed bottom-0 right-0 z-[9999] font-lato  overflow-hidden  bg-white rounded-t-xl shadow-passwordRulesBox overflow-y-auto no-scrollbar flex-col flex ${
+          className={`origin-bottom-right max-w-screen-xsm w-[90%] h-[85%] fixed bottom-0 right-0 z-[9999] font-lato  overflow-hidden  bg-[var(--bg-color-headerBg)] rounded-t-xl shadow-passwordRulesBox overflow-y-auto no-scrollbar flex-col flex ${
             openAnimation ? "popUpOpenAnimation1" : ""
           } ${showGame ? "" : "hidden"} ${
             closeAnimation ? "popUpOpenAnimation2" : ""
           }`}
         >
-          <div className="flex items-center justify-between px-2 border-b border-gray-200  sticky top-0  z-50 bg-white">
+          <div className="flex items-center justify-between px-2 border-b border-gray-200  sticky top-0  z-50 bg-[var(--bg-color-headerBg)]">
             <div className="flex items-center justify-between  w-[90%] ">
               <div
                 id="step-selectMode"
@@ -84,7 +84,7 @@ const OriginalCrashThumb = ({
                   className={`flex items-center justify-center w-full gap-1.5 tracking-wider rounded-none px-auto py-2 px-2 text-xs font-semibold whitespace-nowrap   ${
                     tab === "originals"
                       ? "text-[var(--bg-active-primary)]"
-                      : "text-black"
+                      : "text-white"
                   }`}
                 >
                   <span>
@@ -98,7 +98,7 @@ const OriginalCrashThumb = ({
                   className={`flex items-center justify-center w-full gap-1.5 tracking-wider rounded-none px-auto py-2 px-2 text-xs font-semibold whitespace-nowrap  ${
                     tab === "crashGames"
                       ? "text-[var(--bg-active-primary)]"
-                      : "text-black"
+                      : "text-white"
                   }`}
                 >
                   <span>
@@ -138,7 +138,7 @@ const OriginalCrashThumb = ({
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="cursor-pointer bg-rose-100 size-6 rounded-full p-1"
+              className="cursor-pointer  size-6 rounded-full p-1"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
               <path d="M5 9l4 0l0 -4"></path>

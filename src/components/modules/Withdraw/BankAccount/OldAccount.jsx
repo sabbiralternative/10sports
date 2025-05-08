@@ -43,7 +43,7 @@ const OldAccount = ({ amount, bankAccounts }) => {
                 <div
                   onClick={() => setBankId(account?.bankId)}
                   key={i}
-                  className="w-full flex items-center gap-x-2 overflow-x-auto scroll-smooth no-scrollbar whitespace-nowrap"
+                  className="w-full flex items-center gap-x-2 overflow-x-auto scroll-smooth no-scrollbar whitespace-nowrap mb-2"
                 >
                   <div
                     className={`cursor-pointer border-2 shadow rounded-lg p-2 w-full flex items-center justify-between gap-x-4 ${
@@ -145,7 +145,7 @@ const OldAccount = ({ amount, bankAccounts }) => {
             <button
               style={{ cursor: !bankId || disable ? "not-allowed" : "pointer" }}
               disabled={!bankId || disable}
-              className="relative overflow-hidden bg-bg_text_brand_primary w-full text-text_color_primary2 h-10 text-base shadow-lg rounded-md font-[900] leading-4 disabled:opacity-70 flex gap-x-1 items-center justify-center"
+              className="relative overflow-hidden bg-bg_text_brand_primary w-full text-text_color_primary2 h-10 text-base shadow-lg rounded-md font-[900] leading-4 disabled:opacity-70 flex gap-x-1 items-center justify-center text-primary"
               type="submit"
             >
               <span>{bankId ? "SUBMIT" : "Please select bank account"}</span>

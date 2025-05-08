@@ -56,7 +56,7 @@ const BeforeLogin = () => {
               height={18}
               viewBox="0 0 24 24"
               strokeWidth="1.5"
-              stroke="var(--icon-color-secondary)"
+              stroke="var(--text-primary)"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"

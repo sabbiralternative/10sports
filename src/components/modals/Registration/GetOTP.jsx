@@ -110,6 +110,7 @@ const GetOTP = ({
                   style={{
                     height: Settings.logoHeight,
                     width: Settings.logoWidth,
+                    objectFit: "contain",
                   }}
                 />
               </div>

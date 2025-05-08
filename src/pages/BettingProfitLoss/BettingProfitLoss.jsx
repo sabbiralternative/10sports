@@ -49,7 +49,7 @@ const BettingProfitLoss = () => {
                 className="w-full px-1 my-1.5 font font-lato"
               >
                 <div className="w-full text-text_color_primary2 rounded-[4px] flex items-center justify-between px-2.5 py-[9px] bg-bg_text_brand_primary">
-                  <div className="text-xs text-text_color_primary2  font-[600] leading-[140%]">
+                  <div className="text-xs text-primary  font-[600] leading-[140%]">
                     {moment(category).format("Do-MMM-YYYY")}
                   </div>
                   <div className="text-xs text-text_color_primary2  font-[600] flex items-center justify-center leading-[140%]">

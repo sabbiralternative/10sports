@@ -144,7 +144,7 @@ const BankAccount = ({ amount }) => {
                     onClick={() => handleVisibleBankMethod(method)}
                     className={`flex justify-start items-center flex-col gap-y-2 rounded-[10px] bg-transparent py-2 w-full px-[20px] relative border  shadow-depositGateWayBoxShadows min-w-[117px] max-w-[130px] ${
                       method?.type === methodType
-                        ? "border-border_color_depositPaymentMethod"
+                        ? "border-[var(--bg-active-primary)]"
                         : ""
                     }`}
                   >

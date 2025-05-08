@@ -9,20 +9,20 @@ const OriginalCrashIFrame = ({
 }) => {
   return (
     <div
-      className={`origin-bottom-right max-w-screen-xsm w-[90%] h-[85%] fixed bottom-0 right-0 z-[9999] font-lato  overflow-hidden  bg-white rounded-t-xl shadow-passwordRulesBox overflow-y-auto no-scrollbar flex-col flex ${
+      className={`origin-bottom-right max-w-screen-xsm w-[90%] h-[85%] fixed bottom-0 right-0 z-[9999] font-lato  overflow-hidden  bg-[var(--bg-color-headerBg)] rounded-t-xl shadow-passwordRulesBox overflow-y-auto no-scrollbar flex-col flex ${
         !showGame ? "hidden" : ""
       }  ${openAnimation ? "popUpOpenAnimation1" : ""} ${
         closeAnimation ? "popUpOpenAnimation2" : ""
       }`}
     >
-      <div className="flex items-center justify-between px-2 border-b border-[var(--bg-active-primary)] bg-white sticky top-0 z-[100]">
+      <div className="flex items-center justify-between px-2 border-b border-[var(--bg-active-primary)] bg-[var(--bg-color-headerBg)] sticky top-0 z-[100]">
         <div className="flex max-w-[80%] items-center justify-start py-2  ">
           <button
             onClick={() => setIFrame(false)}
-            className="relative overflow-hidden bg-white text-[var(--bg-active-primary)] flex items-center gap-x-2"
+            className="relative overflow-hidden  text-[var(--bg-active-primary)] flex items-center gap-x-2"
             type="button"
           >
-            <div className="size-6 cursor-pointer rounded-sm flex items-center transition-all duration-300 ease-in-out justify-center bg-rose-100 active:scale-[120%] active:opacity-90">
+            <div className="size-6 cursor-pointer rounded-sm flex items-center transition-all duration-300 ease-in-out justify-center  active:scale-[120%] active:opacity-90">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={7}
@@ -50,7 +50,7 @@ const OriginalCrashIFrame = ({
           strokeWidth={2}
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="cursor-pointer bg-rose-100 size-6 rounded-full p-1"
+          className="cursor-pointer  size-6 rounded-full p-1"
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <path d="M5 9l4 0l0 -4" />
