@@ -3724,7 +3724,7 @@ video {
   background-image: var(--bg-color-homeWithdrawBtnBgColor);
 }
 .bg-bg_inPlayBlockBg {
-  background-image: var(--bg-color-inPlayBlockBg);
+  background: var(--bg-color-headerBg);
 }
 .bg-bg_lossGrad {
   background-image: var(--bg-color-lossGrd);
@@ -4501,7 +4501,7 @@ video {
   color: rgb(107 114 128 / var(--tw-text-opacity, 1));
 }
 .text-text_brand_primary {
-  color: var(--text-color-brand-withOutGrd-primary);
+  color: var(--bg-active-primary);
 }
 .text-text_brand_secondary {
   color: var(--text-color-brand-withOutGrd-secondary);

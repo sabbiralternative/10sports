@@ -18,7 +18,7 @@ import { languageValue } from "../../../utils/language";
 import images from "../../../assets/images";
 
 const Login = () => {
-  const [tab, setTab] = useState("mobile");
+  const [tab, setTab] = useState(Settings.registration ? "mobile" : "userId");
   const { valueByLanguage } = useLanguage();
   const [passwordType, setPasswordType] = useState(true);
   const { logo } = useLogo();
@@ -102,6 +102,7 @@ const Login = () => {
     closeLoginModal();
     dispatch(setShowForgotPasswordModal(true));
   };
+
   return (
     <div className="fixed bottom-0 left-0 right-0 top-0 overflow-hidden flex h-[100dvh] w-dvw items-center justify-center bg-bg_color_popUpParentBg overflow-y-hidden z-[10000]">
       <div
@@ -157,28 +158,30 @@ const Login = () => {
           </div>
           <div className="w-full h-max grid grid-cols-1 lg:grid-cols-2 gap-x-4 items-center justify-center">
             <div className="flex flex-col  items-start gap-y-4 h-max col-span-1 lg:col-span-2 w-full">
-              <div className="w-full cursor-pointer bg-bg_color_loginTabsBg px-2 py-1.5 rounded-lg flex items-center justify-center gap-2.5 transition-all duration-300 ease-in-out relative">
-                <div
-                  onClick={() => setTab("mobile")}
-                  className={`min-w-[45%] cursor-pointer text-[13px] flex items-center justify-center py-2 md:text-sm lg:text-base font-bold leading-4  rounded-md  text-text_color_loginButtonTextColor ${
-                    tab === "mobile"
-                      ? "bg-bg_color_LoginBtnBgColor"
-                      : "bg-transparent"
-                  }`}
-                >
-                  Mobile Number
+              {Settings.registration && (
+                <div className="w-full cursor-pointer bg-bg_color_loginTabsBg px-2 py-1.5 rounded-lg flex items-center justify-center gap-2.5 transition-all duration-300 ease-in-out relative">
+                  <div
+                    onClick={() => setTab("mobile")}
+                    className={`min-w-[45%] cursor-pointer text-[13px] flex items-center justify-center py-2 md:text-sm lg:text-base font-bold leading-4  rounded-md  text-text_color_loginButtonTextColor ${
+                      tab === "mobile"
+                        ? "bg-bg_color_LoginBtnBgColor"
+                        : "bg-transparent"
+                    }`}
+                  >
+                    Mobile Number
+                  </div>
+                  <div
+                    onClick={() => setTab("userId")}
+                    className={`min-w-[45%] cursor-pointer text-[13px] flex items-center justify-center py-2 md:text-sm lg:text-base font-bold leading-4  rounded-md  text-text_color_loginTextColor ${
+                      tab === "userId"
+                        ? "bg-bg_color_LoginBtnBgColor"
+                        : "bg-transparent"
+                    }`}
+                  >
+                    User Id
+                  </div>
                 </div>
-                <div
-                  onClick={() => setTab("userId")}
-                  className={`min-w-[45%] cursor-pointer text-[13px] flex items-center justify-center py-2 md:text-sm lg:text-base font-bold leading-4  rounded-md  text-text_color_loginTextColor ${
-                    tab === "userId"
-                      ? "bg-bg_color_LoginBtnBgColor"
-                      : "bg-transparent"
-                  }`}
-                >
-                  User Id
-                </div>
-              </div>
+              )}
 
               <form
                 onSubmit={handleSubmit(onSubmit)}
