@@ -170,7 +170,7 @@ cursor-pointer
                 height="18"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
-                stroke="var(--bg-active-primary)"
+                stroke="var(--text-primary)"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
