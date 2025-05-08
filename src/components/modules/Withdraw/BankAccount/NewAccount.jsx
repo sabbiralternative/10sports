@@ -356,7 +356,7 @@ const NewAccount = ({ setTab }) => {
       <div className="w-full sticky bottom-0 left-0 pb-2 app-bg pt-2">
         <button
           disabled={!isFormValid}
-          className="relative overflow-hidden bg-bg_text_brand_primary w-full text-text_color_primary2 h-10 text-base shadow-lg rounded-md font-[900] leading-4 disabled:opacity-70 flex gap-x-1 items-center justify-center"
+          className="relative overflow-hidden bg-bg_text_brand_primary w-full text-text_color_primary2 h-10 text-base shadow-lg rounded-md font-[900] leading-4 disabled:opacity-70 flex gap-x-1 items-center justify-center text-primary"
           type="submit"
         >
           <span>Submit</span>

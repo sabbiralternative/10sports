@@ -33,14 +33,18 @@ const BankAccount = ({ amount }) => {
             >
               <button
                 onClick={() => setTab("newAccount")}
-                className={`flex items-center justify-center w-full gap-1.5 tracking-wider undefined p-3 text-sm font-semibold text-text_color_primary2 undefined `}
+                className={`flex items-center justify-center w-full gap-1.5 tracking-wider undefined p-3 text-sm font-semibold text-text_color_primary2 undefined ${
+                  tab === "newAccount" ? "text-primary" : ""
+                } `}
                 style={{ zIndex: 10 }}
               >
                 Use New Account
               </button>
               <button
                 onClick={() => setTab("oldAccount")}
-                className="flex items-center justify-center w-full gap-1.5 tracking-wider undefined p-3 text-sm font-semibold text-text_color_primary2 undefined bg-none"
+                className={`flex items-center justify-center w-full gap-1.5 tracking-wider undefined p-3 text-sm font-semibold text-text_color_primary2 undefined bg-none ${
+                  tab === "oldAccount" ? "text-primary" : ""
+                }`}
                 style={{ zIndex: 10 }}
               >
                 Use Previous Account

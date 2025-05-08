@@ -132,9 +132,8 @@ const MyBankDetails = () => {
           <div className="font-lato" style={{ margin: "10px" }}>
             <button
               onClick={() => setShowAddBank(true)}
-              className="btn bg-bg_text_brand_primary"
+              className="btn bg-bg_text_brand_primary text-primary"
               style={{
-                color: "white",
                 padding: "6px 0px",
                 fontSize: "14px",
                 fontWeight: "600",

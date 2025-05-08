@@ -51,7 +51,7 @@ const ChangePassword = () => {
                     y="0px"
                     height={16}
                     width={16}
-                    fill="var(--icon-color-brand-secondary)"
+                    fill="var(--bg-active-primary)"
                     viewBox="0 0 50 50"
                   >
                     <path d="M 25 3 C 18.363281 3 13 8.363281 13 15 L 13 20 L 9 20 C 7.300781 20 6 21.300781 6 23 L 6 47 C 6 48.699219 7.300781 50 9 50 L 41 50 C 42.699219 50 44 48.699219 44 47 L 44 23 C 44 21.300781 42.699219 20 41 20 L 37 20 L 37 15 C 37 8.363281 31.636719 3 25 3 Z M 25 5 C 30.566406 5 35 9.433594 35 15 L 35 20 L 15 20 L 15 15 C 15 9.433594 19.433594 5 25 5 Z M 25 30 C 26.699219 30 28 31.300781 28 33 C 28 33.898438 27.601563 34.6875 27 35.1875 L 27 38 C 27 39.101563 26.101563 40 25 40 C 23.898438 40 23 39.101563 23 38 L 23 35.1875 C 22.398438 34.6875 22 33.898438 22 33 C 22 31.300781 23.300781 30 25 30 Z" />
@@ -84,7 +84,7 @@ const ChangePassword = () => {
                         xmlns="http://www.w3.org/2000/svg"
                         height="24"
                         width="24"
-                        fill="var(--icon-color-brand-secondary)"
+                        fill="var(--bg-active-primary)"
                         viewBox="0 0 512 512"
                         title="Hide Password"
                         className="cursor-pointer active:scale-95 transition-all duration-300 ml-1"
@@ -107,13 +107,13 @@ const ChangePassword = () => {
                         height={22}
                         width={22}
                         viewBox="0 0 512 512"
-                        fill="var(--icon-color-brand-secondary)"
+                        fill="var(--bg-active-primary)"
                       >
                         <title>Eye</title>
                         <path
                           d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z"
                           fill="none"
-                          stroke="var(--icon-color-brand-secondary)"
+                          stroke="var(--bg-active-primary)"
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           strokeWidth={32}
@@ -123,7 +123,7 @@ const ChangePassword = () => {
                           cy={256}
                           r={80}
                           fill="none"
-                          stroke="var(--icon-color-brand-secondary)"
+                          stroke="var(--bg-active-primary)"
                           strokeMiterlimit={10}
                           strokeWidth={32}
                         />
@@ -150,7 +150,7 @@ const ChangePassword = () => {
                         y="0px"
                         height={16}
                         width={16}
-                        fill="var(--icon-color-brand-secondary)"
+                        fill="var(--bg-active-primary)"
                         viewBox="0 0 50 50"
                       >
                         <path d="M 25 3 C 18.363281 3 13 8.363281 13 15 L 13 20 L 9 20 C 7.300781 20 6 21.300781 6 23 L 6 47 C 6 48.699219 7.300781 50 9 50 L 41 50 C 42.699219 50 44 48.699219 44 47 L 44 23 C 44 21.300781 42.699219 20 41 20 L 37 20 L 37 15 C 37 8.363281 31.636719 3 25 3 Z M 25 5 C 30.566406 5 35 9.433594 35 15 L 35 20 L 15 20 L 15 15 C 15 9.433594 19.433594 5 25 5 Z M 25 30 C 26.699219 30 28 31.300781 28 33 C 28 33.898438 27.601563 34.6875 27 35.1875 L 27 38 C 27 39.101563 26.101563 40 25 40 C 23.898438 40 23 39.101563 23 38 L 23 35.1875 C 22.398438 34.6875 22 33.898438 22 33 C 22 31.300781 23.300781 30 25 30 Z" />
@@ -185,7 +185,7 @@ const ChangePassword = () => {
                             xmlns="http://www.w3.org/2000/svg"
                             height="24"
                             width="24"
-                            fill="var(--icon-color-brand-secondary)"
+                            fill="var(--bg-active-primary)"
                             viewBox="0 0 512 512"
                             title="Hide Password"
                             className="cursor-pointer active:scale-95 transition-all duration-300 ml-1"
@@ -208,13 +208,13 @@ const ChangePassword = () => {
                             height={22}
                             width={22}
                             viewBox="0 0 512 512"
-                            fill="var(--icon-color-brand-secondary)"
+                            fill="var(--bg-active-primary)"
                           >
                             <title>Eye</title>
                             <path
                               d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z"
                               fill="none"
-                              stroke="var(--icon-color-brand-secondary)"
+                              stroke="var(--bg-active-primary)"
                               strokeLinecap="round"
                               strokeLinejoin="round"
                               strokeWidth={32}
@@ -224,7 +224,7 @@ const ChangePassword = () => {
                               cy={256}
                               r={80}
                               fill="none"
-                              stroke="var(--icon-color-brand-secondary)"
+                              stroke="var(--bg-active-primary)"
                               strokeMiterlimit={10}
                               strokeWidth={32}
                             />
@@ -251,7 +251,7 @@ const ChangePassword = () => {
                         y="0px"
                         height={16}
                         width={16}
-                        fill="var(--icon-color-brand-secondary)"
+                        fill="var(--bg-active-primary)"
                         viewBox="0 0 50 50"
                       >
                         <path d="M 25 3 C 18.363281 3 13 8.363281 13 15 L 13 20 L 9 20 C 7.300781 20 6 21.300781 6 23 L 6 47 C 6 48.699219 7.300781 50 9 50 L 41 50 C 42.699219 50 44 48.699219 44 47 L 44 23 C 44 21.300781 42.699219 20 41 20 L 37 20 L 37 15 C 37 8.363281 31.636719 3 25 3 Z M 25 5 C 30.566406 5 35 9.433594 35 15 L 35 20 L 15 20 L 15 15 C 15 9.433594 19.433594 5 25 5 Z M 25 30 C 26.699219 30 28 31.300781 28 33 C 28 33.898438 27.601563 34.6875 27 35.1875 L 27 38 C 27 39.101563 26.101563 40 25 40 C 23.898438 40 23 39.101563 23 38 L 23 35.1875 C 22.398438 34.6875 22 33.898438 22 33 C 22 31.300781 23.300781 30 25 30 Z" />
@@ -285,7 +285,7 @@ const ChangePassword = () => {
                             xmlns="http://www.w3.org/2000/svg"
                             height="24"
                             width="24"
-                            fill="var(--icon-color-brand-secondary)"
+                            fill="var(--bg-active-primary)"
                             viewBox="0 0 512 512"
                             title="Hide Password"
                             className="cursor-pointer active:scale-95 transition-all duration-300 ml-1"
@@ -308,13 +308,13 @@ const ChangePassword = () => {
                             height={22}
                             width={22}
                             viewBox="0 0 512 512"
-                            fill="var(--icon-color-brand-secondary)"
+                            fill="var(--bg-active-primary)"
                           >
                             <title>Eye</title>
                             <path
                               d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z"
                               fill="none"
-                              stroke="var(--icon-color-brand-secondary)"
+                              stroke="var(--bg-active-primary)"
                               strokeLinecap="round"
                               strokeLinejoin="round"
                               strokeWidth={32}
@@ -324,7 +324,7 @@ const ChangePassword = () => {
                               cy={256}
                               r={80}
                               fill="none"
-                              stroke="var(--icon-color-brand-secondary)"
+                              stroke="var(--bg-active-primary)"
                               strokeMiterlimit={10}
                               strokeWidth={32}
                             />
@@ -340,7 +340,7 @@ const ChangePassword = () => {
             <div className="flex items-center justify-center mt-2 w-full gap-x-2">
               <button
                 onClick={() => navigate(-1)}
-                className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out max-w-[180px] p-2 bg-bg_color_primary mt-2 w-full rounded-lg font-semibold bg-clip-text text-transparent bg-bg_text_brand_primary border border-border_color_brand_primary 
+                className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out max-w-[180px] p-2 bg-bg_color_primary mt-2 w-full rounded-lg font-semibold bg-clip-text text-transparent bg-bg_text_brand_primary border border-[var(--bg-active-primary)] 
                 cursor-pointer
                 "
                 type="button"
@@ -349,8 +349,8 @@ const ChangePassword = () => {
               </button>
               <button
                 type="submit"
-                className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out max-w-[180px] cursor-pointer disabled:cursor-not-allowed p-2 bg-bg_text_brand_primary mt-2 w-full rounded-lg font-semibold text-text_color_primary2 border border-border_color_brand_primary disabled:opacity-40 flex  items-center justify-center 
-                cursor-pointer
+                className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out max-w-[180px] cursor-pointer disabled:cursor-not-allowed p-2 bg-bg_text_brand_primary mt-2 w-full rounded-lg font-semibold text-text_color_primary2  disabled:opacity-40 flex  items-center justify-center 
+                cursor-pointer text-primary
                 "
               >
                 <span>Save</span>

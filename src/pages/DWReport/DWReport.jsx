@@ -19,7 +19,7 @@ const DWReport = () => {
               >
                 <span
                   className={`text-text_color_primary2  text-sm  rounded-md bg-transparent   border-border_color_primary1 px-[25px] py-2  text-[13px] md:text-sm lg:text-base font-bold leading-4 active:scale-95 block z-10  ${
-                    tab === "withdraw" ? "border" : ""
+                    tab === "withdraw" ? "border " : "text-primary"
                   }`}
                 >
                   Deposit
@@ -31,7 +31,7 @@ const DWReport = () => {
               >
                 <span
                   className={`text-text_color_primary2  text-sm  rounded-md bg-transparent   border-border_color_primary1 px-[25px] py-2  text-[13px] md:text-sm lg:text-base font-bold leading-4 active:scale-95 block z-10  ${
-                    tab === "deposit" ? "border" : ""
+                    tab === "deposit" ? "border " : "text-primary"
                   }`}
                 >
                   Withdrawal

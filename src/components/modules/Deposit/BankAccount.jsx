@@ -103,7 +103,7 @@ const BankAccount = ({ amount }) => {
                     height={20}
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
-                    stroke="var(--icon-color-brand-secondary)"
+                    stroke="var(--bg-active-primary)"
                     fill="none"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -123,7 +123,7 @@ const BankAccount = ({ amount }) => {
                     height={20}
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
-                    stroke="var(--icon-color-brand-secondary)"
+                    stroke="var(--bg-active-primary)"
                     fill="none"
                     strokeLinecap="round"
                     strokeLinejoin="round"

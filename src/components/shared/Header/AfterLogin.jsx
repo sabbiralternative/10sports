@@ -161,7 +161,7 @@ cursor-pointer
             onClick={showRightDrawer}
             title="loginButton"
             id="loginButton"
-            className="relative flex rounded-full gap-1 border border-quaternary hover:opacity-100 w-max font-extrabold items-center justify-center pr-4 pl-3 py-2  bg-bg_brand_secondary"
+            className="relative flex rounded-full gap-1   hover:opacity-100 w-max font-extrabold items-center justify-center pr-4 pl-3 py-2  bg-bg_brand_secondary"
           >
             <span className=" w-max text-text_color_primary2 hidden md:block">
               <svg
@@ -170,7 +170,7 @@ cursor-pointer
                 height="18"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
-                stroke="var(--icon-color-secondary)"
+                stroke="var(--bg-active-primary)"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -180,7 +180,7 @@ cursor-pointer
                 <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
               </svg>
             </span>
-            <span className=" text-xxs text-text_color_primary2  md:text-text_color_primary2  font-normal font-lato md:font-semibold md:text-xs xs:text-xs ">
+            <span className=" text-xxs text-primary  font-normal font-lato md:font-semibold md:text-xs xs:text-xs ">
               Account
             </span>
           </button>
@@ -195,7 +195,7 @@ cursor-pointer
             "
             >
               <span className="  font-semibold flex flex-row font-lato md:font-normal sm:text-base xs:text-sm">
-                <span className="text-text_color_primary2">Deposit</span>
+                <span className="text-primary">Deposit</span>
               </span>
               <span className="shimmer" />
             </button>
@@ -216,7 +216,7 @@ cursor-pointer
               height={24}
               viewBox="0 0 24 24"
               strokeWidth="1.5"
-              stroke="var(--icon-color-brand-secondary)"
+              stroke="var(--bg-active-primary)"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"

@@ -223,17 +223,17 @@ const RegistrationForm = ({
                               width={16}
                               height={16}
                               viewBox="0 0 24 24"
-                              fill="var(--icon-color-brand-secondary)"
+                              fill="var(--bg-active-primary)"
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <g clipPath="url(#clip0_3085_24)">
                                 <path
                                   d="M3.5 24H18.5C19.4297 23.9974 20.3204 23.626 20.9765 22.9674C21.6327 22.3087 22.0008 21.4167 22 20.487V12.95C22 12.6848 21.8946 12.4304 21.7071 12.2429C21.5196 12.0554 21.2652 11.95 21 11.95C20.7348 11.95 20.4804 12.0554 20.2929 12.2429C20.1054 12.4304 20 12.6848 20 12.95V20.487C20.0013 20.8864 19.8441 21.2701 19.5629 21.5537C19.2817 21.8374 18.8994 21.9979 18.5 22H3.5C3.10057 21.9979 2.7183 21.8374 2.43708 21.5537C2.15587 21.2701 1.99867 20.8864 2 20.487V5.513C1.99867 5.11357 2.15587 4.72993 2.43708 4.44627C2.7183 4.16262 3.10057 4.00212 3.5 4H11C11.2652 4 11.5196 3.89464 11.7071 3.70711C11.8946 3.51957 12 3.26522 12 3C12 2.73478 11.8946 2.48043 11.7071 2.29289C11.5196 2.10536 11.2652 2 11 2H3.5C2.57031 2.00265 1.67964 2.37403 1.02346 3.03265C0.367281 3.69126 -0.000797091 4.5833 1.29611e-06 5.513V20.487C-0.000797091 21.4167 0.367281 22.3087 1.02346 22.9674C1.67964 23.626 2.57031 23.9974 3.5 24Z"
-                                  fill="var(--icon-color-brand-secondary)"
+                                  fill="var(--bg-active-primary)"
                                 />
                                 <path
                                   d="M9.45499 10.5441L8.66599 14.1581C8.63027 14.322 8.63638 14.4923 8.68373 14.6532C8.73109 14.8142 8.81818 14.9606 8.93699 15.0791C9.05742 15.1946 9.20393 15.2793 9.36408 15.3261C9.52423 15.373 9.69331 15.3805 9.85699 15.3481L13.463 14.5571C13.6502 14.516 13.8217 14.4219 13.957 14.2861L23.071 5.1721C23.3496 4.89351 23.5706 4.56277 23.7214 4.19876C23.8722 3.83475 23.9498 3.4446 23.9498 3.0506C23.9498 2.65659 23.8722 2.26644 23.7214 1.90243C23.5706 1.53842 23.3496 1.20768 23.071 0.929096C22.4998 0.383232 21.7401 0.0786133 20.95 0.0786133C20.1599 0.0786133 19.4002 0.383232 18.829 0.929096L9.72899 10.0521C9.59241 10.1865 9.4973 10.3572 9.45499 10.5441ZM20.243 2.3441C20.4332 2.16184 20.6865 2.06009 20.95 2.06009C21.2135 2.06009 21.4667 2.16184 21.657 2.3441C21.842 2.53272 21.9456 2.78639 21.9456 3.0506C21.9456 3.3148 21.842 3.56847 21.657 3.7571L20.95 4.4641L19.536 3.0501L20.243 2.3441ZM11.343 11.2581L18.117 4.4671L19.517 5.8741L12.74 12.6671L10.945 13.0611L11.343 11.2581Z"
-                                  fill="var(--icon-color-brand-secondary)"
+                                  fill="var(--bg-active-primary)"
                                 />
                               </g>
                               <defs>
@@ -320,7 +320,7 @@ const RegistrationForm = ({
                                 xmlns="http:www.w3.org/2000/svg"
                                 height="24"
                                 width="24"
-                                fill="var(--icon-color-brand-secondary)"
+                                fill="var(--bg-active-primary)"
                                 viewBox="0 0 512 512"
                                 title="Hide Password"
                                 className="cursor-pointer active:scale-95 transition-all duration-300 ml-1"
@@ -335,7 +335,7 @@ const RegistrationForm = ({
                                 height="24"
                                 width="24"
                                 viewBox="0 0 512 512"
-                                fill="var(--icon-color-brand-secondary)"
+                                fill="var(--bg-active-primary)"
                                 title="View Password"
                                 className="cursor-pointer active:scale-95 transition-all duration-300 ml-1"
                               >
@@ -343,7 +343,7 @@ const RegistrationForm = ({
                                 <path
                                   d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z"
                                   fill="none"
-                                  stroke="var(--icon-color-brand-secondary)"
+                                  stroke="var(--bg-active-primary)"
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
                                   strokeWidth="32"
@@ -353,7 +353,7 @@ const RegistrationForm = ({
                                   cy="256"
                                   r="80"
                                   fill="none"
-                                  stroke="var(--icon-color-brand-secondary)"
+                                  stroke="var(--bg-active-primary)"
                                   strokeMiterlimit="10"
                                   strokeWidth="32"
                                 ></circle>
@@ -392,7 +392,7 @@ const RegistrationForm = ({
                                 xmlns="http:www.w3.org/2000/svg"
                                 height="24"
                                 width="24"
-                                fill="var(--icon-color-brand-secondary)"
+                                fill="var(--bg-active-primary)"
                                 viewBox="0 0 512 512"
                                 title="Hide Password"
                                 className="cursor-pointer active:scale-95 transition-all duration-300 ml-1"
@@ -407,7 +407,7 @@ const RegistrationForm = ({
                                 height="24"
                                 width="24"
                                 viewBox="0 0 512 512"
-                                fill="var(--icon-color-brand-secondary)"
+                                fill="var(--bg-active-primary)"
                                 title="View Password"
                                 className="cursor-pointer active:scale-95 transition-all duration-300 ml-1"
                               >
@@ -415,7 +415,7 @@ const RegistrationForm = ({
                                 <path
                                   d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z"
                                   fill="none"
-                                  stroke="var(--icon-color-brand-secondary)"
+                                  stroke="var(--bg-active-primary)"
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
                                   strokeWidth="32"
@@ -425,7 +425,7 @@ const RegistrationForm = ({
                                   cy="256"
                                   r="80"
                                   fill="none"
-                                  stroke="var(--icon-color-brand-secondary)"
+                                  stroke="var(--bg-active-primary)"
                                   strokeMiterlimit="10"
                                   strokeWidth="32"
                                 ></circle>
@@ -465,7 +465,7 @@ const RegistrationForm = ({
                     </div>
                     <button
                       type="submit"
-                      className="mt-5 w-full h-fit bg-bg_color_LoginBtnBgColor text-text_color_loginButtonTextColor transition-all ease-in-out text-sm whitespace-nowrap p-2 rounded-lg active:scale-[0.98] active:opacity-95 disabled:opacity-70 font-medium relative flex items-center justify-center font-bold"
+                      className="mt-5 w-full h-fit bg-bg_color_LoginBtnBgColor text-text_color_loginButtonTextColor transition-all ease-in-out text-sm whitespace-nowrap p-2 rounded-lg active:scale-[0.98] active:opacity-95 disabled:opacity-70 font-medium relative flex items-center justify-center font-bold text-primary"
                     >
                       Register
                     </button>

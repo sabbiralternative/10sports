@@ -53,7 +53,7 @@ const Header = () => {
       <header
         id="10sports-header"
         title="10sports-header"
-        className="w-full h-max fixed top-0  z-[100]"
+        className="w-full h-max fixed top-0  z-[100] bg-[var(--bg-color-headerBg)]"
       >
         <div className="flex flex-col">
           <div className="flex flex-col shadow-lg autoAnimate">
@@ -102,7 +102,7 @@ const Header = () => {
                         }}
                       />
                     </div>
-                    <div className="relative overflow-hidden sm:hidden h-auto xsm:max-w-[120px] sm:max-w-[160px] md:max-w-[180px]">
+                    <div className="relative overflow-hidden sm:hidden">
                       <img
                         src={logo}
                         alt="10sports"

@@ -25,8 +25,8 @@
       "mac88": true,
       "referral": true,
       "logo": {
-        "height": "65px",
-        "width": "auto",
+        "height": "40px",
+        "width": "300px",
         "format": "png"
       },
 

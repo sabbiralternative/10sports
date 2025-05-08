@@ -87,7 +87,7 @@ const LiveSlotCrashFishing = ({ casinoType }) => {
                 >
                   <path
                     d="M5.3673 11.2346L0 5.8673L5.3673 0.5L6.32 1.4527L1.90539 5.8673L6.32 10.2819L5.3673 11.2346Z"
-                    fill="var(--icon-color-brand-secondary)"
+                    fill="var(--bg-active-primary)"
                   ></path>
                 </svg>
               </button>
@@ -139,12 +139,12 @@ const LiveSlotCrashFishing = ({ casinoType }) => {
                     onClick={() => handleCategoryClick("ALL")}
                     className={`relative overflow-hidden  px-4 py-1.5 flex items-center justify-center border border-border_color_primary rounded-full text-text_color_primary2 whitespace-nowrap uppercase font-lato font-[700] text-xs ${
                       selectedCategory === "ALL"
-                        ? "bg-bg_text_brand_primary"
+                        ? "bg-bg_text_brand_primary text-primary"
                         : "bg-bg_color_primary"
                     }`}
                     type="button"
                   >
-                    <span className="text-text_color_primary2 ">All</span>
+                    <span className="">All</span>
                   </button>
                   {categories?.map((category) => (
                     <button
@@ -152,14 +152,12 @@ const LiveSlotCrashFishing = ({ casinoType }) => {
                       key={category}
                       className={`relative overflow-hidden  px-4 py-1.5 flex items-center justify-center border border-border_color_primary gap-1 rounded-full text-text_color_primary2 whitespace-nowrap uppercase font-lato font-[700] text-xs ${
                         selectedCategory === category
-                          ? "bg-bg_text_brand_primary"
+                          ? "bg-bg_text_brand_primary text-primary"
                           : "bg-bg_color_primary"
                       }`}
                       type="button"
                     >
-                      <span className="text-text_color_primary2 ">
-                        {category}
-                      </span>
+                      <span className=" ">{category}</span>
                     </button>
                   ))}
                 </div>

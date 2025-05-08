@@ -29,8 +29,8 @@ const BeforeLogin = () => {
         <span className="bg-none border-none shadow-none px-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width={24}
-            height={18}
+            width={40}
+            height={30}
             viewBox="0 0 24 24"
             fill="none"
           >
@@ -47,7 +47,7 @@ const BeforeLogin = () => {
           onClick={showLogin}
           title="loginButton"
           id="loginButton"
-          className="relative flex rounded-full gap-1 border border-quaternary hover:opacity-100 w-max font-extrabold items-center justify-center pr-4 pl-3 py-2 bg-bg_brand_secondary"
+          className="relative flex rounded-full gap-1   hover:opacity-100 w-max font-extrabold items-center justify-center pr-4 pl-3 py-2 bg-bg_brand_secondary"
         >
           <span className="w-max text-text_color_primary2 hidden md:block">
             <svg
@@ -67,7 +67,7 @@ const BeforeLogin = () => {
               <path d="M11 15l-3 -3" />
             </svg>
           </span>
-          <span className="text-xxs text-text_color_primary2 md:text-text_color_primary2 font-normal font-lato md:font-semibold md:text-xs xs:text-xs">
+          <span className="text-xxs text-primary  font-normal font-lato md:font-semibold md:text-xs xs:text-xs">
             {languageValue(valueByLanguage, LanguageKey.LOGIN)}
           </span>
         </button>
@@ -85,7 +85,7 @@ const BeforeLogin = () => {
                 height={18}
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
-                stroke="var(--icon-color-brand-primary)"
+                stroke="var(--bg-active-primary)"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -109,7 +109,7 @@ const BeforeLogin = () => {
           id="loginButton"
           className="flex  hover:opacity-100 w-max font-extrabold items-center justify-center  bg-bg_color_LoginBtnBgColor rounded-md px-2.5 py-1.5"
         >
-          <span className=" text-x text-text_color_loginButtonTextColor font-lato md:font-semibold xs:text-xs  md:text-sm font-[800]">
+          <span className=" text-x text-primary font-lato md:font-semibold xs:text-xs  md:text-sm font-[800]">
             Log In
           </span>
         </button>

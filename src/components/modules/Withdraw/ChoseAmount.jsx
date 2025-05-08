@@ -20,7 +20,7 @@ const ChooseAmount = ({ setTab, setAmount, amount }) => {
         </div>
         <div className="rounded-lg bg-bg_color_primary text-text_color_primary1 py-2 px-3.5 flex flex-col items-start justify-start w-full gap-y-0.5">
           <div className="w-full flex items-start justify-start gap-y-[0.5] flex-col">
-            <span className="text-sm mt-1 bg-bg_text_brand_primary rounded  shadow-md text-text_color_primary2 px-2 py-1 my-1">
+            <span className="text-sm mt-1 bg-bg_text_brand_primary rounded  shadow-md text-primary px-2 py-1 my-1">
               Available to withdrawal : ₹ {data?.mainWallet}
             </span>
             <div className="flex flex-col w-full">
@@ -105,7 +105,7 @@ const ChooseAmount = ({ setTab, setAmount, amount }) => {
                 ? true
                 : false
             }
-            className="relative overflow-hidden bg-bg_text_brand_primary w-full text-text_color_primary2 h-10 text-base shadow-lg rounded-md font-[900] leading-4 disabled:opacity-70 flex gap-x-1 items-center justify-center"
+            className="relative overflow-hidden bg-bg_text_brand_primary w-full text-text_color_primary2 h-10 text-base shadow-lg rounded-md font-[900] leading-4 disabled:opacity-70 flex gap-x-1 items-center justify-center text-primary"
             type="button"
           >
             <span>Submit</span>

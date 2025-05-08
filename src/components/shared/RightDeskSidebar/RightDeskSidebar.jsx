@@ -26,7 +26,7 @@ const RightDeskSidebar = () => {
                 onClick={() => setTab("betSlip")}
                 className={`text-xs w-full capitalize whitespace-nowrap rounded p-2  ${
                   tab === "betSlip"
-                    ? "bg-bg_brand_secondary text-text_color_primary2"
+                    ? "bg-bg_brand_secondary text-primary"
                     : "bg-bg_color_primary text-text_color_primary1"
                 }`}
               >
@@ -36,7 +36,7 @@ const RightDeskSidebar = () => {
                 onClick={() => setTab("openBet")}
                 className={`text-xs w-full capitalize whitespace-nowrap rounded p-2  ${
                   tab === "openBet"
-                    ? "bg-bg_brand_secondary text-text_color_primary2"
+                    ? "bg-bg_brand_secondary text-primary"
                     : "bg-bg_color_primary text-text_color_primary1"
                 }`}
               >

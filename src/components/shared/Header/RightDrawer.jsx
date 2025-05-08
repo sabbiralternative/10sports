@@ -89,7 +89,7 @@ const RightDrawer = ({
                 height="24"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
-                stroke="var(--icon-color-brand-secondary)"
+                stroke="var(--bg-active-primary)"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -119,7 +119,7 @@ const RightDrawer = ({
               >
                 <path
                   d="M5.1875 16.5891L4.3125 15.7141L9.125 10.9016L4.3125 6.08905L5.1875 5.21405L10 10.0266L14.8125 5.21405L15.6875 6.08905L10.875 10.9016L15.6875 15.7141L14.8125 16.5891L10 11.7766L5.1875 16.5891Z"
-                  fill="var(--icon-color-brand-secondary)"
+                  fill="var(--bg-active-primary)"
                 ></path>
               </svg>
             </button>
@@ -133,7 +133,7 @@ const RightDrawer = ({
                   height="24"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
-                  stroke="var(--icon-color-brand-secondary)"
+                  stroke="var(--bg-active-primary)"
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -168,7 +168,7 @@ const RightDrawer = ({
                   height="22"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
-                  stroke="var(--icon-color-brand-secondary)"
+                  stroke="var(--bg-active-primary)"
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -339,7 +339,7 @@ cursor-pointer
                         height="20"
                         viewBox="0 0 24 24"
                         strokeWidth="2"
-                        stroke="var(--icon-color-brand-secondary)"
+                        stroke="var(--bg-active-primary)"
                         fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -381,7 +381,7 @@ cursor-pointer
                         height="20"
                         viewBox="0 0 24 24"
                         strokeWidth="2"
-                        stroke="var(--icon-color-brand-secondary)"
+                        stroke="var(--bg-active-primary)"
                         fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -419,7 +419,7 @@ cursor-pointer
                         height="20"
                         viewBox="0 0 24 24"
                         strokeWidth="2"
-                        stroke="var(--icon-color-brand-secondary)"
+                        stroke="var(--bg-active-primary)"
                         fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -453,7 +453,7 @@ cursor-pointer
                         height="20"
                         viewBox="0 0 24 24"
                         strokeWidth="2"
-                        stroke="var(--icon-color-brand-secondary)"
+                        stroke="var(--bg-active-primary)"
                         fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -490,7 +490,7 @@ cursor-pointer
                         height="20"
                         viewBox="0 0 24 24"
                         strokeWidth="2"
-                        stroke="var(--icon-color-brand-secondary)"
+                        stroke="var(--bg-active-primary)"
                         fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -530,7 +530,7 @@ cursor-pointer
                         height="20"
                         viewBox="0 0 24 24"
                         strokeWidth="2"
-                        stroke="var(--icon-color-brand-secondary)"
+                        stroke="var(--bg-active-primary)"
                         fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -566,7 +566,7 @@ cursor-pointer
                         height="20"
                         viewBox="0 0 24 24"
                         strokeWidth="2"
-                        stroke="var(--icon-color-brand-secondary)"
+                        stroke="var(--bg-active-primary)"
                         fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -605,7 +605,7 @@ cursor-pointer
                           height="20"
                           viewBox="0 0 24 24"
                           strokeWidth="2"
-                          stroke="var(--icon-color-brand-secondary)"
+                          stroke="var(--bg-active-primary)"
                           fill="none"
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -642,7 +642,7 @@ cursor-pointer
                           height="20"
                           viewBox="0 0 24 24"
                           strokeWidth="2"
-                          stroke="var(--icon-color-brand-secondary)"
+                          stroke="var(--bg-active-primary)"
                           fill="none"
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -682,7 +682,7 @@ cursor-pointer
                         height="20"
                         viewBox="0 0 24 24"
                         strokeWidth="2"
-                        stroke="var(--icon-color-brand-secondary)"
+                        stroke="var(--bg-active-primary)"
                         fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -719,7 +719,7 @@ cursor-pointer
                         height="20"
                         viewBox="0 0 24 24"
                         strokeWidth="2"
-                        stroke="var(--icon-color-brand-secondary)"
+                        stroke="var(--bg-active-primary)"
                         fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -759,7 +759,7 @@ cursor-pointer
                         height="20"
                         viewBox="0 0 24 24"
                         strokeWidth="2"
-                        stroke="var(--icon-color-brand-secondary)"
+                        stroke="var(--bg-active-primary)"
                         fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -789,7 +789,7 @@ cursor-pointer
                       height="20"
                       viewBox="0 0 24 24"
                       strokeWidth="2"
-                      stroke="var(--icon-color-brand-secondary)"
+                      stroke="var(--bg-active-primary)"
                       fill="none"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -853,7 +853,7 @@ cursor-pointer
                               y2="2.61163"
                               gradientUnits="userSpaceOnUse"
                             >
-                              <stop stopColor="var(--icon-color-brand-secondary)"></stop>
+                              <stop stopColor="var(--bg-active-primary)"></stop>
                               <stop
                                 offset="1"
                                 stopColor="var(--icon-color-brand-tertiary)"
@@ -906,7 +906,7 @@ cursor-pointer
                               y2="2.61163"
                               gradientUnits="userSpaceOnUse"
                             >
-                              <stop stopColor="var(--icon-color-brand-secondary)"></stop>
+                              <stop stopColor="var(--bg-active-primary)"></stop>
                               <stop
                                 offset="1"
                                 stopColor="var(--icon-color-brand-tertiary)"
@@ -920,7 +920,7 @@ cursor-pointer
                               y2="7.14365"
                               gradientUnits="userSpaceOnUse"
                             >
-                              <stop stopColor="var(--icon-color-brand-secondary)"></stop>
+                              <stop stopColor="var(--bg-active-primary)"></stop>
                               <stop
                                 offset="1"
                                 stopColor="var(--icon-color-brand-tertiary)"
@@ -934,7 +934,7 @@ cursor-pointer
                               y2="4.67576"
                               gradientUnits="userSpaceOnUse"
                             >
-                              <stop stopColor="var(--icon-color-brand-secondary)"></stop>
+                              <stop stopColor="var(--bg-active-primary)"></stop>
                               <stop
                                 offset="1"
                                 stopColor="var(--icon-color-brand-tertiary)"
@@ -979,7 +979,7 @@ cursor-pointer
                               y2="5.12347"
                               gradientUnits="userSpaceOnUse"
                             >
-                              <stop stopColor="var(--icon-color-brand-secondary)"></stop>
+                              <stop stopColor="var(--bg-active-primary)"></stop>
                               <stop
                                 offset="1"
                                 stopColor="var(--icon-color-brand-tertiary)"

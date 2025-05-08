@@ -62,12 +62,13 @@ const ReferralStatement = () => {
         </div>
 
         <button
+          className="text-primary"
           onClick={() => setFetchData(true)}
           style={{
             backgroundColor: "var(--bg-active-primary)",
             border: "none",
             padding: "10px 20px",
-            color: "white",
+
             borderRadius: "4px",
             cursor: "pointer",
             height: "34px",

@@ -17,9 +17,7 @@ const OpenBets = () => {
             id="matched_1"
             className="px-3 py-2 cursor-pointer w-full flex items-center justify-between bg-bg_text_brand_primary rounded "
           >
-            <span className=" text-text_color_primary2 text-xs">
-              Matched Bets
-            </span>
+            <span className=" text-primary text-xs">Matched Bets</span>
             <div className=" flex items-center justify-center autoAnimate ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

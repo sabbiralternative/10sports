@@ -3736,7 +3736,7 @@ video {
   background-color: var(--bg-active-primary);
 }
 .bg-bg_text_brand_secondary {
-  background-image: var(--text-color-brand-secondary);
+  background: var(--bg-active-primary);
 }
 .bg-none {
   background-image: none;

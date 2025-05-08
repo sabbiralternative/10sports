@@ -467,3 +467,6 @@ html * {
   }
 }
 /*!  Footer Games*/
+.text-primary {
+  color: var(--text-primary) !important;
+}

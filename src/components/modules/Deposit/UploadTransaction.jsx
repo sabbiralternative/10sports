@@ -128,7 +128,7 @@ const UploadTransaction = ({ paymentId, amount }) => {
           <div className="w-full relative mt-2">
             <div
               onClick={handleInputClick}
-              className="flex items-center border border-dashed rounded-[4px] py-3 pl-3 pr-1 border-border_color_brand_primary cursor-pointer"
+              className="flex items-center border border-dashed rounded-[4px] py-3 pl-3 pr-1 border-[var(--bg-active-primary)] cursor-pointer"
             >
               <input
                 onChange={handleImageChange}
@@ -197,7 +197,7 @@ const UploadTransaction = ({ paymentId, amount }) => {
           <input
             onChange={handleUTRChange}
             onKeyDown={handleKeyDown}
-            className="block w-full focus:outline-none border-[1px] px-3 py-2.5 rounded-[4px] bg-bg_color_input_bg font-semibold text-base border-border_color_primary focus:border-border_color_brand_secondary"
+            className="block w-full focus:outline-none border-[1px] px-3 py-2.5 rounded-[4px] bg-bg_color_input_bg font-semibold text-base border-[var(--bg-active-primary)] focus:border-border_color_brand_secondary"
             placeholder="6 to 23 Digit UTR/RRN Number"
             autoComplete="off"
             type="text"
@@ -249,7 +249,7 @@ const UploadTransaction = ({ paymentId, amount }) => {
           disabled={!filePath || !utr ? true : false}
           onClick={handleDepositSubmit}
           type="submit"
-          className="bg-bg_text_brand_primary flex items-center justify-center gap-x-2 w-full text-text_color_primary2 h-10 text-base rounded-md font-[500] leading-4 disabled:opacity-70 relative"
+          className="bg-bg_text_brand_primary flex items-center justify-center gap-x-2 w-full text-text_color_primary2 h-10 text-base rounded-md font-[500] leading-4 disabled:opacity-70 relative text-primary"
         >
           <span>SUBMIT</span>
         </button>

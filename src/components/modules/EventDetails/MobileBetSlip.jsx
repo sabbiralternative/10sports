@@ -293,7 +293,7 @@ const MobileBetSlip = () => {
                   <button
                     key={i}
                     onClick={() => dispatch(setStake(button?.value))}
-                    className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out col-span-4 w-full overflow-hidden text-[12px] font-semibold rounded-[4px] text-text_color_primary2 text-center py-1.5 bg-transparent border border-border_color_primary4 
+                    className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out col-span-4 w-full overflow-hidden text-[12px] font-semibold rounded-[4px] text-text_color_primary2 text-center py-1.5 bg-transparent border border-[var(--bg-active-primary)] 
                 cursor-pointer
                 "
                     type="button"
@@ -308,7 +308,7 @@ const MobileBetSlip = () => {
             <button
               onClick={handleCancelBet}
               type="button"
-              className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  col-span-6 py-1 w-full flex items-center justify-center  text-sm bg-transperent text-text_color_betSlipCancelBtnColor font-medium border border-border_color_brand_secondary rounded-md 
+              className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  col-span-6 py-1 w-full flex items-center justify-center  text-sm bg-transperent text-text_color_betSlipCancelBtnColor font-medium border border-[var(--bg-active-primary)] rounded-md 
         cursor-pointer
         "
             >
@@ -319,13 +319,11 @@ const MobileBetSlip = () => {
             {!token ? (
               <button
                 onClick={handleShowLoginModal}
-                className="relative text-text_color_primary2 disabled:cursor-not-allowed px-2 py-1 rounded-md w-full col-span-6 border flex items-center justify-between  bg-bg_color_disableBackGroundColorfForPlaceBetBtn border-transparent"
+                className="relative text-text_color_primary2 disabled:cursor-not-allowed px-2 py-1 rounded-md w-full col-span-6 border flex items-center justify-between  bg-bg_color_disableBackGroundColorfForPlaceBetBtn border-transparent text-primary"
               >
                 <div className=" flex items-start justify-start flex-col">
-                  <span className=" text-text_color_primary2 text-sm font-bold">
-                    Login
-                  </span>
-                  <div className=" text-text_color_primary2 text-xs">
+                  <span className="  text-sm font-bold">Login</span>
+                  <div className="  text-xs">
                     <span>Profit : </span>
                     <span>{profit}</span>
                   </div>
@@ -334,7 +332,7 @@ const MobileBetSlip = () => {
                   <span>
                     <Clock />
                   </span>
-                  <span className="font-normal text-text_color_tertiary3">
+                  <span className="font-normal ">
                     {placeBetValues?.betDelay}s
                   </span>
                 </div>
@@ -342,19 +340,17 @@ const MobileBetSlip = () => {
             ) : (
               <button
                 onClick={handleOrderBets}
-                className="relative text-text_color_primary2 disabled:cursor-not-allowed px-2 py-1 rounded-md w-full col-span-6 border flex items-center justify-between  bg-bg_color_placeBetBtnGrd border-transparent"
+                className="relative text-text_color_primary2 disabled:cursor-not-allowed px-2 py-1 rounded-md w-full col-span-6 border flex items-center justify-between  bg-bg_color_placeBetBtnGrd border-transparent text-primary"
               >
                 <div className=" flex items-start justify-start flex-col">
-                  <span className=" text-text_color_primary2 text-sm font-bold">
-                    Place Bet
-                  </span>
+                  <span className="  text-sm font-bold">Place Bet</span>
                   {placeBetValues?.back ? (
-                    <div className=" text-text_color_primary2 text-xs">
+                    <div className=" text-xs">
                       <span>Profit : </span>
                       <span>{profit}</span>
                     </div>
                   ) : (
-                    <div className=" text-text_color_primary2 text-xs">
+                    <div className="  text-xs">
                       <span>Liability : </span>
                       <span>
                         {placeBetValues?.btype === "FANCY" ? profit : stake}
@@ -366,7 +362,7 @@ const MobileBetSlip = () => {
                   <span>
                     <Clock />
                   </span>
-                  <span className="font-normal text-text_color_tertiary3">
+                  <span className="font-normal ">
                     {placeBetValues?.betDelay}s
                   </span>
                 </div>

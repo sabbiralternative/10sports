@@ -121,14 +121,14 @@ const Language = () => {
           <button
             onClick={handleSetLanguage}
             type="button"
-            className="relative overflow-hidden inline-flex justify-center w-full px-4 py-2 text-base font-medium text-text_color_primary2 bg-bg_text_brand_primary border border-transparent rounded-md shadow-sm hover:bg-bg_text_brand_secondary focus:outline-none  sm:ml-3 sm:w-auto sm:text-sm"
+            className="relative overflow-hidden inline-flex justify-center w-full px-4 py-2 text-base font-medium text-text_color_primary2 bg-bg_text_brand_primary border border-transparent rounded-md shadow-sm  focus:outline-none  sm:ml-3 sm:w-auto sm:text-sm text-primary"
           >
             Confirm
           </button>
           <button
             onClick={closeModal}
             type="button"
-            className="relative overflow-hidden inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-text_color_primary1 bg-bg_color_secondary border border-border_color_primary rounded-md shadow-sm hover:bg-bg_color_secondary hover:border-border_color_brand_primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:border-border_color_brand_primary sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+            className="relative overflow-hidden inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-text_color_primary1 bg-bg_color_secondary  rounded-md shadow-sm hover:bg-bg_color_secondary hover:border-border_color_brand_primary focus:outline-none focus:ring-2 focus:ring-offset-2  sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
           >
             Cancel
           </button>
