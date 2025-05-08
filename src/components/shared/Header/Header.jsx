@@ -17,8 +17,10 @@ import BeforeLogin from "./BeforeLogin";
 import Referral from "../../modals/Referral/Referral";
 import Notification from "./Notification";
 import { Settings } from "../../../api";
+import MobileSearch from "./MobileSearch";
 
 const Header = () => {
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
   const { token } = useSelector((state) => state.auth);
   const [showReferral, setShowReferral] = useState(false);
   const [time, setTime] = useState();
@@ -83,7 +85,7 @@ const Header = () => {
                     </svg>
                   </button>
                 </div>
-                <div className=" ">
+                <div className={`${showMobileSearch ? "hidden" : ""}`}>
                   <Link
                     className="h-full w-auto flex items-center justify-center xs"
                     to="/"
@@ -118,6 +120,9 @@ const Header = () => {
                     </div>
                   </Link>
                 </div>
+                {showMobileSearch && (
+                  <MobileSearch setShowMobileSearch={setShowMobileSearch} />
+                )}
               </div>
               <SearchBox />
               <div id="currentDateTime" className="hidden font-lato lg:block">
@@ -133,9 +138,15 @@ const Header = () => {
 
               {/* Before login */}
               {!token ? (
-                <BeforeLogin />
+                <BeforeLogin
+                  setShowMobileSearch={setShowMobileSearch}
+                  showMobileSearch={showMobileSearch}
+                />
               ) : (
-                <AfterLogin setShowRightDrawer={setShowRightDrawer} />
+                <AfterLogin
+                  setShowMobileSearch={setShowMobileSearch}
+                  setShowRightDrawer={setShowRightDrawer}
+                />
               )}
             </div>
 

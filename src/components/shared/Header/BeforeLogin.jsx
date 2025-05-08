@@ -9,7 +9,7 @@ import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import { Settings } from "../../../api";
 
-const BeforeLogin = () => {
+const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
   const { language, valueByLanguage } = useLanguage();
   const dispatch = useDispatch();
 
@@ -21,8 +21,13 @@ const BeforeLogin = () => {
   };
 
   return (
-    <div className=" flex items-center justify-end w-full">
+    <div
+      className={`flex items-center justify-end w-full lg:w-fit ${
+        showMobileSearch ? "hidden" : ""
+      }`}
+    >
       <div
+        onClick={() => setShowMobileSearch(true)}
         id="mobileSearchIcon"
         className="lg:hidden mr-[2px] flex items-center justify-center"
       >
