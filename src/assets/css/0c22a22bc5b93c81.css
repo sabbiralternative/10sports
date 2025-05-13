@@ -3715,7 +3715,7 @@ video {
   background-image: var(--bg-color-competetionInPlayUpComingBg);
 }
 .bg-bg_headerBg {
-  background-image: var(--bg-color-headerBg);
+  background: var(--bg-color-headerBg);
 }
 .bg-bg_homeDepositBtnBgColor {
   background-image: var(--bg-color-homeDepositBtnBgColor);
