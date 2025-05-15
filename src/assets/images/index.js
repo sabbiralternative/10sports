@@ -9,8 +9,10 @@ import bankTransfer from "../img/bankTransfer.svg";
 import upiIcon from "../img/upiIcon.svg";
 import cc from "../img/gaming-1.webp";
 import instagram from "../img/instagram.png";
+import whatsApp from "../img/whatsapp.png";
 
 export default {
+  whatsApp,
   instagram,
   cc,
   logo,

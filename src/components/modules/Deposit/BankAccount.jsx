@@ -182,34 +182,34 @@ const BankAccount = ({ amount }) => {
                         </label>
                       </div>
                     </div> */}
-                        <div className="flex items-center gap-y-1 flex-col w-full">
+                        <div className="flex items-center justify-between gap-y-1 flex-col w-full ">
                           {method?.type == "qr" && (
-                            <FaQrcode size={20} color="gray" />
+                            <FaQrcode size={25} color="gray" />
                           )}
                           {method?.type == "bank" && (
-                            <CiBank size={20} color="gray" />
+                            <CiBank size={25} color="gray" />
                           )}
                           {method?.type == "upi" || method?.type == "pg" ? (
                             <img
-                              style={{ height: "20px", width: "20px" }}
+                              style={{ height: "25px", width: "25px" }}
                               src={"/icon/upi.png"}
                             />
                           ) : null}
                           {method?.type == "usdt" ? (
                             <img
-                              style={{ height: "20px", width: "20px" }}
+                              style={{ height: "25px", width: "25px" }}
                               src={"/icon/usdt.png"}
                             />
                           ) : null}
                           {method?.type == "whatsapp" ? (
                             <img
-                              style={{ height: "20px", width: "20px" }}
-                              src={images.whatsapp}
+                              style={{ height: "25px", width: "25px" }}
+                              src={images.whatsApp}
                             />
                           ) : null}
 
-                          <span className="text-xs font-lato font-medium truncate w-full uppercase">
-                            {method?.titles}
+                          <span className="text-xs font-lato font-medium truncate w-full uppercase text-center">
+                            {method?.title}
                           </span>
                         </div>
                       </div>

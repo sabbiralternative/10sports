@@ -93,7 +93,14 @@ const HorseGreyhound = ({ data, title, eventTypeId }) => {
                     _ngcontent-wne-c149=""
                     className={`flag_logo ${horseRacing?.countryCode}`}
                   ></span>
-                  <span _ngcontent-wne-c149="" className="city">
+                  <span
+                    _ngcontent-wne-c149=""
+                    className={`city ${
+                      selectedCategory === horseRacing?.countryCode
+                        ? "text-black"
+                        : "!text-white"
+                    }`}
+                  >
                     {" "}
                     {horseRacing?.countryCode}
                   </span>
