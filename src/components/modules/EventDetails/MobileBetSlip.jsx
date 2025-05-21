@@ -237,6 +237,7 @@ const MobileBetSlip = () => {
                   </button>
                 )}
                 <input
+                  onChange={(e) => dispatch(setPrice(e.target.value))}
                   placeholder="Enter Odds"
                   inputMode="numeric"
                   className="block w-full focus:outline-none  text-sm w-full h-full py-2 text-center rounded-[4px] flex items-center justify-center text-text_color_primary1 bg-bg_color_input_bg focus:border-border_color_activeInput active:border-border_color_activeInput"
@@ -272,6 +273,7 @@ const MobileBetSlip = () => {
                 {/* <span>Max mkt : 0</span> */}
               </label>
               <input
+                onChange={(e) => dispatch(setStake(e.target.value))}
                 id="stakeInput"
                 inputMode="numeric"
                 className="block w-full focus:outline-none  text-md w-full h-full text-center focus:bg-bg_color_input_bg flex items-center justify-center border-[0.75px]  text-text_color_primary1 border-border_color_primary  placeholder:text-text_color_primary1 5 rounded-sm  text-text_color_primary1 bg-transparent
