@@ -318,6 +318,7 @@ const MobileEventHeader = ({ data, score }) => {
         {tab === "live" &&
         eventTypeId == 4 &&
         data &&
+        data?.result?.[0]?.score2 &&
         data?.result?.[0]?.score2?.length !== 0 &&
         !Array.isArray(data?.result?.[0]?.score2) ? (
           <div className=" col-span-1 w-full h-max">
