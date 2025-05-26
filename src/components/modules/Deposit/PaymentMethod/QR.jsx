@@ -13,6 +13,9 @@ const QR = ({ depositData, amount }) => {
         <div className="font-bold mt-[4px] text-base leading-5">
           <span>Payment Details</span>
         </div>
+        <div className="flex items-center justify-center">
+          <img src={depositData?.qrCodeLink} alt="qrCodeLink" />
+        </div>
         {depositData?.qrDisplayName && (
           <div className="mt-2 w-full">
             <span className="flex flex-col items-start justify-start">

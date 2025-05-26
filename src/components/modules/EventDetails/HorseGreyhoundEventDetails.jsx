@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useExposure } from "../../../hooks/exposure";
@@ -14,7 +14,6 @@ const HorseGreyhoundEventDetails = ({ data }) => {
   const { data: exposure } = useExposure(eventId);
   const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { runnerId } = useSelector((state) => state.event);
 
   const [timeDiff, setTimeDiff] = useState({

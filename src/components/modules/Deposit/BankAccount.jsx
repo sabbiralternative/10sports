@@ -146,7 +146,7 @@ const BankAccount = ({ amount }) => {
                         key={method?.paymentId}
                         onClick={() => handleVisibleBankMethod(method)}
                         className={`flex justify-start items-center flex-col gap-y-2 rounded-[10px] bg-transparent py-2 w-full px-[20px] relative border  shadow-depositGateWayBoxShadows min-w-[117px] max-w-[130px] ${
-                          method?.type === methodType
+                          method?.paymentId === paymentId
                             ? "border-[var(--bg-active-primary)]"
                             : ""
                         }`}
@@ -230,9 +230,15 @@ const BankAccount = ({ amount }) => {
                 {methodType === "upi" && (
                   <UPI amount={amount} depositData={depositData} />
                 )}
-                {methodType === "qr" && <QR depositData={depositData} />}
-                {methodType === "usdt" && <USDT depositData={depositData} />}
-                {methodType === "pg" && <PG depositData={depositData} />}
+                {methodType === "qr" && (
+                  <QR amount={amount} depositData={depositData} />
+                )}
+                {methodType === "usdt" && (
+                  <USDT amount={amount} depositData={depositData} />
+                )}
+                {methodType === "pg" && (
+                  <PG amount={amount} depositData={depositData} />
+                )}
                 <UploadTransaction paymentId={paymentId} amount={amount} />
               </>
             )}
