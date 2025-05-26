@@ -44,7 +44,7 @@
       "auraWolf": true,
       "liveCasinoWolf": false,
       "slotWolf": false,
-      "otp": true,
+      "otp": false,
       "otpless": true
     },
 
