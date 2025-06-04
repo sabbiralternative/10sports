@@ -13,6 +13,7 @@ import DesktopEventHeader from "../../components/modules/EventDetails/DesktopEve
 import MobileEventHeader from "../../components/modules/EventDetails/MobileEventHeader";
 import ScoreCard from "../../components/modules/EventDetails/ScoreCard";
 import TennisScore from "../../components/modules/EventDetails/TennisScore";
+import SportsBook from "./SportsBook/SportsBook";
 // import FootballScore from "../../components/modules/EventDetails/FootballScore";
 
 const EventDetails = () => {
@@ -157,6 +158,9 @@ const EventDetails = () => {
               {eventTypeId == 7 || eventTypeId == 4339 ? (
                 <HorseGreyhoundEventDetails data={data} />
               ) : null}
+              {data && data?.sportsbook?.Result && (
+                <SportsBook sportsBook={data?.sportsbook?.Result} />
+              )}
             </div>
           </div>
         </div>
