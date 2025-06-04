@@ -133,7 +133,7 @@ const Bank = ({ depositData, amount }) => {
         <div className="mt-2.5 w-full">
           <span className="flex flex-col items-start justify-start">
             <span className="text-text_color_tertiary1 text-[10px] leading-4 sm:text-xs md:text-sm">
-              IFSC Code
+              IFSC
             </span>
             <div className="flex items-center justify-between w-full text-base font-semibold leading-5 tracking-wide">
               <span>{depositData?.ifsc}</span>
