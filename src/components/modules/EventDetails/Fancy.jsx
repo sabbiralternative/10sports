@@ -10,6 +10,7 @@ import {
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import MobileBetSlip from "./MobileBetSlip";
 import Ladder from "../../modals/Ladder/Ladder";
+import isOddSuspended from "../../../utils/isOddSuspended";
 
 const Fancy = ({ data }) => {
   const fancyData = data?.filter(
@@ -280,60 +281,70 @@ const Fancy = ({ data }) => {
                     <div className=" col-span-5  md:col-span-6  h-12 grid grid-cols-2 md:grid-cols-6 relative">
                       <div className="w-full h-full col-span-2 md:col-span-4">
                         <div className="w-full grid grid-cols-12 grid-flow-col overflow-auto h-full gap-x-0.5 py-[1px] pr-[2px]">
-                          <div
-                            onClick={() =>
-                              handleBetSlip(
-                                "lay",
-                                game,
-                                game?.runners?.[0],
-                                game?.runners?.[0]?.lay?.[0]?.line,
-                                game?.runners?.[0]?.lay?.[0]?.price
-                              )
-                            }
-                            className="w-full col-span-6 h-full"
-                          >
-                            <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
-                              <span
-                                id="oddBtnPrice"
-                                className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
-                              >
-                                {game?.runners?.[0]?.lay?.[0]?.line}
-                              </span>
-                              <span
-                                id="oddBtnSize"
-                                className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
-                              >
-                                {game?.runners?.[0]?.lay?.[0]?.price}
+                          {isOddSuspended(game) ? (
+                            <div className="col-span-12 text-center min-h-12 py-[1px] px-[1px]">
+                              <span className="text-center bg-bg_ballRunning cursor-not-allowed w-full h-full rounded-sm flex text-xs flex-col items-center justify-center">
+                                Suspended
                               </span>
                             </div>
-                          </div>
-                          <div
-                            onClick={() =>
-                              handleBetSlip(
-                                "back",
-                                game,
-                                game?.runners?.[0],
-                                game?.runners?.[0]?.back?.[0]?.line,
-                                game?.runners?.[0]?.back?.[0]?.price
-                              )
-                            }
-                            className="w-full col-span-6 h-full"
-                          >
-                            <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
-                              <span
-                                id="oddBtnPrice"
-                                className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                          ) : (
+                            <>
+                              <div
+                                onClick={() =>
+                                  handleBetSlip(
+                                    "lay",
+                                    game,
+                                    game?.runners?.[0],
+                                    game?.runners?.[0]?.lay?.[0]?.line,
+                                    game?.runners?.[0]?.lay?.[0]?.price
+                                  )
+                                }
+                                className="w-full col-span-6 h-full"
                               >
-                                {game?.runners?.[0]?.back?.[0]?.line}
-                              </span>
-                              <span
-                                id="oddBtnSize"
-                                className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {game?.runners?.[0]?.lay?.[0]?.line}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {game?.runners?.[0]?.lay?.[0]?.price}
+                                  </span>
+                                </div>
+                              </div>
+                              <div
+                                onClick={() =>
+                                  handleBetSlip(
+                                    "back",
+                                    game,
+                                    game?.runners?.[0],
+                                    game?.runners?.[0]?.back?.[0]?.line,
+                                    game?.runners?.[0]?.back?.[0]?.price
+                                  )
+                                }
+                                className="w-full col-span-6 h-full"
                               >
-                                {game?.runners?.[0]?.back?.[0]?.price}
-                              </span>
-                            </div>
-                          </div>
+                                <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {game?.runners?.[0]?.back?.[0]?.line}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {game?.runners?.[0]?.back?.[0]?.price}
+                                  </span>
+                                </div>
+                              </div>
+                            </>
+                          )}
                         </div>
                       </div>
                       <span className=" hidden md:block col-span-2 text-center min-h-12">

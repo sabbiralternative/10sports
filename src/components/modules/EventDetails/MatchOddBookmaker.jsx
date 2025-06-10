@@ -10,6 +10,8 @@ import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import { Settings } from "../../../api";
 import { handleCashOutPlaceBet } from "../../../utils/handleCashoutPlaceBet";
 import MobileBetSlip from "./MobileBetSlip";
+import isOddSuspended from "../../../utils/isOddSuspended";
+import SuspendedOdd from "../../shared/SuspendedOdd/SuspendedOdd";
 
 const MatchOddBookmaker = ({ data }) => {
   const filterMatchOddsBookmaker = data?.filter(
@@ -321,174 +323,65 @@ const MatchOddBookmaker = ({ data }) => {
                           </div>
                         </div>
                       </div>
-                      <div className=" col-span-5  md:col-span-7  h-12 grid grid-cols-2 md:grid-cols-6 relative">
-                        <div className="w-full h-full col-span-6">
-                          {/* Desktop Start */}
-                          <div className="w-full sm:grid grid-cols-12 grid-flow-col overflow-auto h-full gap-x-0.5 py-[1px] pr-[2px] hidden">
-                            <div className="w-full col-span-2 h-full">
+                      {isOddSuspended(runner) ? (
+                        <SuspendedOdd />
+                      ) : (
+                        <div className=" col-span-5  md:col-span-7  h-12 grid grid-cols-2 md:grid-cols-6 relative">
+                          <div className="w-full h-full col-span-6">
+                            {/* Desktop Start */}
+                            <div className="w-full sm:grid grid-cols-12 grid-flow-col overflow-auto h-full gap-x-0.5 py-[1px] pr-[2px] hidden">
+                              <div className="w-full col-span-2 h-full">
+                                <div
+                                  onClick={() =>
+                                    handleBetSlip(
+                                      "back",
+                                      game,
+                                      runner,
+                                      runner?.back?.[2]?.price
+                                    )
+                                  }
+                                  className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue"
+                                >
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {runner?.back?.[2]?.price}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {runner?.back?.[2]?.size}
+                                  </span>
+                                </div>
+                              </div>
                               <div
                                 onClick={() =>
                                   handleBetSlip(
                                     "back",
                                     game,
                                     runner,
-                                    runner?.back?.[2]?.price
+                                    runner?.back?.[1]?.price
                                   )
                                 }
-                                className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue"
+                                className="w-full col-span-2 h-full"
                               >
-                                <span
-                                  id="oddBtnPrice"
-                                  className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
-                                >
-                                  {runner?.back?.[2]?.price}
-                                </span>
-                                <span
-                                  id="oddBtnSize"
-                                  className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
-                                >
-                                  {runner?.back?.[2]?.size}
-                                </span>
+                                <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {runner?.back?.[1]?.price}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {runner?.back?.[1]?.size}
+                                  </span>
+                                </div>
                               </div>
-                            </div>
-                            <div
-                              onClick={() =>
-                                handleBetSlip(
-                                  "back",
-                                  game,
-                                  runner,
-                                  runner?.back?.[1]?.price
-                                )
-                              }
-                              className="w-full col-span-2 h-full"
-                            >
-                              <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
-                                <span
-                                  id="oddBtnPrice"
-                                  className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
-                                >
-                                  {runner?.back?.[1]?.price}
-                                </span>
-                                <span
-                                  id="oddBtnSize"
-                                  className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
-                                >
-                                  {runner?.back?.[1]?.size}
-                                </span>
-                              </div>
-                            </div>
-                            <div
-                              onClick={() =>
-                                handleBetSlip(
-                                  "back",
-                                  game,
-                                  runner,
-                                  runner?.back?.[0]?.price
-                                )
-                              }
-                              className="w-full col-span-2 h-full"
-                            >
-                              <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg border border-backBtn text-text_color_oddValue">
-                                <span
-                                  id="oddBtnPrice"
-                                  className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
-                                >
-                                  {runner?.back?.[0]?.price}
-                                </span>
-                                <span
-                                  id="oddBtnSize"
-                                  className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
-                                >
-                                  {runner?.back?.[0]?.size}
-                                </span>
-                              </div>
-                            </div>
-                            <div
-                              onClick={() =>
-                                handleBetSlip(
-                                  "lay",
-                                  game,
-                                  runner,
-                                  runner?.lay?.[0]?.price
-                                )
-                              }
-                              className="w-full col-span-2 h-full"
-                            >
-                              <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
-                                <span
-                                  id="oddBtnPrice"
-                                  className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
-                                >
-                                  {runner?.lay?.[0]?.price}
-                                </span>
-                                <span
-                                  id="oddBtnSize"
-                                  className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
-                                >
-                                  {runner?.lay?.[0]?.size}
-                                </span>
-                              </div>
-                            </div>
-                            <div
-                              onClick={() =>
-                                handleBetSlip(
-                                  "lay",
-                                  game,
-                                  runner,
-                                  runner?.lay?.[1]?.price
-                                )
-                              }
-                              className="w-full col-span-2 h-full"
-                            >
-                              <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
-                                <span
-                                  id="oddBtnPrice"
-                                  className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
-                                >
-                                  {runner?.lay?.[1]?.price}
-                                </span>
-                                <span
-                                  id="oddBtnSize"
-                                  className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
-                                >
-                                  {runner?.lay?.[1]?.size}
-                                </span>
-                              </div>
-                            </div>
-                            <div
-                              onClick={() =>
-                                handleBetSlip(
-                                  "lay",
-                                  game,
-                                  runner,
-                                  runner?.lay?.[2]?.price
-                                )
-                              }
-                              className="w-full col-span-2 h-full"
-                            >
-                              <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
-                                <span
-                                  id="oddBtnPrice"
-                                  className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
-                                >
-                                  {runner?.lay?.[2]?.price}
-                                </span>
-                                <span
-                                  id="oddBtnSize"
-                                  className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
-                                >
-                                  {runner?.lay?.[2]?.size}
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          {/* Desktop Start */}
-                          {/* Mobile Start */}
-                          <div
-                            className="w-full overflow-x-auto flex h-full sm:px-[2px] sm:hidden"
-                            id="hideScrollBar"
-                          >
-                            <div className="w-full h-full grid grid-cols-2 gap-x-0.5 py-[1px] pr-[2px]">
                               <div
                                 onClick={() =>
                                   handleBetSlip(
@@ -498,9 +391,9 @@ const MatchOddBookmaker = ({ data }) => {
                                     runner?.back?.[0]?.price
                                   )
                                 }
-                                className="w-full h-full"
+                                className="w-full col-span-2 h-full"
                               >
-                                <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
+                                <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg border border-backBtn text-text_color_oddValue">
                                   <span
                                     id="oddBtnPrice"
                                     className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
@@ -524,7 +417,7 @@ const MatchOddBookmaker = ({ data }) => {
                                     runner?.lay?.[0]?.price
                                   )
                                 }
-                                className="w-full h-full"
+                                className="w-full col-span-2 h-full"
                               >
                                 <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
                                   <span
@@ -541,11 +434,124 @@ const MatchOddBookmaker = ({ data }) => {
                                   </span>
                                 </div>
                               </div>
+                              <div
+                                onClick={() =>
+                                  handleBetSlip(
+                                    "lay",
+                                    game,
+                                    runner,
+                                    runner?.lay?.[1]?.price
+                                  )
+                                }
+                                className="w-full col-span-2 h-full"
+                              >
+                                <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {runner?.lay?.[1]?.price}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {runner?.lay?.[1]?.size}
+                                  </span>
+                                </div>
+                              </div>
+                              <div
+                                onClick={() =>
+                                  handleBetSlip(
+                                    "lay",
+                                    game,
+                                    runner,
+                                    runner?.lay?.[2]?.price
+                                  )
+                                }
+                                className="w-full col-span-2 h-full"
+                              >
+                                <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {runner?.lay?.[2]?.price}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {runner?.lay?.[2]?.size}
+                                  </span>
+                                </div>
+                              </div>
                             </div>
+                            {/* Desktop Start */}
+                            {/* Mobile Start */}
+                            <div
+                              className="w-full overflow-x-auto flex h-full sm:px-[2px] sm:hidden"
+                              id="hideScrollBar"
+                            >
+                              <div className="w-full h-full grid grid-cols-2 gap-x-0.5 py-[1px] pr-[2px]">
+                                <div
+                                  onClick={() =>
+                                    handleBetSlip(
+                                      "back",
+                                      game,
+                                      runner,
+                                      runner?.back?.[0]?.price
+                                    )
+                                  }
+                                  className="w-full h-full"
+                                >
+                                  <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
+                                    <span
+                                      id="oddBtnPrice"
+                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                                    >
+                                      {runner?.back?.[0]?.price}
+                                    </span>
+                                    <span
+                                      id="oddBtnSize"
+                                      className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                    >
+                                      {runner?.back?.[0]?.size}
+                                    </span>
+                                  </div>
+                                </div>
+                                <div
+                                  onClick={() =>
+                                    handleBetSlip(
+                                      "lay",
+                                      game,
+                                      runner,
+                                      runner?.lay?.[0]?.price
+                                    )
+                                  }
+                                  className="w-full h-full"
+                                >
+                                  <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                    <span
+                                      id="oddBtnPrice"
+                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                                    >
+                                      {runner?.lay?.[0]?.price}
+                                    </span>
+                                    <span
+                                      id="oddBtnSize"
+                                      className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                    >
+                                      {runner?.lay?.[0]?.size}
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            {/* Mobile End */}
                           </div>
-                          {/* Mobile End */}
                         </div>
-                      </div>
+                      )}
                       {runner?.id === runnerId && <MobileBetSlip />}
                     </div>
                   );
