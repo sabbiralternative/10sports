@@ -66,13 +66,13 @@ const OriginalCrashThumb = ({
     <>
       {!iFrame ? (
         <div
-          className={`origin-bottom-right max-w-screen-xsm w-[90%] h-[85%] fixed bottom-0 right-0 z-[9999] font-lato  overflow-hidden  bg-[var(--bg-color-headerBg)] rounded-t-xl shadow-passwordRulesBox overflow-y-auto no-scrollbar flex-col flex ${
+          className={`origin-bottom-right max-w-screen-xsm w-[90%] h-[85%] fixed bottom-0 right-0 z-[9999] font-lato  overflow-hidden  bg-[var(--app-bg)] rounded-t-xl shadow-passwordRulesBox overflow-y-auto no-scrollbar flex-col flex ${
             openAnimation ? "popUpOpenAnimation1" : ""
           } ${showGame ? "" : "hidden"} ${
             closeAnimation ? "popUpOpenAnimation2" : ""
           }`}
         >
-          <div className="flex items-center justify-between px-2 border-b border-gray-200  sticky top-0  z-50 bg-[var(--bg-color-headerBg)]">
+          <div className="flex items-center justify-between px-2 border-b border-gray-200  sticky top-0  z-50 bg-[var(--app-bg)]">
             <div className="flex items-center justify-between  w-[90%] ">
               <div
                 id="step-selectMode"

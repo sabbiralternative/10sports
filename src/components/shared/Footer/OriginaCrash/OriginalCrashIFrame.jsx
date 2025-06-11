@@ -9,13 +9,13 @@ const OriginalCrashIFrame = ({
 }) => {
   return (
     <div
-      className={`origin-bottom-right max-w-screen-xsm w-[90%] h-[85%] fixed bottom-0 right-0 z-[9999] font-lato  overflow-hidden  bg-[var(--bg-color-headerBg)] rounded-t-xl shadow-passwordRulesBox overflow-y-auto no-scrollbar flex-col flex ${
+      className={`origin-bottom-right max-w-screen-xsm w-[90%] h-[85%] fixed bottom-0 right-0 z-[9999] font-lato  overflow-hidden  bg-[var(--app-bg)] rounded-t-xl shadow-passwordRulesBox overflow-y-auto no-scrollbar flex-col flex ${
         !showGame ? "hidden" : ""
       }  ${openAnimation ? "popUpOpenAnimation1" : ""} ${
         closeAnimation ? "popUpOpenAnimation2" : ""
       }`}
     >
-      <div className="flex items-center justify-between px-2 border-b border-[var(--bg-active-primary)] bg-[var(--bg-color-headerBg)] sticky top-0 z-[100]">
+      <div className="flex items-center justify-between px-2 border-b border-[var(--bg-active-primary)] bg-[var(--app-bg)] sticky top-0 z-[100]">
         <div className="flex max-w-[80%] items-center justify-start py-2  ">
           <button
             onClick={() => setIFrame(false)}

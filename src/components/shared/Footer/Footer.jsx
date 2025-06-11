@@ -68,7 +68,7 @@ const Footer = () => {
         >
           <button
             title="Enjoy the Original Crash Games"
-            className="relative overflow-hidden p-2  bg-[var(--bg-color-headerBg)] rounded-full size-10 shadow-lg flex items-center justify-center text-[var(--bg-active-primary)]"
+            className="relative overflow-hidden p-2  bg-[var(--app-bg)] rounded-full size-10 shadow-lg flex items-center justify-center text-[var(--bg-active-primary)]"
             type="button"
           >
             <svg

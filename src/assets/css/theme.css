@@ -1,6 +1,6 @@
 :root {
   --app-bg: #23201f;
-  --bg-color-headerBg: #171716;
+  --bg-color-headerBg: linear-gradient(90deg, #1e9146 -13.95%, #2c2c2c 83.91%);
   --bg-headerDeskNavMenu: #23201f;
   --bg-headerDeskNavmenuEle: #48494b;
   --bg-color-primary: #333;
