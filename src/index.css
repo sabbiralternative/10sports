@@ -474,3 +474,16 @@ html * {
 .bg-bg_ballRunning {
   background-image: linear-gradient(90deg, #a7d8fd, #f9c9d4);
 }
+
+.animate-spin {
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

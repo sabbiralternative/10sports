@@ -5,11 +5,13 @@ import toast from "react-hot-toast";
 import { userToken } from "../../redux/features/auth/authSlice";
 import { API, Settings } from "../../api";
 import { AxiosSecure } from "../../lib/AxiosSecure";
+import Loader from "../../components/shared/Loader/Loader";
 
 const IFrame = () => {
-  const [, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [iFrame, setIFrame] = useState("");
   const { gameId } = useParams();
+
   const token = useSelector(userToken);
 
   /* get iframe url */
@@ -25,6 +27,7 @@ const IFrame = () => {
       };
 
       try {
+        setLoading(true);
         const res = await AxiosSecure.post(API.liveCasinoIframe, payload);
         const data = res?.data;
 
@@ -37,6 +40,11 @@ const IFrame = () => {
     };
     getCasinoVideo();
   }, [gameId, token]);
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <div className="flex flex-col transition-all  ease-in-out duration-100 pt-0 w-full">
       <div className="flex items-start justify-start w-full">
