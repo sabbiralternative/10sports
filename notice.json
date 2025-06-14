@@ -45,7 +45,8 @@
       "liveCasinoWolf": false,
       "slotWolf": false,
       "otp": false,
-      "otpless": true
+      "otpless": true,
+      "otpWhatsapp": true
     },
 
     "endpoint": {

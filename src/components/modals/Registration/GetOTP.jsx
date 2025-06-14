@@ -196,7 +196,7 @@ const GetOTP = ({
                         </span>
                         <span className="shimmer" />
                       </button>
-                      {Settings.otpless && (
+                      {Settings.otpWhatsapp && (
                         <button
                           onClick={handleGetOtpOnWhatsapp}
                           disabled={mobileNo?.length < 10}
@@ -227,7 +227,7 @@ const GetOTP = ({
                             getWhatsAppId(socialLink?.result?.whatsapplink)
                           }
                           type="button"
-                          className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden text-text_color_loginTextColor bg-bg_color_LoginBtnBgColor border-border_color_brand_secondary1 relative "
+                          className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden text-text_color_loginTextColor bg-bg_color_LoginBtnBgColor border-border_color_brand_secondary1 relative text-primary"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -235,7 +235,7 @@ const GetOTP = ({
                             height={18}
                             viewBox="0 0 24 24"
                             fill="none"
-                            stroke="var(--icon-color-secondary)"
+                            stroke="var(--text-primary)"
                             strokeWidth={2}
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -243,7 +243,7 @@ const GetOTP = ({
                           >
                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                           </svg>
-                          <span>WhatsApp OTP</span>
+                          <span>Get WhatsApp Id</span>
                           <span className="shimmer" />
                         </button>
                       )}
