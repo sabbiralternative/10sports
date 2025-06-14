@@ -124,6 +124,22 @@ const NewAccount = ({ setTab }) => {
       setTimer(null);
     }
   }, [timer]);
+
+  const getOtpOnWhatsapp = async () => {
+    const otpData = {
+      mobile: mobile,
+      type: "otpsend",
+    };
+
+    const res = await AxiosSecure.post(API.otpless, otpData);
+    const data = res.data;
+
+    if (data?.success) {
+      toast.success(data?.result?.message);
+    } else {
+      toast.error(data?.error?.errorMessage);
+    }
+  };
   return (
     <form onSubmit={handleAddBank} className="w-full font font-lato">
       <div className="rounded-lg bg-bg_color_primary text-text_color_primary1 py-2 px-3.5 flex flex-col items-start justify-start w-full gap-y-0.5">
@@ -272,14 +288,27 @@ const NewAccount = ({ setTab }) => {
                     {/* <span className="shimmer"></span> */}
                   </button>
                 ) : (
-                  <button
-                    onClick={getOtp}
-                    className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out font-lato-bold h-fit bg-bg_Primary text-text_Quaternary transition-all ease-in-out text-xs whitespace-nowrap mr-1 py-1 px-3 rounded active:scale-[0.98] active:opacity-95 disabled:bg-bg_Slate500 disabled:opacity-50 font-medium relative flex items-center justify-center cursor-pointer bg-bg_text_brand_primary text-primary"
-                    type="button"
-                  >
-                    <span className=" ">Get OTP</span>
-                    <span className="shimmer"></span>
-                  </button>
+                  <div className="flex items-center gap-2">
+                    {Settings.otpWhatsapp && (
+                      <button
+                        onClick={getOtpOnWhatsapp}
+                        className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out font-lato-bold h-fit bg-bg_Primary text-text_Quaternary transition-all ease-in-out text-xs whitespace-nowrap mr-1 py-1 px-3 rounded active:scale-[0.98] active:opacity-95 disabled:bg-bg_Slate500 disabled:opacity-50 font-medium relative flex items-center justify-center cursor-pointer bg-bg_text_brand_primary"
+                        type="button"
+                      >
+                        <span className="text-primary">Get OTP Whatsapp</span>
+                        <span className="shimmer"></span>
+                      </button>
+                    )}
+
+                    <button
+                      onClick={getOtp}
+                      className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out font-lato-bold h-fit bg-bg_Primary text-text_Quaternary transition-all ease-in-out text-xs whitespace-nowrap mr-1 py-1 px-3 rounded active:scale-[0.98] active:opacity-95 disabled:bg-bg_Slate500 disabled:opacity-50 font-medium relative flex items-center justify-center cursor-pointer bg-bg_text_brand_primary"
+                      type="button"
+                    >
+                      <span className="text-primary">Get OTP SMS</span>
+                      <span className="shimmer"></span>
+                    </button>
+                  </div>
                 )}
               </div>
             </div>
