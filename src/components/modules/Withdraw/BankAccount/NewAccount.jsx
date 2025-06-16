@@ -324,6 +324,7 @@ const NewAccount = ({ setTab }) => {
             </div>
             <div className="flex items-center w-full bg-bg_color_input_bg w-full py-2 px-2 rounded-lg border">
               <input
+                maxLength={6}
                 onChange={(e) => {
                   setBankDetails({
                     ...bankDetails,

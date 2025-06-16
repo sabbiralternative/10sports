@@ -214,6 +214,7 @@ const ForgotPassword = () => {
                         aria-label="Password"
                         id="loginFormPasswordInput"
                         type="text"
+                        maxLength={6}
                       />
                     </div>
                     <div className="flex items-start w-full justify-between leading-normal px-1">

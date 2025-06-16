@@ -383,6 +383,7 @@ const CreateBankAccount = ({ refetchBankAccounts, setShowAddBank }) => {
                     </div>
                     <div className="flex w-full items-center border p-1 bg-bg_color_input_bg border-border_color_primary1  rounded-lg mt-2">
                       <input
+                        maxLength={6}
                         onChange={(e) => {
                           setBankDetails({
                             ...bankDetails,

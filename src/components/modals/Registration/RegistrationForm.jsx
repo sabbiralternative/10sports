@@ -35,7 +35,7 @@ const RegistrationForm = ({
   const [getOTP] = useGetOtpMutation();
   const [handleRegister] = useRegisterMutation();
   const { register, handleSubmit } = useForm();
-  const [otpValues, setOtpValues] = useState(["", "", "", ""]);
+  const [otpValues, setOtpValues] = useState(["", "", "", "", "", ""]);
   const inputs = useRef([]);
 
   useEffect(() => {
@@ -259,8 +259,8 @@ const RegistrationForm = ({
                       <h1 className="text-sm font-medium text-text_color_primary ml-1">
                         Enter OTP
                       </h1>
-                      <div className="grid grid-cols-4 gap-4">
-                        {[...Array(4)].map((_, index) => (
+                      <div className="grid grid-cols-6 gap-4">
+                        {[...Array(6)].map((_, index) => (
                           <div key={index} className="relative">
                             <input
                               ref={(el) => (inputs.current[index] = el)}
