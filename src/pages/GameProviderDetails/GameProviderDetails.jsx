@@ -59,7 +59,10 @@ const GameProviderDetails = () => {
               <div className=" bg-transparent w-full h-max pb-1 md:pb-0">
                 <div className=" w-full  px-[6px]">
                   <div className="app-bg flex-row w-full h-full flex  items-center justify-center cursor-pointer items-center justify-center  pb-2 gap-x-1.5">
-                    <button className="w-7 rounded h-6 sm:h-7 sm:w-8 flex  items-center justify-center bg-bg_color_quaternary active:scale-[115%] transition-all duration-300 ease-in-out shadow-md">
+                    <button
+                      onClick={() => navigate(-1)}
+                      className="w-7 rounded h-6 sm:h-7 sm:w-8 flex  items-center justify-center bg-bg_color_quaternary active:scale-[115%] transition-all duration-300 ease-in-out shadow-md"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width={12}
