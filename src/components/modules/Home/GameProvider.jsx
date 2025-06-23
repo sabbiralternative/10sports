@@ -1,50 +1,53 @@
-import { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useRef, useState } from "react";
+// import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Settings } from "../../../api";
-import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
-import toast from "react-hot-toast";
-import WarningCondition from "../../shared/WarningCondition/WarningCondition";
+// import { Settings } from "../../../api";
+// import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+// import toast from "react-hot-toast";
+// import WarningCondition from "../../shared/WarningCondition/WarningCondition";
 import { scrollToLeft, scrollToRight } from "../../../utils/scroll";
 
 const GameProvider = ({ casinoProviders }) => {
   const [showSeeAll, setShowSeeAll] = useState(false);
   const ref = useRef();
   const navigate = useNavigate();
-  const [error, setError] = useState("");
-  const [showWarning, setShowWarning] = useState(false);
-  const [gameInfo, setGameInfo] = useState({ gameName: "", gameId: "" });
-  const { token, bonusToken } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
+  // const [error, setError] = useState("");
+  // const [showWarning, setShowWarning] = useState(false);
+  // const [gameInfo, setGameInfo] = useState({ gameName: "", gameId: "" });
+  // const { token, bonusToken } = useSelector((state) => state.auth);
+  // const dispatch = useDispatch();
   const handleNavigate = (game) => {
-    if (token) {
-      if (bonusToken) {
-        return setError("Bonus wallet is available only on sports.");
-      }
-      if (Settings.casinoCurrency !== "AED") {
-        navigate(
-          `/casino/${game?.game_name.replace(/ /g, "")}/${game?.game_id}`
-        );
-      } else {
-        setGameInfo({ gameName: "", gameId: "" });
-        setGameInfo({ gameName: game?.game_name, gameId: game?.game_id });
-        setShowWarning(true);
-      }
-    } else {
-      dispatch(setShowLoginModal(true));
-    }
+    navigate(
+      `/game-provider/${game?.game_name.replace(/ /g, "")}/${game?.game_id}`
+    );
+    // if (token) {
+    //   if (bonusToken) {
+    //     return setError("Bonus wallet is available only on sports.");
+    //   }
+    //   if (Settings.casinoCurrency !== "AED") {
+    //     navigate(
+    //       `/casino/${game?.game_name.replace(/ /g, "")}/${game?.game_id}`
+    //     );
+    //   } else {
+    //     setGameInfo({ gameName: "", gameId: "" });
+    //     setGameInfo({ gameName: game?.game_name, gameId: game?.game_id });
+    //     setShowWarning(true);
+    //   }
+    // } else {
+    //   dispatch(setShowLoginModal(true));
+    // }
   };
 
-  useEffect(() => {
-    if (error) {
-      return toast.error(error);
-    }
-  }, [error]);
+  // useEffect(() => {
+  //   if (error) {
+  //     return toast.error(error);
+  //   }
+  // }, [error]);
   return (
     <>
-      {showWarning && (
+      {/* {showWarning && (
         <WarningCondition gameInfo={gameInfo} setShowWarning={setShowWarning} />
-      )}
+      )} */}
       <div title="Game Providers" className="px-[6px] w-full">
         <div className="bg-bg_color_primary rounded-[10px] flex flex-col divide-y divide-divide_color_primary">
           <div className="w-[100%] flex flex-row justify-between px-3 py-1.5">

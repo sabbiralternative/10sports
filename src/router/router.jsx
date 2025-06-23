@@ -27,6 +27,7 @@ import NotFound from "../pages/NotFound/NotFound";
 import OpenBets from "../pages/OpenBets/OpenBets";
 import DWReport from "../pages/DWReport/DWReport";
 import Mac88 from "../pages/Mac88/Mac88";
+import GameProviderDetails from "../pages/GameProviderDetails/GameProviderDetails";
 
 export const router = createBrowserRouter(
   [
@@ -47,6 +48,10 @@ export const router = createBrowserRouter(
         {
           path: "/event-details/:eventTypeId/:eventId",
           element: <EventDetails />,
+        },
+        {
+          path: "/game-provider/:game_name/:game_id",
+          element: <GameProviderDetails />,
         },
         {
           path: "/horse-racing",
