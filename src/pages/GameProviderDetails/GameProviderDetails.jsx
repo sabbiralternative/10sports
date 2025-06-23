@@ -9,7 +9,9 @@ import { Settings } from "../../api";
 
 const GameProviderDetails = () => {
   const { game_name } = useParams();
-  const { data: lotusLobby } = useLotusHomeLobby({ provider: game_name });
+  const { data: lotusLobby, isSuccess } = useLotusHomeLobby({
+    provider: game_name,
+  });
   const [error, setError] = useState("");
   const [showWarning, setShowWarning] = useState(false);
   const [gameInfo, setGameInfo] = useState({ gameName: "", gameId: "" });
@@ -108,6 +110,11 @@ const GameProviderDetails = () => {
                         );
                       })}
                   </div>
+                  {lotusLobby?.length === 0 && isSuccess && (
+                    <div className="w-full flex items-center justify-center mt-20 text-white">
+                      No game found!
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="hidden">

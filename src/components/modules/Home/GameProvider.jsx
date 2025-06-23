@@ -17,9 +17,7 @@ const GameProvider = ({ casinoProviders }) => {
   // const { token, bonusToken } = useSelector((state) => state.auth);
   // const dispatch = useDispatch();
   const handleNavigate = (game) => {
-    navigate(
-      `/game-provider/${game?.game_name.replace(/ /g, "")}/${game?.game_id}`
-    );
+    navigate(`/game-provider/${game?.game_name}/${game?.game_id}`);
     // if (token) {
     //   if (bonusToken) {
     //     return setError("Bonus wallet is available only on sports.");
@@ -43,6 +41,11 @@ const GameProvider = ({ casinoProviders }) => {
   //     return toast.error(error);
   //   }
   // }, [error]);
+  const sortedData =
+    casinoProviders &&
+    casinoProviders?.length > 0 &&
+    casinoProviders?.sort((a, b) => a.sort - b.sort);
+
   return (
     <>
       {/* {showWarning && (
@@ -135,7 +138,7 @@ const GameProvider = ({ casinoProviders }) => {
                 : "grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
             }   `}
           >
-            {casinoProviders?.map((game, idx) => {
+            {sortedData?.map((game, idx) => {
               return (
                 <div
                   onClick={() => handleNavigate(game)}
