@@ -4,7 +4,7 @@ import { useLotusHomeLobby } from "../../hooks/lotusHomeLobby";
 const GameProviderDetails = () => {
   const { game_name } = useParams();
   const { data: lotusLobby } = useLotusHomeLobby({ provider: game_name });
-  console.log(lotusLobby);
+  //   console.log(lotusLobby);
   //   console.log(game_name);
   return (
     <div

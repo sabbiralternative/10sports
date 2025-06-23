@@ -140,18 +140,14 @@ const GameProvider = ({ casinoProviders }) => {
                 <div
                   onClick={() => handleNavigate(game)}
                   key={idx}
-                  className={`relative overflow-hidden aspect-[2.27] rounded-md inline-block active:scale-95 transition-all duration-100 ease-in-out bg-bg_color_casinoProvider shadow-md ${
-                    !showSeeAll
-                      ? "min-w-[124px] md:min-w-[150px]"
-                      : "flex flex-col items-center justify-center"
+                  className={`relative overflow-hidden aspect-[2.27] rounded-md inline-block active:scale-95 transition-all duration-100 ease-in-out bg-bg_color_casinoProvider shadow-md flex flex-col items-center justify-center ${
+                    !showSeeAll ? "min-w-[124px] md:min-w-[150px]" : ""
                   }`}
                 >
                   <img
                     src={game?.url_thumb}
                     alt="Evolution Gaming"
-                    className={`w-full    [@supports(-webkit-touch-callout:none)]:h-full object-contain ${
-                      showSeeAll ? "max-h-[94%]" : "h-full"
-                    }`}
+                    className={`[@supports(-webkit-touch-callout:none)]:h-full object-contain max-h-[80%] w-[80%] `}
                     title="Evolution Gaming"
                   />
                 </div>

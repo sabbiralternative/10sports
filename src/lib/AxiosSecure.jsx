@@ -23,6 +23,7 @@ AxiosSecure.interceptors.request.use(
         token: generatedToken,
         site: Settings.siteUrl,
       };
+      // console.log(payload);
       if (Settings.language) {
         payload.language = localStorage.getItem("language") || "english";
       }
