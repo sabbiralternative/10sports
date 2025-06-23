@@ -8,6 +8,7 @@ import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import { scrollToLeft, scrollToRight } from "../../../utils/scroll";
 
 const IndianCardGames = () => {
+  const [showSeeAll, setShowSeeAll] = useState(false);
   const ref = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -81,10 +82,11 @@ const IndianCardGames = () => {
           </div>
           <div className="flex w-[108.75px] items-center justify-end gap-[5px]">
             <button
+              onClick={() => setShowSeeAll((prev) => !prev)}
               className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out font-lato bg-bg_text_brand_secondary text-transparent bg-clip-text font-semibold text-[12px] leading-[18px] transition-all ease-in-out duration-200 cursor-pointer"
               type="button"
             >
-              See All
+              {showSeeAll ? "See Less" : "See All"}
             </button>
             <button
               onClick={() => scrollToLeft(ref)}
@@ -131,14 +133,22 @@ const IndianCardGames = () => {
         <div
           ref={ref}
           title="Indian Card Games"
-          className="p-2.5 transition-all ease-in-out duration-200 w-full gap-1 overflow-x-auto scroll-smooth no-scrollbar grid grid-flow-col grid-rows-3"
+          className={`p-2.5 transition-all ease-in-out duration-200 w-full gap-1 overflow-x-auto scroll-smooth no-scrollbar grid ${
+            showSeeAll
+              ? "grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8"
+              : "grid-flow-col grid-rows-3"
+          }`}
         >
           {data?.data?.map((item, i) => {
             return (
               <div
                 onClick={() => handleAuraCasino(item?.game_id, item?.game_name)}
                 key={i}
-                className="min-w-[120px] sm:min-w-[140px] md:min-w-[160px] lg:min-w-[180px] xl:min-w-[200px] 2xl:min-w-[220px] aspect-square rounded-md cursor-pointer overflow-hidden"
+                className={`${
+                  showSeeAll
+                    ? ""
+                    : "min-w-[120px] sm:min-w-[140px] md:min-w-[160px] lg:min-w-[180px] xl:min-w-[200px] 2xl:min-w-[220px] "
+                } aspect-square rounded-md cursor-pointer overflow-hidden`}
               >
                 <div className="relative overflow-hidden w-full h-full object-cover">
                   <img

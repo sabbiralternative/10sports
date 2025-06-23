@@ -8,6 +8,7 @@ import WarningCondition from "../../shared/WarningCondition/WarningCondition";
 import { scrollToLeft, scrollToRight } from "../../../utils/scroll";
 
 const GameProvider = ({ casinoProviders }) => {
+  const [showSeeAll, setShowSeeAll] = useState(false);
   const ref = useRef();
   const navigate = useNavigate();
   const [error, setError] = useState("");
@@ -75,10 +76,11 @@ const GameProvider = ({ casinoProviders }) => {
             </div>
             <div className="flex w-[108.75px] items-center justify-end gap-[5px]">
               <button
+                onClick={() => setShowSeeAll((prev) => !prev)}
                 className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out font-lato bg-bg_text_brand_secondary text-transparent bg-clip-text font-semibold text-[12px] leading-[18px] transition-all ease-in-out duration-200 cursor-pointer"
                 type="button"
               >
-                See All
+                {showSeeAll ? "See Less" : "See All"}
               </button>
               <button
                 onClick={() => scrollToLeft(ref)}
@@ -124,19 +126,29 @@ const GameProvider = ({ casinoProviders }) => {
           </div>
           <div
             ref={ref}
-            className="w-full p-2.5 gap-y-2 gap-x-2 grid grid-rows-2 grid-flow-col sm:grid-cols-3 overflow-x-auto no-scrollbar scroll-smooth"
+            className={`w-full p-2.5 gap-y-2 gap-x-2 grid ${
+              !showSeeAll
+                ? "grid-rows-3 grid-flow-col sm:grid-cols-3 overflow-x-auto no-scrollbar scroll-smooth"
+                : "grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
+            }   `}
           >
             {casinoProviders?.map((game, idx) => {
               return (
                 <div
                   onClick={() => handleNavigate(game)}
                   key={idx}
-                  className="relative overflow-hidden min-w-[124px] md:min-w-[150px] aspect-[2.27] rounded-md inline-block active:scale-95 transition-all duration-100 ease-in-out bg-bg_color_casinoProvider shadow-md"
+                  className={`relative overflow-hidden aspect-[2.27] rounded-md inline-block active:scale-95 transition-all duration-100 ease-in-out bg-bg_color_casinoProvider shadow-md ${
+                    !showSeeAll
+                      ? "min-w-[124px] md:min-w-[150px]"
+                      : "flex flex-col items-center justify-center"
+                  }`}
                 >
                   <img
                     src={game?.url_thumb}
                     alt="Evolution Gaming"
-                    className="w-full max-h-[94%] [@supports(-webkit-touch-callout:none)]:h-full"
+                    className={`w-full    [@supports(-webkit-touch-callout:none)]:h-full object-contain ${
+                      showSeeAll ? "max-h-[94%]" : "h-full"
+                    }`}
                     title="Evolution Gaming"
                   />
                 </div>
