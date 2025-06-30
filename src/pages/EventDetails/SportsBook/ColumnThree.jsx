@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { handleSportsBookPlaceBet } from "../../../utils/handleSportsBookPlaceBet";
 import { isSportsRunnerSuspended } from "../../../utils/isSportsRunnerSuspended";
+import { CiLock } from "react-icons/ci";
 
 const ColumnThree = ({
   item,
@@ -71,6 +72,8 @@ const ColumnThree = ({
           <div style={{ overflow: "visible" }}>
             <div className="bt12683">
               {item?.Items?.map((column, i) => {
+                const isActive =
+                  column?.Price > 0 && !isSportsRunnerSuspended(column, item);
                 return (
                   <div
                     onClick={() =>
@@ -85,6 +88,10 @@ const ColumnThree = ({
                     key={i}
                     data-editor-id="tableOutcomePlate"
                     className="bt6588 bt12698 bt6591"
+                    style={{
+                      cursor: isActive ? "pointer" : "auto",
+                      pointerEvents: isActive ? "auto" : "none",
+                    }}
                   >
                     <div
                       className="bt6592 bt12699"
@@ -99,19 +106,32 @@ const ColumnThree = ({
                       <div className="bt1570">
                         <span className={priceClasses[column?.Id]}></span>
                       </div>
-                      <div
-                        className="bt6596 bt12703"
-                        data-editor-id="tableOutcomePlateName"
-                      >
-                        <span className="bt6598"> {column?.Name}</span>
-                      </div>
-                      <div className="bt6564 bt6599">
-                        <span className="bt6566">
-                          {column?.Price > 0 &&
-                            !isSportsRunnerSuspended(column, item) &&
-                            column?.Price?.toFixed(2)}
-                        </span>
-                      </div>
+                      {isActive ? (
+                        <>
+                          <div
+                            className="bt6596 bt12703"
+                            data-editor-id="tableOutcomePlateName"
+                          >
+                            <span className="bt6598"> {column?.Name}</span>
+                          </div>
+                          <div className="bt6564 bt6599">
+                            <span className="bt6566">
+                              {column?.Price?.toFixed(2)}
+                            </span>
+                          </div>
+                        </>
+                      ) : (
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: "100%",
+                          }}
+                        >
+                          <CiLock />
+                        </div>
+                      )}
                     </div>
                   </div>
                 );
