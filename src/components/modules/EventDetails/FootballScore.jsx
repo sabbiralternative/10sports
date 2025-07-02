@@ -16,14 +16,18 @@ const FootballScore = ({ score }) => {
             {score?.player1}
           </div>
           <div className=" w-1/3 flex items-center justify-center gap-x-1 text-text_color_primary1">
-            <div className="min-w-5 min-h-5 aspect-square bg-bg_brand_primary  text-center text-xs rounded-[4px] text-text_color_primary2 font-lato font-medium leading-4 flex items-center justify-center">
-              <span>{score?.team1Score}</span>
-            </div>
-            {score?.team1Score && <div>:</div>}
+            {score?.team1Score && (
+              <div className="min-w-5 min-h-5 aspect-square bg-bg_brand_primary  text-center text-xs rounded-[4px] text-text_color_primary2 font-lato font-medium leading-4 flex items-center justify-center">
+                <span>{score?.team1Score}</span>
+              </div>
+            )}
 
-            <div className="min-w-5 min-h-5 aspect-square bg-bg_brand_primary  text-center text-xs rounded-[4px] text-text_color_primary2 font-lato font-medium leading-4 flex items-center justify-center">
-              <span> {score?.team2Score}</span>
-            </div>
+            {score?.team1Score && <div>:</div>}
+            {score?.team2Score && (
+              <div className="min-w-5 min-h-5 aspect-square bg-bg_brand_primary  text-center text-xs rounded-[4px] text-text_color_primary2 font-lato font-medium leading-4 flex items-center justify-center">
+                <span> {score?.team2Score}</span>
+              </div>
+            )}
           </div>
           <div
             title="Western Sydney Wanderers"
