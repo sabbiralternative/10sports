@@ -16,8 +16,10 @@ import { useLanguage } from "../../../context/LanguageProvider";
 import { LanguageKey } from "../../../const";
 import { languageValue } from "../../../utils/language";
 import images from "../../../assets/images";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [tab, setTab] = useState(Settings.registration ? "mobile" : "userId");
   const { valueByLanguage } = useLanguage();
   const [passwordType, setPasswordType] = useState(true);
@@ -49,7 +51,11 @@ const Login = () => {
       localStorage.setItem("buttonValue", JSON.stringify(game));
       localStorage.setItem("token", token);
       localStorage.setItem("bonusToken", bonusToken);
-      if (token && user) {
+      if (result?.result?.changePassword) {
+        dispatch(setShowLoginModal(false));
+        navigate("/change-password");
+      }
+      if (!result?.result?.changePassword && token && user) {
         dispatch(setShowLoginModal(false));
         toast.success("Login successful");
       }
