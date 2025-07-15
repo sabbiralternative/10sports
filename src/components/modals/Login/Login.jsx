@@ -57,7 +57,7 @@ const Login = () => {
       localStorage.setItem("bonusToken", bonusToken);
       if (banner) {
         localStorage.setItem("banner", banner);
-        dispatch(setShowBanner(banner));
+        dispatch(setShowBanner(true));
       }
       if (result?.result?.changePassword) {
         dispatch(setShowLoginModal(false));
@@ -88,12 +88,17 @@ const Login = () => {
       const bonusToken = result?.result?.bonusToken;
       const user = result?.result?.loginName;
       const game = result?.result?.buttonValue?.game;
+      const banner = result?.result?.banner;
 
       dispatch(setUser({ user, token }));
       localStorage.setItem("buttonValue", JSON.stringify(game));
       localStorage.setItem("token", token);
 
       localStorage.setItem("bonusToken", bonusToken);
+      if (banner) {
+        localStorage.setItem("banner", banner);
+        dispatch(setShowBanner(true));
+      }
       if (token && user) {
         dispatch(setShowLoginModal(false));
         toast.success("Login successful");

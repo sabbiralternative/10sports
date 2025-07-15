@@ -10,7 +10,10 @@ import toast from "react-hot-toast";
 import { Settings } from "../../../api";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../redux/features/auth/authSlice";
-import { setShowRegisterModal } from "../../../redux/features/global/globalSlice";
+import {
+  setShowBanner,
+  setShowRegisterModal,
+} from "../../../redux/features/global/globalSlice";
 import { useLogo } from "../../../context/ApiProvider";
 import images from "../../../assets/images";
 import { LanguageKey } from "../../../const";
@@ -93,10 +96,15 @@ const RegistrationForm = ({
       const user = result?.result?.loginName;
       const memberId = result?.result?.memberId;
       const game = result?.result?.buttonValue?.game;
+      const banner = result?.result?.banner;
       dispatch(setUser({ user, token, memberId }));
       localStorage.setItem("buttonValue", JSON.stringify(game));
       localStorage.setItem("bonusToken", bonusToken);
       localStorage.setItem("token", token);
+      if (banner) {
+        localStorage.setItem("banner", banner);
+        dispatch(setShowBanner(true));
+      }
       if (token && user) {
         dispatch(setShowRegisterModal(false));
         toast.success("Register successful");
