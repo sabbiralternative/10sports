@@ -31,6 +31,7 @@ const EventDetails = () => {
     }
   );
 
+  console.log(data);
   useEffect(() => {
     if (
       price &&

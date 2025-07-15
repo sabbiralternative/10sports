@@ -327,7 +327,7 @@ const MatchOddBookmaker = ({ data }) => {
                         </div>
                       </div>
                       {isOddSuspended(runner) ? (
-                        <SuspendedOdd />
+                        <SuspendedOdd colSpan={5} />
                       ) : (
                         <div className=" col-span-5  md:col-span-7  h-12 grid grid-cols-2 md:grid-cols-6 relative">
                           <div className="w-full h-full col-span-6">
