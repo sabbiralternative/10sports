@@ -68,7 +68,7 @@ const Header = () => {
                 id="logoContainer"
                 className="logo flex w-full h-full md:w-fit"
               >
-                <div className="flex items-center w-[40px] md:w-fit justify-center lg:hidden">
+                <div className="flex items-center w-[40px] md:w-fit justify-center lg:hidden ml-1">
                   <button
                     onClick={handleShowDrawer}
                     className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out bg-none border-none h-full flex items-center justify-center active:scale-150 w-[100%] shadow-none px-1 cursor-pointer"
