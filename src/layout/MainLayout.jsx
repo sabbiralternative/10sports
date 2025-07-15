@@ -7,9 +7,12 @@ import Footer from "../components/shared/Footer/Footer";
 import { hideSidebarRoutes } from "../static/hideSidebarRoutes";
 import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
+import Banner from "../components/modals/Banner/Banner";
 
 const MainLayout = () => {
-  const { group, showNotification } = useSelector((state) => state.global);
+  const { group, showNotification, showBanner } = useSelector(
+    (state) => state.global
+  );
   const location = useLocation();
   const ref = useRef();
 
@@ -23,6 +26,7 @@ const MainLayout = () => {
 
   return (
     <div className="w-dvw app-bg h-screen  flex flex-col">
+      {showBanner && <Banner />}
       <WhatsApp />
       <Header />
       <div

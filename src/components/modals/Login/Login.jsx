@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useLoginMutation } from "../../../redux/features/auth/authApi";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
 import {
+  setShowBanner,
   setShowForgotPasswordModal,
   setShowLoginModal,
   setShowRegisterModal,
@@ -41,16 +42,23 @@ const Login = () => {
     const result = await handleLogin(loginData).unwrap();
 
     if (result.success) {
+      console.log(result);
       const token = result?.result?.token;
       const bonusToken = result?.result?.bonusToken;
       const user = result?.result?.loginName;
       const game = result?.result?.buttonValue?.game;
       const memberId = result?.result?.memberId;
+      const banner = result?.result?.banner;
+
       dispatch(setUser({ user, token, memberId }));
       localStorage.setItem("memberId", memberId);
       localStorage.setItem("buttonValue", JSON.stringify(game));
       localStorage.setItem("token", token);
       localStorage.setItem("bonusToken", bonusToken);
+      if (banner) {
+        localStorage.setItem("banner", banner);
+        dispatch(setShowBanner(banner));
+      }
       if (result?.result?.changePassword) {
         dispatch(setShowLoginModal(false));
         navigate("/change-password");

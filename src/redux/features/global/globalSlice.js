@@ -9,6 +9,7 @@ const initialState = {
   selectedCategory: "ALL",
   showLanguageModal: false,
   showNotification: false,
+  showBanner: false,
 };
 
 const stateSlice = createSlice({
@@ -39,6 +40,9 @@ const stateSlice = createSlice({
     setShowNotification: (state, action) => {
       state.showNotification = action.payload;
     },
+    setShowBanner: (state, action) => {
+      state.showBanner = action.payload;
+    },
   },
 });
 
@@ -51,6 +55,7 @@ export const {
   setSelectedCategory,
   setShowLanguageModal,
   setShowNotification,
+  setShowBanner,
 } = stateSlice.actions;
 
 export default stateSlice.reducer;
