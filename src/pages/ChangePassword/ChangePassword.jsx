@@ -22,6 +22,7 @@ const ChangePassword = () => {
 
     const res = await handleChangePassword(payload).unwrap();
     if (res.success) {
+      localStorage.removeItem("changePassword");
       toast.success(res?.result?.message);
       navigate("/");
     } else {
