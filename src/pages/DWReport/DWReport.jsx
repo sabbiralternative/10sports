@@ -18,8 +18,10 @@ const DWReport = () => {
                 className="cursor-pointer flex flex-row items-center justify-center"
               >
                 <span
-                  className={`text-text_color_primary2  text-sm  rounded-md bg-transparent   border-border_color_primary1 px-[25px] py-2  text-[13px] md:text-sm lg:text-base font-bold leading-4 active:scale-95 block z-10  ${
-                    tab === "withdraw" ? "border " : "text-primary"
+                  className={`text-text_color_primary2  text-sm  rounded-md    border-border_color_primary1 px-[25px] py-2  text-[13px] md:text-sm lg:text-base font-bold leading-4 active:scale-95 block z-10  ${
+                    tab === "deposit"
+                      ? "bg-bg_text_brand_primary text-primary"
+                      : "border"
                   }`}
                 >
                   Deposit
@@ -30,14 +32,16 @@ const DWReport = () => {
                 className="cursor-pointer flex flex-row items-center justify-center"
               >
                 <span
-                  className={`text-text_color_primary2  text-sm  rounded-md bg-transparent   border-border_color_primary1 px-[25px] py-2  text-[13px] md:text-sm lg:text-base font-bold leading-4 active:scale-95 block z-10  ${
-                    tab === "deposit" ? "border " : "text-primary"
+                  className={`text-text_color_primary2  text-sm  rounded-md    border-border_color_primary1 px-[25px] py-2  text-[13px] md:text-sm lg:text-base font-bold leading-4 active:scale-95 block z-10  ${
+                    tab === "withdraw"
+                      ? "bg-bg_text_brand_primary text-primary"
+                      : "border"
                   }`}
                 >
                   Withdrawal
                 </span>
               </div>
-              <div
+              {/* <div
                 className={`absolute z-1 w-full h-full transition-all ease-in-out duration-150 bg-bg_text_brand_primary text-sm bg-bg_text_brand_primary  rounded-md lg:h-[36px] ${
                   tab === "deposit"
                     ? "-left-0.5 lg:left-1"
@@ -47,7 +51,7 @@ const DWReport = () => {
                   width: tab === "deposit" ? "90px" : "110px",
                   // top: "1px",
                 }}
-              />
+              /> */}
             </div>
           </div>
         </div>
