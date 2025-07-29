@@ -84,7 +84,7 @@ const MobileSearch = ({ setShowMobileSearch }) => {
                       className="group"
                       onClick={handleHideDropdown}
                       key={i}
-                      to={`/game-details/${item?.eventTypeId}/${item?.eventId}`}
+                      to={`/event-details/${item?.eventTypeId}/${item?.eventId}`}
                     >
                       <div className="search-list-item">
                         <div className="search-tournament-name">
