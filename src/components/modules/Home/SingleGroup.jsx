@@ -11,7 +11,7 @@ import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import ScoreHome from "./ScoreHome";
 
-const SingleGroup = ({ data, filterData, title, margin }) => {
+const SingleGroup = ({ data, filterData, title, margin, defineGroup }) => {
   const { valueByLanguage } = useLanguage();
   const eventName = {
     4: languageValue(valueByLanguage, LanguageKey.CRICKET),
@@ -41,7 +41,7 @@ const SingleGroup = ({ data, filterData, title, margin }) => {
               {group === 2 && <Tennis />}
               {group === 1 && <Tennis />}
               <div className="text-text_color_primary1 mt-0.5 md:text-[18px] text-base font-semibold leading-3 tracking-wide text-center">
-                {eventName[group]}
+                {eventName[defineGroup || group]}
               </div>
             </div>
             <div className="col-span-6 py-2.5 lg:col-span-7 grid grid-cols-12 h-full">
