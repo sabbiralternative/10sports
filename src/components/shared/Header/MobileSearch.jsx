@@ -101,6 +101,16 @@ const MobileSearch = ({ setShowMobileSearch }) => {
           </div>
         )}
       </div>
+      {data?.length === 0 && searchText?.length > 2 && (
+        <div
+          className="lg:hidden absolute top-8 right-10 w-full peer gap-4 appearance-none text-xs py-3 border flex flex-col bg-bg_color_primary rounded-md shadow-md text-text_color_primary1 overflow-y-auto max-h-[300px] no-scrollbar"
+          style={{ zIndex: 1000 }}
+        >
+          <div className="flex font-lato items-center justify-center w-full">
+            No data found
+          </div>
+        </div>
+      )}
     </div>
   );
 };

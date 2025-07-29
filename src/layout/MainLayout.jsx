@@ -33,8 +33,8 @@ const MainLayout = () => {
         ref={ref}
         className={`flex-1 overflow-y-auto show-scrollbar scroll-auto flex flex-col h-full ${
           showNotification
-            ? "pt-[145px] lg:pt-[155px]"
-            : "pt-[118px] lg:pt-[128px]"
+            ? "pt-[120px] lg:pt-[155px]"
+            : "pt-[90px] lg:pt-[128px]"
         }`}
       >
         <main
