@@ -148,7 +148,11 @@ const TrendingCasino = ({ trendingGames }) => {
                   <div
                     onClick={() => handleNavigate(game)}
                     key={idx}
-                    className="relative overflow-hidden min-w-[117px] w-[117px] sm:min-w-[140px] sm:w-[140px] md:min-w-[160px] md:w-[160px] aspect-[0.8640] object-cover cursor-pointer overflow-hidden rounded-md"
+                    className="relative overflow-hidden 
+
+                   min-w-[117px] w-[117px] sm:min-w-[140px] sm:w-[140px] md:min-w-[160px] md:w-[160px] aspect-[0.75]
+                    
+                    object-cover cursor-pointer overflow-hidden rounded-md"
                   >
                     <img
                       src={game?.url_thumb}
