@@ -130,7 +130,7 @@ const PopularGames = ({ popularGames }) => {
             className={`p-2.5 transition-all ease-in-out duration-200 w-full gap-1 overflow-x-auto scroll-smooth no-scrollbar grid ${
               showSeeAll
                 ? "grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8"
-                : "grid-flow-col grid-rows-3"
+                : "grid-flow-col grid-rows-2"
             }`}
           >
             {popularGames?.map((game, idx) => {
@@ -141,8 +141,8 @@ const PopularGames = ({ popularGames }) => {
                   className={`${
                     showSeeAll
                       ? ""
-                      : "min-w-[120px] sm:min-w-[140px] md:min-w-[160px] lg:min-w-[180px] xl:min-w-[200px] 2xl:min-w-[220px] "
-                  } 10 aspect-square rounded-md cursor-pointer overflow-hidden`}
+                      : "min-w-[117px] w-[117px] sm:min-w-[140px] sm:w-[140px] md:min-w-[160px] md:w-[160px]  "
+                  } 10 aspect-[0.75] rounded-md cursor-pointer overflow-hidden`}
                 >
                   <div className="relative overflow-hidden w-full h-full object-cover">
                     <img

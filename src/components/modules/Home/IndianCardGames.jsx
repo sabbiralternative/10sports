@@ -147,8 +147,8 @@ const IndianCardGames = () => {
                 className={`${
                   showSeeAll
                     ? ""
-                    : "min-w-[120px] sm:min-w-[140px] md:min-w-n[160px] lg:min-w-[180px] xl:min-w-[200px] 2xl:min-w-[220px] "
-                } aspect-square rounded-md cursor-pointer overflow-hidden`}
+                    : "min-w-[120px] sm:min-w-[140px] md:min-w-n[160px] lg:min-w-[180px] xl:min-w-[200px] 2xl:min-w-[220px]"
+                } aspect-square  rounded-md cursor-pointer overflow-hidden`}
               >
                 <div className="relative overflow-hidden w-full h-full object-cover">
                   <img
