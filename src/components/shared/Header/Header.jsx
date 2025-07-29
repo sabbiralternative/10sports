@@ -144,6 +144,7 @@ const Header = () => {
                 />
               ) : (
                 <AfterLogin
+                  showMobileSearch={showMobileSearch}
                   setShowMobileSearch={setShowMobileSearch}
                   setShowRightDrawer={setShowRightDrawer}
                 />

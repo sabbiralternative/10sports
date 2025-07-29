@@ -129,7 +129,7 @@ const WithdrawStatement = () => {
           </>
         )}
         {data?.result?.length === 0 && (
-          <div className="flex items-center justify-center pt-20">
+          <div className="flex items-center justify-center pt-20 text-white">
             <p>No transaction yet!</p>
           </div>
         )}

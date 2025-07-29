@@ -39,11 +39,13 @@ const DWReport = () => {
               </div>
               <div
                 className={`absolute z-1 w-full h-full transition-all ease-in-out duration-150 bg-bg_text_brand_primary text-sm bg-bg_text_brand_primary  rounded-md lg:h-[36px] ${
-                  tab === "deposit" ? "-left-1" : "left-[106px]"
+                  tab === "deposit"
+                    ? "-left-0.5 lg:left-1"
+                    : "left-[108px] lg:left-[115px]"
                 }`}
                 style={{
                   width: tab === "deposit" ? "90px" : "110px",
-                  top: "1px",
+                  // top: "1px",
                 }}
               />
             </div>
