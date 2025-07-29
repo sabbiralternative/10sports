@@ -116,6 +116,7 @@ const EventDetails = () => {
     (match_odd) =>
       match_odd.btype === "MATCH_ODDS" && match_odd?.visible == true
   );
+
   return (
     <div
       className="w-full h-full
@@ -125,7 +126,9 @@ const EventDetails = () => {
         <div className="no-scrollbar min-h-[calc(100dvh-56px)] md:mb-3">
           <DesktopEventHeader data={data} />
           <div className="hidden lg:block">
-            {eventTypeId == 2 && <TennisScore score={data?.score} />}
+            {eventTypeId == 2 && data?.score && (
+              <TennisScore score={data?.score} />
+            )}
           </div>
 
           <MobileEventHeader score={data?.score} data={data} />

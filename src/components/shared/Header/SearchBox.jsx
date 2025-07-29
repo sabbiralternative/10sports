@@ -63,7 +63,7 @@ const SearchBox = () => {
         </svg>
       </div>
 
-      {data?.length > 0 && searchText && (
+      {data?.length > 0 && searchText?.length > 2 && (
         <div className="search-list bg-bg_color_primary text-text_color_primary1">
           {categories.map((category) => (
             <>
@@ -94,7 +94,7 @@ const SearchBox = () => {
         </div>
       )}
 
-      {data?.length === 0 && searchText?.length > 2 && (
+      {data?.length === 0 && searchText?.length > 4 && (
         <div
           className=" absolute top-10 right-0 w-full peer gap-4 appearance-none text-xs py-3 border flex flex-col bg-bg_color_primary rounded-md shadow-md text-text_color_primary1 overflow-y-auto max-h-[300px] no-scrollbar"
           style={{ zIndex: 1000 }}
