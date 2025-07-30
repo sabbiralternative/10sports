@@ -73,6 +73,13 @@ const OpenBet = () => {
                     </div>
                   </div>
                 ))}
+              {showBets && data?.length === 0 && (
+                <div className="w-full origin-top scaleVerticalOpen">
+                  <div className="w-full font-medium text-sm bg-bg_color_primary rounded px-4  py-3 shadow text-text_color_primary1 ">
+                    You have no matched Bets.
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -17,12 +17,15 @@ const Referral = ({ setShowReferral }) => {
 
   return (
     <>
-      <div className="cdk-overlay-container">
+      <div className="cdk-overlay-container" style={{ pointerEvents: "auto" }}>
         <div className="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"></div>
         <div
           className="cdk-global-overlay-wrapper"
           dir="ltr"
-          style={{ justifyContent: "center", alignItems: "flex-end" }}
+          style={{
+            justifyContent: "center",
+            alignItems: "flex-end",
+          }}
         >
           <div
             id="cdk-overlay-4"
@@ -32,7 +35,7 @@ const Referral = ({ setShowReferral }) => {
               maxWidth: "500px",
               position: "static",
               marginBottom: "10px",
-              zIndex: 9999,
+              zIndex: 99999,
             }}
           >
             <div
@@ -58,7 +61,11 @@ const Referral = ({ setShowReferral }) => {
                 >
                   <div _nghost-ng-c526813732="" className="ng-star-inserted">
                     <div _ngcontent-ng-c526813732="" className="referral-modal">
-                      <div _ngcontent-ng-c526813732="" className="modal-header">
+                      <div
+                        _ngcontent-ng-c526813732=""
+                        className="modal-header"
+                        style={{ background: "var(--bg-color-headerBg)" }}
+                      >
                         <div _ngcontent-ng-c526813732="" className="img-wrap">
                           <img
                             _ngcontent-ng-c526813732=""
@@ -130,6 +137,7 @@ const Referral = ({ setShowReferral }) => {
                             style={{
                               color: "white",
                               background: "var(--bg-active-primary)",
+                              cursor: "pointer",
                             }}
                             onClick={() => {
                               handleCopyToClipBoard(data?.text);
