@@ -198,9 +198,16 @@ const BankAccount = ({ amount }) => {
                           {method?.type == "usdt" ? (
                             <img
                               style={{ height: "25px", width: "25px" }}
-                              src={"/icon/usdt.png"}
+                              src={"/icon/trc20.svg"}
                             />
                           ) : null}
+                          {method?.type == "usdt_bep20" ? (
+                            <img
+                              style={{ height: "25px", width: "25px" }}
+                              src={"/icon/bep20.svg"}
+                            />
+                          ) : null}
+
                           {method?.type == "whatsapp" ? (
                             <img
                               style={{ height: "25px", width: "25px" }}
@@ -233,9 +240,9 @@ const BankAccount = ({ amount }) => {
                 {methodType === "qr" && (
                   <QR amount={amount} depositData={depositData} />
                 )}
-                {methodType === "usdt" && (
+                {methodType === "usdt" || methodType === "usdt_bep20" ? (
                   <USDT amount={amount} depositData={depositData} />
-                )}
+                ) : null}
                 {methodType === "pg" && (
                   <PG amount={amount} depositData={depositData} />
                 )}

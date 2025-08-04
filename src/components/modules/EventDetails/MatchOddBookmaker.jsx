@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useExposure } from "../../../hooks/exposure";
 import {
   setPlaceBetValues,
@@ -21,7 +21,6 @@ const MatchOddBookmaker = ({ data }) => {
   );
   const { eventId } = useParams();
   const [teamProfit, setTeamProfit] = useState([]);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { runnerId, stake, predictOdd } = useSelector((state) => state.event);
   const { token } = useSelector((state) => state.auth);
@@ -242,7 +241,6 @@ const MatchOddBookmaker = ({ data }) => {
                             dispatch,
                             pnlBySelection,
                             token,
-                            navigate,
                             teamProfitForGame
                           )
                         }

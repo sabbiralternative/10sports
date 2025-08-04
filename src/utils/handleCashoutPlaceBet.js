@@ -11,7 +11,6 @@ export const handleCashOutPlaceBet = (
   dispatch,
   pnlBySelection,
   token,
-  navigate,
   team
 ) => {
   if (token) {
