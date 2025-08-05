@@ -141,17 +141,19 @@ const BankAccount = ({ amount }) => {
                     id="payMentOptions"
                     className="flex items-center gap-x-1.5 pt-[18px] pb-[8px] overflow-x-auto no-scrollbar scroll-smooth cursor-pointer w-full transition-all ease-in-out duration-150"
                   >
-                    {data?.result?.map((method) => (
-                      <div
-                        key={method?.paymentId}
-                        onClick={() => handleVisibleBankMethod(method)}
-                        className={`flex justify-start items-center flex-col gap-y-2 rounded-[10px] bg-transparent py-2 w-full px-[20px] relative border  shadow-depositGateWayBoxShadows min-w-[117px] max-w-[130px] ${
-                          method?.paymentId === paymentId
-                            ? "border-[var(--bg-active-primary)]"
-                            : ""
-                        }`}
-                      >
-                        {/* <div className="absolute top-0 right-0.5">
+                    {[...data.result]
+                      .sort((a, b) => a?.sort - b?.sort)
+                      ?.map((method) => (
+                        <div
+                          key={method?.paymentId}
+                          onClick={() => handleVisibleBankMethod(method)}
+                          className={`flex justify-start items-center flex-col gap-y-2 rounded-[10px] bg-transparent py-2 w-full px-[20px] relative border  shadow-depositGateWayBoxShadows min-w-[117px] max-w-[130px] ${
+                            method?.paymentId === paymentId
+                              ? "border-[var(--bg-active-primary)]"
+                              : ""
+                          }`}
+                        >
+                          {/* <div className="absolute top-0 right-0.5">
                       <div className="inline-flex items-center">
                         <label
                           className="relative flex cursor-pointer items-center rounded-full"
@@ -182,45 +184,45 @@ const BankAccount = ({ amount }) => {
                         </label>
                       </div>
                     </div> */}
-                        <div className="flex items-center justify-between gap-y-1 flex-col w-full ">
-                          {method?.type == "qr" && (
-                            <FaQrcode size={25} color="gray" />
-                          )}
-                          {method?.type == "bank" && (
-                            <CiBank size={25} color="gray" />
-                          )}
-                          {method?.type == "upi" || method?.type == "pg" ? (
-                            <img
-                              style={{ height: "25px", width: "25px" }}
-                              src={"/icon/upi.png"}
-                            />
-                          ) : null}
-                          {method?.type == "usdt" ? (
-                            <img
-                              style={{ height: "25px", width: "25px" }}
-                              src={"/icon/trc20.svg"}
-                            />
-                          ) : null}
-                          {method?.type == "usdt_bep20" ? (
-                            <img
-                              style={{ height: "25px", width: "25px" }}
-                              src={"/icon/bep20.svg"}
-                            />
-                          ) : null}
+                          <div className="flex items-center justify-between gap-y-1 flex-col w-full ">
+                            {method?.type == "qr" && (
+                              <FaQrcode size={25} color="gray" />
+                            )}
+                            {method?.type == "bank" && (
+                              <CiBank size={25} color="gray" />
+                            )}
+                            {method?.type == "upi" || method?.type == "pg" ? (
+                              <img
+                                style={{ height: "25px", width: "25px" }}
+                                src={"/icon/upi.png"}
+                              />
+                            ) : null}
+                            {method?.type == "usdt" ? (
+                              <img
+                                style={{ height: "25px", width: "25px" }}
+                                src={"/icon/trc20.svg"}
+                              />
+                            ) : null}
+                            {method?.type == "usdt_bep20" ? (
+                              <img
+                                style={{ height: "25px", width: "25px" }}
+                                src={"/icon/bep20.svg"}
+                              />
+                            ) : null}
 
-                          {method?.type == "whatsapp" ? (
-                            <img
-                              style={{ height: "25px", width: "25px" }}
-                              src={images.whatsApp}
-                            />
-                          ) : null}
+                            {method?.type == "whatsapp" ? (
+                              <img
+                                style={{ height: "25px", width: "25px" }}
+                                src={images.whatsApp}
+                              />
+                            ) : null}
 
-                          <span className="text-xs font-lato font-medium truncate w-full uppercase text-center">
-                            {method?.title}
-                          </span>
+                            <span className="text-xs font-lato font-medium truncate w-full uppercase text-center">
+                              {method?.title}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
                   </div>
                   <p className="text-xs md:text-sm pt-2 font-lato font-normal leading-4">
                     1. Deposit money only in the below available accounts to get
