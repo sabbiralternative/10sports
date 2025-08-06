@@ -112,11 +112,6 @@ const EventDetails = () => {
     return hasDecimal ? parseFloat(value?.toFixed(2)) : value;
   };
 
-  const match_odds = data?.result?.filter(
-    (match_odd) =>
-      match_odd.btype === "MATCH_ODDS" && match_odd?.visible == true
-  );
-
   return (
     <div
       className="w-full h-full
@@ -135,8 +130,8 @@ const EventDetails = () => {
 
           <div className=" w-full text-selection-none pb-3 lg:pb-0">
             <div className=" px-2 font-helvetica-neue">
-              {match_odds?.[0]?.score?.length > 0 && eventTypeId == 4 && (
-                <ScoreCard match_odds={match_odds} />
+              {data?.result?.[0]?.score?.length > 0 && eventTypeId == 4 && (
+                <ScoreCard score={data?.result?.[0]?.score} />
               )}
               {/* {eventTypeId == 4 &&
                 data?.result?.[0]?.score2?.length !== 0 &&

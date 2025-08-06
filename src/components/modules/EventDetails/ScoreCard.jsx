@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 
-const ScoreCard = ({ match_odds }) => {
+const ScoreCard = ({ score }) => {
   return (
     <>
       <div
@@ -8,7 +8,7 @@ const ScoreCard = ({ match_odds }) => {
         _ngcontent-ng-c942213636=""
         className="live-match-screen ng-star-inserted hidden lg:block"
       >
-        {match_odds?.[0]?.score?.map((team, i) => {
+        {score?.map((team, i) => {
           return (
             <div
               key={i}
