@@ -1,3 +1,5 @@
+import { Settings } from "../../api";
+
 const PrivacyPolicy = () => {
   return (
     <div
@@ -9,11 +11,12 @@ const PrivacyPolicy = () => {
           <h1 className="text-2xl font-bold text-text_color_primary1" />
           <h2 className=" font-extrabold text-lg text-text_color_secondary" />
           <p className="text-sm sm:text-base">
-            We are the flagship brand of 10Sports offering Our Services to You
-            wherein You can also participate in various Contests hosted on Our
-            Platform. Any person utilizing the Platform or any of its features
-            including participation in various Contests being conducted on the
-            Platform shall be bound by the terms of this (“Privacy Policy”).
+            We are the flagship brand of {Settings.siteTitle} offering Our
+            Services to You wherein You can also participate in various Contests
+            hosted on Our Platform. Any person utilizing the Platform or any of
+            its features including participation in various Contests being
+            conducted on the Platform shall be bound by the terms of this
+            (“Privacy Policy”).
           </p>
           <ul className="list-disc pl-5" />
         </div>

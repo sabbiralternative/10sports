@@ -1,3 +1,5 @@
+import { Settings } from "../../api";
+
 const Rules = () => {
   return (
     <div
@@ -13,9 +15,10 @@ const Rules = () => {
             Use and interpretation
           </h2>
           <p className="text-sm sm:text-base">
-            These Rules and Regulations (Rules) are part of the 10Sports terms
-            and conditions. The Rules apply to all bets placed on this online
-            betting platform (10Sports). The Rules consist of the following:
+            These Rules and Regulations (Rules) are part of the{" "}
+            {Settings.siteTitle} terms and conditions. The Rules apply to all
+            bets placed on this online betting platform ({Settings.siteTitle}).
+            The Rules consist of the following:
           </p>
           <ul className="list-disc pl-5">
             <li>
@@ -47,9 +50,10 @@ const Rules = () => {
             Use and interpretation
           </h2>
           <p className="text-sm sm:text-base">
-            These Rules and Regulations (Rules) are part of the 10Sports terms
-            and conditions. The Rules apply to all bets placed on this online
-            betting platform (10Sports). The Rules consist of the following:
+            These Rules and Regulations (Rules) are part of the{" "}
+            {Settings.siteTitle} terms and conditions. The Rules apply to all
+            bets placed on this online betting platform ({Settings.siteTitle}).
+            The Rules consist of the following:
           </p>
           <ul className="list-disc pl-5" />
         </div>

@@ -28,6 +28,12 @@ import OpenBets from "../pages/OpenBets/OpenBets";
 import DWReport from "../pages/DWReport/DWReport";
 import Mac88 from "../pages/Mac88/Mac88";
 import GameProviderDetails from "../pages/GameProviderDetails/GameProviderDetails";
+import FAQS from "../pages/FAQS/FAQS";
+import ContactUs from "../pages/ContactUs/ContactUs";
+import AMLPolicy from "../pages/AMLPolicy/AMLPolicy";
+import TrustWorthy from "../pages/TrustWorthy/TrustWorthy";
+import TermsCondition from "../pages/TermsCondition/TermsCondition";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 export const router = createBrowserRouter(
   [
@@ -142,8 +148,32 @@ export const router = createBrowserRouter(
           element: <ExclusionPolicy />,
         },
         {
-          path: "/rules",
+          path: "/rules-regulation",
           element: <Rules />,
+        },
+        {
+          path: "/FAQs",
+          element: <FAQS />,
+        },
+        {
+          path: "/contact-us",
+          element: <ContactUs />,
+        },
+        {
+          path: "/AML-policy",
+          element: <AMLPolicy />,
+        },
+        {
+          path: "/trustworthy",
+          element: <TrustWorthy />,
+        },
+        {
+          path: "/terms-condition",
+          element: <TermsCondition />,
+        },
+        {
+          path: "/about-us",
+          element: <AboutUs />,
         },
       ],
     },

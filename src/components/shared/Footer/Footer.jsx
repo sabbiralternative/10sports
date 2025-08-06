@@ -7,6 +7,7 @@ import OriginalCrashThumb from "./OriginaCrash/OriginalCrashThumb";
 import { useEffect, useState } from "react";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { FaTelegramPlane } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [iFrame, setIFrame] = useState(null);
@@ -365,72 +366,83 @@ const Footer = () => {
               <span className="absolute bottom-0 origin-left popUpOpenAnimation left-0 w-[75%] h-0.5 bg-bg_text_brand_primary rounded-full" />
             </h2>
             <div className="w-full grid  xxs:grid-cols-2 md:grid-cols-3 gap-3 py-2">
-              <a
+              <Link
+                to="/FAQs"
                 className="text-sm md:text-base transition-all duration-300 active:text-text_brand_primary hover:text-text_brand_primary relative h-max w-max whitespace-pre max-w-full col-span-1 text-text_color_primary1 undefined"
                 title="FAQs"
               >
                 <span className="tw-text-nowrap">FAQs</span>
-              </a>
-              <a
+              </Link>
+              <Link
+                to="/about-us"
                 className="text-sm md:text-base transition-all duration-300 active:text-text_brand_primary hover:text-text_brand_primary relative h-max w-max whitespace-pre max-w-full col-span-1 text-text_color_primary1 undefined"
                 title="About Us"
               >
                 <span className="tw-text-nowrap">About Us</span>
-              </a>
-              <a
+              </Link>
+              <Link
+                to="/responsible-gambling"
                 className="text-sm md:text-base transition-all duration-300 active:text-text_brand_primary hover:text-text_brand_primary relative h-max w-max whitespace-pre max-w-full col-span-1 text-text_color_primary1 undefined"
                 title="Responsible Gambling"
               >
                 <span className="tw-text-nowrap">Responsible Gambling</span>
-              </a>
-              <a
+              </Link>
+              <Link
+                to="/contact-us"
                 className="text-sm md:text-base transition-all duration-300 active:text-text_brand_primary hover:text-text_brand_primary relative h-max w-max whitespace-pre max-w-full col-span-1 text-text_color_primary1 undefined"
                 title="Contact Us"
               >
-                <span className="tw-text-nowrap">Contact s</span>
-              </a>
-              <a
+                <span className="tw-text-nowrap">Contact Us</span>
+              </Link>
+              <Link
+                to="/privacy-policy"
                 className="text-sm md:text-base transition-all duration-300 active:text-text_brand_primary hover:text-text_brand_primary relative h-max w-max whitespace-pre max-w-full col-span-1 text-text_color_primary1 undefined"
                 title="Privacy Policy"
               >
-                <span className="tw-text-nowrap">Privacy olicy</span>
-              </a>
-              <a
+                <span className="tw-text-nowrap">Privacy Policy</span>
+              </Link>
+              <Link
+                to="/exclusion-policy"
                 className="text-sm md:text-base transition-all duration-300 active:text-text_brand_primary hover:text-text_brand_primary relative h-max w-max whitespace-pre max-w-full col-span-1 text-text_color_primary1 undefined"
                 title="Exclusion Policy"
               >
-                <span className="tw-text-nowrap">Exclusion olicy</span>
-              </a>
-              <a
+                <span className="tw-text-nowrap">Exclusion Policy</span>
+              </Link>
+              <Link
+                to="/rules-regulation"
                 className="text-sm md:text-base transition-all duration-300 active:text-text_brand_primary hover:text-text_brand_primary relative h-max w-max whitespace-pre max-w-full col-span-1 text-text_color_primary1 undefined"
                 title="Rules & Regulations"
               >
                 <span className="tw-text-nowrap">Rules &amp; Regulations</span>
-              </a>
-              <a
+              </Link>
+              {/* <Link
+                to="/KYC-policy"
                 className="text-sm md:text-base transition-all duration-300 active:text-text_brand_primary hover:text-text_brand_primary relative h-max w-max whitespace-pre max-w-full col-span-1 text-text_color_primary1 undefined"
                 title="KYC Policy"
               >
                 <span className="tw-text-nowrap">KYC Policy</span>
-              </a>
-              <a
+              </Link> */}
+              <Link
+                to="/AML-policy"
                 className="text-sm md:text-base transition-all duration-300 active:text-text_brand_primary hover:text-text_brand_primary relative h-max w-max whitespace-pre max-w-full col-span-1 text-text_color_primary1 undefined"
                 title="AML Policy"
               >
                 <span className="tw-text-nowrap">AML Policy</span>
-              </a>
-              <a
+              </Link>
+              <Link
+                to="/terms-condition"
                 className="text-sm md:text-base transition-all duration-300 active:text-text_brand_primary hover:text-text_brand_primary relative h-max w-max whitespace-pre max-w-full col-span-1 text-text_color_primary1 undefined"
                 title="Terms & Conditions"
               >
                 <span className="tw-text-nowrap">Terms &amp; Conditions</span>
-              </a>
-              <a
+              </Link>
+              <Link
+                to="/trustworthy"
                 className="text-sm md:text-base transition-all duration-300 active:text-text_brand_primary hover:text-text_brand_primary relative h-max w-max whitespace-pre max-w-full col-span-1 text-text_color_primary1 undefined"
                 title="Trustworthy"
               >
                 <span className="tw-text-nowrap">Trustworthy</span>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="flex py-4 items-center justify-center border-b-[0.5px] border-border_color_primary1">

@@ -103,7 +103,7 @@ const GameProviderDetails = () => {
                                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
                                 className="  transition-all cursor-pointer hover:scale-105 w-full h-full duration-500 ease-in-out active:scale-105"
                                 loading="lazy"
-                                title="Lightning Storm - 10sports"
+                                title="Lightning Storm - {Settings.siteTitle}"
                               />
                             </div>
                           </div>
@@ -120,9 +120,9 @@ const GameProviderDetails = () => {
               <div className="hidden">
                 <h1>Play Live Casino Games | Best Online Casino</h1>
                 <h2>
-                  Play live casino games on 10sports. Enjoy classic games like
-                  roulette, blackjack, and baccarat with top-notch online casino
-                  games in India.
+                  Play live casino games on {Settings.siteTitle}. Enjoy classic
+                  games like roulette, blackjack, and baccarat with top-notch
+                  online casino games in India.
                 </h2>
               </div>
               <div className="w-full px-2 pb-[45px] mt-2" />

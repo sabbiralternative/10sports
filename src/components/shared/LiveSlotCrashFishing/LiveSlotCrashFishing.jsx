@@ -205,7 +205,7 @@ const LiveSlotCrashFishing = ({ casinoType }) => {
                                           alt="Auto-Roulette"
                                           sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
                                           className="  transition-all cursor-pointer hover:scale-105 w-full h-full duration-500 ease-in-out active:scale-105"
-                                          title="Auto-Roulette - 10sports"
+                                          title="Auto-Roulette"
                                         />
                                       </div>
                                     </div>
