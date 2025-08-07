@@ -91,4 +91,5 @@ export const Settings = {
   language: "",
   otpless: "",
   otpWhatsapp: "",
+  complaint: "",
 };

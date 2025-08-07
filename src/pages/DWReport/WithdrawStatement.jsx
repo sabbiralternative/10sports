@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useAccountStatement } from "../../hooks/accountStatement";
 import ShowImage from "../../components/modals/ShowImage/ShowImage";
+import Complaint from "../../components/modals/Complaint/Complaint";
+import { Settings } from "../../api";
 
 const WithdrawStatement = () => {
+  const [complaintId, setComplaintId] = useState(null);
   const [category, setCategory] = useState([]);
   const [image, setImage] = useState("");
   const fromDate = new Date(new Date().setDate(new Date().getDate() - 7))
@@ -29,6 +32,13 @@ const WithdrawStatement = () => {
 
   return (
     <>
+      {complaintId && (
+        <Complaint
+          setComplaintId={setComplaintId}
+          complaintId={complaintId}
+          method="withdraw"
+        />
+      )}
       {image && <ShowImage image={image} setShowImage={setImage} />}
       <div className="flex-1 flex flex-col gap-y-2 px-2 mt-2 font-lato pb-10">
         {data?.result?.length > 0 && (
@@ -100,22 +110,36 @@ const WithdrawStatement = () => {
                               </span>
                             )}
                             <span className="text-start text-lg flex items-center tracking-tighter font-bold">
+                              {" "}
                               ₹{data?.amount}
                             </span>
                           </div>
-                          <div
-                            title="Remkark/Reason"
-                            className=" px-3 font-semibold flex items-center justify-start w-full gap-x-1"
-                          >
-                            <span className=" text-text_color_primary1  text-xs">
-                              Remark
-                            </span>
-                            <span className=" text-text_color_primary1  text-xs">
-                              :
-                            </span>
-                            <span className=" text-text_color_primary1  text-xs">
-                              {data?.remark}
-                            </span>
+                          <div className="flex items-center justify-between">
+                            <div
+                              title="Remkark/Reason"
+                              className=" px-3 font-semibold flex items-center justify-start  gap-x-1"
+                            >
+                              <span className=" text-text_color_primary1  text-xs">
+                                Remark
+                              </span>
+                              <span className=" text-text_color_primary1  text-xs">
+                                :
+                              </span>
+                              <span className=" text-text_color_primary1  text-xs">
+                                {data?.remark}
+                              </span>
+                            </div>
+                            {Settings.complaint && (
+                              <button
+                                style={{ backgroundColor: "rgb(255 131 46)" }}
+                                onClick={() =>
+                                  setComplaintId(data?.referenceNo)
+                                }
+                                className="px-2 py-1 rounded-md text-white flex items-center justify-center   sm:text-sm font-semibold"
+                              >
+                                Raise Complaint
+                              </button>
+                            )}
                           </div>
                           <div className="text-xs py-1 text-center text-text_color_primary3 w-full border-t bg-bg_color_quaternary capitalize">
                             {data?.date}
