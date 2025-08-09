@@ -150,6 +150,7 @@ const MyBankDetails = () => {
 
             {bankData?.length > 0 &&
               bankData?.map((bank, i) => {
+                console.log(bank);
                 return (
                   <div
                     className="bg-bg_color_primary text-white"
@@ -179,7 +180,7 @@ const MyBankDetails = () => {
                           gap: "3px",
                         }}
                       >
-                        <img
+                        {/* <img
                           style={{
                             height: "30px",
                             width: "30px",
@@ -187,7 +188,7 @@ const MyBankDetails = () => {
                           }}
                           alt="Bank Icon"
                           src={`/src/assets/img/${bank?.bankCode}.png`}
-                        />
+                        /> */}
                         <div>
                           <p> {bank?.bankName}</p>
                           {bank?.isDefault === 1 && (

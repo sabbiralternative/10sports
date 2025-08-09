@@ -148,7 +148,7 @@ const NewAccount = ({ setTab }) => {
           <div className="flex items-center w-full bg-bg_color_input_bg w-full py-2 px-2 rounded-lg border">
             <input
               className="text-sm px-1 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
-              placeholder="Enter Account No"
+              placeholder="Enter UPI ID"
               aria-label="Account No"
               id="accountNo"
               type="text"
@@ -179,7 +179,7 @@ const NewAccount = ({ setTab }) => {
                 });
               }}
               className="text-sm px-1 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
-              placeholder="Re-enter Account No"
+              placeholder="Enter Account Name"
               aria-label="Confirm Account No"
               id="confirmAccountNo"
               type="text"
@@ -203,7 +203,7 @@ const NewAccount = ({ setTab }) => {
                 });
               }}
               className="text-sm px-1 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
-              placeholder="Enter Account Name"
+              placeholder="Enter Account No"
               aria-label="Account Name"
               id="accountName"
               type="text"
@@ -227,7 +227,7 @@ const NewAccount = ({ setTab }) => {
                 });
               }}
               className="text-sm px-1 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
-              placeholder="Enter Account Name"
+              placeholder="Re-enter Account No"
               aria-label="Account Name"
               id="accountName"
               type="text"
@@ -251,7 +251,7 @@ const NewAccount = ({ setTab }) => {
                 });
               }}
               className="text-sm px-1 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
-              placeholder="Enter Account Name"
+              placeholder="Enter IFSC Code"
               aria-label="Account Name"
               id="accountName"
               type="text"
@@ -271,7 +271,7 @@ const NewAccount = ({ setTab }) => {
               <input
                 readOnly
                 className="text-sm px-1 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
-                placeholder="Enter Account Name"
+                placeholder="Enter Mobile No"
                 aria-label="Account Name"
                 id="accountName"
                 type="text"
@@ -332,7 +332,7 @@ const NewAccount = ({ setTab }) => {
                   });
                 }}
                 className="text-sm px-1 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
-                placeholder="Enter Account Name"
+                placeholder="Enter OTP"
                 aria-label="Account Name"
                 id="accountName"
                 type="text"

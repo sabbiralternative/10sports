@@ -60,7 +60,7 @@ const WithdrawStatement = () => {
                       return (
                         <div
                           key={i}
-                          className="flex active:scale-95 md:hover:scale-[98%] transition-all duration-300 ease-in-out cursor-pointer flex-col gap-2 bg-bg_color_primary rounded overflow-hidden shadow-lg
+                          className="flex transition-all duration-300 ease-in-out cursor-pointer flex-col gap-2 bg-bg_color_primary rounded overflow-hidden shadow-lg
               
               "
                         >
@@ -135,9 +135,9 @@ const WithdrawStatement = () => {
                                 onClick={() =>
                                   setComplaintId(data?.referenceNo)
                                 }
-                                className="px-2 py-1 rounded-md text-white flex items-center justify-center   sm:text-sm font-semibold"
+                                className="px-2 py-1 rounded-md text-white flex items-center justify-center   text-[12px] font-semibold"
                               >
-                                Raise Complaint
+                                Report Issue
                               </button>
                             )}
                           </div>
