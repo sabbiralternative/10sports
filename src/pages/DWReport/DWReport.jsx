@@ -5,11 +5,11 @@ import WithdrawStatement from "./WithdrawStatement";
 const DWReport = () => {
   const [tab, setTab] = useState("deposit");
   const depositTab = [
-    "If you face any issue with your deposit, click the deposit button next to your deposit details to let us know.",
+    'If you face any issue with your deposit, click the "Report Issue" button next to your deposit details to let us know.',
     "यदि आपकी जमा राशि में कोई समस्या आती है, तो हमें बताने के लिए अपनी डिपॉज़िट विवरण के पास दिए गए Report Issue बटन पर क्लिक करें",
   ];
   const withdrawTab = [
-    "If you face any issue with your withdraw, click the withdraw button next to your withdraw details to let us know.",
+    'If you face any issue with your withdraw, click the "Report Issue" button next to your withdraw details to let us know.',
     "यदि आपको अपने निकासी (Withdrawal) में कोई समस्या आती है, तो हमें बताने के लिए अपनी निकासी विवरण के पास दिए गए  Report Issue बटन पर क्लिक करें",
   ];
 
