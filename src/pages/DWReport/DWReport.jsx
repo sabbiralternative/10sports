@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import DepositStatement from "./DepositStatement";
 import WithdrawStatement from "./WithdrawStatement";
+import { Settings } from "../../api";
 
 const DWReport = () => {
   const [tab, setTab] = useState("deposit");
@@ -85,23 +86,26 @@ const DWReport = () => {
             </div>
           </div>
         </div>
-        <div
-          className="text-start bg-bg_color_primary px-2.5 py-1 text-text_color_primary1 rounded text-[12px] shadow-sm mx-2 flex items-center gap-2 transition-opacity duration-500"
-          style={{
-            opacity: fade ? 1 : 0,
-          }}
-        >
-          <img
-            style={{ height: "15px" }}
-            src="/icon/info-icon-svgrepo-com.svg"
-            alt=""
-          />
-          <span className="font-medium">
-            {tab === "deposit"
-              ? depositTab[currentIndex]
-              : withdrawTab[currentIndex]}
-          </span>
-        </div>
+        {Settings.complaint && (
+          <div
+            className="text-start bg-bg_color_primary px-2.5 py-1 text-text_color_primary1 rounded text-[12px] shadow-sm mx-2 flex items-center gap-2 transition-opacity duration-500"
+            style={{
+              opacity: fade ? 1 : 0,
+            }}
+          >
+            <img
+              style={{ height: "15px" }}
+              src="/icon/info-icon-svgrepo-com.svg"
+              alt=""
+            />
+            <span className="font-medium">
+              {tab === "deposit"
+                ? depositTab[currentIndex]
+                : withdrawTab[currentIndex]}
+            </span>
+          </div>
+        )}
+
         {tab === "deposit" ? <DepositStatement /> : <WithdrawStatement />}
       </div>
     </div>

@@ -116,7 +116,7 @@ export const router = createBrowserRouter(
           element: <OpenBets />,
         },
         {
-          path: "/transactions",
+          path: "/deposit-withdraw-report",
           element: <DWReport />,
         },
         {
