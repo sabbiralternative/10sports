@@ -144,8 +144,8 @@ const MobileEventHeader = ({ data, score }) => {
           {" "}
           {eventTypeId == 1 && <FootballScore score={data?.score} />}
         </div>
-
-        {/* <div className=" w-full  bg-bg_color_secondary px-0">
+        {/* Cricket score */}
+        <div className=" w-full  bg-bg_color_secondary px-0 lg:hidden">
           <div className=" flex w-full justify-between items-center px-3.5 py-1 font-lato">
             <div className=" flex items-start justify-start w-max flex-col max-w-[70%]">
               <div className=" bg-bg_text_brand_primary text-transparent text-start bg-clip-text font-lato font-bold text-sm flex items-start justify-start w-full">
@@ -156,7 +156,7 @@ const MobileEventHeader = ({ data, score }) => {
                   273/10
                 </span>
                 <div className=" flex items-center justify-center rounded-[4px] px-1.5 py-0.5 bg-bg_text_brand_primary">
-                  <span className=" text-[10px] font-[500] leading-4 text-text_color_primary2">
+                  <span className=" text-[10px] font-[500] leading-4 text-primary">
                     Over 80.2
                   </span>
                 </div>
@@ -264,7 +264,8 @@ const MobileEventHeader = ({ data, score }) => {
               </button>
             </div>
           </div>
-        </div> */}
+        </div>
+        {/* Cricket score */}
         <div
           title="Live And Open Bets"
           className=" lg:hidden w-full bg-bg_color_primary shadow-sm"
@@ -323,7 +324,7 @@ const MobileEventHeader = ({ data, score }) => {
         data?.result?.[0]?.score2 &&
         data?.result?.[0]?.score2?.length !== 0 &&
         !Array.isArray(data?.result?.[0]?.score2) ? (
-          <div className=" col-span-1 w-full h-max">
+          <div className="block lg:hidden col-span-1 w-full h-max">
             <div className="bg-bg_color_primary font-lato py-1">
               <div className="min-w-full snap-center text-text_color_primary1 text-[10px] flex flex-col justify-evenly divide-y divide-divide_color_primary2">
                 <div className="grid grid-cols-10 text-center  gap-2 divide-x divide-divide_color_primary2">
@@ -458,7 +459,7 @@ const MobileEventHeader = ({ data, score }) => {
           <div onClick={handleGetVideo} className=" col-span-1 h-full">
             <div className=" w-full px-2">
               <button
-                className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  w-full py-2 text-sm my-2 font-semibold text-center text-text_color_primary2 bg-bg_brand_primary rounded-md 
+                className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  w-full py-2 text-sm my-2 font-semibold text-center text-primary bg-bg_brand_primary rounded-md 
 cursor-pointer
 "
                 type="button"

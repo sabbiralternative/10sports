@@ -140,6 +140,7 @@ const EventDetails = () => {
                 !Array.isArray(data?.result?.[0]?.score2) && (
                   <Score mobile={false} score2={data?.result?.[0]?.score2} />
                 )}
+
               {/* <IframeVideoTab
                 iFrame={iFrame}
                 setIframe={setIframe}
