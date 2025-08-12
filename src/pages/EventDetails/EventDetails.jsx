@@ -11,7 +11,7 @@ import Score from "../../components/modules/EventDetails/Score";
 import HorseGreyhoundEventDetails from "../../components/modules/EventDetails/HorseGreyhoundEventDetails";
 import DesktopEventHeader from "../../components/modules/EventDetails/DesktopEventHeader";
 import MobileEventHeader from "../../components/modules/EventDetails/MobileEventHeader";
-import ScoreCard from "../../components/modules/EventDetails/ScoreCard";
+// import ScoreCard from "../../components/modules/EventDetails/ScoreCard";
 import TennisScore from "../../components/modules/EventDetails/TennisScore";
 import SportsBook from "./SportsBook/SportsBook";
 // import FootballScore from "../../components/modules/EventDetails/FootballScore";
@@ -125,17 +125,15 @@ const EventDetails = () => {
               <TennisScore score={data?.score} />
             )}
           </div>
+          {eventTypeId == 4 && data?.iscore && <Score iscore={data?.iscore} />}
 
           <MobileEventHeader score={data?.score} data={data} />
 
           <div className=" w-full text-selection-none pb-3 lg:pb-0">
             <div className=" px-2 font-helvetica-neue">
-              {data?.result?.[0]?.score?.length > 0 && eventTypeId == 4 && (
+              {/* {data?.result?.[0]?.score?.length > 0 && eventTypeId == 4 && (
                 <ScoreCard score={data?.result?.[0]?.score} />
-              )}
-              {eventTypeId == 4 && data?.iscore && (
-                <Score iscore={data?.iscore} />
-              )}
+              )} */}
 
               {/* <IframeVideoTab
                 iFrame={iFrame}
