@@ -32,9 +32,11 @@ const ScoreTopPart = ({ iscore, isMobile }) => {
             {iscore?.status}
           </span>
           <div className=" text-x font-semibold text-end leading-3">
-            <span className="text-text_color_primary1 ">
-              CRR : {iscore?.crr}
-            </span>
+            {iscore?.crr && (
+              <span className="text-text_color_primary1 ">
+                CRR : {iscore?.crr}
+              </span>
+            )}
             {iscore?.rrr && (
               <span className=" ml-2 text-text_color_primary1 ">
                 RR : {iscore?.rrr}
