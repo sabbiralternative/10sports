@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MatchOddBookmaker from "../../components/modules/EventDetails/MatchOddBookmaker";
 import Fancy from "../../components/modules/EventDetails/Fancy";
-// import Score from "../../components/modules/EventDetails/Score";
+import Score from "../../components/modules/EventDetails/Score";
 // import IframeVideoTab from "../../components/modules/EventDetails/IframeVideoTab";
 // import Tracker from "../../components/modules/EventDetails/Tracker";
 import HorseGreyhoundEventDetails from "../../components/modules/EventDetails/HorseGreyhoundEventDetails";
@@ -112,6 +112,8 @@ const EventDetails = () => {
     return hasDecimal ? parseFloat(value?.toFixed(2)) : value;
   };
 
+  // console.log(data);
+
   return (
     <div
       className="w-full h-full
@@ -133,11 +135,11 @@ const EventDetails = () => {
               {data?.result?.[0]?.score?.length > 0 && eventTypeId == 4 && (
                 <ScoreCard score={data?.result?.[0]?.score} />
               )}
-              {/* {eventTypeId == 4 &&
+              {eventTypeId == 4 &&
                 data?.result?.[0]?.score2?.length !== 0 &&
                 !Array.isArray(data?.result?.[0]?.score2) && (
                   <Score mobile={false} score2={data?.result?.[0]?.score2} />
-                )} */}
+                )}
               {/* <IframeVideoTab
                 iFrame={iFrame}
                 setIframe={setIframe}
