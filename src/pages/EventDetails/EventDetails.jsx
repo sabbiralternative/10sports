@@ -112,8 +112,6 @@ const EventDetails = () => {
     return hasDecimal ? parseFloat(value?.toFixed(2)) : value;
   };
 
-  // console.log(data);
-
   return (
     <div
       className="w-full h-full
@@ -135,11 +133,9 @@ const EventDetails = () => {
               {data?.result?.[0]?.score?.length > 0 && eventTypeId == 4 && (
                 <ScoreCard score={data?.result?.[0]?.score} />
               )}
-              {eventTypeId == 4 &&
-                data?.result?.[0]?.score2?.length !== 0 &&
-                !Array.isArray(data?.result?.[0]?.score2) && (
-                  <Score mobile={false} score2={data?.result?.[0]?.score2} />
-                )}
+              {eventTypeId == 4 && data?.iscore && (
+                <Score mobile={false} iscore={data?.iscore} />
+              )}
 
               {/* <IframeVideoTab
                 iFrame={iFrame}

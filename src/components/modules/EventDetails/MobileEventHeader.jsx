@@ -28,7 +28,7 @@ const MobileEventHeader = ({ data, score }) => {
       setIFrame(res?.result?.url);
     }
   };
-  const score2 = data?.result?.[0]?.score2;
+  const iscore = data?.iscore;
 
   return (
     <>
@@ -145,34 +145,32 @@ const MobileEventHeader = ({ data, score }) => {
           {eventTypeId == 1 && <FootballScore score={data?.score} />}
         </div>
         {/* Cricket score */}
-        {eventTypeId == 4 &&
-        data &&
-        data?.result?.[0]?.score2 &&
-        data?.result?.[0]?.score2?.length !== 0 &&
-        !Array.isArray(data?.result?.[0]?.score2) ? (
+        {eventTypeId == 4 && data && iscore ? (
           <div className=" w-full  bg-bg_color_secondary px-0 lg:hidden">
             <div className=" flex w-full justify-between items-center px-3.5 py-1 font-lato">
               <div className=" flex items-start justify-start w-max flex-col max-w-[70%]">
                 <div className=" bg-bg_text_brand_primary text-transparent text-start bg-clip-text font-lato font-bold text-sm flex items-start justify-start w-full">
-                  <span className=" text-start">Zimbabwe</span>
+                  <span className=" text-start">{iscore?.teamName}</span>
                 </div>
                 <div className=" flex items-center justify-start gap-x-1">
                   <span className="text-[18px] font-bold text-text_color_primary1 ">
-                    273/10
+                    {iscore?.teamRun}
                   </span>
                   <div className=" flex items-center justify-center rounded-[4px] px-1.5 py-0.5 bg-bg_text_brand_primary">
                     <span className=" text-[10px] font-[500] leading-4 text-primary">
-                      Over 80.2
+                      Over {iscore?.teamOver}
                     </span>
                   </div>
                 </div>
               </div>
               <div className=" flex flex-col gap-y-[3px] text-end max-w-[60%] text-text_color_primary1 ">
                 <span className="text-lg bg-bg_text_brand_secondary text-transparent  bg-clip-text font-bold leading-6 text-lg">
-                  0
+                  {iscore?.status}
                 </span>
                 <div className=" text-x font-semibold text-end leading-3">
-                  <span className="text-text_color_primary1 ">CRR : 3.40</span>
+                  <span className="text-text_color_primary1 ">
+                    CRR : {iscore?.crr}
+                  </span>
                 </div>
               </div>
             </div>
@@ -325,36 +323,31 @@ const MobileEventHeader = ({ data, score }) => {
         title="Live Score"
         className="  grid grid-cols-1      sm:grid-cols-2 lg:grid-cols-1 sm:gap-x-1 sm:px-0.5 lg:gap-x-0 lg:px-0 w-full  flex-grow "
       >
-        {tab === "live" &&
-        eventTypeId == 4 &&
-        data &&
-        data?.result?.[0]?.score2 &&
-        data?.result?.[0]?.score2?.length !== 0 &&
-        !Array.isArray(data?.result?.[0]?.score2) ? (
+        {tab === "live" && eventTypeId == 4 && data && iscore ? (
           <div className="block lg:hidden col-span-1 w-full h-max">
             <div className="bg-bg_color_primary font-lato py-1">
               <div className="min-w-full snap-center text-text_color_primary1 text-[10px] flex flex-col justify-evenly divide-y divide-divide_color_primary2">
                 <div className="grid grid-cols-10 text-center  gap-2 divide-x divide-divide_color_primary2">
                   <div className="flex flex-col col-span-2">
                     <span>CRR</span>
-                    <span>{score2?.crr}</span>
+                    <span>{iscore?.crr}</span>
                   </div>
                   <div className="flex flex-col col-span-2">
                     <span> {"P'SHIP"} R</span>
-                    <span>{score2?.partnership_runs}</span>
+                    <span>{iscore?.partnership_runs}</span>
                   </div>
                   <div className="flex flex-col col-span-2">
                     <span className="text-text_color_tertiary1">
                       {"P'SHIP"} B
                     </span>
-                    <span>{score2?.partnership_balls}</span>
+                    <span>{iscore?.partnership_balls}</span>
                   </div>
                   <div className="flex flex-col col-span-4">
                     <span className="text-text_color_tertiary1">
                       LAST WICKET
                     </span>
                     <div className=" flex items-center justify-center gap-x-0.5">
-                      <span>{score2?.last_wicket}</span>
+                      <span>{iscore?.last_wicket}</span>
                       <div className=" flex items-center justify-center gap-x-0.5">
                         {/* <span>1</span>
                         <span>(3)</span> */}
@@ -369,28 +362,43 @@ const MobileEventHeader = ({ data, score }) => {
                   <span className="col-span-1">4s</span>
                   <span className="col-span-1">6s</span>
                   <span className="col-span-1">SR</span>
-                  {score2?.batsmen?.map((batMen) => (
-                    <>
-                      <div className=" col-span-3 ml-3 flex items-center justify-start flex-row text-text_color_primary1 gap-x-1">
-                        <span> {batMen?.name}</span>
-                      </div>
-                      <span className=" col-span-1 text-text_color_primary1">
-                        {batMen?.runs}
-                      </span>
-                      <span className=" col-span-1 text-text_color_primary1">
-                        {batMen?.balls}
-                      </span>
-                      <span className=" col-span-1 text-text_color_primary1">
-                        {batMen?.four}
-                      </span>
-                      <span className=" col-span-1 text-text_color_primary1 ">
-                        {batMen?.six}
-                      </span>
-                      <span className=" col-span-1 text-text_color_primary1 ">
-                        {batMen?.sr}
-                      </span>
-                    </>
-                  ))}
+
+                  <div className=" col-span-3 ml-3 flex items-center justify-start flex-row text-text_color_primary1 gap-x-1">
+                    <span> {iscore?.player_1_name}</span>
+                  </div>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    {iscore?.player_1_run}
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    {iscore?.player_1_ball}
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    {iscore?.player_1_four}
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1 ">
+                    {iscore?.player_1_six}
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1 ">
+                    {iscore?.player_1_sr}
+                  </span>
+                  <div className=" col-span-3 ml-3 flex items-center justify-start flex-row text-text_color_primary1 gap-x-1">
+                    <span> {iscore?.player_2_name}</span>
+                  </div>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    {iscore?.player_2_run}
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    {iscore?.player_2_ball}
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1">
+                    {iscore?.player_2_four}
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1 ">
+                    {iscore?.player_2_six}
+                  </span>
+                  <span className=" col-span-1 text-text_color_primary1 ">
+                    {iscore?.player_2_sr}
+                  </span>
                 </div>
                 <div className="grid grid-cols-8 pt-3 text-text_color_tertiary1">
                   <span className="col-span-3 ml-3">Bowler</span>
@@ -401,22 +409,22 @@ const MobileEventHeader = ({ data, score }) => {
                   <span className="col-span-1">Eco</span>
 
                   <span className=" col-span-3 ml-3 text-text_color_primary1">
-                    {score2?.bowler?.name}
+                    {iscore?.bowler}
                   </span>
                   <span className=" col-span-1 text-text_color_primary1">
-                    {score2?.bowler?.overs}
+                    {iscore?.bowlerOvers}
                   </span>
                   <span className=" col-span-1 text-text_color_primary1">
-                    {score2?.bowler?.maidens}
+                    -
                   </span>
                   <span className=" col-span-1 text-text_color_primary1">
-                    {score2?.bowler?.runs}
+                    {iscore?.bowlerRuns}
                   </span>
                   <span className=" col-span-1 text-text_color_primary1">
-                    {score2?.bowler?.wickets}
+                    {iscore?.bowlerWickets}
                   </span>
                   <span className=" col-span-1 text-text_color_primary1">
-                    {score2?.bowler?.eco}
+                    {iscore?.bowlerEco}
                   </span>
                 </div>
               </div>
