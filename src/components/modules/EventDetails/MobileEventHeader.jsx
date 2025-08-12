@@ -181,68 +181,48 @@ const MobileEventHeader = ({ data, score }) => {
                   className=" flex py-1 items-center justify-start gap-x-[7px]"
                 >
                   <span className=" w-max min-w-11 text-xs font-medium text-text_color_primary">
-                    Over 74
+                    Current Over
                   </span>
                   <div className=" flex items-center justify-start gap-x-[11px]">
                     <div className="flex items-center justify-start gap-x-[11px]">
-                      <span className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default ">
-                        <span>1</span>
-                      </span>
-                      <span className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default ">
-                        <span>0</span>
-                      </span>
-                      <span className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default ">
-                        <span>0</span>
-                      </span>
-                      <span className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default ">
-                        <span>0</span>
-                      </span>
-                      <span className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default ">
-                        <span>0</span>
-                      </span>
-                      <span className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default ">
-                        <span>&nbsp;</span>
-                      </span>
+                      {iscore?.currentOver?.map((cv, i) => (
+                        <span
+                          key={i}
+                          className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default "
+                        >
+                          <span>{cv}</span>
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
                 <div className=" flex items-center justify-center text-xs gap-x-0.5 font-medium leading-4 border-r border-border_color_primary pr-3 text-text_color_primary">
                   <span>=</span>
-                  <span>1</span>
+                  <span>{iscore?.totalThisOver}</span>
                 </div>
                 <div
                   title="Last Over"
                   className=" py-1 flex items-center justify-start gap-x-[7px]"
                 >
                   <span className=" w-max min-w-11 text-xs font-medium text-text_color_primary">
-                    Over 73
+                    Previous Over
                   </span>
                   <div className=" flex items-center justify-start gap-x-[11px]">
                     <div className="flex items-center justify-start gap-x-[11px]">
-                      <span className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default ">
-                        <span>1</span>
-                      </span>
-                      <span className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default ">
-                        <span>0</span>
-                      </span>
-                      <span className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default ">
-                        <span>2</span>
-                      </span>
-                      <span className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default ">
-                        <span>0</span>
-                      </span>
-                      <span className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default ">
-                        <span>0</span>
-                      </span>
-                      <span className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default ">
-                        <span>0</span>
-                      </span>
+                      {iscore?.previousOver?.map((pv, i) => (
+                        <span
+                          key={i}
+                          className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default "
+                        >
+                          <span>{pv}</span>
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
                 <div className=" flex items-center justify-center text-xs gap-x-0.5 font-medium leading-4 border-r border-border_color_primary pr-5 text-text_color_primary">
                   <span>=</span>
-                  <span>3</span>
+                  <span>{iscore?.totalLastOver}</span>
                 </div>
               </div>
               <div className=" absolute z-1 top-1/2 -translate-y-1/2 right-2">
