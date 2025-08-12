@@ -134,7 +134,7 @@ const EventDetails = () => {
                 <ScoreCard score={data?.result?.[0]?.score} />
               )}
               {eventTypeId == 4 && data?.iscore && (
-                <Score mobile={false} iscore={data?.iscore} />
+                <Score iscore={data?.iscore} />
               )}
 
               {/* <IframeVideoTab

@@ -7,6 +7,8 @@ import EventRules from "../../modals/EventRules/EventRules";
 import TennisScore from "./TennisScore";
 import FootballScore from "./FootballScore";
 import Tracker from "./Tracker";
+import ScoreTopPart from "./ScoreTopPart";
+import ScoreBottomPart from "./ScoreBottomPart";
 
 const MobileEventHeader = ({ data, score }) => {
   const [showRules, setShowRules] = useState(false);
@@ -29,7 +31,7 @@ const MobileEventHeader = ({ data, score }) => {
     }
   };
   const iscore = data?.iscore;
-
+  // console.log(iscore);
   return (
     <>
       {showRules && <EventRules setShowRules={setShowRules} />}
@@ -146,108 +148,7 @@ const MobileEventHeader = ({ data, score }) => {
         </div>
         {/* Cricket score */}
         {eventTypeId == 4 && data && iscore ? (
-          <div className=" w-full  bg-bg_color_secondary px-0 lg:hidden">
-            <div className=" flex w-full justify-between items-center px-3.5 py-1 font-lato">
-              <div className=" flex items-start justify-start w-max flex-col max-w-[70%]">
-                <div className=" bg-bg_text_brand_primary text-transparent text-start bg-clip-text font-lato font-bold text-sm flex items-start justify-start w-full">
-                  <span className=" text-start">{iscore?.teamName}</span>
-                </div>
-                <div className=" flex items-center justify-start gap-x-1">
-                  <span className="text-[18px] font-bold text-text_color_primary1 ">
-                    {iscore?.teamRun}
-                  </span>
-                  <div className=" flex items-center justify-center rounded-[4px] px-1.5 py-0.5 bg-bg_text_brand_primary">
-                    <span className=" text-[10px] font-[500] leading-4 text-primary">
-                      Over {iscore?.teamOver}
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className=" flex flex-col gap-y-[3px] text-end max-w-[60%] text-text_color_primary1 ">
-                <span className="text-lg bg-bg_text_brand_secondary text-transparent  bg-clip-text font-bold leading-6 text-lg">
-                  {iscore?.status}
-                </span>
-                <div className=" text-x font-semibold text-end leading-3">
-                  <span className="text-text_color_primary1 ">
-                    CRR : {iscore?.crr}
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className=" px-[11px] relative bg-bg_color_primary w-full shadow-md">
-              <div className=" w-full flex items-center py-1 justify-start overflow-scroll no-scrollbar gap-x-2">
-                <div
-                  title="Current Over"
-                  className=" flex py-1 items-center justify-start gap-x-[7px]"
-                >
-                  <span className=" w-max min-w-11 text-xs font-medium text-text_color_primary">
-                    Current Over
-                  </span>
-                  <div className=" flex items-center justify-start gap-x-[11px]">
-                    <div className="flex items-center justify-start gap-x-[11px]">
-                      {iscore?.currentOver?.map((cv, i) => (
-                        <span
-                          key={i}
-                          className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default "
-                        >
-                          <span>{cv}</span>
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <div className=" flex items-center justify-center text-xs gap-x-0.5 font-medium leading-4 border-r border-border_color_primary pr-3 text-text_color_primary">
-                  <span>=</span>
-                  <span>{iscore?.totalThisOver}</span>
-                </div>
-                <div
-                  title="Last Over"
-                  className=" py-1 flex items-center justify-start gap-x-[7px]"
-                >
-                  <span className=" w-max min-w-11 text-xs font-medium text-text_color_primary">
-                    Previous Over
-                  </span>
-                  <div className=" flex items-center justify-start gap-x-[11px]">
-                    <div className="flex items-center justify-start gap-x-[11px]">
-                      {iscore?.previousOver?.map((pv, i) => (
-                        <span
-                          key={i}
-                          className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default "
-                        >
-                          <span>{pv}</span>
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <div className=" flex items-center justify-center text-xs gap-x-0.5 font-medium leading-4 border-r border-border_color_primary pr-5 text-text_color_primary">
-                  <span>=</span>
-                  <span>{iscore?.totalLastOver}</span>
-                </div>
-              </div>
-              <div className=" absolute z-1 top-1/2 -translate-y-1/2 right-2">
-                <button
-                  className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  min-w-5 min-h-5 flex items-center justify-center rounded-[4px] bg-bg_color_quaternary 
-               cursor-pointer
-               "
-                  type="button"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M10.4998 10L6.6665 6.16667L7.83317 5L12.8332 10L7.83317 15L6.6665 13.8333L10.4998 10Z"
-                      fill="var(--bg-active-primary)"
-                    ></path>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
+          <ScoreTopPart iscore={iscore} isMobile={true} />
         ) : null}
 
         {/* Cricket score */}
@@ -304,112 +205,7 @@ const MobileEventHeader = ({ data, score }) => {
         className="  grid grid-cols-1      sm:grid-cols-2 lg:grid-cols-1 sm:gap-x-1 sm:px-0.5 lg:gap-x-0 lg:px-0 w-full  flex-grow "
       >
         {tab === "live" && eventTypeId == 4 && data && iscore ? (
-          <div className="block lg:hidden col-span-1 w-full h-max">
-            <div className="bg-bg_color_primary font-lato py-1">
-              <div className="min-w-full snap-center text-text_color_primary1 text-[10px] flex flex-col justify-evenly divide-y divide-divide_color_primary2">
-                <div className="grid grid-cols-10 text-center  gap-2 divide-x divide-divide_color_primary2">
-                  <div className="flex flex-col col-span-2">
-                    <span>CRR</span>
-                    <span>{iscore?.crr}</span>
-                  </div>
-                  <div className="flex flex-col col-span-2">
-                    <span> {"P'SHIP"} R</span>
-                    <span>{iscore?.partnership_runs}</span>
-                  </div>
-                  <div className="flex flex-col col-span-2">
-                    <span className="text-text_color_tertiary1">
-                      {"P'SHIP"} B
-                    </span>
-                    <span>{iscore?.partnership_balls}</span>
-                  </div>
-                  <div className="flex flex-col col-span-4">
-                    <span className="text-text_color_tertiary1">
-                      LAST WICKET
-                    </span>
-                    <div className=" flex items-center justify-center gap-x-0.5">
-                      <span>{iscore?.last_wicket}</span>
-                      <div className=" flex items-center justify-center gap-x-0.5">
-                        {/* <span>1</span>
-                        <span>(3)</span> */}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="grid grid-cols-8 pt-3 text-text_color_tertiary1">
-                  <span className="col-span-3 ml-3">Batsmen</span>
-                  <span className="col-span-1">R</span>
-                  <span className="col-span-1">B</span>
-                  <span className="col-span-1">4s</span>
-                  <span className="col-span-1">6s</span>
-                  <span className="col-span-1">SR</span>
-
-                  <div className=" col-span-3 ml-3 flex items-center justify-start flex-row text-text_color_primary1 gap-x-1">
-                    <span> {iscore?.player_1_name}</span>
-                  </div>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    {iscore?.player_1_run}
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    {iscore?.player_1_ball}
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    {iscore?.player_1_four}
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1 ">
-                    {iscore?.player_1_six}
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1 ">
-                    {iscore?.player_1_sr}
-                  </span>
-                  <div className=" col-span-3 ml-3 flex items-center justify-start flex-row text-text_color_primary1 gap-x-1">
-                    <span> {iscore?.player_2_name}</span>
-                  </div>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    {iscore?.player_2_run}
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    {iscore?.player_2_ball}
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    {iscore?.player_2_four}
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1 ">
-                    {iscore?.player_2_six}
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1 ">
-                    {iscore?.player_2_sr}
-                  </span>
-                </div>
-                <div className="grid grid-cols-8 pt-3 text-text_color_tertiary1">
-                  <span className="col-span-3 ml-3">Bowler</span>
-                  <span className="col-span-1">O</span>
-                  <span className="col-span-1">M</span>
-                  <span className="col-span-1">R</span>
-                  <span className="col-span-1">W</span>
-                  <span className="col-span-1">Eco</span>
-
-                  <span className=" col-span-3 ml-3 text-text_color_primary1">
-                    {iscore?.bowler}
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    {iscore?.bowlerOvers}
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    -
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    {iscore?.bowlerRuns}
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    {iscore?.bowlerWickets}
-                  </span>
-                  <span className=" col-span-1 text-text_color_primary1">
-                    {iscore?.bowlerEco}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ScoreBottomPart iscore={iscore} isMobile={true} />
         ) : null}
 
         {tab === "openBets" && currentBets && currentBets?.length > 0 && (
