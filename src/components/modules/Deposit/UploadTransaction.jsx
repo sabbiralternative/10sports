@@ -8,7 +8,7 @@ import axios from "axios";
 import { API } from "../../../api";
 import toast from "react-hot-toast";
 
-const UploadTransaction = ({ paymentId, amount }) => {
+const UploadTransaction = ({ paymentId, amount, methodType }) => {
   const fileRef = useRef();
   const handleInputClick = () => {
     if (fileRef?.current) {
@@ -27,6 +27,7 @@ const UploadTransaction = ({ paymentId, amount }) => {
   const [image, setImage] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null);
   const [filePath, setFilePath] = useState(null);
+  const [receiptNumber, setReceiptNumber] = useState(null);
 
   useEffect(() => {
     if (image) {
@@ -80,13 +81,16 @@ const UploadTransaction = ({ paymentId, amount }) => {
       return;
     }
     if (uploadedImage || utr) {
-      const screenshotPostData = {
+      let screenshotPostData = {
         type: "depositSubmit",
         paymentId,
         amount: amount,
         fileName: uploadedImage,
         utr: String(utr),
       };
+      if (methodType === "usdt" || methodType === "usdt_bep20") {
+        screenshotPostData.receipt_no = receiptNumber;
+      }
 
       const result = await handlePayment(screenshotPostData).unwrap();
 
@@ -190,7 +194,10 @@ const UploadTransaction = ({ paymentId, amount }) => {
 
       <div className="w-full mt-2.5 bg-bg_color_primary text-text_color_primary1 rounded-md px-3 py-3.5">
         <div className="font-bold text-sm mb-2 leading-5">
-          Unique Transaction Reference
+          {methodType === "usdt" || methodType === "usdt_bep20"
+            ? "Hash Code"
+            : " Unique Transaction Reference"}
+
           <span className="text-text_color_danger">*</span>
         </div>
         <div className="w-full relative font-lato">
@@ -198,7 +205,11 @@ const UploadTransaction = ({ paymentId, amount }) => {
             onChange={handleUTRChange}
             onKeyDown={handleKeyDown}
             className="block w-full focus:outline-none border-[1px] px-3 py-2.5 rounded-[4px] bg-bg_color_input_bg font-semibold text-base border-[var(--bg-active-primary)] "
-            placeholder="6 to 23 Digit UTR/RRN Number"
+            placeholder={
+              methodType === "usdt" || methodType === "usdt_bep20"
+                ? "Enter Hash code"
+                : "6 to 23 Digit UTR/RRN Number"
+            }
             autoComplete="off"
             type="text"
             value={utr !== null ? utr : null}
@@ -206,6 +217,22 @@ const UploadTransaction = ({ paymentId, amount }) => {
           <span className="text-text_color_danger text-xs font-[450] leading-4" />
         </div>
       </div>
+      {methodType === "usdt" || methodType === "usdt_bep20" ? (
+        <div className="w-full mt-2.5 bg-bg_color_primary text-text_color_primary1 rounded-md px-3 py-3.5">
+          <div className="font-bold text-sm mb-2 leading-5">Receipt Number</div>
+          <div className="w-full relative font-lato">
+            <input
+              onChange={(e) => setReceiptNumber(e.target.value)}
+              className="block w-full focus:outline-none border-[1px] px-3 py-2.5 rounded-[4px] bg-bg_color_input_bg font-semibold text-base border-[var(--bg-active-primary)] "
+              placeholder={"Enter Receipt Number"}
+              type="text"
+              value={receiptNumber}
+            />
+            <span className="text-text_color_danger text-xs font-[450] leading-4" />
+          </div>
+        </div>
+      ) : null}
+
       <div className="flex items-start justify-center gap-x-2 py-3 px-5">
         <div className="inline-flex items-center">
           <label

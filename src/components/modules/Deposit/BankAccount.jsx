@@ -248,7 +248,11 @@ const BankAccount = ({ amount }) => {
                 {methodType === "pg" && (
                   <PG amount={amount} depositData={depositData} />
                 )}
-                <UploadTransaction paymentId={paymentId} amount={amount} />
+                <UploadTransaction
+                  paymentId={paymentId}
+                  amount={amount}
+                  methodType={methodType}
+                />
               </>
             )}
 

@@ -92,12 +92,8 @@ const USDT = ({ depositData, amount }) => {
             </div>
           </span>
         </div>
-        <div className="mt-2 w-full">
-          <img
-            style={{ width: "100%", height: "100%" }}
-            src={depositData?.qrCodeLink}
-            alt=""
-          />
+        <div className="mt-2  w-full flex items-center justify-center">
+          <img src={depositData?.qrCodeLink} alt="" />
         </div>
       </div>
     </div>
