@@ -5,7 +5,7 @@ const ScoreTopPart = ({ iscore, isMobile }) => {
         isMobile ? "lg:hidden" : ""
       }`}
     >
-      <div className=" flex w-full justify-between items-center px-3.5 py-1 font-lato">
+      <div className=" flex w-full justify-between items-center px-3.5 py-1 font-lato shadow-md  my-1">
         <div className=" flex items-start justify-start w-max flex-col max-w-[70%]">
           <div className=" bg-bg_text_brand_primary text-transparent text-start bg-clip-text font-lato font-bold text-sm flex items-start justify-start w-full">
             <span className=" text-start">{iscore?.teamName}</span>
