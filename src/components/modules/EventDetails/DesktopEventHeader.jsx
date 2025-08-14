@@ -1,7 +1,7 @@
 const DesktopEventHeader = ({ data }) => {
   return (
     <div className=" sm:flex flex-col w-full hidden">
-      <div className="flex flex-row w-full justify-between items-center px-2 mt-2 bg-bg_appBg rounded-sm py-2">
+      <div className="flex flex-row w-full justify-between items-center px-2 mt-2 bg-bg_color_primary rounded-sm py-2">
         <div
           className=" flex items-center justify-start gap-x-3 w-[92%]"
           id="playIcon"

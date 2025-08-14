@@ -1,7 +1,7 @@
 const ScoreTopPart = ({ iscore, isMobile }) => {
   return (
     <div
-      className={` w-full  bg-bg_color_secondary px-0 l ${
+      className={` w-full  bg-bg_color_primary px-0 l ${
         isMobile ? "lg:hidden" : ""
       }`}
     >
