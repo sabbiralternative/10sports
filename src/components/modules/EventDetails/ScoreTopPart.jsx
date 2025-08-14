@@ -1,7 +1,7 @@
 const ScoreTopPart = ({ iscore, isMobile }) => {
   return (
     <div
-      className={` w-full  bg-bg_color_secondary px-0 ${
+      className={` w-full  bg-bg_color_secondary px-0 l ${
         isMobile ? "lg:hidden" : ""
       }`}
     >
@@ -49,7 +49,7 @@ const ScoreTopPart = ({ iscore, isMobile }) => {
         </div>
       </div>
       {iscore?.currentOver?.length > 0 || iscore?.previousOver?.length > 0 ? (
-        <div className=" px-[11px] relative bg-bg_color_primary w-full shadow-md">
+        <div className=" px-[11px] relative bg-bg_color_primary w-full   shadow-md z-10">
           <div className=" w-full flex items-center py-1 justify-start overflow-scroll no-scrollbar gap-x-2">
             {iscore?.currentOver?.length > 0 && (
               <div
@@ -64,7 +64,7 @@ const ScoreTopPart = ({ iscore, isMobile }) => {
                     {iscore?.currentOver?.map((cv, i) => (
                       <span
                         key={i}
-                        className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default "
+                        className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center  rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default "
                       >
                         <span>{cv}</span>
                       </span>
@@ -91,7 +91,7 @@ const ScoreTopPart = ({ iscore, isMobile }) => {
                     {iscore?.previousOver?.map((pv, i) => (
                       <span
                         key={i}
-                        className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center shadow-md rounded-full p-1 bg-bg_color_cr_wd text-text_color_cr_wd border-border_color_cr_wd "
+                        className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center  rounded-full p-1 bg-bg_color_cr_wd text-text_color_cr_wd border-border_color_cr_wd "
                       >
                         <span>{pv}</span>
                       </span>

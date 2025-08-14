@@ -1,7 +1,7 @@
 const ScoreBottomPart = ({ iscore, isMobile }) => {
   return (
-    <div className={`col-span-1 w-full h-max ${isMobile ? "lg:hidden" : ""}`}>
-      <div className="bg-bg_color_primary font-lato py-1">
+    <div className={`col-span-1 w-full h-max ${isMobile ? "lg:hidden" : ""} `}>
+      <div className="bg-bg_color_primary font-lato py-1 ">
         <div className="min-w-full snap-center text-text_color_primary1 text-[10px] flex flex-col justify-evenly divide-y divide-divide_color_primary2">
           <div className="grid grid-cols-10 text-center  gap-2 divide-x divide-divide_color_primary2">
             <div className="flex flex-col col-span-2">
