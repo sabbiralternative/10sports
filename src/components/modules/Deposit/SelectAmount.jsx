@@ -3,7 +3,7 @@ import useDepositBreakdown from "../../../hooks/depositBreakdown";
 import toast from "react-hot-toast";
 
 const SelectAmount = ({ amount, setAmount, setTab }) => {
-  const { mutate: handleDepositBreakdown, data } = useDepositBreakdown();
+  const { mutate: handleDepositBreakdown } = useDepositBreakdown();
 
   const handleShowBankAccount = (e) => {
     e.preventDefault();
@@ -28,6 +28,7 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
       );
     }
   };
+
   return (
     <div className="w-full h-full  lg:w-[54%] lg:pt-2">
       <div className="mx-2 font-lato h-full pb-10">
@@ -106,7 +107,7 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
               </div>
               <div className="text-text_brand_primary my-2 w-full text-start text-base font-lato font-[480] leading-4" />
             </div>
-            {amount && (
+            {/* {amount && (
               <div className="w-full mt-2.5 rounded-md bg-bg_color_primary text-text_color_primary1 px-3 py-[15px] font-lato">
                 <div className="font-bold text-base leading-5">
                   Deposit Breakdown
@@ -138,7 +139,7 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
                   </div>
                 </div>
               </div>
-            )}
+            )} */}
 
             <div className="sticky w-full bottom-0 pb-[10px] app-bg">
               <button
