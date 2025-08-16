@@ -91,7 +91,7 @@ const ScoreTopPart = ({ iscore, isMobile }) => {
                     {iscore?.previousOver?.map((pv, i) => (
                       <span
                         key={i}
-                        className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center  rounded-full p-1 bg-bg_color_cr_wd text-text_color_cr_wd border-border_color_cr_wd "
+                        className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center  rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default"
                       >
                         <span>{pv}</span>
                       </span>
