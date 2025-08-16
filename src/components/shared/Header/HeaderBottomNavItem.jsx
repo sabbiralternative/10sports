@@ -169,7 +169,7 @@ const HeaderBottomNavItem = () => {
         <a
           onClick={() => handleNavigateToIFrame("sportsbook", "550000")}
           title="Tennis"
-          className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs text-text_headerDeskNav`}
+          className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[120px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs text-text_headerDeskNav `}
         >
           <span>
             <svg
