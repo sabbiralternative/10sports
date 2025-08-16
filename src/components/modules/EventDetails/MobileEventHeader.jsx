@@ -1,5 +1,5 @@
 import { useCurrentBets } from "../../../hooks/currentBets";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Settings } from "../../../api";
 import { useState } from "react";
 import { useVideoMutation } from "../../../redux/features/events/events";
@@ -17,6 +17,7 @@ const MobileEventHeader = ({ data, score }) => {
   const { eventId, eventTypeId } = useParams();
   const { data: currentBets } = useCurrentBets(eventId);
   const [iFrame, setIFrame] = useState("");
+  const navigate = useNavigate();
 
   const handleGetVideo = async () => {
     const payload = {
@@ -49,7 +50,10 @@ const MobileEventHeader = ({ data, score }) => {
               id="playIcon"
               className="flex items-start justify-center gap-x-3  w-max max-w-[92%]"
             >
-              <div className="w-8 cursor-pointer rounded-sm h-6 flex items-center transition-all duration-300 ease-in-out justify-center bg-bg_color_quaternary active:scale-[120%] active:opacity-90">
+              <div
+                onClick={() => navigate(-1)}
+                className="w-8 cursor-pointer rounded-sm h-6 flex items-center transition-all duration-300 ease-in-out justify-center bg-bg_color_quaternary active:scale-[120%] active:opacity-90"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="7"
