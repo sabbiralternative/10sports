@@ -113,6 +113,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
               <h3 className=" w-full h-max px-6 pt-4 pb-2 text-[13px] text-text_color_tertiary5 uppercase font-normal">
                 Sports
               </h3>
+
               <a
                 onClick={() => setGroupType(4, "/")}
                 className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
