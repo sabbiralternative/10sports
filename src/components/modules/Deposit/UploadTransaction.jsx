@@ -109,15 +109,9 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
   };
   const handleUTRChange = (e) => {
     const value = e.target.value;
-    if (/^[0-9]*$/.test(value)) {
-      setUtr(value);
-    }
+    setUtr(value);
   };
-  const handleKeyDown = (e) => {
-    if (!/[0-9]/.test(e.key) && e.key !== "Backspace" && e.key !== "Delete") {
-      e.preventDefault();
-    }
-  };
+
   return (
     <>
       {!filePath && !loading && (
@@ -199,7 +193,6 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
         <div className="w-full relative font-lato">
           <input
             onChange={handleUTRChange}
-            onKeyDown={handleKeyDown}
             className="block w-full focus:outline-none border-[1px] px-3 py-2.5 rounded-[4px] bg-bg_color_input_bg font-semibold text-base border-[var(--bg-active-primary)] "
             placeholder={
               methodType === "usdt" || methodType === "usdt_bep20"
@@ -254,7 +247,7 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
       </div>
       <div className="sticky w-full bottom-0 pb-[10px] app-bg">
         <button
-          disabled={!filePath || !utr ? true : false}
+          disabled={!filePath || !utr}
           onClick={handleDepositSubmit}
           type="submit"
           className="bg-bg_text_brand_primary flex items-center justify-center gap-x-2 w-full text-text_color_primary2 h-10 text-base rounded-md font-[500] leading-4 disabled:opacity-70 relative text-primary"
