@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Settings } from "../../../api";
 import useDepositBreakdown from "../../../hooks/depositBreakdown";
 import toast from "react-hot-toast";
@@ -6,7 +5,8 @@ import toast from "react-hot-toast";
 const SelectAmount = ({ amount, setAmount, setTab }) => {
   const { mutate: handleDepositBreakdown, data } = useDepositBreakdown();
 
-  useEffect(() => {
+  const handleShowBankAccount = (e) => {
+    e.preventDefault();
     if (amount) {
       const floatAmount = parseFloat(amount);
 
@@ -17,14 +17,17 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
         { amount: floatAmount },
         {
           onSuccess: (data) => {
+            console.log(data);
             if (data?.minimumDeposit && floatAmount < data?.minimumDeposit) {
               toast.error(`Minimum deposit amount is ${data?.minimumDeposit}`);
+            } else {
+              setTab("bankAccount");
             }
           },
         }
       );
     }
-  }, [amount, handleDepositBreakdown]);
+  };
   return (
     <div className="w-full h-full  lg:w-[54%] lg:pt-2">
       <div className="mx-2 font-lato h-full pb-10">
@@ -139,7 +142,7 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
 
             <div className="sticky w-full bottom-0 pb-[10px] app-bg">
               <button
-                onClick={() => setTab("bankAccount")}
+                onClick={handleShowBankAccount}
                 disabled={!amount}
                 type="submit"
                 className="bg-bg_text_brand_primary flex items-center justify-center gap-x-2 w-full  h-10 text-base rounded-md font-[500] leading-4 disabled:opacity-70 relative"
