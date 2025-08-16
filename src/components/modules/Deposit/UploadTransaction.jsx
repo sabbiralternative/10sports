@@ -27,7 +27,6 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
   const [image, setImage] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null);
   const [filePath, setFilePath] = useState(null);
-  const [receiptNumber, setReceiptNumber] = useState(null);
 
   useEffect(() => {
     if (image) {
@@ -88,9 +87,6 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
         fileName: uploadedImage,
         utr: String(utr),
       };
-      if (methodType === "usdt" || methodType === "usdt_bep20") {
-        screenshotPostData.receipt_no = receiptNumber;
-      }
 
       const result = await handlePayment(screenshotPostData).unwrap();
 
@@ -217,21 +213,6 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
           <span className="text-text_color_danger text-xs font-[450] leading-4" />
         </div>
       </div>
-      {methodType === "usdt" || methodType === "usdt_bep20" ? (
-        <div className="w-full mt-2.5 bg-bg_color_primary text-text_color_primary1 rounded-md px-3 py-3.5">
-          <div className="font-bold text-sm mb-2 leading-5">Receipt Number</div>
-          <div className="w-full relative font-lato">
-            <input
-              onChange={(e) => setReceiptNumber(e.target.value)}
-              className="block w-full focus:outline-none border-[1px] px-3 py-2.5 rounded-[4px] bg-bg_color_input_bg font-semibold text-base border-[var(--bg-active-primary)] "
-              placeholder={"Enter Receipt Number"}
-              type="text"
-              value={receiptNumber}
-            />
-            <span className="text-text_color_danger text-xs font-[450] leading-4" />
-          </div>
-        </div>
-      ) : null}
 
       <div className="flex items-start justify-center gap-x-2 py-3 px-5">
         <div className="inline-flex items-center">
