@@ -65,6 +65,21 @@ const ScoreTopPart = ({ iscore, isMobile }) => {
                       <span
                         key={i}
                         className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center  rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default "
+                        style={{
+                          color: "white",
+                          backgroundColor:
+                            cv == "0"
+                              ? "#999"
+                              : cv == "1"
+                              ? "#48a23c"
+                              : cv == "W"
+                              ? "#c9362b"
+                              : cv == "4"
+                              ? "#2d90d4"
+                              : cv == "6"
+                              ? "#601c78"
+                              : "#c2ad7b",
+                        }}
                       >
                         <span>{cv}</span>
                       </span>
@@ -92,6 +107,21 @@ const ScoreTopPart = ({ iscore, isMobile }) => {
                       <span
                         key={i}
                         className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center  rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default"
+                        style={{
+                          color: "white",
+                          backgroundColor:
+                            pv == "0"
+                              ? "#999"
+                              : pv == "1"
+                              ? "#48a23c"
+                              : pv == "W"
+                              ? "#c9362b"
+                              : pv == "4"
+                              ? "#2d90d4"
+                              : pv == "6"
+                              ? "#601c78"
+                              : "#c2ad7b",
+                        }}
                       >
                         <span>{pv}</span>
                       </span>
