@@ -64,13 +64,15 @@ const ScoreTopPart = ({ iscore, isMobile }) => {
                     {iscore?.currentOver?.map((cv, i) => (
                       <span
                         key={i}
-                        className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center  rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default "
+                        className={`text-xs font-medium min-w-5 min-h-5  flex items-center justify-center  rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default ${
+                          cv?.length === 1 ? "aspect-square" : ""
+                        }`}
                         style={{
                           color: "white",
                           backgroundColor:
                             cv == "0"
                               ? "#999"
-                              : cv == "1"
+                              : cv == "1" || cv == "2"
                               ? "#48a23c"
                               : cv.split().includes("W")
                               ? "#c9362b"
@@ -108,34 +110,38 @@ const ScoreTopPart = ({ iscore, isMobile }) => {
                 </span>
                 <div className=" flex items-center justify-start gap-x-[11px]">
                   <div className="flex items-center justify-start gap-x-[11px]">
-                    {iscore?.previousOver?.map((pv, i) => (
-                      <span
-                        key={i}
-                        className="text-xs font-medium min-w-5 min-h-5 aspect-square flex items-center justify-center  rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default"
-                        style={{
-                          color: "white",
-                          backgroundColor:
-                            pv == "0"
-                              ? "#999"
-                              : pv == "1"
-                              ? "#48a23c"
-                              : pv.split().includes("W")
-                              ? "#c9362b"
-                              : pv == "4"
-                              ? "#2d90d4"
-                              : pv == "6"
-                              ? "#601c78"
-                              : pv.split().includes("b") ||
-                                pv.split().includes("lb") ||
-                                pv.split().includes("wd") ||
-                                pv.split().includes("nb")
-                              ? "#c2ad7b"
-                              : "#999",
-                        }}
-                      >
-                        <span>{pv}</span>
-                      </span>
-                    ))}
+                    {iscore?.previousOver?.map((pv, i) => {
+                      return (
+                        <span
+                          key={i}
+                          className={`text-xs font-medium min-w-5 min-h-5  flex items-center justify-center  rounded-full p-1 bg-bg_color_cr_default text-text_color_cr_default border-border_color_cr_default ${
+                            pv?.length === 1 ? "aspect-square" : ""
+                          }`}
+                          style={{
+                            color: "white",
+                            backgroundColor:
+                              pv == "0"
+                                ? "#999"
+                                : pv == "1" || pv == "2"
+                                ? "#48a23c"
+                                : pv.split().includes("W")
+                                ? "#c9362b"
+                                : pv == "4"
+                                ? "#2d90d4"
+                                : pv == "6"
+                                ? "#601c78"
+                                : pv.split().includes("b") ||
+                                  pv.split().includes("lb") ||
+                                  pv.split().includes("wd") ||
+                                  pv.split().includes("nb")
+                                ? "#c2ad7b"
+                                : "#999",
+                          }}
+                        >
+                          <span>{pv}</span>
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
