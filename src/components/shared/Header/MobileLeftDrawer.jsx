@@ -12,7 +12,7 @@ import { useLanguage } from "../../../context/LanguageProvider";
 import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import WarningCondition from "../WarningCondition/WarningCondition";
-import images from "../../../assets/images";
+import { KABBADI } from "../../../assets/Icon/SidebarIcon";
 
 const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
   const [showWarning, setShowWarning] = useState(false);
@@ -257,7 +257,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                 title="Tennis"
                 onClick={() => setGroupType(5, "/")}
               >
-                <img className="h-6 w-6" src={images.kabbadi} alt="" />
+                <KABBADI />
                 <span>
                   {" "}
                   {languageValue(valueByLanguage, LanguageKey.KABADDI)}

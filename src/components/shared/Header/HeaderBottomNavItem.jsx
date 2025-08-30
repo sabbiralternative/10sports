@@ -10,6 +10,7 @@ import {
   Cricket,
   Football,
   HorseRacing,
+  KABBADI,
   LiveCasino,
   SlotGame,
   Tennis,
@@ -20,7 +21,6 @@ import { languageValue } from "../../../utils/language";
 import { useState } from "react";
 import WarningCondition from "../WarningCondition/WarningCondition";
 import { AiFillHome } from "react-icons/ai";
-import images from "../../../assets/images";
 
 const HeaderBottomNavItem = () => {
   const { group } = useSelector((state) => state.global);
@@ -198,7 +198,7 @@ const HeaderBottomNavItem = () => {
           to="/"
         >
           <span>
-            <img className="h-6 w-6" src={images.kabbadi} alt="" />
+            <KABBADI />
           </span>
           <span className="font font-lato text-[12px]  font-normal">
             {languageValue(valueByLanguage, LanguageKey.KABADDI)}
