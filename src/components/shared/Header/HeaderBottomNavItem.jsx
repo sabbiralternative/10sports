@@ -20,6 +20,7 @@ import { languageValue } from "../../../utils/language";
 import { useState } from "react";
 import WarningCondition from "../WarningCondition/WarningCondition";
 import { AiFillHome } from "react-icons/ai";
+import images from "../../../assets/images";
 
 const HeaderBottomNavItem = () => {
   const { group } = useSelector((state) => state.global);
@@ -186,6 +187,23 @@ const HeaderBottomNavItem = () => {
             Sportsbook
           </span>
         </a>
+        <Link
+          onClick={() => handleSetGroup(5)}
+          title="Tennis"
+          className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+            location.pathname === "/" && group === 5
+              ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+              : "text-text_headerDeskNav"
+          }`}
+          to="/"
+        >
+          <span>
+            <img className="h-6 w-6" src={images.kabbadi} alt="" />
+          </span>
+          <span className="font font-lato text-[12px]  font-normal">
+            {languageValue(valueByLanguage, LanguageKey.KABADDI)}
+          </span>
+        </Link>
         <Link
           title="Horse Racing"
           className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${

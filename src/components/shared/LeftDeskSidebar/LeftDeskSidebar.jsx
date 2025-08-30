@@ -22,6 +22,7 @@ import { LanguageKey } from "../../../const";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import WarningCondition from "../WarningCondition/WarningCondition";
+import images from "../../../assets/images";
 
 const LeftDeskSidebar = () => {
   const { valueByLanguage } = useLanguage();
@@ -125,6 +126,20 @@ const LeftDeskSidebar = () => {
               </svg>
               <span className="font-medium text-start text-text_color_primary1">
                 Sportsbook
+              </span>
+            </a>
+          </li>
+          <li
+            onClick={() => handleSetGroup(5)}
+            className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav"
+          >
+            <a
+              title="Tennis"
+              className="flex w-full items-center h-full px-6 justify-start gap-3"
+            >
+              <img className="h-6 w-6" src={images.kabbadi} alt="" />
+              <span className="font-medium text-start text-text_color_primary1">
+                {languageValue(valueByLanguage, LanguageKey.KABADDI)}
               </span>
             </a>
           </li>

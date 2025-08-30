@@ -10,6 +10,7 @@ import upiIcon from "../img/upiIcon.svg";
 import cc from "../img/gaming-1.webp";
 import instagram from "../img/instagram.png";
 import whatsApp from "../img/whatsapp.png";
+import kabbadi from "../img/kabbadi.svg";
 
 export default {
   whatsApp,
@@ -24,4 +25,5 @@ export default {
   BeGambleAware,
   bankTransfer,
   upiIcon,
+  kabbadi,
 };
