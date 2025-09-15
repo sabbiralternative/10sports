@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import { useCurrentBets } from "../../../hooks/currentBets";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 
 const OpenBet = () => {
+  const navigate = useNavigate();
   const [showBets, setShowBets] = useState(true);
   const { eventId } = useParams();
   const { data } = useCurrentBets(eventId);
@@ -12,6 +13,9 @@ const OpenBet = () => {
   const dispatch = useDispatch();
   const showLogin = () => {
     dispatch(setShowLoginModal(true));
+  };
+  const navigateGameList = (item) => {
+    navigate(`/event-details/${item?.eventTypeId}/${item?.eventId}`);
   };
 
   return (
@@ -43,6 +47,7 @@ const OpenBet = () => {
               {showBets &&
                 data?.map((bet) => (
                   <div
+                    onClick={() => navigateGameList(bet)}
                     key={bet?.betId}
                     className=" bg-bg_color_primary rounded-md divide-y divide-divide_color_primary1 w-full shadow "
                   >
