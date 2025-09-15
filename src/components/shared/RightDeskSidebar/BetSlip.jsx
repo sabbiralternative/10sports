@@ -42,10 +42,6 @@ const BetSlip = () => {
   }
 
   useEffect(() => {
-    if (betDelay <= 0) {
-      setBetDelay(null);
-    }
-
     dispatch(setPrice(placeBetValues?.price));
     dispatch(
       setStake(
@@ -54,11 +50,14 @@ const BetSlip = () => {
           : null
       )
     );
-  }, [placeBetValues, betDelay, dispatch]);
+  }, [placeBetValues, dispatch]);
 
   useEffect(() => {
+    if (betDelay <= 0) {
+      setBetDelay(null);
+    }
     dispatch(setPredictOdd([]));
-  }, [placeBetValues, dispatch]);
+  }, [placeBetValues, dispatch, betDelay]);
 
   let payload = {};
   if (price) {
@@ -144,6 +143,7 @@ const BetSlip = () => {
         setBetDelay("");
         toast.success(res?.result?.result?.placed?.[0]?.message);
         dispatch(setPlaceBetValues(null));
+        dispatch(setStake(null));
       } else {
         setLoading(false);
         toast.error(
@@ -301,6 +301,7 @@ const BetSlip = () => {
               onClick={() => {
                 dispatch(setPredictOdd([]));
                 dispatch(setPlaceBetValues(null));
+                dispatch(setStake(null));
               }}
               type="button"
               className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  col-span-6 py-1 w-full flex items-center justify-center  text-sm bg-transperent text-text_color_betSlipCancelBtnColor font-medium border border-[var(--bg-active-primary)] rounded-md 

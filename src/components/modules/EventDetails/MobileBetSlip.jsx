@@ -139,6 +139,7 @@ const MobileBetSlip = () => {
           dispatch(setPlaceBetValues(null));
           refetchCurrentBets();
           setBetDelay("");
+          dispatch(setStake(null));
           toast.success(res?.result?.result?.placed?.[0]?.message);
         } else {
           setLoading(false);
@@ -194,6 +195,7 @@ const MobileBetSlip = () => {
   const handleCancelBet = () => {
     dispatch(setRunnerId(null));
     dispatch(setPlaceBetValues(null));
+    dispatch(setStake(null));
   };
   const handleShowLoginModal = () => {
     dispatch(setShowLoginModal(true));
