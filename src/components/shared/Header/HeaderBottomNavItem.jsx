@@ -72,50 +72,7 @@ const HeaderBottomNavItem = () => {
             {languageValue(valueByLanguage, LanguageKey.HOME)}
           </span>
         </Link>
-        <Link
-          title="Home"
-          className={`cursor-pointer uppercase min-h-[28px]  min-w-[80px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
-        ${
-          location.pathname === "/event-details/4/1755194820"
-            ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
-            : "text-text_headerDeskNav"
-        }`}
-          to="/event-details/4/1755194820"
-        >
-          <span className="">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 12 12"
-              fill="none"
-            >
-              <g clipPath="url(#clip0_145_9104)">
-                <path
-                  d="M11.4 0.6H9.6V0H2.4V0.6H0.6C0.24 0.6 0 0.84 0 1.2V2.64C0 4.02 1.02 5.16 2.4 5.34V5.4C2.4 7.14 3.6 8.58 5.22 8.94L4.8 10.2H3.42C3.18 10.2 2.94 10.38 2.88 10.62L2.4 12H9.6L9.12 10.62C9.06 10.38 8.82 10.2 8.58 10.2H7.2L6.78 8.94C8.4 8.58 9.6 7.14 9.6 5.4V5.34C10.98 5.16 12 4.02 12 2.64V1.2C12 0.84 11.76 0.6 11.4 0.6ZM2.4 4.14C1.74 3.96 1.2 3.36 1.2 2.64V1.8H2.4V4.14ZM7.2 6L6 5.34L4.8 6L5.1 4.8L4.2 3.6H5.46L6 2.4L6.54 3.6H7.8L6.9 4.8L7.2 6ZM10.8 2.64C10.8 3.36 10.26 4.02 9.6 4.14V1.8H10.8V2.64Z"
-                  fill="url(#paint0_linear_145_9104)"
-                ></path>
-              </g>
-              <defs>
-                <linearGradient
-                  id="paint0_linear_145_9104"
-                  x1="-1.12"
-                  y1="-3.85125e-08"
-                  x2="14.2675"
-                  y2="1.30581"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stopColor="currentColor"></stop>
-                  <stop offset="1" stopColor="currentColor"></stop>
-                </linearGradient>
-                <clipPath id="clip0_145_9104">
-                  <rect width="12" height="12" fill="white"></rect>
-                </clipPath>
-              </defs>
-            </svg>
-          </span>
-          <span className="font font-lato text-[12px]  font-semibold">CPL</span>
-        </Link>
+
         <Link
           title="Home"
           className={`cursor-pointer uppercase min-h-[28px]  min-w-[80px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
