@@ -228,7 +228,7 @@ const Fancy = ({ data }) => {
                           </g>
                         </svg>
                         <span className=" font-[480] text-sm text-text_color_primary1 ">
-                          2s
+                          {game?.betDelay}s
                         </span>
                       </span>
                       <span className=" col-span-2 md:col-span-1 flex flex-row items-center justify-center">
