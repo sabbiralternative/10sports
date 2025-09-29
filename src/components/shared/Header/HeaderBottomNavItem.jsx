@@ -73,7 +73,7 @@ const HeaderBottomNavItem = () => {
           </span>
         </Link>
 
-        <Link
+        {/* <Link
           title="Home"
           className={`cursor-pointer uppercase min-h-[28px]  min-w-[100px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
         ${
@@ -118,7 +118,7 @@ const HeaderBottomNavItem = () => {
           <span className="font font-lato text-[12px]  font-semibold">
             Asia Cup
           </span>
-        </Link>
+        </Link> */}
         <Link
           title="Home"
           className={`cursor-pointer uppercase min-h-[28px]  min-w-[80px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
