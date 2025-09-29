@@ -7,6 +7,7 @@ export const useWhatsApp = () => {
     queryKey: ["whatsapp"],
     queryFn: async () => {
       const { data } = await AxiosSecure.post(API.whatsapp);
+
       return data?.result;
     },
   });

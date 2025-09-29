@@ -54,6 +54,7 @@ const GetOTP = ({
   const handleGetOtpOnWhatsapp = async () => {
     await getOtpOnWhatsapp(mobileNo, setOrderId, setShowRegister);
   };
+
   return (
     <div className="fixed bottom-0 left-0 right-0 top-0 overflow-hidden flex bg-bg_color_popUpParentBg overflow-y-hidden z-[10000] h-[100dvh] w-dvw items-center justify-center">
       <div
@@ -221,10 +222,10 @@ const GetOTP = ({
                           <span className="shimmer" />
                         </button>
                       )}
-                      {socialLink?.result?.whatsapplink && (
+                      {socialLink?.whatsapplink && (
                         <button
                           onClick={() =>
-                            getWhatsAppId(socialLink?.result?.whatsapplink)
+                            getWhatsAppId(socialLink?.whatsapplink)
                           }
                           type="button"
                           className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden text-text_color_loginTextColor bg-bg_color_LoginBtnBgColor border-border_color_brand_secondary1 relative text-primary"
@@ -243,7 +244,7 @@ const GetOTP = ({
                           >
                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                           </svg>
-                          <span>Get WhatsApp Id</span>
+                          <span>Get ID</span>
                           <span className="shimmer" />
                         </button>
                       )}
