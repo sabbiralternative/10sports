@@ -204,7 +204,7 @@ const GetOTP = ({
                           type="button"
                           className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden text-text_color_loginTextColor bg-bg_color_LoginBtnBgColor border-border_color_brand_secondary1 relative text-primary"
                         >
-                          <svg
+                          {/* <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width={18}
                             height={18}
@@ -217,34 +217,13 @@ const GetOTP = ({
                             className="h-[18px] w-[18px]"
                           >
                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                          </svg>
+                          </svg> */}
+                          <img
+                            className="size-5"
+                            src={images.whatsApp2}
+                            alt=""
+                          />
                           <span>Get OTP on WhatsApp</span>
-                          <span className="shimmer" />
-                        </button>
-                      )}
-                      {socialLink?.whatsapplink && (
-                        <button
-                          onClick={() =>
-                            getWhatsAppId(socialLink?.whatsapplink)
-                          }
-                          type="button"
-                          className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden text-text_color_loginTextColor bg-bg_color_LoginBtnBgColor border-border_color_brand_secondary1 relative text-primary"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width={18}
-                            height={18}
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="var(--text-primary)"
-                            strokeWidth={2}
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="h-[18px] w-[18px]"
-                          >
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                          </svg>
-                          <span>Get ID</span>
                           <span className="shimmer" />
                         </button>
                       )}
@@ -253,80 +232,21 @@ const GetOTP = ({
                   <div className="w-full flex items-center gap-4">
                     <div className="h-px flex-1 bg-bg_color_quaternary3" />
                     <span className="text-text_color_loginTextColor text-sm font-medium">
-                      Or Register With
+                      Or
                     </span>
                     <div className="h-px flex-1 bg-bg_color_quaternary3" />
                   </div>
-                  <div
-                    title="loginWithGoogle"
-                    className="w-full flex items-center justify-between gap-x-2"
-                  >
-                    <div className="w-full">
-                      <button
-                        className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out w-full bg-transparent font-medium rounded-lg text-[12px] xs:text-[15px] px-5 py-2 md:text-base flex items-center justify-center gap-x-2 border border-border_color_primary1 cursor-pointer"
-                        type="button"
-                      >
-                        <span>
-                          <svg
-                            width={21}
-                            height={20}
-                            viewBox="0 0 21 20"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <g
-                              id="Fill Ion Icons"
-                              clipPath="url(#clip0_2432_31527)"
-                            >
-                              <path
-                                id="Vector"
-                                d="M19.9946 8.26138L11.8368 8.26099C11.4766 8.26099 11.1846 8.55294 11.1846 8.91317V11.5192C11.1846 11.8794 11.4766 12.1714 11.8368 12.1714H16.4307C15.9277 13.4769 14.9888 14.5702 13.7909 15.2649L15.7498 18.6559C18.892 16.8386 20.7498 13.65 20.7498 10.0805C20.7498 9.57228 20.7123 9.20896 20.6374 8.79985C20.5804 8.48903 20.3106 8.26138 19.9946 8.26138Z"
-                                fill="#167EE6"
-                              />
-                              <path
-                                id="Vector_2"
-                                d="M10.7501 16.0871C8.50185 16.0871 6.5392 14.8587 5.4851 13.041L2.09424 14.9955C3.81982 17.9862 7.0524 20.0001 10.7501 20.0001C12.564 20.0001 14.2756 19.5117 15.7501 18.6606V18.6559L13.7912 15.2649C12.8952 15.7846 11.8583 16.0871 10.7501 16.0871Z"
-                                fill="#12B347"
-                              />
-                              <path
-                                id="Vector_3"
-                                d="M15.75 18.6606V18.6559L13.7911 15.2649C12.8951 15.7845 11.8583 16.087 10.75 16.087V20.0001C12.5639 20.0001 14.2756 19.5117 15.75 18.6606Z"
-                                fill="#0F993E"
-                              />
-                              <path
-                                id="Vector_4"
-                                d="M4.66305 9.99999C4.66305 8.89183 4.96547 7.85507 5.48504 6.95909L2.09418 5.00464C1.23836 6.47444 0.75 8.1814 0.75 9.99999C0.75 11.8186 1.23836 13.5255 2.09418 14.9953L5.48504 13.0409C4.96547 12.1449 4.66305 11.1082 4.66305 9.99999Z"
-                                fill="#FFD500"
-                              />
-                              <path
-                                id="Vector_5"
-                                d="M10.7501 3.91305C12.2161 3.91305 13.5628 4.43398 14.6146 5.30051C14.8741 5.51426 15.2512 5.49883 15.4889 5.26113L17.3354 3.41465C17.6051 3.14496 17.5859 2.70352 17.2978 2.45359C15.5355 0.924726 13.2425 0 10.7501 0C7.0524 0 3.81982 2.01395 2.09424 5.00465L5.4851 6.9591C6.5392 5.14141 8.50186 3.91305 10.7501 3.91305Z"
-                                fill="#FF4B26"
-                              />
-                              <path
-                                id="Vector_6"
-                                d="M14.6145 5.30051C14.874 5.51426 15.2512 5.49883 15.4889 5.26113L17.3354 3.41465C17.605 3.14496 17.5858 2.70352 17.2977 2.45359C15.5354 0.924688 13.2425 0 10.75 0V3.91305C12.216 3.91305 13.5627 4.43398 14.6145 5.30051Z"
-                                fill="#D93F21"
-                              />
-                            </g>
-                            <defs>
-                              <clipPath id="clip0_2432_31527">
-                                <rect
-                                  width={20}
-                                  height={20}
-                                  fill="white"
-                                  transform="translate(0.75)"
-                                />
-                              </clipPath>
-                            </defs>
-                          </svg>
-                        </span>
-                        <span className="font-lato-bold font-semibold bg-bg_color_LoginBtnBgColor bg-clip-text text-transparent">
-                          Google
-                        </span>
-                      </button>
-                    </div>
-                  </div>
+                  {socialLink?.whatsapplink && (
+                    <button
+                      onClick={() => getWhatsAppId(socialLink?.whatsapplink)}
+                      type="button"
+                      className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden text-text_color_loginTextColor bg-bg_color_LoginBtnBgColor border-border_color_brand_secondary1 relative text-primary"
+                    >
+                      <img className="size-5" src={images.whatsApp2} alt="" />
+                      <span>Get ID on Whatsapp</span>
+                      <span className="shimmer" />
+                    </button>
+                  )}
                   <div
                     title="registerNowButton"
                     className="w-full flex justify-center items-center text-xs md:text-sm lg:text-base"

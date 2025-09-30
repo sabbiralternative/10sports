@@ -11,9 +11,11 @@ import cc from "../img/gaming-1.webp";
 import instagram from "../img/instagram.png";
 import whatsApp from "../img/whatsapp.png";
 import kabbadi from "../img/kabbadi.svg";
+import whatsApp2 from "../img/1384023.png";
 
 export default {
   whatsApp,
+  whatsApp2,
   instagram,
   cc,
   logo,
