@@ -72,8 +72,6 @@ function App() {
     }
   }, [data?.pixel]);
 
-  console.log(data);
-
   return <MainLayout />;
 }
 

@@ -14,11 +14,6 @@ import isOddSuspended from "../../../utils/isOddSuspended";
 import SuspendedOdd from "../../shared/SuspendedOdd/SuspendedOdd";
 
 const MatchOddBookmaker = ({ data }) => {
-  const filterMatchOddsBookmaker = data?.filter(
-    (game) =>
-      (game.btype === "MATCH_ODDS" || game.btype === "BOOKMAKER") &&
-      game?.visible == true
-  );
   const { eventId } = useParams();
   const [teamProfit, setTeamProfit] = useState([]);
   const dispatch = useDispatch();
@@ -166,11 +161,11 @@ const MatchOddBookmaker = ({ data }) => {
   useEffect(() => {
     let results = [];
     if (
-      filterMatchOddsBookmaker?.length > 0 &&
+      data?.length > 0 &&
       exposure?.pnlBySelection &&
       Object.keys(exposure?.pnlBySelection)?.length > 0
     ) {
-      filterMatchOddsBookmaker.forEach((game) => {
+      data.forEach((game) => {
         const runners = game?.runners || [];
         if (runners?.length === 2) {
           const runner1 = runners[0];
@@ -209,8 +204,8 @@ const MatchOddBookmaker = ({ data }) => {
 
   return (
     <>
-      {filterMatchOddsBookmaker?.length > 0 &&
-        filterMatchOddsBookmaker?.map((game) => {
+      {data?.length > 0 &&
+        data?.map((game) => {
           const teamProfitForGame = teamProfit?.find(
             (profit) =>
               profit?.gameId === game?.id && profit?.isOnePositiveExposure

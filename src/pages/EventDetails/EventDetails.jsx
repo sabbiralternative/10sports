@@ -112,6 +112,19 @@ const EventDetails = () => {
     return hasDecimal ? parseFloat(value?.toFixed(2)) : value;
   };
 
+  const matchOddsBookmaker = data?.result?.filter(
+    (game) =>
+      (game.btype === "MATCH_ODDS" || game.btype === "BOOKMAKER") &&
+      game?.visible == true &&
+      game?.name !== "tied match"
+  );
+  const tiedMatch = data?.result?.filter(
+    (game) =>
+      (game.btype === "MATCH_ODDS" || game.btype === "BOOKMAKER") &&
+      game?.visible == true &&
+      game?.name === "tied match"
+  );
+
   return (
     <div
       className="w-full h-full
@@ -145,8 +158,8 @@ const EventDetails = () => {
                 setBetType={setTab}
               /> */}
               {/* <Tracker score={data?.score} /> */}
-              {data?.result?.length > 0 && (
-                <MatchOddBookmaker data={data?.result} />
+              {matchOddsBookmaker?.length > 0 && (
+                <MatchOddBookmaker data={matchOddsBookmaker} />
               )}
               {data?.result?.length > 0 && <Fancy data={data?.result} />}
 
@@ -156,6 +169,7 @@ const EventDetails = () => {
               {data && data?.sportsbook?.Result && (
                 <SportsBook sportsBook={data?.sportsbook?.Result} />
               )}
+              {tiedMatch?.length > 0 && <MatchOddBookmaker data={tiedMatch} />}
             </div>
           </div>
         </div>
