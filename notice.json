@@ -32,7 +32,7 @@
       },
 
       "paymentIntent": false,
-      "registrationWhatsapp": true,
+      "registrationWhatsapp": false,
       "ourCasino": true,
       "liveCasino": true,
       "slots": true,

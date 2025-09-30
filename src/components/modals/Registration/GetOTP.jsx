@@ -3,7 +3,8 @@ import { API, Settings } from "../../../api";
 import images from "../../../assets/images";
 import useWhatsApp from "../../../hooks/whatsapp";
 import { AxiosSecure } from "../../../lib/AxiosSecure";
-import getOtpOnWhatsapp from "../../../hooks/getOtpOnWhatsapp";
+// import getOtpOnWhatsapp from "../../../hooks/getOtpOnWhatsapp";
+import { Fragment } from "react";
 
 const GetOTP = ({
   registerRef,
@@ -51,9 +52,9 @@ const GetOTP = ({
     }
   };
 
-  const handleGetOtpOnWhatsapp = async () => {
-    await getOtpOnWhatsapp(mobileNo, setOrderId, setShowRegister);
-  };
+  // const handleGetOtpOnWhatsapp = async () => {
+  //   await getOtpOnWhatsapp(mobileNo, setOrderId, setShowRegister);
+  // };
 
   return (
     <div className="fixed bottom-0 left-0 right-0 top-0 overflow-hidden flex bg-bg_color_popUpParentBg overflow-y-hidden z-[10000] h-[100dvh] w-dvw items-center justify-center">
@@ -197,27 +198,13 @@ const GetOTP = ({
                         </span>
                         <span className="shimmer" />
                       </button>
-                      {Settings.otpWhatsapp && (
+                      {/* {Settings.otpWhatsapp && (
                         <button
                           onClick={handleGetOtpOnWhatsapp}
                           disabled={mobileNo?.length < 10}
                           type="button"
                           className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden text-text_color_loginTextColor bg-bg_color_LoginBtnBgColor border-border_color_brand_secondary1 relative text-primary"
                         >
-                          {/* <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width={18}
-                            height={18}
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="var(--text-primary)"
-                            strokeWidth={2}
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="h-[18px] w-[18px]"
-                          >
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                          </svg> */}
                           <img
                             className="size-5"
                             src={images.whatsApp2}
@@ -226,27 +213,37 @@ const GetOTP = ({
                           <span>Get OTP on WhatsApp</span>
                           <span className="shimmer" />
                         </button>
-                      )}
+                      )} */}
                     </div>
                   </form>
-                  <div className="w-full flex items-center gap-4">
-                    <div className="h-px flex-1 bg-bg_color_quaternary3" />
-                    <span className="text-text_color_loginTextColor text-sm font-medium">
-                      Or
-                    </span>
-                    <div className="h-px flex-1 bg-bg_color_quaternary3" />
-                  </div>
-                  {socialLink?.whatsapplink && (
-                    <button
-                      onClick={() => getWhatsAppId(socialLink?.whatsapplink)}
-                      type="button"
-                      className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden text-text_color_loginTextColor bg-bg_color_LoginBtnBgColor border-border_color_brand_secondary1 relative text-primary"
-                    >
-                      <img className="size-5" src={images.whatsApp2} alt="" />
-                      <span>Get ID on Whatsapp</span>
-                      <span className="shimmer" />
-                    </button>
-                  )}
+
+                  {socialLink?.whatsapplink &&
+                    Settings.registrationWhatsapp && (
+                      <Fragment>
+                        <div className="w-full flex items-center gap-4">
+                          <div className="h-px flex-1 bg-bg_color_quaternary3" />
+                          <span className="text-text_color_loginTextColor text-sm font-medium">
+                            Or
+                          </span>
+                          <div className="h-px flex-1 bg-bg_color_quaternary3" />
+                        </div>
+                        <button
+                          onClick={() =>
+                            getWhatsAppId(socialLink?.whatsapplink)
+                          }
+                          type="button"
+                          className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden text-text_color_loginTextColor bg-bg_color_LoginBtnBgColor border-border_color_brand_secondary1 relative text-primary"
+                        >
+                          <img
+                            className="size-5"
+                            src={images.whatsApp2}
+                            alt=""
+                          />
+                          <span>Get ID on Whatsapp</span>
+                          <span className="shimmer" />
+                        </button>
+                      </Fragment>
+                    )}
                   <div
                     title="registerNowButton"
                     className="w-full flex justify-center items-center text-xs md:text-sm lg:text-base"
