@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useLogo } from "../../../context/ApiProvider";
 import { useDispatch, useSelector } from "react-redux";
-import { setGroup } from "../../../redux/features/global/globalSlice";
+import {
+  setGroup,
+  setShowAppPopUp,
+} from "../../../redux/features/global/globalSlice";
 import Login from "../../modals/Login/Login";
 import Registration from "../../modals/Registration/Registration";
 import ForgotPassword from "../../modals/ForgotPassword/ForgotPassword";
@@ -18,8 +21,11 @@ import Referral from "../../modals/Referral/Referral";
 import Notification from "./Notification";
 import { Settings } from "../../../api";
 import MobileSearch from "./MobileSearch";
+import AppPopup from "./AppPopUp";
 
 const Header = () => {
+  const location = useLocation();
+  const { showAppPopUp, windowWidth } = useSelector((state) => state?.global);
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const { token } = useSelector((state) => state.auth);
   const [showReferral, setShowReferral] = useState(false);
@@ -45,6 +51,31 @@ const Header = () => {
     }, 1000);
   }, [time]);
 
+  useEffect(() => {
+    const closePopupForForever = localStorage.getItem("closePopupForForever");
+    if (location?.state?.pathname === "/apk" || location.pathname === "/apk") {
+      localStorage.setItem("closePopupForForever", true);
+      localStorage.removeItem("installPromptExpiryTime");
+    } else {
+      if (!closePopupForForever) {
+        const expiryTime = localStorage.getItem("installPromptExpiryTime");
+        const currentTime = new Date().getTime();
+
+        if ((!expiryTime || currentTime > expiryTime) && Settings?.apkLink) {
+          localStorage.removeItem("installPromptExpiryTime");
+
+          dispatch(setShowAppPopUp(true));
+        }
+      }
+    }
+  }, [
+    dispatch,
+    windowWidth,
+    showAppPopUp,
+    location?.state?.pathname,
+    location.pathname,
+  ]);
+
   return (
     <>
       {showReferral && <Referral setShowReferral={setShowReferral} />}
@@ -60,6 +91,9 @@ const Header = () => {
         <div className="flex flex-col">
           <div className="flex flex-col shadow-lg autoAnimate">
             <Notification />
+            {Settings?.apkLink && showAppPopUp && windowWidth < 1040 && (
+              <AppPopup />
+            )}
             <div
               id="header_body"
               className="w-full bg-bg_headerBg h-[54px] lg:h-[90px] pr-[4px] md:px-4 flex items-center justify-between gap-1 relative"

@@ -10,6 +10,8 @@ const initialState = {
   showLanguageModal: false,
   showNotification: false,
   showBanner: false,
+  showAppPopUp: false,
+  windowWidth: window.innerWidth,
 };
 
 const stateSlice = createSlice({
@@ -43,6 +45,12 @@ const stateSlice = createSlice({
     setShowBanner: (state, action) => {
       state.showBanner = action.payload;
     },
+    setShowAppPopUp: (state, action) => {
+      state.showAppPopUp = action.payload;
+    },
+    setWindowWidth: (state, action) => {
+      state.windowWidth = action.payload;
+    },
   },
 });
 
@@ -56,6 +64,8 @@ export const {
   setShowLanguageModal,
   setShowNotification,
   setShowBanner,
+  setShowAppPopUp,
+  setWindowWidth,
 } = stateSlice.actions;
 
 export default stateSlice.reducer;

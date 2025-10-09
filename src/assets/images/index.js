@@ -12,8 +12,12 @@ import instagram from "../img/instagram.png";
 import whatsApp from "../img/whatsapp.png";
 import kabbadi from "../img/kabbadi.svg";
 import whatsApp2 from "../img/1384023.png";
+import appStar from "../img/app-star.svg";
+import playStore from "../img/playstore.svg";
 
 export default {
+  playStore,
+  appStar,
   whatsApp,
   whatsApp2,
   instagram,

@@ -108,6 +108,7 @@ const NewAccount = ({ setTab }) => {
   useEffect(() => {
     const getMobile = () => {
       const decode = jwtDecode(token);
+
       if (decode?.mobile) {
         setMobile(decode?.mobile);
       }

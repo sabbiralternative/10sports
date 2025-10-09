@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import disableDevtool from "disable-devtool";
 import { logout } from "./redux/features/auth/authSlice";
 import useWhatsApp from "./hooks/whatsapp";
+import { setWindowWidth } from "./redux/features/global/globalSlice";
 
 function App() {
   const { data } = useWhatsApp();
@@ -13,6 +14,17 @@ function App() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
+
+  useEffect(() => {
+    const handleResize = () => {
+      dispatch(setWindowWidth(window.innerWidth));
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [dispatch]);
 
   useEffect(() => {
     if (disabledDevtool) {
