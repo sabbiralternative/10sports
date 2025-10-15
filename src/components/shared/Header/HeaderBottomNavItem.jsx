@@ -77,11 +77,11 @@ const HeaderBottomNavItem = () => {
           title="Home"
           className={`cursor-pointer uppercase min-h-[28px]  min-w-[100px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
         ${
-          location.pathname === "/event-details/4/34766450"
+          location.pathname === "/event-details/4/34644908"
             ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
             : "text-text_headerDeskNav"
         }`}
-          to="/event-details/4/34766450"
+          to="/event-details/4/34644908"
         >
           <span className="">
             <svg
