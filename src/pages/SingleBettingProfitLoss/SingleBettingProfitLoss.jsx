@@ -36,7 +36,7 @@ const SingleBettingProfitLoss = () => {
   return (
     <div className="w-full h-full flex flex-col gap-2 p-2 text-text_color_primary1 font font-lato text-sm">
       <div className="flex flex-col bg-bg_color_primary rounded-md overflow-hidden shadow-lg">
-        <div className="bg-bg_text_brand_primary py-2 px-4 text-text_color_primary2 font-semibold">
+        <div className="bg-bg_text_brand_primary py-2 px-4 text-primary font-semibold">
           {data?.result?.[0]?.eventName}
         </div>
         <div className="flex flex-col divide-y">
@@ -81,7 +81,7 @@ const SingleBettingProfitLoss = () => {
                           : "text-text_color_danger"
                       }`}
                     >
-                      ${item?.win > 0 ? "win" : "lost"}
+                      {item?.win > 0 ? "win" : "lost"}
                     </span>
                   </div>
                 </div>
@@ -91,7 +91,7 @@ const SingleBettingProfitLoss = () => {
                 </div>
                 <div className="flex justify-between px-4 text-text_color_primary1">
                   <div>Placed Date</div>
-                  <div>{item?.placeDates}</div>
+                  <div>{item?.placeDate}</div>
                 </div>
                 <div className="px-4 py-4 text-center text-sm text-text_color_primary1">
                   <div className="overflow-hidden rounded-lg border">
