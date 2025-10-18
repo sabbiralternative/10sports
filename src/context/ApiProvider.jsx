@@ -2,7 +2,6 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { getSetApis } from "../api/config";
 import { API, Settings } from "../api";
 import notice from "../../notice.json";
-import images from "../assets/images";
 
 export const ApiContext = createContext(null);
 
@@ -27,7 +26,7 @@ const ApiProvider = ({ children }) => {
         const logo = `${API.assets}/${Settings.siteUrl}/logo.${Settings.logoFormat}`;
         setLogo(logo);
       } else {
-        setLogo(images.logo);
+        setLogo(`/src/assets/img/logo.${Settings.logoFormat}`);
       }
 
       const link = document.createElement("link");
