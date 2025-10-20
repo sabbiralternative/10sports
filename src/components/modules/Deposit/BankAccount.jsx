@@ -8,7 +8,7 @@ import UploadTransaction from "./UploadTransaction";
 import { AxiosSecure } from "../../../lib/AxiosSecure";
 import { API } from "../../../api";
 import toast from "react-hot-toast";
-import { scrollToLeft, scrollToRight } from "../../../utils/scroll";
+// import { scrollToLeft, scrollToRight } from "../../../utils/scroll";
 import UPI from "./PaymentMethod/UPI";
 import QR from "./PaymentMethod/QR";
 import USDT from "./PaymentMethod/USDT";
@@ -63,6 +63,18 @@ const BankAccount = ({ amount }) => {
     }
   };
 
+  useEffect(() => {
+    if (
+      paymentMethodRef &&
+      paymentMethodRef.current &&
+      methodType &&
+      methodType !== "pg"
+    ) {
+      paymentMethodRef.current.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  }, [methodType]);
   return (
     <div className="w-full h-full } lg:w-[54%] lg:pt-2">
       <div className="mx-2 font-lato h-full pb-10">
@@ -95,7 +107,7 @@ const BankAccount = ({ amount }) => {
                         ({data?.result?.length})
                       </span>
                     </span>
-                    <button
+                    {/* <button
                       onClick={() => scrollToLeft(paymentMethodRef)}
                       className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out flex size-[22px] sm:size-[24px] md:size-[26px] justify-center items-center gap-[10px] bg-bg_color_quaternary rounded shadow-sm cursor-pointer"
                       type="button"
@@ -114,8 +126,8 @@ const BankAccount = ({ amount }) => {
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M15 6l-6 6l6 6" />
                       </svg>
-                    </button>
-                    <button
+                    </button> */}
+                    {/* <button
                       onClick={() => scrollToRight(paymentMethodRef)}
                       className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out flex size-[22px] sm:size-[24px] md:size-[26px] justify-center ml-[4px] items-center gap-[10px] bg-bg_color_quaternary rounded shadow-sm cursor-pointer"
                       type="button"
@@ -134,12 +146,11 @@ const BankAccount = ({ amount }) => {
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M9 6l6 6l-6 6" />
                       </svg>
-                    </button>
+                    </button> */}
                   </div>
                   <div
-                    ref={paymentMethodRef}
                     id="payMentOptions"
-                    className="flex items-center gap-x-1.5 pt-[18px] pb-[8px] overflow-x-auto no-scrollbar scroll-smooth cursor-pointer w-full transition-all ease-in-out duration-150"
+                    className="flex flex-col items-center gap-y-2 pt-[18px] pb-[8px] overflow-x-auto no-scrollbar scroll-smooth cursor-pointer w-full transition-all ease-in-out duration-150"
                   >
                     {[...data.result]
                       .sort((a, b) => a?.sort - b?.sort)
@@ -147,44 +158,22 @@ const BankAccount = ({ amount }) => {
                         <div
                           key={method?.paymentId}
                           onClick={() => handleVisibleBankMethod(method)}
-                          className={`flex justify-start items-center flex-col gap-y-2 rounded-[10px] bg-transparent py-2 w-full px-[20px] relative border  shadow-depositGateWayBoxShadows min-w-[117px] max-w-[130px] ${
+                          className={`flex justify-between   gap-y-2 rounded-[10px] bg-transparent py-2 w-full px-2  md:px-4  relative border  shadow-depositGateWayBoxShadows  ${
                             method?.paymentId === paymentId
                               ? "border-[var(--bg-active-primary)]"
                               : ""
                           }`}
                         >
-                          {/* <div className="absolute top-0 right-0.5">
-                      <div className="inline-flex items-center">
-                        <label
-                          className="relative flex cursor-pointer items-center rounded-full"
-                          htmlFor="blue"
-                        >
-                          <input
-                            className="before:content[''] before:bg-transperent peer relative cursor-pointer appearance-none rounded-full border border-border_color_primary transition-all before:absolute before:left-2/4 before:top-2/4 before:block before:h-max before:w-max before:-translate-x-2/4 before:-translate-y-2/4 before:rounded-full before:opacity-0 before:transition-opacity checked:border-border_color_brand_primary checked:bg-bg_text_brand_primary hover:before:opacity-10 undefined"
-                            id="blue"
-                            type="checkbox"
-                            style={{ width: "14px", height: "14px" }}
-                          />
-                          <span className="pointer-events-none absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 text-text_color_primary2 opacity-0 transition-opacity peer-checked:opacity-100">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="h-3.5 w-3.5"
-                              viewBox="0 0 20 20"
-                              fill="currentColor"
-                              stroke="currentColor"
-                              strokeWidth={1}
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                          </span>
-                        </label>
-                      </div>
-                    </div> */}
-                          <div className="flex items-center justify-between gap-y-1 flex-col w-full ">
+                          <div className="flex flex-col gap-y-2">
+                            <span className="text-xs font-lato font-medium truncate w-full uppercase ">
+                              {method?.title}
+                            </span>
+                            <span className="text-xs font-lato font-medium truncate w-full">
+                              {method?.type}
+                            </span>
+                          </div>
+
+                          <div className=" ">
                             {method?.type == "qr" && (
                               <FaQrcode size={25} color="gray" />
                             )}
@@ -216,10 +205,6 @@ const BankAccount = ({ amount }) => {
                                 src={images.whatsApp}
                               />
                             ) : null}
-
-                            <span className="text-xs font-lato font-medium truncate w-full uppercase text-center">
-                              {method?.title}
-                            </span>
                           </div>
                         </div>
                       ))}
@@ -233,21 +218,23 @@ const BankAccount = ({ amount }) => {
                   </p>
                 </div>
                 {/* Payment Method */}
-                {methodType === "bank" && (
-                  <Bank amount={amount} depositData={depositData} />
-                )}
-                {methodType === "upi" && (
-                  <UPI amount={amount} depositData={depositData} />
-                )}
-                {methodType === "qr" && (
-                  <QR amount={amount} depositData={depositData} />
-                )}
-                {methodType === "usdt" || methodType === "usdt_bep20" ? (
-                  <USDT amount={amount} depositData={depositData} />
-                ) : null}
-                {methodType === "pg" && (
-                  <PG amount={amount} depositData={depositData} />
-                )}
+                <div ref={paymentMethodRef}>
+                  {methodType === "bank" && (
+                    <Bank amount={amount} depositData={depositData} />
+                  )}
+                  {methodType === "upi" && (
+                    <UPI amount={amount} depositData={depositData} />
+                  )}
+                  {methodType === "qr" && (
+                    <QR amount={amount} depositData={depositData} />
+                  )}
+                  {methodType === "usdt" || methodType === "usdt_bep20" ? (
+                    <USDT amount={amount} depositData={depositData} />
+                  ) : null}
+                  {methodType === "pg" && (
+                    <PG amount={amount} depositData={depositData} />
+                  )}
+                </div>
                 <UploadTransaction
                   paymentId={paymentId}
                   amount={amount}
