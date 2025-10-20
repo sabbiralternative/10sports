@@ -378,6 +378,23 @@ cursor-pointer
                     </span>
                   </div>
                 </div>
+                {socialLink?.whatsapplink && (
+                  <div
+                    onClick={() =>
+                      handleOpenSocialLink(socialLink?.whatsapplink)
+                    }
+                    className="w-full"
+                  >
+                    <div className="flex transition-all px-0.5 rounded-sm ease-in-out duration-150 hover:bg-bg_color_quaternary2  active:scale-[99%] items-center justify-start gap-3 w-full py-2 cursor-pointer">
+                      <span className="w-4 h-auto xs:w-5 text-text_color_primary1">
+                        <img src={images.whatsApp} alt="" />
+                      </span>
+                      <span className="font-medium text-sm xs:text-base text-text_color_primary1">
+                        All Support
+                      </span>
+                    </div>
+                  </div>
+                )}
               </div>
             </li>
           )}
@@ -799,21 +816,7 @@ cursor-pointer
                   </div>
                 </a>
               </div>
-              {socialLink?.whatsapplink && (
-                <div
-                  onClick={() => handleOpenSocialLink(socialLink?.whatsapplink)}
-                  className="w-full"
-                >
-                  <div className="flex transition-all px-0.5 rounded-sm ease-in-out duration-150 hover:bg-bg_color_quaternary2  active:scale-[99%] items-center justify-start gap-3 w-full py-2 cursor-pointer">
-                    <span className="w-4 h-auto xs:w-5 text-text_color_primary1">
-                      <img src={images.whatsApp} alt="" />
-                    </span>
-                    <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                      All Support
-                    </span>
-                  </div>
-                </div>
-              )}
+
               <div onClick={handleLogout} className="w-full">
                 <div className="flex transition-all px-0.5 rounded-sm ease-in-out duration-150 hover:bg-bg_color_quaternary2  active:scale-[99%] items-center justify-start gap-3 w-full py-2 cursor-pointer">
                   <span className="w-4 h-auto xs:w-5 text-text_color_primary1">
