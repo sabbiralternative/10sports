@@ -60,7 +60,7 @@ const DepositStatement = () => {
                       return (
                         <div
                           key={i}
-                          className="flex  transition-all duration-300 ease-in-out cursor-pointer flex-col gap-2 bg-bg_color_primary rounded overflow-hidden shadow-lg
+                          className="flex  transition-all duration-300 ease-in-out cursor-pointer flex-col  bg-bg_color_primary rounded overflow-hidden shadow-lg
               
               "
                         >
@@ -135,7 +135,7 @@ const DepositStatement = () => {
                                 onClick={() =>
                                   setComplaintId(data?.referenceNo)
                                 }
-                                className="px-2 py-1 rounded-md text-white flex items-center justify-center text-[12px] font-semibold"
+                                className="px-3 py-1 text-x xs:text-xs sm:text-sm font-semibold  text-text_color_primary2 rounded-tl"
                               >
                                 Report Issue
                               </button>
