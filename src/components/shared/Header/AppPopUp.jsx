@@ -52,7 +52,7 @@ const AppPopup = () => {
         </div>
         <div className="app-text">
           <h2>Download Android Application</h2>
-          <span>Instant Download on your device</span>
+
           <div className="star">
             <img src={images.appStar} alt="star" />
             <img src={images.appStar} alt="star" />
@@ -67,15 +67,10 @@ const AppPopup = () => {
         onClick={handleDownload}
         className="install-btn"
       >
-        <button
-          style={{
-            background: "transparent",
-            border: "none",
-            paddingTop: "3px",
-            cursor: "pointer",
-          }}
-        >
-          Install
+        <button className="flex  hover:opacity-100 w-max font-extrabold items-center justify-center  bg-bg_color_LoginBtnBgColor rounded-md px-2.5 py-0.5">
+          <span className=" text-x text-primary font-lato md:font-semibold xs:text-xs  md:text-sm font-[800]">
+            Install
+          </span>
         </button>
       </a>
     </div>

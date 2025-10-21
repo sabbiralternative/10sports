@@ -702,7 +702,7 @@ div:where(.swal2-container) div:where(.swal2-actions) {
   width: 100%;
   font-family: Helvetica Neue, sans-serif, BBAlpha Sans;
   background: var(--menu-bg);
-  padding: 16px;
+  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: flex-start;

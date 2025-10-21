@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import Banner from "../components/modals/Banner/Banner";
 
 const MainLayout = () => {
-  const { group, showNotification, showBanner } = useSelector(
+  const { group, showNotification, showBanner, showAppPopUp } = useSelector(
     (state) => state.global
   );
   const location = useLocation();
@@ -32,9 +32,13 @@ const MainLayout = () => {
       <div
         ref={ref}
         className={`flex-1 overflow-y-auto show-scrollbar scroll-auto flex flex-col h-full ${
-          showNotification
+          showNotification && showAppPopUp
             ? "pt-[120px] lg:pt-[155px]"
-            : "pt-[90px] lg:pt-[128px]"
+            : !showNotification && showAppPopUp
+            ? "pt-[140px] lg:pt-[130px]"
+            : showNotification && !showAppPopUp
+            ? "pt-[120px] lg:pt-[155px]"
+            : "pt-[100px] lg:pt-[128px]"
         }`}
       >
         <main
