@@ -72,6 +72,7 @@ const BankAccount = ({ amount }) => {
     ) {
       paymentMethodRef.current.scrollIntoView({
         behavior: "smooth",
+        block: "center",
       });
     }
   }, [methodType]);
