@@ -378,7 +378,7 @@ cursor-pointer
                     </span>
                   </div>
                 </div>
-                {socialLink?.whatsapplink && (
+                {/* {socialLink?.whatsapplink && (
                   <div
                     onClick={() =>
                       handleOpenSocialLink(socialLink?.whatsapplink)
@@ -394,7 +394,7 @@ cursor-pointer
                       </span>
                     </div>
                   </div>
-                )}
+                )} */}
               </div>
             </li>
           )}
