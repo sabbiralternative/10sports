@@ -210,7 +210,7 @@ const BetSlip = () => {
                 ODDS
               </label>
               <div className="flex items-center justify-center">
-                {!placeBetValues?.isWeak && (
+                {!placeBetValues?.isWeak && !placeBetValues?.cashout && (
                   <button
                     onClick={() =>
                       handleDecreasePrice(
@@ -227,6 +227,7 @@ const BetSlip = () => {
                 )}
 
                 <input
+                  readOnly={placeBetValues?.cashout}
                   onChange={(e) => dispatch(setPrice(e.target.value))}
                   placeholder="Enter Odds"
                   inputMode="numeric"
@@ -234,7 +235,7 @@ const BetSlip = () => {
                   type="number"
                   value={price}
                 />
-                {!placeBetValues?.isWeak && (
+                {!placeBetValues?.isWeak && !placeBetValues?.cashout && (
                   <button
                     onClick={() =>
                       handleIncreasePrice(
@@ -263,6 +264,7 @@ const BetSlip = () => {
                 {/* <span>Max mkt : 0</span> */}
               </label>
               <input
+                readOnly={placeBetValues?.cashout}
                 onChange={(e) => dispatch(setStake(e.target.value))}
                 id="stakeInput"
                 inputMode="numeric"
@@ -283,11 +285,11 @@ const BetSlip = () => {
               <div className=" grid grid-cols-12 gap-[7px]">
                 {parseButtonValues?.slice?.(0, 6)?.map((button, i) => (
                   <button
+                    disabled={placeBetValues?.cashout}
                     key={i}
                     onClick={() => dispatch(setStake(button?.value))}
-                    className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out col-span-4 w-full overflow-hidden text-[12px] font-semibold rounded-[4px] text-text_color_primary2 text-center py-1.5 bg-transparent border border-[var(--bg-active-primary)]
-              cursor-pointer
-              "
+                    className={`inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out col-span-4 w-full overflow-hidden text-[12px] font-semibold rounded-[4px] text-text_color_primary2 text-center py-1.5 bg-transparent border border-[var(--bg-active-primary)]
+              cursor-pointer disabled:cursor-not-allowed`}
                     type="button"
                   >
                     <span>+ {button?.value}</span>
