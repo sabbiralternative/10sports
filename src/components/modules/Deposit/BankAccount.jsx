@@ -31,7 +31,7 @@ const BankAccount = ({ amount }) => {
   const handleVisibleBankMethod = async (method) => {
     setMethodType(method?.type);
     setPaymentId(method?.paymentId);
-    if (method?.type === "pg") {
+    if (method?.type === "upigateway") {
       const depositDetailForPg = {
         paymentId: method?.paymentId,
         amount,
@@ -68,7 +68,7 @@ const BankAccount = ({ amount }) => {
       paymentMethodRef &&
       paymentMethodRef.current &&
       methodType &&
-      methodType !== "pg"
+      methodType !== "upigateway"
     ) {
       paymentMethodRef.current.scrollIntoView({
         behavior: "smooth",
@@ -204,6 +204,12 @@ const BankAccount = ({ amount }) => {
                               <img
                                 style={{ height: "25px", width: "25px" }}
                                 src={images.whatsApp}
+                              />
+                            ) : null}
+                            {method?.type == "upigateway" ? (
+                              <img
+                                style={{ height: "25px", width: "25px" }}
+                                src={images.brandsm}
                               />
                             ) : null}
                           </div>

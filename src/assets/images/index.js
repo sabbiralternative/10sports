@@ -14,8 +14,10 @@ import kabbadi from "../img/kabbadi.svg";
 import whatsApp2 from "../img/1384023.png";
 import appStar from "../img/app-star.svg";
 import playStore from "../img/playstore.svg";
+import brandsm from "../img/brand-sm.svg";
 
 export default {
+  brandsm,
   playStore,
   appStar,
   whatsApp,
