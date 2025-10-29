@@ -209,7 +209,7 @@ const BankAccount = ({ amount }) => {
                             {method?.type == "upigateway" ? (
                               <img
                                 style={{ height: "25px", width: "25px" }}
-                                src={images.brandsm}
+                                src={images.bhim}
                               />
                             ) : null}
                           </div>
