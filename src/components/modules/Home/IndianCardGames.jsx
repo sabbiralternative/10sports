@@ -18,7 +18,7 @@ const IndianCardGames = () => {
 
   useEffect(() => {
     const getGames = async () => {
-      const res = await AxiosSecure.post(API.auraWolf, {
+      const res = await AxiosSecure.post(API.mac88, {
         gameList: "ALL",
         product: "ALL",
         isHome: false,
@@ -147,8 +147,8 @@ const IndianCardGames = () => {
                 className={`${
                   showSeeAll
                     ? ""
-                    : "min-w-[120px] sm:min-w-[140px] md:min-w-n[160px] lg:min-w-[180px] xl:min-w-[200px] 2xl:min-w-[220px]"
-                } aspect-square  rounded-md cursor-pointer overflow-hidden`}
+                    : "min-w-[120px] sm:min-w-[140px] md:min-w-[160px] lg:min-w-[180px] xl:min-w-[200px] 2xl:min-w-[220px] "
+                }   rounded-md cursor-pointer overflow-hidden aspect-auto`}
               >
                 <div className="relative overflow-hidden w-full h-full object-cover">
                   <img

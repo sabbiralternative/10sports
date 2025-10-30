@@ -338,7 +338,7 @@ const HeaderBottomNavItem = () => {
           </span>
         </Link>
         {/* aura slot live casino */}
-        {Settings.auraWolf && (
+        {/* {Settings.auraWolf && (
           <Link
             title="Aura"
             className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
@@ -355,7 +355,7 @@ const HeaderBottomNavItem = () => {
               Aura
             </span>
           </Link>
-        )}
+        )} */}
         {Settings.mac88 && (
           <Link
             className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
