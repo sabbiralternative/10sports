@@ -42,7 +42,7 @@
       "language": true,
       "build": "development",
       "betDelay": false,
-      "auraWolf": true,
+      "aura": true,
       "liveCasinoWolf": false,
       "slotWolf": false,
       "otp": true,

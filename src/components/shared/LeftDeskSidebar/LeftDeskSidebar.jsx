@@ -235,7 +235,7 @@ const LeftDeskSidebar = () => {
               </span>
             </Link>
           </li>
-          {Settings.auraWolf && (
+          {Settings.aura && (
             <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav">
               {" "}
               <Link

@@ -87,7 +87,6 @@ export const Settings = {
   b2c: "",
   slotWolf: "",
   liveCasinoWolf: "",
-  auraWolf: "",
   language: "",
   otpless: "",
   otpWhatsapp: "",

@@ -580,7 +580,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                   {languageValue(valueByLanguage, LanguageKey.LIVE_CASINO)}
                 </span>
               </a>
-              {Settings.auraWolf && (
+              {Settings.aura && (
                 <a
                   className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
                   title="Casino"
