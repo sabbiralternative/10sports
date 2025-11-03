@@ -90,6 +90,12 @@ const RegistrationForm = ({
     const result = await handleRegister(registerData).unwrap();
 
     if (result.success) {
+      if (window?.fbq) {
+        window.fbq("track", "CompleteRegistration", {
+          content_name: "User Signup",
+          status: "success",
+        });
+      }
       localStorage.removeItem("referralCode");
       const token = result?.result?.token;
       const bonusToken = result?.result?.bonusToken;
