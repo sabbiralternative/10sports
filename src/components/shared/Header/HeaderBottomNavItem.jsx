@@ -337,25 +337,7 @@ const HeaderBottomNavItem = () => {
             {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
           </span>
         </Link>
-        {/* aura slot live casino */}
-        {/* {Settings.auraWolf && (
-          <Link
-            title="Aura"
-            className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
-              location.pathname === "/wolf/auraWolf"
-                ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
-                : "text-text_headerDeskNav"
-            }`}
-            to={`/wolf/auraWolf`}
-          >
-            <span>
-              <Aura height={16} width={16} />
-            </span>
-            <span className="font font-lato text-[12px]  font-normal">
-              Aura
-            </span>
-          </Link>
-        )} */}
+
         {Settings.mac88 && (
           <Link
             className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
@@ -426,6 +408,25 @@ const HeaderBottomNavItem = () => {
             {languageValue(valueByLanguage, LanguageKey.LIVE_CASINO)}
           </span>
         </Link>
+        {/* aura slot live casino */}
+        {Settings.auraWolf && (
+          <Link
+            title="Aura"
+            className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+              location.pathname === "/wolf/auraWolf"
+                ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+                : "text-text_headerDeskNav"
+            }`}
+            to={`/wolf/auraWolf`}
+          >
+            <span>
+              <Aura height={16} width={16} />
+            </span>
+            <span className="font font-lato text-[12px]  font-normal">
+              Aura
+            </span>
+          </Link>
+        )}
         <Link
           title="Slots"
           className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
