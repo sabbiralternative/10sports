@@ -69,7 +69,8 @@ const BankAccount = ({ amount }) => {
       paymentMethodRef &&
       paymentMethodRef.current &&
       methodType &&
-      methodType !== "upigateway"
+      methodType !== "upigateway" &&
+      methodType !== "toitgateway"
     ) {
       paymentMethodRef.current.scrollIntoView({
         behavior: "smooth",
