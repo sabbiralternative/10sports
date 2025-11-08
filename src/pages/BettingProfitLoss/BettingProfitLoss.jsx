@@ -75,8 +75,9 @@ const BettingProfitLoss = () => {
                     key={item?.eventId}
                     className="w-full flex bg-bg_color_primary active:scale-95 transition-all ease-in-out duration-200 flex-col rounded-[4px] items-center justify-start gap-y-1 my-1 shadow-md cursor-pointer"
                   >
-                    <div className="w-full text-start  bg-bg_text_brand_primary bg-clip-text text-transparent px-2.5 py-2 text-xs font-[550] capitalize">
+                    <div className="w-full text-start  bg-bg_text_brand_primary bg-clip-text text-transparent px-2.5 py-2 text-xs font-[550] capitalize flex items-center justify-between">
                       <span>{item?.narration}</span>
+                      <span className="text-gray-400">{item?.time}</span>
                     </div>
                     <div className="w-full bg-bg_color_tertiary1 px-2.5 py-2 flex items-center justify-between  text-xs sm:text-sm">
                       <span className="text-text_color_primary1 w-1/2 border-r border-r-border_color_primary flex items-center justify-start gap-x-1">
