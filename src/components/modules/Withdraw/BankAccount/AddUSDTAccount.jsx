@@ -6,56 +6,45 @@ import { AxiosSecure } from "../../../../lib/AxiosSecure";
 import { API, Settings } from "../../../../api";
 import { jwtDecode } from "jwt-decode";
 
-const NewAccount = ({ setTab, refetchBankAccounts }) => {
-  const [addNewBank] = useBankAccountMutation();
+const AddUSDTAccount = ({ setTab, refetchBankAccounts }) => {
+  const [addNewUSDTAccount] = useBankAccountMutation();
   const [isFormValid, setIsFormValid] = useState(false);
   const [mobile, setMobile] = useState(null);
   const { token } = useSelector((state) => state.auth);
   const [orderId, setOrderId] = useState(null);
   const [timer, setTimer] = useState(null);
-  const [bankDetails, setBankDetails] = useState({
-    accountName: "",
-    ifsc: "",
-    accountNumber: "",
-    confirmAccountNumber: "",
-    upiId: "",
+  const [usdtDetails, setUsdtDetails] = useState({
     otp: "",
+    usdt_type: "",
+    wallet_address: "",
   });
 
   /* Handle add bank function */
   const handleAddBank = async (e) => {
     e.preventDefault();
 
-    if (bankDetails.accountNumber != bankDetails.confirmAccountNumber) {
-      return toast.error("Account number not matched!");
-    }
-
-    if (mobile && !bankDetails.otp && Settings.otp) {
+    if (mobile && !usdtDetails.otp && Settings.otp) {
       return toast.error("Please enter otp to add new account");
     }
     /* generating random token for post data */
 
-    let bankData = {
-      accountName: bankDetails.accountName,
-      ifsc: bankDetails.ifsc,
-      accountNumber: bankDetails.accountNumber,
-      upiId: bankDetails.upiId,
-      type: "addBankAccount",
+    let payload = {
+      wallet_address: usdtDetails.wallet_address,
+      usdt_type: usdtDetails.usdt_type,
+      type: "addUSDTAccount",
     };
     if (mobile) {
-      bankData.mobile = mobile;
-      bankData.otp = bankDetails.otp;
-      bankData.orderId = orderId;
+      payload.mobile = mobile;
+      payload.otp = usdtDetails.otp;
+      payload.orderId = orderId;
     }
 
-    const res = await addNewBank(bankData).unwrap();
+    const res = await addNewUSDTAccount(payload).unwrap();
     if (res?.success) {
-      setBankDetails({
-        accountName: "",
-        ifsc: "",
-        accountNumber: "",
-        confirmAccountNumber: "",
+      setUsdtDetails({
         otp: "",
+        usdt_type: "",
+        wallet_address: "",
       });
       toast.success(res?.result?.message);
       setTab("oldAccount");
@@ -66,23 +55,18 @@ const NewAccount = ({ setTab, refetchBankAccounts }) => {
     }
   };
 
-  const validateForm = (bankDetails) => {
-    const isaccountNameFilled = bankDetails.accountName.trim() !== "";
-    const isaccountNumberFilled = bankDetails.accountNumber.trim() !== "";
-    const isIfscFilled = bankDetails.ifsc.trim() !== "";
-    const isOTPFilled =
-      mobile && Settings.otp ? bankDetails.otp.trim() !== "" : true;
+  const validateForm = (usdtDetails) => {
+    const isUSDTTypeFilled = usdtDetails.usdt_type.trim() !== "";
+    const isWalletAddressFilled = usdtDetails.wallet_address.trim() !== "";
+    const isOTPFilled = mobile ? usdtDetails.otp.trim() !== "" : true;
     const isFormValid =
-      isaccountNameFilled &&
-      isIfscFilled &&
-      isaccountNumberFilled &&
-      isOTPFilled;
+      isUSDTTypeFilled && isWalletAddressFilled && isOTPFilled;
     setIsFormValid(isFormValid);
   };
 
   useEffect(() => {
-    validateForm(bankDetails);
-  }, [bankDetails]);
+    validateForm(usdtDetails);
+  }, [usdtDetails]);
 
   const getOtp = async () => {
     const otpData = {
@@ -140,22 +124,42 @@ const NewAccount = ({ setTab, refetchBankAccounts }) => {
     <form onSubmit={handleAddBank} className="w-full font font-lato">
       <div className="rounded-lg bg-bg_color_primary text-text_color_primary1 py-2 px-3.5 flex flex-col items-start justify-start w-full gap-y-0.5">
         <div className="flex flex-col w-full">
-          <div className="ml-1 text-sm font">UPI ID (Optional)</div>
-          <div className="flex items-center w-full bg-bg_color_input_bg w-full py-2 px-2 rounded-lg border">
-            <input
-              className="text-sm px-1 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
-              placeholder="Enter UPI ID"
-              aria-label="Account No"
-              id="accountNo"
-              type="text"
-              onChange={(e) => {
-                setBankDetails({
-                  ...bankDetails,
-                  upiId: e.target.value,
-                });
-              }}
-              value={bankDetails.upiId}
-            />
+          <div className="ml-1 text-sm">
+            USDT Type <span className="text-text_color_danger">*</span>
+          </div>
+          <div className="flex items-center w-full bg-bg_color_input_bg  py-2 px-2 rounded-lg border gap-x-10">
+            <div className="flex items-center gap-x-2">
+              <p>BEP20</p>
+              <input
+                name="usdt-type"
+                onChange={(e) => {
+                  setUsdtDetails({
+                    ...usdtDetails,
+                    usdt_type: e.target.value,
+                  });
+                }}
+                type="radio"
+                placeholder="Enter Wallet Address"
+                className="pr-2"
+                value="BEP20"
+              />
+            </div>
+            <div className="flex items-center gap-x-2">
+              <p>TRC20</p>
+              <input
+                name="usdt-type"
+                onChange={(e) => {
+                  setUsdtDetails({
+                    ...usdtDetails,
+                    usdt_type: e.target.value,
+                  });
+                }}
+                type="radio"
+                placeholder="Enter Wallet Address"
+                className="pr-2"
+                value="TRC20"
+              />
+            </div>
           </div>
           <div className="flex items-start w-full justify-between leading-normal px-1">
             <div className="w-max min-h-[18px] h-max" />
@@ -163,95 +167,22 @@ const NewAccount = ({ setTab, refetchBankAccounts }) => {
         </div>
         <div className="flex flex-col w-full">
           <div className="ml-1 text-sm">
-            Account Name
-            <span className="text-text_color_danger">*</span>
+            Wallet Address <span className="text-text_color_danger">*</span>
           </div>
           <div className="flex items-center w-full bg-bg_color_input_bg w-full py-2 px-2 rounded-lg border">
             <input
               onChange={(e) => {
-                setBankDetails({
-                  ...bankDetails,
-                  accountName: e.target.value,
+                setUsdtDetails({
+                  ...usdtDetails,
+                  wallet_address: e.target.value,
                 });
               }}
               className="text-sm px-1 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
-              placeholder="Enter Account Name"
-              aria-label="Confirm Account No"
-              id="confirmAccountNo"
-              type="text"
-              value={bankDetails.accountName}
-            />
-          </div>
-          <div className="flex items-start w-full justify-between leading-normal px-1">
-            <div className="w-max min-h-[18px] h-max" />
-          </div>
-        </div>
-        <div className="flex flex-col w-full">
-          <div className="ml-1 text-sm">
-            Account No <span className="text-text_color_danger">*</span>
-          </div>
-          <div className="flex items-center w-full bg-bg_color_input_bg w-full py-2 px-2 rounded-lg border">
-            <input
-              onChange={(e) => {
-                setBankDetails({
-                  ...bankDetails,
-                  accountNumber: e.target.value,
-                });
-              }}
-              className="text-sm px-1 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
-              placeholder="Enter Account No"
+              placeholder="Enter Wallet Address"
               aria-label="Account Name"
               id="accountName"
               type="text"
-              value={bankDetails.accountNumber}
-            />
-          </div>
-          <div className="flex items-start w-full justify-between leading-normal px-1">
-            <div className="w-max min-h-[18px] h-max" />
-          </div>
-        </div>
-        <div className="flex flex-col w-full">
-          <div className="ml-1 text-sm">
-            Confirm Account No <span className="text-text_color_danger">*</span>
-          </div>
-          <div className="flex items-center w-full bg-bg_color_input_bg w-full py-2 px-2 rounded-lg border">
-            <input
-              onChange={(e) => {
-                setBankDetails({
-                  ...bankDetails,
-                  confirmAccountNumber: e.target.value,
-                });
-              }}
-              className="text-sm px-1 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
-              placeholder="Re-enter Account No"
-              aria-label="Account Name"
-              id="accountName"
-              type="text"
-              value={bankDetails.confirmAccountNumber}
-            />
-          </div>
-          <div className="flex items-start w-full justify-between leading-normal px-1">
-            <div className="w-max min-h-[18px] h-max" />
-          </div>
-        </div>
-        <div className="flex flex-col w-full">
-          <div className="ml-1 text-sm">
-            IFSC Code <span className="text-text_color_danger">*</span>
-          </div>
-          <div className="flex items-center w-full bg-bg_color_input_bg w-full py-2 px-2 rounded-lg border">
-            <input
-              onChange={(e) => {
-                setBankDetails({
-                  ...bankDetails,
-                  ifsc: e.target.value,
-                });
-              }}
-              className="text-sm px-1 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
-              placeholder="Enter IFSC Code"
-              aria-label="Account Name"
-              id="accountName"
-              type="text"
-              value={bankDetails.ifsc}
+              value={usdtDetails.wallet_address}
             />
           </div>
           <div className="flex items-start w-full justify-between leading-normal px-1">
@@ -322,8 +253,8 @@ const NewAccount = ({ setTab, refetchBankAccounts }) => {
               <input
                 maxLength={6}
                 onChange={(e) => {
-                  setBankDetails({
-                    ...bankDetails,
+                  setUsdtDetails({
+                    ...usdtDetails,
                     otp: e.target.value,
                   });
                 }}
@@ -332,7 +263,7 @@ const NewAccount = ({ setTab, refetchBankAccounts }) => {
                 aria-label="Account Name"
                 id="accountName"
                 type="text"
-                value={bankDetails.otp}
+                value={usdtDetails.otp}
               />{" "}
               <div className="w-max"></div>
             </div>
@@ -393,4 +324,4 @@ const NewAccount = ({ setTab, refetchBankAccounts }) => {
   );
 };
 
-export default NewAccount;
+export default AddUSDTAccount;

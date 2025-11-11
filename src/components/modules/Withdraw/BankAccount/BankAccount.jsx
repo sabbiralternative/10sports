@@ -2,20 +2,21 @@ import { useEffect, useState } from "react";
 import { useBankAccount } from "../../../../hooks/bankAccount";
 import NewAccount from "./NewAccount";
 import OldAccount from "./OldAccount";
+import AddUSDTAccount from "./AddUSDTAccount";
 
 const BankAccount = ({ amount }) => {
   const bankData = {
     type: "getBankAccounts",
     status: "1",
   };
-  const { data } = useBankAccount(bankData);
+  const { data, refetch } = useBankAccount(bankData);
   const [tab, setTab] = useState("");
 
   useEffect(() => {
     if (data?.length > 0) {
       setTab("oldAccount");
     } else {
-      setTab("newAccount");
+      setTab("add-bank-account");
     }
   }, [data]);
 
@@ -32,13 +33,22 @@ const BankAccount = ({ amount }) => {
               className="relative flex w-[100%] rounded-lg overflow-clip shadow"
             >
               <button
-                onClick={() => setTab("newAccount")}
+                onClick={() => setTab("add-bank-account")}
                 className={`flex items-center justify-center w-full gap-1.5 tracking-wider undefined p-3 text-sm font-semibold text-text_color_primary2 undefined ${
-                  tab === "newAccount" ? "text-primary" : ""
+                  tab === "add-bank-account" ? "text-primary" : ""
                 } `}
                 style={{ zIndex: 10 }}
               >
-                Use New Account
+                Add Bank Account
+              </button>
+              <button
+                onClick={() => setTab("add-usdt-account")}
+                className={`flex items-center justify-center w-full gap-1.5 tracking-wider undefined p-3 text-sm font-semibold text-text_color_primary2 undefined ${
+                  tab === "add-usdt-account" ? "text-primary" : ""
+                } `}
+                style={{ zIndex: 10 }}
+              >
+                Add USDT Account
               </button>
               <button
                 onClick={() => setTab("oldAccount")}
@@ -50,12 +60,16 @@ const BankAccount = ({ amount }) => {
                 Use Previous Account
               </button>
               <div
-                className={`w-[48%] absolute z-10 h-full transition-all ease-in-out ${
-                  tab === "oldAccount" ? "right-0" : "left-0"
+                className={`w-[30%] absolute z-10 h-full transition-all ease-in-out ${
+                  tab === "oldAccount"
+                    ? "right-0"
+                    : tab === "add-bank-account"
+                    ? "left-0"
+                    : "left-[35%]"
                 }`}
                 style={{
                   zIndex: 9,
-                  width: "50%",
+                  width: "30%",
 
                   bottom: "0px",
                 }}
@@ -65,7 +79,12 @@ const BankAccount = ({ amount }) => {
             </div>
           </div>
         </div>
-        {tab === "newAccount" && <NewAccount setTab={setTab} />}
+        {tab === "add-bank-account" && (
+          <NewAccount setTab={setTab} refetchBankAccounts={refetch} />
+        )}
+        {tab === "add-usdt-account" && (
+          <AddUSDTAccount setTab={setTab} refetchBankAccounts={refetch} />
+        )}
         {tab === "oldAccount" && (
           <OldAccount bankAccounts={data} amount={amount} />
         )}
