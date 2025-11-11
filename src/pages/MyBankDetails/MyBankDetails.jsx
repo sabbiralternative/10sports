@@ -7,9 +7,11 @@ import { MdDelete } from "react-icons/md";
 import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
 import { useBankAccount } from "../../hooks/bankAccount";
 import CreateBankAccount from "../../components/modals/CreateBankAccount/CreateBankAccount";
+import CreateUSDTAccount from "../../components/modals/CreateUSDTAccount/CreateUSDTAccount";
 
 const MyBankDetails = () => {
   const [showAddBank, setShowAddBank] = useState(false);
+  const [showAddUSDTModal, setShowAddUSDTModal] = useState(false);
   const [showDetails, setShowDetails] = useState(null);
   const [tab, setTab] = useState(1);
   const {
@@ -90,6 +92,12 @@ const MyBankDetails = () => {
           setShowAddBank={setShowAddBank}
         />
       )}
+      {showAddUSDTModal && (
+        <CreateUSDTAccount
+          refetchBankAccounts={refetchBankData}
+          setShowAddUSDTModal={setShowAddUSDTModal}
+        />
+      )}
 
       <div className="w-full h-full  lg:w-[54%] lg:pt-2">
         <div className="no-scrollbar h-full overflow-y-auto">
@@ -140,6 +148,18 @@ const MyBankDetails = () => {
               }}
             >
               Add New Bank
+            </button>
+            <button
+              onClick={() => setShowAddUSDTModal(true)}
+              className="btn bg-bg_text_brand_primary text-primary"
+              style={{
+                padding: "6px 0px",
+                fontSize: "14px",
+                fontWeight: "600",
+                marginTop: "5px",
+              }}
+            >
+              Add USDT Account
             </button>
             <h2
               className="text-white"

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLogo } from "../../../context/ApiProvider";
 import { useDispatch } from "react-redux";
 import {
@@ -29,6 +29,7 @@ const ForgotPassword = () => {
   const [getOTP] = useGetOtpMutation();
   const { register, handleSubmit } = useForm();
   const { logo } = useLogo();
+  const [timer, setTimer] = useState(null);
   const forgotPassRef = useRef();
   useCloseModalClickOutside(forgotPassRef, () => {
     closeForgotPasswordModal();
@@ -44,6 +45,7 @@ const ForgotPassword = () => {
       const res = await getOTP({ mobile }).unwrap();
 
       if (res?.success) {
+        setTimer(60);
         setOTP({
           orderId: res?.result?.orderId,
           otpMethod: "sms",
@@ -79,6 +81,17 @@ const ForgotPassword = () => {
   const closeForgotPasswordModal = () => {
     dispatch(setShowForgotPasswordModal(false));
   };
+
+  useEffect(() => {
+    if (timer > 0) {
+      setTimeout(() => {
+        setTimer((prev) => prev - 1);
+      }, 1000);
+    } else {
+      setTimer(null);
+    }
+  }, [timer]);
+
   return (
     <div className="fixed bottom-0 left-0 right-0 top-0 overflow-hidden flex h-[100dvh] w-dvw items-center justify-center bg-bg_color_popUpParentBg overflow-y-hidden z-[10000]">
       <div
@@ -183,13 +196,22 @@ const ForgotPassword = () => {
                       />
                       <div className="flex-shrink-0 w-max">
                         <div className="w-max  transition-none h-full">
-                          <button
-                            onClick={handleOTP}
-                            type="button"
-                            className="flex w-max items-center  h-full justify-between  px-1 text-text_color_loginInputTextColor bg-bg_color_LoginBtnBgColor py-1 rounded-sm text-primary"
-                          >
-                            Get OTP
-                          </button>
+                          {timer ? (
+                            <button
+                              type="button"
+                              className="flex w-max items-center  h-full justify-between  px-1 text-text_color_loginInputTextColor bg-bg_color_LoginBtnBgColor py-1 rounded-sm text-primary cursor-text"
+                            >
+                              Retry in {timer}
+                            </button>
+                          ) : (
+                            <button
+                              onClick={handleOTP}
+                              type="button"
+                              className="flex w-max items-center  h-full justify-between  px-1 text-text_color_loginInputTextColor bg-bg_color_LoginBtnBgColor py-1 rounded-sm text-primary"
+                            >
+                              Get OTP Message
+                            </button>
+                          )}
                         </div>
                       </div>
                     </div>
