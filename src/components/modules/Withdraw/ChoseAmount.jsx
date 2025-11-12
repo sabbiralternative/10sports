@@ -12,7 +12,48 @@ const ChooseAmount = ({ setTab, setAmount, amount }) => {
   };
   return (
     <div className="w-full h-full  lg:w-[54%] lg:pt-2">
-      <div className="px-2 font-lato flex flex-col items-start justify-start gap-y-2 mt-1 md:mt-[0px] pb-10">
+      <div className="w-full flex flex-col gap-2 pt-2 pb-1 px-4 rounded-lg  bg-bg_color_primary">
+        <div className=" font-[600] text-base leading-5 text-text_color_primary1">
+          Withdraw Funds
+        </div>
+        <div className="w-full flex flex-col text-xs text-text_color_primary1 transition-all ease-in-out duration-100">
+          <div className="text-xs md:text-sm  pt-1 font-semibold leading-4">
+            1. This form is for withdrawing the amount from the main wallet
+            only.
+          </div>
+          <div
+            className="overflow-hidden transition-height duration-100 ease-in-out"
+            style={{ height: "0px" }}
+          ></div>
+          <div
+            className="overflow-hidden transition-height duration-100 ease-in-out"
+            style={{ height: "20px" }}
+          >
+            <div className="text-xs pt-1 md:text-sm  font-semibold leading-4">
+              2. The bonus wallet amount cannot be withdrawn by this form.
+            </div>
+          </div>
+          <div
+            className="overflow-hidden transition-height duration-100 ease-in-out"
+            style={{ height: "20px" }}
+          >
+            <div className="text-xs pt-1 md:text-sm  font-semibold leading-4">
+              3. Do not put Withdraw request without betting with deposit
+              amount. Such activity will be identified as Suspicious
+            </div>
+          </div>
+          <div
+            className="overflow-hidden transition-height duration-100 ease-in-out"
+            style={{ height: "20px" }}
+          >
+            <div className="text-xs pt-1 md:text-sm  font-semibold leading-4">
+              4. If multiple users are using same withdraw account then all the
+              linked users will be blocked.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="px-2  flex flex-col items-start justify-start gap-y-2 mt-1 md:mt-[10px] pb-10">
         <div className="text-base text-text_color_primary1  w-full font-[700] flex flex-col items-start justify-start gap-y-1">
           <span className="text-sm md:text-base">
             Please fill in all required fields*
