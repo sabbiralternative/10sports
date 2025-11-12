@@ -34,6 +34,7 @@ import AMLPolicy from "../pages/AMLPolicy/AMLPolicy";
 import TrustWorthy from "../pages/TrustWorthy/TrustWorthy";
 import TermsCondition from "../pages/TermsCondition/TermsCondition";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import Affiliate from "../pages/Affiliate/Affiliate";
 
 export const router = createBrowserRouter(
   [
@@ -178,6 +179,10 @@ export const router = createBrowserRouter(
         {
           path: "/about-us",
           element: <AboutUs />,
+        },
+        {
+          path: "/affiliate",
+          element: <Affiliate />,
         },
       ],
     },

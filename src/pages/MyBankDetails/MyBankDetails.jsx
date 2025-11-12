@@ -138,29 +138,30 @@ const MyBankDetails = () => {
             </div>
           </div>
           <div className="font-lato" style={{ margin: "10px" }}>
-            <button
-              onClick={() => setShowAddBank(true)}
-              className="btn bg-bg_text_brand_primary text-primary"
-              style={{
-                padding: "6px 0px",
-                fontSize: "14px",
-                fontWeight: "600",
-              }}
-            >
-              Add New Bank
-            </button>
-            <button
-              onClick={() => setShowAddUSDTModal(true)}
-              className="btn bg-bg_text_brand_primary text-primary"
-              style={{
-                padding: "6px 0px",
-                fontSize: "14px",
-                fontWeight: "600",
-                marginTop: "5px",
-              }}
-            >
-              Add USDT Account
-            </button>
+            <div className="flex items-center justify-between gap-x-5">
+              <button
+                onClick={() => setShowAddBank(true)}
+                className="btn bg-bg_text_brand_primary text-primary"
+                style={{
+                  padding: "6px 0px",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                }}
+              >
+                Add New Bank
+              </button>
+              <button
+                onClick={() => setShowAddUSDTModal(true)}
+                className="btn bg-bg_text_brand_primary text-primary"
+                style={{
+                  padding: "6px 0px",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                }}
+              >
+                Add USDT Account
+              </button>
+            </div>
             <h2
               className="text-white"
               style={{ marginTop: "5px", fontWeight: "500" }}
