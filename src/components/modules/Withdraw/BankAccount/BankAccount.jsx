@@ -89,7 +89,6 @@ const BankAccount = ({ amount }) => {
           <OldAccount bankAccounts={data} amount={amount} />
         )}
       </div>
-      <div className="w-full pb-4 px-2" />
     </div>
   );
 };
