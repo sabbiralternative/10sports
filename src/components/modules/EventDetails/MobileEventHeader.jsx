@@ -9,13 +9,16 @@ import FootballScore from "./FootballScore";
 import Tracker from "./Tracker";
 import ScoreTopPart from "./ScoreTopPart";
 import ScoreBottomPart from "./ScoreBottomPart";
+import useSBCashOut from "../../../hooks/sb_cashout";
+import toast from "react-hot-toast";
 
-const MobileEventHeader = ({ data, score }) => {
+const MobileEventHeader = ({ data, score, sportsBook }) => {
   const [showRules, setShowRules] = useState(false);
   const [tab, setTab] = useState("live");
   const [sportsVideo] = useVideoMutation();
   const { eventId, eventTypeId } = useParams();
-  const { data: currentBets } = useCurrentBets(eventId);
+  const { mutate: cashOut } = useSBCashOut();
+  const { data: currentBets, refetch } = useCurrentBets(eventId);
   const [iFrame, setIFrame] = useState("");
   const navigate = useNavigate();
 
@@ -32,7 +35,61 @@ const MobileEventHeader = ({ data, score }) => {
     }
   };
   const iscore = data?.iscore;
-  // console.log(iscore);
+
+  const sports =
+    sportsBook &&
+    sportsBook?.MarketGroups?.filter(
+      (group) =>
+        group?.Name !== "Bet Builder" &&
+        group?.Name !== "Fast Markets" &&
+        group?.Name !== "Player Specials"
+    );
+
+  const handleCashOut = ({ betHistory, sportsBook, price, cashout_value }) => {
+    let item;
+    sports?.forEach((group) => {
+      group?.Items?.forEach((data) => {
+        if (betHistory?.marketId == data?.Id) {
+          item = data;
+        }
+      });
+    });
+
+    const column = item?.Items?.find(
+      (col) => col?.Id === betHistory?.selectionId
+    );
+
+    const payload = {
+      price,
+      cashout_value,
+      back: true,
+      side: 0,
+      selectionId: column?.Id,
+      btype: "SPORTSBOOK",
+      placeName: column?.Name,
+      eventTypeId: sportsBook?.EventTypeId,
+      betDelay: sportsBook?.betDelay,
+      marketId: item?.Id,
+      maxLiabilityPerMarket: item?.maxLiabilityPerMarket,
+      maxLiabilityPerBet: item?.maxLiabilityPerBet,
+      isBettable: sportsBook?.isBettable,
+      isWeak: sportsBook?.isWeak,
+      marketName: item?.Name,
+      eventId: sportsBook?.eventId,
+      betId: betHistory?.betId,
+    };
+
+    cashOut(payload, {
+      onSuccess: (data) => {
+        if (data?.success) {
+          refetch();
+          toast.success(data?.result?.message);
+        } else {
+          toast.error(data?.error);
+        }
+      },
+    });
+  };
   return (
     <>
       {showRules && <EventRules setShowRules={setShowRules} />}
@@ -214,34 +271,100 @@ const MobileEventHeader = ({ data, score }) => {
 
         {tab === "openBets" && currentBets && currentBets?.length > 0 && (
           <div className="mt-1">
-            {currentBets?.map((bet) => (
-              <div
-                key={bet?.betId}
-                className=" bg-bg_color_primary rounded-md mb-1 px-4 w-full py-3 box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);"
-              >
-                <div id="eventHeader" className=" font-lato-bold font-semibold">
+            {currentBets?.map((bet) => {
+              let column;
+              sports?.forEach((group) => {
+                group?.Items?.forEach((data) => {
+                  if (bet?.marketId == data?.Id) {
+                    column = data?.Items?.find(
+                      (col) => col?.Id === bet?.selectionId
+                    );
+                  }
+                });
+              });
+
+              const price = (
+                0.92 *
+                bet?.amount *
+                (bet?.userRate / column?.Price)
+              )?.toFixed(2);
+              return (
+                <div
+                  key={bet?.betId}
+                  className=" bg-bg_color_primary rounded-md mb-1 px-4 w-full py-3 box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);"
+                >
                   <div
-                    className={`font-medium underline capitalize text-sm  ${
-                      bet?.betType === "Back"
-                        ? "text-text_color_changeAnimationBack"
-                        : "text-text_color_changeAnimationLay"
-                    }`}
+                    id="eventHeader"
+                    className=" font-lato-bold font-semibold flex items-center justify-between"
                   >
-                    {bet?.title}
+                    <div
+                      className={`font-medium underline capitalize text-sm  ${
+                        bet?.betType === "Back"
+                          ? "text-text_color_changeAnimationBack"
+                          : "text-text_color_changeAnimationLay"
+                      }`}
+                    >
+                      {bet?.title}
+                    </div>
+
+                    {bet?.cashout && (
+                      <button
+                        onClick={() =>
+                          handleCashOut({
+                            betHistory: bet,
+                            sportsBook,
+                            price: column?.Price,
+                            cashout_value: price,
+                          })
+                        }
+                        type="button"
+                        className="btn_box "
+                        style={{
+                          width: "100px",
+                          backgroundColor: "#f3f3f3ff",
+                          display: "flex",
+                          alignItems: "center",
+                          cursor: `pointer`,
+                          justifyContent: "center",
+                          gap: "0px 2px",
+                          borderRadius: "2px",
+                        }}
+                      >
+                        <span style={{ fontSize: "10px", color: "black" }}>
+                          Cashout
+                        </span>
+                        {price && (
+                          <span style={{ color: "black", fontSize: "10px" }}>
+                            :
+                          </span>
+                        )}
+
+                        {price && (
+                          <span
+                            style={{
+                              color: `${price > 0 ? "green" : "red"}`,
+                              fontSize: "10px",
+                            }}
+                          >
+                            {price}
+                          </span>
+                        )}
+                      </button>
+                    )}
+                  </div>
+                  <div className=" font-normal text-text_color_primary1  capitalize text-xs font-lato">
+                    {bet?.marketName}
+                  </div>
+                  <div
+                    id="tiem_Date_of_order_0_1743688800000"
+                    className=" text-xs font-lato font-normal text-text_color_primary1"
+                  >
+                    <strong>Placed : </strong>
+                    <span>{bet?.placeDate}</span>
                   </div>
                 </div>
-                <div className=" font-normal text-text_color_primary1  capitalize text-xs font-lato">
-                  {bet?.marketName}
-                </div>
-                <div
-                  id="tiem_Date_of_order_0_1743688800000"
-                  className=" text-xs font-lato font-normal text-text_color_primary1"
-                >
-                  <strong>Placed : </strong>
-                  <span>{bet?.placeDate}</span>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
         {tab === "openBets" && (currentBets?.length === 0 || !currentBets) ? (

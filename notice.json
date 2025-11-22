@@ -129,7 +129,9 @@
       "auraWolf": "https://api7.live/api/exchange/diamond/auraWolf",
       "liveCasinoLobby": "https://api7.live/api/exchange/diamond/liveCasinoLobby",
       "banner": "https://api7.live/api/exchange/diamond/banner",
-      "lotusHomeLobby": "https://api7.live/api/account/diamond/lotusHomeLobby"
+      "lotusHomeLobby": "https://api7.live/api/account/diamond/lotusHomeLobby",
+      "sb_cashout": "https://api7.live/api/exchange/diamond/sb_cashout",
+      "fast_cashout": "https://api7.live/api/exchange/diamond/fast_cashout"
     }
   },
   "success": true

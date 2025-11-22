@@ -140,7 +140,11 @@ const EventDetails = () => {
           </div>
           {eventTypeId == 4 && data?.iscore && <Score iscore={data?.iscore} />}
 
-          <MobileEventHeader score={data?.score} data={data} />
+          <MobileEventHeader
+            score={data?.score}
+            data={data}
+            sportsBook={data?.sportsbook?.Result}
+          />
 
           <div className=" w-full text-selection-none pb-3 lg:pb-0">
             <div className=" px-2 font-helvetica-neue">
