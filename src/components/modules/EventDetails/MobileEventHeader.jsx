@@ -284,9 +284,8 @@ const MobileEventHeader = ({ data, score, sportsBook }) => {
               });
 
               const price = (
-                0.92 *
-                bet?.amount *
-                (bet?.userRate / column?.Price)
+                0.92 * bet?.amount * (bet?.userRate / column?.Price) -
+                bet?.amount
               )?.toFixed(2);
               return (
                 <div
@@ -307,7 +306,7 @@ const MobileEventHeader = ({ data, score, sportsBook }) => {
                       {bet?.title}
                     </div>
 
-                    {bet?.cashout && (
+                    {bet?.cashout && column && (
                       <button
                         onClick={() =>
                           handleCashOut({

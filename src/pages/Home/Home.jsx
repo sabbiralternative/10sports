@@ -11,6 +11,7 @@ import { useLotusHomeLobby } from "../../hooks/lotusHomeLobby";
 import IndianCardGames from "../../components/modules/Home/IndianCardGames";
 import InPlay from "../../components/modules/Home/InPlay";
 import UpcomingCricketEvent from "../../components/modules/Home/UpcomingCricketEvent";
+import WhatsApp from "../../components/shared/WhatsApp/WhatsApp";
 
 const Home = () => {
   const { data: lotusLobby } = useLotusHomeLobby();
@@ -29,6 +30,7 @@ const Home = () => {
         id="home"
         className="pb-2 pt-1.5 flex flex-col items-start justify-start gap-y-[15px]"
       >
+        <WhatsApp />
         {!group && (
           <>
             <Banner />

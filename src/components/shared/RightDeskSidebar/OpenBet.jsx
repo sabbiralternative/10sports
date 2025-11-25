@@ -113,6 +113,7 @@ const OpenBet = () => {
               {showBets &&
                 data?.map((bet) => {
                   let column;
+
                   sports?.forEach((group) => {
                     group?.Items?.forEach((data) => {
                       if (bet?.marketId == data?.Id) {
@@ -124,10 +125,10 @@ const OpenBet = () => {
                   });
 
                   const price = (
-                    0.92 *
-                    bet?.amount *
-                    (bet?.userRate / column?.Price)
+                    0.92 * bet?.amount * (bet?.userRate / column?.Price) -
+                    bet?.amount
                   )?.toFixed(2);
+
                   return (
                     <div
                       key={bet?.betId}
@@ -147,7 +148,7 @@ const OpenBet = () => {
                         >
                           {bet?.title}
                         </div>
-                        {bet?.cashout && eventId && eventTypeId && (
+                        {bet?.cashout && eventId && eventTypeId && column && (
                           <button
                             onClick={() =>
                               handleCashOut({

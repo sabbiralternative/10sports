@@ -1,7 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "../components/shared/Header/Header";
 import LeftDeskSidebar from "../components/shared/LeftDeskSidebar/LeftDeskSidebar";
-import WhatsApp from "../components/shared/WhatsApp/WhatsApp";
 import RightDeskSidebar from "../components/shared/RightDeskSidebar/RightDeskSidebar";
 import Footer from "../components/shared/Footer/Footer";
 import { hideSidebarRoutes } from "../static/hideSidebarRoutes";
@@ -27,7 +26,7 @@ const MainLayout = () => {
   return (
     <div className="w-dvw app-bg h-screen  flex flex-col">
       {showBanner && <Banner />}
-      <WhatsApp />
+
       <Header />
       <div
         ref={ref}
