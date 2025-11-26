@@ -49,7 +49,7 @@ const IFrame = () => {
   return (
     <div className="flex flex-col transition-all  ease-in-out duration-100 pt-0 w-full">
       {/* Desktop Header */}
-      <div className="hidden md:fixed top-0 w-full  bg-headerBg">
+      <div className="hidden md:block fixed top-0 w-full  bg-headerBg">
         <div className="flex flex-col shadow-lg autoAnimate">
           <div
             id="bottomTabContainer"
@@ -185,7 +185,7 @@ const IFrame = () => {
       </div>
 
       {/* Mobile footer */}
-      <div className="fixed bottom-0 w-full lg:hidden bg-transparent">
+      <div className="fixed bottom-0 w-full md:hidden bg-transparent">
         <div className="flex flex-col shadow-lg autoAnimate">
           <div
             id="bottomTabContainer"
