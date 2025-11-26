@@ -23,6 +23,7 @@ import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import BetLoading from "./BetLoading";
 
 const MobileBetSlip = () => {
+  const [isCashOut, setIsCashOut] = useState(false);
   const [profit, setProfit] = useState(0);
   const { eventTypeId } = useParams();
   const dispatch = useDispatch();
@@ -52,6 +53,7 @@ const MobileBetSlip = () => {
           : null
       )
     );
+    setIsCashOut(placeBetValues?.cashout || false);
   }, [placeBetValues, dispatch]);
 
   let payload = {};
@@ -71,7 +73,7 @@ const MobileBetSlip = () => {
         totalSize: stake,
         isBettable: placeBetValues?.isBettable,
         eventId: placeBetValues?.eventId,
-        cashout: placeBetValues?.cashout || false,
+        cashout: isCashOut,
         b2c: Settings.b2c,
       };
     } else {
@@ -201,6 +203,19 @@ const MobileBetSlip = () => {
     dispatch(setShowLoginModal(true));
   };
 
+  const handleButtonValue = (value) => {
+    setIsCashOut(false);
+    const buttonValue = Number(value);
+    const prevStake = stake === null ? null : Number(stake);
+
+    if (prevStake === null) {
+      dispatch(setStake(buttonValue));
+    }
+    if (prevStake >= 0) {
+      dispatch(setStake(buttonValue + prevStake));
+    }
+  };
+
   return (
     <>
       {loading && (
@@ -223,40 +238,44 @@ const MobileBetSlip = () => {
                 ODDS
               </label>
               <div className="flex items-center justify-center">
-                {!placeBetValues?.isWeak && !placeBetValues?.cashout && (
+                {!placeBetValues?.isWeak && (
                   <button
-                    onClick={() =>
+                    onClick={() => {
                       handleDecreasePrice(
                         price,
                         placeBetValues,
                         dispatch,
                         setPrice
-                      )
-                    }
+                      );
+                      setIsCashOut(false);
+                    }}
                     className="overflow-hidden w-full h-full flex items-center justify-center bg-bg_color_betSlipOddIncDecrBtnsGrd rounded-s-[4px] border border-border_color_primary4 border-r-0 text-xl font-normal text-center"
                   >
                     <Minus />
                   </button>
                 )}
                 <input
-                  readOnly={placeBetValues?.cashout}
-                  onChange={(e) => dispatch(setPrice(e.target.value))}
+                  onChange={(e) => {
+                    dispatch(setPrice(e.target.value));
+                    setIsCashOut(false);
+                  }}
                   placeholder="Enter Odds"
                   inputMode="numeric"
                   className="block w-full focus:outline-none  text-sm w-full h-full py-2 text-center rounded-[4px] flex items-center justify-center text-text_color_primary1 bg-bg_color_input_bg focus:border-border_color_activeInput active:border-border_color_activeInput"
                   type="number"
                   value={price}
                 />
-                {!placeBetValues?.isWeak && !placeBetValues?.cashout && (
+                {!placeBetValues?.isWeak && (
                   <button
-                    onClick={() =>
+                    onClick={() => {
                       handleIncreasePrice(
                         price,
                         placeBetValues,
                         dispatch,
                         setPrice
-                      )
-                    }
+                      );
+                      setIsCashOut(false);
+                    }}
                     className="overflow-hidden w-full h-full flex items-center justify-center bg-bg_color_betSlipOddIncDecrBtnsGrd rounded-e-[4px] border border-border_color_primary4 border-r-0 text-xl font-normal text-center"
                   >
                     <Plus />
@@ -276,8 +295,10 @@ const MobileBetSlip = () => {
                 {/* <span>Max mkt : 0</span> */}
               </label>
               <input
-                readOnly={placeBetValues?.cashout}
-                onChange={(e) => dispatch(setStake(e.target.value))}
+                onChange={(e) => {
+                  dispatch(setStake(e.target.value));
+                  setIsCashOut(false);
+                }}
                 id="stakeInput"
                 inputMode="numeric"
                 className="block w-full focus:outline-none  text-md w-full h-full text-center focus:bg-bg_color_input_bg flex items-center justify-center border-[0.75px]  text-text_color_primary1 border-border_color_primary  placeholder:text-text_color_primary1 5 rounded-sm  text-text_color_primary1 bg-transparent
@@ -297,9 +318,8 @@ const MobileBetSlip = () => {
               <div className=" grid grid-cols-12 gap-[7px]">
                 {parseButtonValues?.slice(0, 6)?.map((button, i) => (
                   <button
-                    disabled={placeBetValues?.cashout}
                     key={i}
-                    onClick={() => dispatch(setStake(button?.value))}
+                    onClick={() => handleButtonValue(button?.value)}
                     className={`inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out col-span-4 w-full overflow-hidden text-[12px] font-semibold rounded-[4px] text-text_color_primary2 text-center py-1.5 bg-transparent border border-[var(--bg-active-primary)] 
                 cursor-pointer disabled:cursor-not-allowed`}
                     type="button"

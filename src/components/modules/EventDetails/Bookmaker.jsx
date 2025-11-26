@@ -13,7 +13,7 @@ import MobileBetSlip from "./MobileBetSlip";
 import isOddSuspended from "../../../utils/isOddSuspended";
 import SuspendedOdd from "../../shared/SuspendedOdd/SuspendedOdd";
 
-const MatchOddBookmaker = ({ data }) => {
+const Bookmaker = ({ data }) => {
   const { eventId } = useParams();
   const [teamProfit, setTeamProfit] = useState([]);
   const dispatch = useDispatch();
@@ -116,15 +116,15 @@ const MatchOddBookmaker = ({ data }) => {
       // Team A has a larger exposure.
       runner = runner1;
       largerExposure = exposureA;
-      layValue = runner1?.lay?.[0]?.price;
-      oppositeLayValue = runner2?.lay?.[0]?.price;
+      layValue = 1 + Number(runner1?.lay?.[0]?.price) / 100;
+      oppositeLayValue = 1 + Number(runner2?.lay?.[0]?.price) / 100;
       lowerExposure = exposureB;
     } else {
       // Team B has a larger exposure.
       runner = runner2;
       largerExposure = exposureB;
-      layValue = runner2?.lay?.[0]?.price;
-      oppositeLayValue = runner1?.lay?.[0]?.price;
+      layValue = 1 + Number(runner2?.lay?.[0]?.price) / 100;
+      oppositeLayValue = 1 + Number(runner1?.lay?.[0]?.price) / 100;
       lowerExposure = exposureA;
     }
 
@@ -560,4 +560,4 @@ const MatchOddBookmaker = ({ data }) => {
   );
 };
 
-export default MatchOddBookmaker;
+export default Bookmaker;

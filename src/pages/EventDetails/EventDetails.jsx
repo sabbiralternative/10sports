@@ -3,7 +3,7 @@ import { useGetEventDetailsQuery } from "../../redux/features/events/events";
 import { setPredictOdd } from "../../redux/features/events/eventSlice";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import MatchOddBookmaker from "../../components/modules/EventDetails/MatchOddBookmaker";
+import Bookmaker from "../../components/modules/EventDetails/Bookmaker";
 import Fancy from "../../components/modules/EventDetails/Fancy";
 import Score from "../../components/modules/EventDetails/Score";
 // import IframeVideoTab from "../../components/modules/EventDetails/IframeVideoTab";
@@ -14,6 +14,7 @@ import MobileEventHeader from "../../components/modules/EventDetails/MobileEvent
 // import ScoreCard from "../../components/modules/EventDetails/ScoreCard";
 import TennisScore from "../../components/modules/EventDetails/TennisScore";
 import SportsBook from "./SportsBook/SportsBook";
+import MatchOdds from "../../components/modules/EventDetails/MatchOdds";
 // import FootballScore from "../../components/modules/EventDetails/FootballScore";
 
 const EventDetails = () => {
@@ -112,12 +113,19 @@ const EventDetails = () => {
     return hasDecimal ? parseFloat(value?.toFixed(2)) : value;
   };
 
-  const matchOddsBookmaker = data?.result?.filter(
+  const matchOdds = data?.result?.filter(
     (game) =>
-      (game.btype === "MATCH_ODDS" || game.btype === "BOOKMAKER") &&
+      game.btype === "MATCH_ODDS" &&
       game?.visible == true &&
       game?.name !== "tied match"
   );
+  const bookmaker = data?.result?.filter(
+    (game) =>
+      game.btype === "BOOKMAKER" &&
+      game?.visible == true &&
+      game?.name !== "tied match"
+  );
+
   const tiedMatch = data?.result?.filter(
     (game) =>
       (game.btype === "MATCH_ODDS" || game.btype === "BOOKMAKER") &&
@@ -162,9 +170,8 @@ const EventDetails = () => {
                 setBetType={setTab}
               /> */}
               {/* <Tracker score={data?.score} /> */}
-              {matchOddsBookmaker?.length > 0 && (
-                <MatchOddBookmaker data={matchOddsBookmaker} />
-              )}
+              {matchOdds?.length > 0 && <MatchOdds data={matchOdds} />}
+              {bookmaker?.length > 0 && <Bookmaker data={bookmaker} />}
               {data?.result?.length > 0 && <Fancy data={data?.result} />}
 
               {eventTypeId == 7 || eventTypeId == 4339 ? (
@@ -173,7 +180,7 @@ const EventDetails = () => {
               {data && data?.sportsbook?.Result && (
                 <SportsBook sportsBook={data?.sportsbook?.Result} />
               )}
-              {tiedMatch?.length > 0 && <MatchOddBookmaker data={tiedMatch} />}
+              {tiedMatch?.length > 0 && <MatchOdds data={tiedMatch} />}
             </div>
           </div>
         </div>
