@@ -206,7 +206,7 @@ const MobileBetSlip = () => {
   const handleButtonValue = (value) => {
     setIsCashOut(false);
     const buttonValue = Number(value);
-    const prevStake = stake === null ? null : Number(stake);
+    const prevStake = !stake ? null : Number(stake);
 
     if (prevStake === null) {
       dispatch(setStake(buttonValue));
