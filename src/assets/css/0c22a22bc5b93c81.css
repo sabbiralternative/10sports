@@ -2533,7 +2533,7 @@ video {
     background-color: var(--color-bg-quaternary);
   }
   to {
-    background-color: var(--color-bg-primary);
+    background-color: var(--bg-active-primary);
   }
 }
 .animate-notificationCountBgColorAnimationChange {

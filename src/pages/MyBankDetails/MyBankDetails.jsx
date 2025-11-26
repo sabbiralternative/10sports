@@ -312,7 +312,7 @@ const MyBankDetails = () => {
                           onClick={() => handleMakeDefault(bank?.bankId)}
                           className="btn"
                           style={{
-                            background: "var(--color-bg-primary)",
+                            background: "var(--bg-active-primary)",
                             color: "white",
                             marginTop: "15px",
                           }}

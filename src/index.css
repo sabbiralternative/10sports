@@ -183,7 +183,7 @@ html * {
   }
   .sc_cw-overs-info-mobile {
     display: flex !important;
-    border-top: 0.5px solid var(--color-bg-primary) !important;
+    border-top: 0.5px solid var(--bg-active-primary) !important;
     padding-top: 2px !important;
     padding-bottom: 2px !important;
     color: #fff !important;

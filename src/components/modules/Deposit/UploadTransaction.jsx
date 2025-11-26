@@ -165,7 +165,15 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
           }}
         >
           <button
-            style={{ position: "absolute", top: "0px", right: "0px" }}
+            style={{
+              position: "absolute",
+              top: "0px",
+              right: "0px",
+              background: "var(--bg-active-primary)",
+              padding: "0px 5px",
+              fontWeight: "bold",
+              borderRadius: "4px",
+            }}
             onClick={() => {
               setFilePath("");
               setUploadedImage(null);
@@ -175,9 +183,14 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
             X
           </button>
           <img
-            style={{ width: "100%", maxHeight: "400px", height: "100%" }}
+            style={{
+              width: "100%",
+              maxHeight: "400px",
+              height: "100%",
+              objectFit: "contain",
+            }}
             src={filePath}
-            alt=""
+            alt="deposit-slip"
           />
         </div>
       )}

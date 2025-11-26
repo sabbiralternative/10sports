@@ -26,12 +26,14 @@ const MainLayout = () => {
   return (
     <div className="w-dvw app-bg h-screen  flex flex-col">
       {showBanner && <Banner />}
+      {!location.pathname.includes("/casino/") && <Header />}
 
-      <Header />
       <div
         ref={ref}
         className={`flex-1 overflow-y-auto show-scrollbar scroll-auto flex flex-col h-full ${
-          showNotification && showAppPopUp
+          location.pathname.includes("/casino/")
+            ? "pt-0"
+            : showNotification && showAppPopUp
             ? "pt-[165px] lg:pt-[155px]"
             : !showNotification && showAppPopUp
             ? "pt-[140px] lg:pt-[130px]"
