@@ -36,13 +36,16 @@ const BonusStatement = () => {
       type: "claimBonus",
       bonus_statement_id: item?.bonus_statement_id,
     };
-    const result = await claimBonus(payload).unwrap();
-    if (result?.success) {
-      refetch();
-      toast.success(result?.result);
-    } else {
-      toast.error(result?.result || "Something went wrong");
-    }
+    claimBonus(payload, {
+      onSuccess: (result) => {
+        if (result?.success) {
+          refetch();
+          toast.success(result?.result);
+        } else {
+          toast.error(result?.result || "Something went wrong");
+        }
+      },
+    });
   };
 
   const formateDate = (date) => {
