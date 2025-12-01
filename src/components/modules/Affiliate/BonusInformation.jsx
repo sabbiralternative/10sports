@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
+import images from "../../../assets/images";
 import HowToGetBonus from "../../modals/Affiliate/HowToGetBonus";
 import CommissionInfo from "../../modals/Affiliate/CommissionInfo";
-import images from "../../../assets/images";
 
 const BonusInformation = () => {
   const [openGetBonusModal, setOpenGetBonusModal] = useState(false);
