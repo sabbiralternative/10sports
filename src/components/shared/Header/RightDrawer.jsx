@@ -853,6 +853,119 @@ cursor-pointer
           </li>
           <li className="divide-y divide-divide_color_primary2 flex items-start justify-start flex-col">
             <span className="font-lato-bold font-semibold px-3 py-1 w-full bg-bg_color_quaternary2 text-xs xs:text-sm text-text_color_primary1 ">
+              Legal &amp; Compliance
+            </span>
+            <div className="divide-y divide-divide_color_primary2 pl-5 flex items-start justify-start w-full flex-col">
+              <div
+                onClick={() => handleNavigate("/rules-regulation")}
+                className="flex transition-all px-0.5 rounded-sm ease-in-out duration-150 hover:bg-bg_color_quaternary2  active:scale-[99%] items-center justify-start gap-3 w-full py-2 cursor-pointer"
+              >
+                <span className="w-4 h-auto xs:w-5 text-text_color_primary1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="var(--bg-active-primary)"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path>
+                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
+                    <path d="M9 12h6"></path>
+                    <path d="M9 16h6"></path>
+                  </svg>
+                </span>
+                <span className="font-medium text-sm xs:text-base text-text_color_primary1">
+                  Rules &amp; Regulations
+                </span>
+              </div>
+              <div
+                onClick={() => handleNavigate("/exclusion-policy")}
+                className="flex transition-all px-0.5 rounded-sm ease-in-out duration-150 hover:bg-bg_color_quaternary2  active:scale-[99%] items-center justify-start gap-3 w-full py-2 cursor-pointer"
+              >
+                <span className="w-4 h-auto xs:w-5 text-text_color_primary1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="var(--bg-active-primary)"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M8 13v-7.5a1.5 1.5 0 0 1 3 0v6.5"></path>
+                    <path d="M11 5.5v-2a1.5 1.5 0 1 1 3 0v8.5"></path>
+                    <path d="M14 5.5a1.5 1.5 0 0 1 3 0v6.5"></path>
+                    <path d="M17 7.5a1.5 1.5 0 0 1 3 0v8.5a6 6 0 0 1 -6 6h-2h.208a6 6 0 0 1 -5.012 -2.7a69.74 69.74 0 0 1 -.196 -.3c-.312 -.479 -1.407 -2.388 -3.286 -5.728a1.5 1.5 0 0 1 .536 -2.022a1.867 1.867 0 0 1 2.28 .28l1.47 1.47"></path>
+                  </svg>
+                </span>
+                <span className="font-medium text-sm xs:text-base text-text_color_primary1">
+                  Exclusion Policy
+                </span>
+              </div>
+              <div
+                onClick={() => handleNavigate("/responsible-gambling")}
+                className="flex transition-all px-0.5 rounded-sm ease-in-out duration-150 hover:bg-bg_color_quaternary2  active:scale-[99%] items-center justify-start gap-3 w-full py-2 cursor-pointer"
+              >
+                <span className="w-4 h-auto xs:w-5 text-text_color_primary1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="var(--bg-active-primary)"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                    <path d="M9 12l2 2l4 -4"></path>
+                  </svg>
+                </span>
+                <span className="font-medium text-sm xs:text-base text-text_color_primary1">
+                  Responsible Gambling
+                </span>
+              </div>
+              <div
+                onClick={() => handleNavigate("/privacy-policy")}
+                className="flex transition-all px-0.5 rounded-sm ease-in-out duration-150 hover:bg-bg_color_quaternary2  active:scale-[99%] items-center justify-start gap-3 w-full py-2 cursor-pointer"
+              >
+                <span className="w-4 h-auto xs:w-5 text-text_color_primary1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="var(--bg-active-primary)"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M15.04 19.745c-.942 .551 -1.964 .976 -3.04 1.255a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 .195 6.015"></path>
+                    <path d="M19 16v3"></path>
+                    <path d="M19 22v.01"></path>
+                  </svg>
+                </span>
+                <span className="font-medium text-sm xs:text-base text-text_color_primary1">
+                  Privacy Policy
+                </span>
+              </div>
+            </div>
+          </li>
+
+          <li className="divide-y divide-divide_color_primary2 flex items-start justify-start flex-col">
+            <span className="font-lato-bold font-semibold px-3 py-1 w-full bg-bg_color_quaternary2 text-xs xs:text-sm text-text_color_primary1 ">
               Account actions
             </span>
             <div className="divide-y divide-divide_color_primary2 pl-5 flex items-start justify-start w-full flex-col">
