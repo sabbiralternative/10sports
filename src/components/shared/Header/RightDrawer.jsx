@@ -13,7 +13,7 @@ import images from "../../../assets/images";
 const RightDrawer = ({
   setShowRightDrawer,
   showRightDrawer,
-  // setShowReferral,
+  setShowReferral,
 }) => {
   const { user, token, memberId } = useSelector((state) => state.auth);
 
@@ -661,7 +661,7 @@ cursor-pointer
                   </div>
                 </a>
               </div>
-              {Settings.referral && (
+              {/* {Settings.referral && (
                 <div className="w-full">
                   <a
                     title="Bonus Statement"
@@ -697,8 +697,8 @@ cursor-pointer
                     </div>
                   </a>
                 </div>
-              )}
-              {/* {Settings.referral && (
+              )} */}
+              {Settings.referral && (
                 <div className="w-full">
                   <a
                     title="Bonus Statement"
@@ -774,7 +774,7 @@ cursor-pointer
                     </div>
                   </a>
                 </div>
-              )} */}
+              )}
             </div>
           </li>
           <li className="divide-y divide-divide_color_primary2 flex items-start justify-start flex-col">
