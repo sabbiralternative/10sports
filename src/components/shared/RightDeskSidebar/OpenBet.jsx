@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import { useCurrentBets } from "../../../hooks/currentBets";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { useGetEventDetailsQuery } from "../../../redux/features/events/events";
 import useSBCashOut from "../../../hooks/sb_cashout";
 import toast from "react-hot-toast";
 
 const OpenBet = () => {
+  const { pathname } = useLocation();
   const navigate = useNavigate();
   const [showBets, setShowBets] = useState(true);
   const { eventId, eventTypeId } = useParams();
@@ -17,6 +18,7 @@ const OpenBet = () => {
     { eventTypeId, eventId },
     {
       pollingInterval: 1000,
+      skip: !pathname.includes("/event-details"),
     }
   );
   const { token } = useSelector((state) => state.auth);
