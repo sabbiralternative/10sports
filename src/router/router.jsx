@@ -35,6 +35,7 @@ import TrustWorthy from "../pages/TrustWorthy/TrustWorthy";
 import TermsCondition from "../pages/TermsCondition/TermsCondition";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import Affiliate from "../pages/Affiliate/Affiliate";
+import APK from "../pages/APK/APK";
 
 export const router = createBrowserRouter(
   [
@@ -183,6 +184,10 @@ export const router = createBrowserRouter(
         {
           path: "/affiliate",
           element: <Affiliate />,
+        },
+        {
+          path: "/apk",
+          element: <APK />,
         },
       ],
     },
