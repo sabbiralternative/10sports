@@ -661,7 +661,7 @@ cursor-pointer
                   </div>
                 </a>
               </div>
-              {/* {Settings.referral && (
+              {/* {socialLink.referral && (
                 <div className="w-full">
                   <a
                     title="Bonus Statement"
@@ -698,7 +698,7 @@ cursor-pointer
                   </a>
                 </div>
               )} */}
-              {Settings.referral && (
+              {socialLink?.referral && (
                 <div className="w-full">
                   <a
                     title="Bonus Statement"
@@ -738,7 +738,7 @@ cursor-pointer
                   </a>
                 </div>
               )}
-              {Settings.referral && (
+              {socialLink?.referral && (
                 <div className="w-full">
                   <a
                     title="Bonus Statement"
