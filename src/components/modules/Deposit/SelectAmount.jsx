@@ -1,9 +1,10 @@
+import { useEffect } from "react";
 import { Settings } from "../../../api";
 import useDepositBreakdown from "../../../hooks/depositBreakdown";
 import toast from "react-hot-toast";
 
 const SelectAmount = ({ amount, setAmount, setTab }) => {
-  const { mutate: handleDepositBreakdown } = useDepositBreakdown();
+  const { mutate: handleDepositBreakdown, data } = useDepositBreakdown();
 
   const handleShowBankAccount = (e) => {
     e.preventDefault();
@@ -28,6 +29,10 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
       );
     }
   };
+
+  useEffect(() => {
+    handleDepositBreakdown({ amount: 100 });
+  }, [handleDepositBreakdown]);
 
   return (
     <div className="w-full h-full  lg:w-[54%] lg:pt-2">
@@ -57,10 +62,12 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
                   INR
                 </span>
               </div>
-              <div className="text-x pl-1 mt-0 text-text_color_primary1 font-lato">
-                <span>Min 300</span>
-                <span> - Max 5,00,000</span>
-              </div>
+              {data?.minimumDeposit && (
+                <div className="text-x pl-1 mt-0 text-text_color_primary1 font-lato">
+                  <span>Min : {data?.minimumDeposit}</span>
+                </div>
+              )}
+
               <div className="w-full grid grid-cols-3 gap-[10px] mt-[18px] text-primary">
                 <button
                   onClick={() => setAmount(300)}
