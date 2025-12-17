@@ -3631,7 +3631,7 @@ video {
   background-image: var(--bg-color-GiftCardBg);
 }
 .bg-bg_color_LoginBtnBgColor {
-  background-color: var(--bg-active-primary);
+  background-color: var(--bg-active-primary) !important;
 }
 .bg-bg_color_SignUpBtnBgColor {
   background-image: var(--bg-color-SignUpBtnBgColor);

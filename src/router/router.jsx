@@ -36,6 +36,8 @@ import TermsCondition from "../pages/TermsCondition/TermsCondition";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import Affiliate from "../pages/Affiliate/Affiliate";
 import APK from "../pages/APK/APK";
+import AffiliateUserProfitLoss from "../pages/AffiliateUserProfitLoss/AffiliateUserProfitLoss";
+import AffiliateUserStatement from "../pages/AffiliateUserStatement/AffiliateUserStatement";
 
 export const router = createBrowserRouter(
   [
@@ -184,6 +186,14 @@ export const router = createBrowserRouter(
         {
           path: "/affiliate",
           element: <Affiliate />,
+        },
+        {
+          path: "/affiliate/user-profit-loss",
+          element: <AffiliateUserProfitLoss />,
+        },
+        {
+          path: "/affiliate/user-statement",
+          element: <AffiliateUserStatement />,
         },
         {
           path: "/apk",

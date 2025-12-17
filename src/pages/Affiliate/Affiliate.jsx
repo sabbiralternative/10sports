@@ -1,29 +1,30 @@
 import "./affiliate.css";
-
 import Footer from "../../components/modules/Affiliate/Footer";
-import { useState } from "react";
 import TodayStatusSection from "../../components/modules/Affiliate/TodayStatusSection";
 import InviteSection from "../../components/modules/Affiliate/InviteSection";
-import TopFiveLossUser from "../../components/modules/Affiliate/TopFiveLossUser";
+// import TopFiveLossUser from "../../components/modules/Affiliate/TopFiveLossUser";
 import BonusInformation from "../../components/modules/Affiliate/BonusInformation";
 import TodayProfitLoss from "../../components/modules/Affiliate/TodayProfitLoss";
 import UserList from "../../components/modules/Affiliate/UserList";
 import ProfitLoss from "../../components/modules/Affiliate/ProfitLoss";
 import Reports from "../../components/modules/Affiliate/Reports";
+import { useLocation } from "react-router-dom";
 
 const Affiliate = () => {
-  const [tab, setTab] = useState("dashboard");
+  const { search } = useLocation();
+  const params = new URLSearchParams(search);
+  const tab = params.get("tab");
   return (
     <div className="w-full h-full  lg:w-[54%] lg:pt-2">
-      <Footer setTab={setTab} tab={tab} />
       <div className="no-scrollbar h-full overflow-y-auto">
         <div className="px-2 w-full">
           <div className="main-content">
-            {tab === "dashboard" && (
+            <Footer />
+            {(tab === "dashboard" || !tab) && (
               <div data-v-4c49d924 className="">
                 <TodayStatusSection />
                 <InviteSection />
-                <TopFiveLossUser />
+                {/* <TopFiveLossUser /> */}
                 <BonusInformation />
                 <TodayProfitLoss />
               </div>

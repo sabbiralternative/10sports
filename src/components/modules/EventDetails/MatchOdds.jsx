@@ -10,10 +10,12 @@ import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import { Settings } from "../../../api";
 import { handleCashOutPlaceBet } from "../../../utils/handleCashoutPlaceBet";
 import MobileBetSlip from "./MobileBetSlip";
-import isOddSuspended from "../../../utils/isOddSuspended";
+import isOddSuspended, { isGameSuspended } from "../../../utils/isOddSuspended";
 import SuspendedOdd from "../../shared/SuspendedOdd/SuspendedOdd";
+import SpeedCashOut from "../../modals/SpeedCashOut/SpeedCashOut";
 
 const MatchOdds = ({ data }) => {
+  const [speedCashOut, setSpeedCashOut] = useState(null);
   const { eventId } = useParams();
   const [teamProfit, setTeamProfit] = useState([]);
   const dispatch = useDispatch();
@@ -107,7 +109,12 @@ const MatchOdds = ({ data }) => {
     runner2,
     gameId
   ) => {
-    let runner, largerExposure, layValue, oppositeLayValue, lowerExposure;
+    let runner,
+      largerExposure,
+      layValue,
+      oppositeLayValue,
+      lowerExposure,
+      speedCashOut;
 
     const pnlArr = [exposureA, exposureB];
     const isOnePositiveExposure = onlyOnePositive(pnlArr);
@@ -127,7 +134,12 @@ const MatchOdds = ({ data }) => {
       oppositeLayValue = runner1?.lay?.[0]?.price;
       lowerExposure = exposureA;
     }
-
+    if (exposureA > 0 && exposureB > 0) {
+      const difference = exposureA - exposureB;
+      if (difference <= 10) {
+        speedCashOut = true;
+      }
+    }
     // Compute the absolute value of the lower exposure.
     let absLowerExposure = Math.abs(lowerExposure);
 
@@ -152,6 +164,11 @@ const MatchOdds = ({ data }) => {
       oppositeLayValue,
       gameId,
       isOnePositiveExposure,
+      exposureA,
+      exposureB,
+      runner1,
+      runner2,
+      speedCashOut,
     };
   };
   function onlyOnePositive(arr) {
@@ -204,13 +221,21 @@ const MatchOdds = ({ data }) => {
 
   return (
     <>
+      {speedCashOut && (
+        <SpeedCashOut
+          speedCashOut={speedCashOut}
+          setSpeedCashOut={setSpeedCashOut}
+        />
+      )}
       {data?.length > 0 &&
         data?.map((game) => {
           const teamProfitForGame = teamProfit?.find(
             (profit) =>
               profit?.gameId === game?.id && profit?.isOnePositiveExposure
           );
-
+          const speedCashOut = teamProfit?.find(
+            (profit) => profit?.gameId === game?.id && profit?.speedCashOut
+          );
           return (
             <div key={game?.id} className=" py-1.5">
               <div className=" grid grid-flow-col grid-cols-12 text-text_color_primary1 text-xs font-[500] mb-1.5">
@@ -221,7 +246,8 @@ const MatchOdds = ({ data }) => {
                   {Settings.betFairCashOut &&
                     game?.runners?.length !== 3 &&
                     game?.status === "OPEN" &&
-                    game?.name !== "toss" && (
+                    game?.name !== "toss" &&
+                    !speedCashOut && (
                       <button
                         style={{
                           cursor: `${
@@ -251,6 +277,29 @@ const MatchOdds = ({ data }) => {
                           Cashout{" "}
                           {teamProfitForGame?.profit &&
                             `(${teamProfitForGame.profit.toFixed(2)})`}
+                        </div>
+                      </button>
+                    )}
+                  {Settings.betFairCashOut &&
+                    game?.runners?.length !== 3 &&
+                    game?.status === "OPEN" &&
+                    game?.name !== "toss" &&
+                    speedCashOut && (
+                      <button
+                        onClick={() =>
+                          setSpeedCashOut({
+                            ...speedCashOut,
+                            market_name: game?.name,
+                            event_name: game?.eventName,
+                          })
+                        }
+                        disabled={isGameSuspended(game)}
+                        type="button"
+                        className={`inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  rounded-md px-2.5 py-1.5 text-center shadow-[inset_-12px_-8px_40px_#46464620] flex items-center justify-center flex-row h-max  max-w-[74%] mr-1 
+    cursor-pointer bg-[#82371b]`}
+                      >
+                        <div className="text-[10px] md:text-sm text-text_color_primary2 whitespace-nowrap  font-semibold">
+                          Speed Cashout
                         </div>
                       </button>
                     )}

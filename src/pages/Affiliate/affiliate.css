@@ -506,10 +506,8 @@ table {
 /*Footer starts  */
 
 .affilate_footer[data-v-066114c4] {
-  position: fixed;
-  bottom: 0;
   z-index: 9;
-  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 footer[data-v-066114c4] {
@@ -517,7 +515,7 @@ footer[data-v-066114c4] {
 }
 
 .affilate_footer nav[data-v-066114c4] {
-  background: #fff;
+  background-color: var(--bg-color-primary);
   padding: 1rem 5px;
   border-radius: 10px;
   box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
@@ -528,13 +526,13 @@ footer[data-v-066114c4] {
 }
 
 .affilate_footer a.active[data-v-066114c4] {
-  background: linear-gradient(1turn, var(--bg-active-primary), #3e444b);
-  color: #fff;
+  background: var(--bg-active-primary);
+  color: #000;
 }
 
 .affilate_footer nav a[data-v-066114c4] {
   text-decoration: none;
-  color: #000;
+  color: #d5d5d5;
   display: flex;
   align-items: center;
   padding: 0.75rem 1.25rem;
@@ -543,30 +541,28 @@ footer[data-v-066114c4] {
 
 .affilate_footer nav a.active img[data-v-066114c4] {
   transform: scale(1.1);
-  filter: brightness(0) invert(1);
+  filter: brightness(0) invert(0);
   object-fit: contain;
 }
 
 .affilate_footer nav a img[data-v-066114c4] {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   margin-right: 8px;
   transition: transform 0.3s;
-  filter: brightness(0.3);
-
+  filter: brightness(0.9);
   object-fit: contain;
 }
 
-@media (min-width: 768px) {
-  .affilate_footer a.active span[data-v-066114c4] {
-    display: block;
+@media (max-width: 768px) {
+  .affilate_footer span[data-v-066114c4] {
+    display: none;
   }
 }
 
 .affilate_footer nav a span[data-v-066114c4] {
   font-size: 13px;
   font-weight: 500;
-  display: none;
 }
 
 /*Footer end  */
@@ -801,4 +797,17 @@ tr.tabetdat td {
 
 .af-share-social-link-sec a img {
   width: 35px;
+}
+
+.rs-pagination-btn.rs-pagination-btn-active {
+  color: #fff !important;
+  background-color: transparent;
+  border: 1px solid var(--bg-active-primary) !important;
+}
+
+.rs-pagination-md .rs-pagination-btn-active {
+  padding: 3px 5px !important;
+}
+.rs-pagination-md .rs-pagination-btn {
+  padding: 3px 5px !important;
 }

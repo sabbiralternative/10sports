@@ -17,7 +17,7 @@ const InviteSection = () => {
       {showAddNewUserModal && (
         <AddNewUser setShowAddNewUserModal={setShowAddNewUserModal} />
       )}
-      <div data-v-4c49d924 className="nw-affi-invite-sec">
+      <div data-v-4c49d924 className="nw-affi-invite-sec mb-5">
         <div className="nw-affi-invite-content-wrapper" data-v-4c49d924>
           <div className="nw-affi-invite-content" data-v-4c49d924>
             <h2 data-v-4c49d924>Invite your friends</h2>

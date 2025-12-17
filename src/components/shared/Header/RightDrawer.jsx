@@ -13,12 +13,13 @@ import images from "../../../assets/images";
 const RightDrawer = ({
   setShowRightDrawer,
   showRightDrawer,
-  setShowReferral,
+  // setShowReferral,
 }) => {
   const { user, token, memberId } = useSelector((state) => state.auth);
 
   const { data } = useBalance();
   const { data: socialLink } = useWhatsApp();
+
   const ref = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -661,7 +662,7 @@ cursor-pointer
                   </div>
                 </a>
               </div>
-              {/* {socialLink.referral && (
+              {socialLink?.referral && (
                 <div className="w-full">
                   <a
                     title="Bonus Statement"
@@ -697,8 +698,8 @@ cursor-pointer
                     </div>
                   </a>
                 </div>
-              )} */}
-              {socialLink?.referral && (
+              )}
+              {/* {socialLink?.referral && (
                 <div className="w-full">
                   <a
                     title="Bonus Statement"
@@ -737,8 +738,8 @@ cursor-pointer
                     </div>
                   </a>
                 </div>
-              )}
-              {socialLink?.referral && (
+              )} */}
+              {/* {socialLink?.referral && (
                 <div className="w-full">
                   <a
                     title="Bonus Statement"
@@ -774,7 +775,7 @@ cursor-pointer
                     </div>
                   </a>
                 </div>
-              )}
+              )} */}
             </div>
           </li>
           <li className="divide-y divide-divide_color_primary2 flex items-start justify-start flex-col">
