@@ -9,6 +9,7 @@ import UserList from "../../components/modules/Affiliate/UserList";
 import ProfitLoss from "../../components/modules/Affiliate/ProfitLoss";
 import Reports from "../../components/modules/Affiliate/Reports";
 import { useLocation } from "react-router-dom";
+import ReferralStatement from "../ReferralStatement/ReferralStatement";
 
 const Affiliate = () => {
   const { search } = useLocation();
@@ -23,6 +24,7 @@ const Affiliate = () => {
             {(tab === "dashboard" || !tab) && (
               <div data-v-4c49d924 className="">
                 <TodayStatusSection />
+                <ReferralStatement />
                 <InviteSection />
                 {/* <TopFiveLossUser /> */}
                 <BonusInformation />

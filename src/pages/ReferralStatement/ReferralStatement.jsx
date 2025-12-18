@@ -19,13 +19,13 @@ const ReferralStatement = () => {
   );
 
   return (
-    <div className="w-full h-full  lg:w-[54%] lg:pt-2">
-      <p style={{ color: "white" }}>Referral Date</p>
+    <div className="w-full h-full mb-10 nw-affi-how-to-get-bonus">
+      <p style={{ color: "var(--bg-active-primary)" }}>Referral Date</p>
       <div
         style={{
           display: "flex",
           gap: "10px",
-          marginTop: "20px",
+          marginTop: "10px",
         }}
       >
         <div>
@@ -82,10 +82,11 @@ const ReferralStatement = () => {
         </button>
       </div>
       {data && (
-        <div style={{ marginTop: "20px" }}>
+        <div style={{ marginTop: "10px" }}>
           <div
             style={{
-              backgroundColor: "white",
+              backgroundColor: "#d5d5d5",
+              color: "#000",
               borderRadius: "10px",
               padding: "10px",
               marginBottom: "10px",

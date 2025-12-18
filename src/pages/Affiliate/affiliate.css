@@ -811,3 +811,11 @@ tr.tabetdat td {
 .rs-pagination-md .rs-pagination-btn {
   padding: 3px 5px !important;
 }
+
+.rs-input-group.rs-input-group-inside {
+  background-color: #d5d5d5 !important;
+}
+
+.rs-input {
+  background-color: #d5d5d5 !important;
+}
