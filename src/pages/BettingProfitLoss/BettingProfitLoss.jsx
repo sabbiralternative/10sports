@@ -65,7 +65,7 @@ const BettingProfitLoss = () => {
                       }`}
                       style={{ textShadow: "1px 1px #000000" }}
                     >
-                      {totalPnl}
+                      {totalPnl?.toFixed(2)}
                     </span>
                   </div>
                 </div>

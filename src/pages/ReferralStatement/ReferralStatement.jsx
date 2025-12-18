@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unknown-property */
 import { useState } from "react";
-
 import { DatePicker } from "rsuite";
 import "rsuite/DateRangePicker/styles/index.css";
 import useGetReferralStatement from "../../hooks/useGetReferralStatement";
