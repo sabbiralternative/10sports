@@ -21,8 +21,11 @@ import { languageValue } from "../../../utils/language";
 import { useState } from "react";
 import WarningCondition from "../WarningCondition/WarningCondition";
 import { AiFillHome } from "react-icons/ai";
+import useWhatsApp from "../../../hooks/whatsapp";
+import images from "../../../assets/images";
 
 const HeaderBottomNavItem = () => {
+  const { data: socialLink } = useWhatsApp();
   const { group } = useSelector((state) => state.global);
   const [showWarning, setShowWarning] = useState(false);
   const [gameInfo, setGameInfo] = useState({ gameName: "", gameId: "" });
@@ -48,6 +51,7 @@ const HeaderBottomNavItem = () => {
       dispatch(setShowLoginModal(true));
     }
   };
+
   return (
     <>
       {showWarning && (
@@ -116,6 +120,32 @@ const HeaderBottomNavItem = () => {
           </span>
           <span className="font font-lato text-[12px]  font-semibold">BBL</span>
         </Link>
+        {socialLink?.referral && (
+          <Link
+            title="Home"
+            className={`cursor-pointer uppercase min-h-[28px]  min-w-[100px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
+        ${
+          location.pathname === "/affiliate"
+            ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+            : "text-text_headerDeskNav"
+        }`}
+            to="/affiliate"
+          >
+            <span className="">
+              <img
+                src={images.affiliate}
+                alt="affiliate"
+                style={{
+                  height: "15px",
+                  filter: "invert(1)",
+                }}
+              />
+            </span>
+            <span className="font font-lato text-[12px]  font-semibold">
+              Affiliate
+            </span>
+          </Link>
+        )}
 
         <Link
           onClick={() => handleSetGroup(4)}
