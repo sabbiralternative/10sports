@@ -3,6 +3,7 @@ import { useLogo } from "../../../context/ApiProvider";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setGroup,
+  setShowAPKModal,
   setShowAppPopUp,
 } from "../../../redux/features/global/globalSlice";
 import Login from "../../modals/Login/Login";
@@ -22,10 +23,13 @@ import Notification from "./Notification";
 import { Settings } from "../../../api";
 import MobileSearch from "./MobileSearch";
 import AppPopup from "./AppPopUp";
+import DownloadAPK from "../../modals/DownloadAPK/DownloadAPK";
 
 const Header = () => {
   const location = useLocation();
-  const { showAppPopUp, windowWidth } = useSelector((state) => state?.global);
+  const { showAppPopUp, windowWidth, showAPKModal } = useSelector(
+    (state) => state?.global
+  );
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const { token } = useSelector((state) => state.auth);
   const [showReferral, setShowReferral] = useState(false);
@@ -53,10 +57,15 @@ const Header = () => {
 
   useEffect(() => {
     const closePopupForForever = localStorage.getItem("closePopupForForever");
+    const apk_modal_shown = sessionStorage.getItem("apk_modal_shown");
     if (location?.state?.pathname === "/apk" || location.pathname === "/apk") {
+      sessionStorage.setItem("apk_modal_shown", true);
       localStorage.setItem("closePopupForForever", true);
       localStorage.removeItem("installPromptExpiryTime");
     } else {
+      if (!apk_modal_shown) {
+        dispatch(setShowAPKModal(true));
+      }
       if (!closePopupForForever) {
         const expiryTime = localStorage.getItem("installPromptExpiryTime");
         const currentTime = new Date().getTime();
@@ -83,6 +92,7 @@ const Header = () => {
       {showLoginModal && <Login />}
       {showRegisterModal && <Registration />}
       {showForgotPasswordModal && <ForgotPassword />}
+      {Settings?.apkLink && showAPKModal && <DownloadAPK />}
       <header
         id="10sports-header"
         title="10sports-header"
@@ -94,6 +104,7 @@ const Header = () => {
             {Settings?.apkLink && showAppPopUp && windowWidth < 1040 && (
               <AppPopup />
             )}
+
             <div
               id="header_body"
               className="w-full bg-bg_headerBg h-[54px] lg:h-[90px] pr-[4px] md:px-4 flex items-center justify-between gap-1 relative"

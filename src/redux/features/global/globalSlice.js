@@ -11,6 +11,7 @@ const initialState = {
   showNotification: false,
   showBanner: false,
   showAppPopUp: false,
+  showAPKModal: false,
   windowWidth: window.innerWidth,
 };
 
@@ -48,6 +49,9 @@ const stateSlice = createSlice({
     setShowAppPopUp: (state, action) => {
       state.showAppPopUp = action.payload;
     },
+    setShowAPKModal: (state, action) => {
+      state.showAPKModal = action.payload;
+    },
     setWindowWidth: (state, action) => {
       state.windowWidth = action.payload;
     },
@@ -66,6 +70,7 @@ export const {
   setShowBanner,
   setShowAppPopUp,
   setWindowWidth,
+  setShowAPKModal,
 } = stateSlice.actions;
 
 export default stateSlice.reducer;

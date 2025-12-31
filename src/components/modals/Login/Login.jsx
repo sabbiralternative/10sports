@@ -18,6 +18,8 @@ import { LanguageKey } from "../../../const";
 import { languageValue } from "../../../utils/language";
 import images from "../../../assets/images";
 import { useNavigate } from "react-router-dom";
+import { HiArrowNarrowDown } from "react-icons/hi";
+import { GrAndroid } from "react-icons/gr";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -121,6 +123,17 @@ const Login = () => {
   const showForgotPassword = () => {
     closeLoginModal();
     dispatch(setShowForgotPasswordModal(true));
+  };
+
+  const handleDownload = (e) => {
+    e.preventDefault();
+    const fileUrl = Settings.apkLink;
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.setAttribute("download", "site.apk");
+    document.body.appendChild(link);
+    link.click();
+    link.parentNode.removeChild(link);
   };
 
   return (
@@ -364,6 +377,19 @@ const Login = () => {
         "
                     >
                       Demo
+                    </button>
+                  </div>
+                )}
+                {Settings.apkLink && (
+                  <div title="loginButton" className=" w-full">
+                    <button
+                      onClick={handleDownload}
+                      type="button"
+                      className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out w-full text-text_color_loginButtonTextColor  bg-bg_color_LoginBtnBgColor shadow-lg rounded-md xs:text-[15px] px-5 py-2 flex items-center justify-center gap-x-2 font-lato-bold font-semibold text-base 
+        cursor-pointer text-primary
+        "
+                    >
+                      <GrAndroid /> Download .apk <HiArrowNarrowDown />
                     </button>
                   </div>
                 )}
