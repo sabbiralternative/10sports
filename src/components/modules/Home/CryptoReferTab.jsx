@@ -1,8 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import images from "../../../assets/images";
+import { useDispatch, useSelector } from "react-redux";
+import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 
 const CryptoReferTab = () => {
+  const dispatch = useDispatch();
+  const { token } = useSelector((state) => state.auth);
   const navigate = useNavigate();
+  const handleNavigate = () =>
+    token ? navigate("/affiliate") : dispatch(setShowLoginModal(true));
+
   return (
     <div className="w-full px-[6px] grid  gap-2 grid-cols-2">
       <div>
@@ -42,7 +49,7 @@ const CryptoReferTab = () => {
           </div>
         </div>
       </div>
-      <div onClick={() => navigate("/affiliate")} className="group">
+      <div onClick={handleNavigate} className="group">
         <div
           id="referAndEarnCard"
           title="Refer & Earn"
