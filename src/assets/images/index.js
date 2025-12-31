@@ -30,8 +30,10 @@ import commission from "../img/affi-commision-icon.ddf556a3.svg";
 import user from "../img/affi-user-icn.b08f83a6.svg";
 import share from "../img/af-share-img.51df8801.svg";
 import affiliate from "../img/affiliate.png";
+import usdt from "../img/usdt.svg";
 
 export default {
+  usdt,
   affiliate,
   share,
   calendar,

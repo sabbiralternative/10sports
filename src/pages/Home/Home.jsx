@@ -12,8 +12,11 @@ import IndianCardGames from "../../components/modules/Home/IndianCardGames";
 import InPlay from "../../components/modules/Home/InPlay";
 import UpcomingCricketEvent from "../../components/modules/Home/UpcomingCricketEvent";
 import WhatsApp from "../../components/shared/WhatsApp/WhatsApp";
+import CryptoReferTab from "../../components/modules/Home/CryptoReferTab";
+import useWhatsApp from "../../hooks/whatsapp";
 
 const Home = () => {
+  const { data: socialLink } = useWhatsApp();
   const { data: lotusLobby } = useLotusHomeLobby();
   const { group } = useSelector((state) => state.global);
 
@@ -31,13 +34,10 @@ const Home = () => {
         className="pb-2 pt-1.5 flex flex-col items-start justify-start gap-y-[15px]"
       >
         <WhatsApp />
-        {!group && (
-          <>
-            <Banner />
+        {!group && <Banner />}
+        {socialLink?.referral && <CryptoReferTab />}
 
-            <TrendingCasino trendingGames={lotusLobby?.trendingGames} />
-          </>
-        )}
+        {!group && <TrendingCasino trendingGames={lotusLobby?.trendingGames} />}
         {group ? <Group data={data} /> : <InPlay />}
 
         {/* <InPlay /> */}
