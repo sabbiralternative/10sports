@@ -71,7 +71,7 @@ const DownloadAPK = () => {
           className="w-full  flex flex-col justify-center items-center  gap-y-6"
           id="loginRegLayOut"
         >
-          <div className="promo-card">
+          <div className="promo-card font-lato">
             <header className="promo-header">
               <div className="header-content">
                 <img src={images.install_android} alt="install_android" />
