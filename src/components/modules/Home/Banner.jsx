@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 
 const Banner = () => {
   const { data } = useBannerImage();
+
   return (
     <div className="w-full">
       {data?.banner?.length > 0 && (

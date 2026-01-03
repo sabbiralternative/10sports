@@ -16,7 +16,7 @@ const CryptoReferTab = () => {
         <div
           onClick={() => {
             window.open(
-              "https://onramp.money/main/buy/?appId=1&mode=overlay&origin=https://onramp.money&defaultCoinCode=USDT&clientHeight=87 "
+              "https://onramp.money/main/buy/?appId=1&mode=overlay&origin=https://onramp.money&defaultCoinCode=USDT"
             );
           }}
           id="add Crypto"

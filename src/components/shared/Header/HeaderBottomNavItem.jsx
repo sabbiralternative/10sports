@@ -121,7 +121,12 @@ const HeaderBottomNavItem = () => {
           <span className="font font-lato text-[12px]  font-semibold">BBL</span>
         </Link>
         {socialLink?.referral && (
-          <Link
+          <a
+            onClick={() => {
+              token
+                ? navigate("/affiliate")
+                : dispatch(setShowLoginModal(true));
+            }}
             title="Home"
             className={`cursor-pointer uppercase min-h-[28px]  min-w-[100px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
         ${
@@ -129,7 +134,6 @@ const HeaderBottomNavItem = () => {
             ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
             : "text-text_headerDeskNav"
         }`}
-            to="/affiliate"
           >
             <span className="">
               <img
@@ -144,7 +148,7 @@ const HeaderBottomNavItem = () => {
             <span className="font font-lato text-[12px]  font-semibold">
               Affiliate
             </span>
-          </Link>
+          </a>
         )}
 
         <Link
