@@ -534,7 +534,7 @@ html * {
   display: flex;
   align-items: center;
   padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-color-headerBg);
 }
 
 .phone-mockup {
@@ -621,7 +621,6 @@ html * {
   align-items: center;
   justify-content: center;
   background: var(--bg-active-primary);
-  color: #000;
   text-decoration: none;
   padding: 10px;
   font-size: 12px;

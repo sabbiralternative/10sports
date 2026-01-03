@@ -4,6 +4,7 @@ import useCloseModalClickOutside from "../../../hooks/closeModal";
 import { setShowAPKModal } from "../../../redux/features/global/globalSlice";
 import { Settings } from "../../../api";
 import { GrAndroid } from "react-icons/gr";
+import images from "../../../assets/images";
 
 const DownloadAPK = () => {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ const DownloadAPK = () => {
         className="relative w-[90%]  sm:w-[85%] md:w-[70%] lg:w-[450px] max-w-[450px] rounded-[20px]   bg-bg_color_LoginPopUpBg popUpOpenAnimation  "
       >
         <button
+          style={{ zIndex: 9999 }}
           onClick={closeModal}
           className="absolute top-3 right-3 active:scale-95 transition-all duration-300"
         >
@@ -72,14 +74,10 @@ const DownloadAPK = () => {
           <div className="promo-card">
             <header className="promo-header">
               <div className="header-content">
-                <div className="phone-mockup">
-                  <div className="screen">
-                    <button className="install-btn">INSTALL APP</button>
-                  </div>
-                </div>
+                <img src={images.install_android} alt="install_android" />
+
                 <h1 className="main-title">
-                  Download APK for <br />
-                  <span>Premium Gaming Experience</span>
+                  Download APK for Premium Gaming Experience
                 </h1>
               </div>
             </header>
@@ -118,7 +116,10 @@ const DownloadAPK = () => {
                 experience 💎
               </p>
 
-              <a onClick={handleDownload} className="download-button">
+              <a
+                onClick={handleDownload}
+                className="download-button text-primary"
+              >
                 <GrAndroid className="android-icon" />
                 <span>Download Official App Now ↓</span>
               </a>
