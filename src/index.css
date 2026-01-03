@@ -533,7 +533,7 @@ html * {
 .header-content {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 10px 20px;
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -573,13 +573,13 @@ html * {
 .closing-text {
   font-size: 0.95rem;
   line-height: 1.5;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #e0e0e0;
 }
 
 .benefits-title {
   font-size: 1.1rem;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .benefits-list {
@@ -588,7 +588,7 @@ html * {
 }
 
 .benefits-list li {
-  margin-bottom: 12px;
+  margin-bottom: 6px;
   padding-left: 30px;
   position: relative;
   font-size: 0.9rem;
@@ -623,7 +623,8 @@ html * {
   background: var(--bg-active-primary);
   color: #000;
   text-decoration: none;
-  padding: 12px;
+  padding: 10px;
+  font-size: 12px;
   border-radius: 8px;
   font-weight: bold;
   margin-top: 10px;
@@ -635,7 +636,7 @@ html * {
 }
 
 .android-icon {
-  width: 24px;
-  margin-right: 15px;
+  width: 16px;
+  margin-right: 10px;
 }
 /*! Download apk css end  */
