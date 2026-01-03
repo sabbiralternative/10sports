@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   setGroup,
+  setSelectedCategory,
   setShowLoginModal,
 } from "../../../redux/features/global/globalSlice";
 import { Settings } from "../../../api";
@@ -345,6 +346,7 @@ const HeaderBottomNavItem = () => {
               : "text-text_headerDeskNav"
           }`}
           to="/live-casino"
+          onClick={() => dispatch(setSelectedCategory("ALL"))}
         >
           <span>
             <LiveCasino height={16} width={16} />
@@ -354,7 +356,7 @@ const HeaderBottomNavItem = () => {
           </span>
         </Link>
         {/* aura slot live casino */}
-        {Settings.aura && (
+        {/* {Settings.aura && (
           <Link
             title="Aura"
             className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
@@ -371,7 +373,7 @@ const HeaderBottomNavItem = () => {
               Aura
             </span>
           </Link>
-        )}
+        )} */}
         <Link
           title="Slots"
           className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
