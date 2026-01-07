@@ -7,8 +7,10 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API } from "../../../api";
 import toast from "react-hot-toast";
+import ImageUploadMessage from "../../modals/ImageUploadMessage/ImageUploadMessage";
 
 const UploadTransaction = ({ paymentId, amount, methodType }) => {
+  const [imageUploadMessage, setImageUploadMessage] = useState(null);
   const fileRef = useRef();
   const handleInputClick = () => {
     if (fileRef?.current) {
@@ -31,6 +33,7 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
   useEffect(() => {
     if (image) {
       setLoading(true);
+      setImageUploadMessage("Uploading Image");
       const handleSubmitImage = async () => {
         const formData = new FormData();
         formData.append("image", image);
@@ -42,13 +45,22 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
         });
         const data = res.data;
         if (data?.success) {
+          setImageUploadMessage("Image uploaded, Fetching UTR");
           getUTR(data?.filePath, {
             onSuccess: (data) => {
               if (data?.success) {
+                setImageUploadMessage(null);
                 if (data?.utr !== null) {
+                  toast.success(data?.message);
                   setUtr(data?.utr);
                 }
+              } else {
+                toast.error(data?.message);
+                setImageUploadMessage(null);
               }
+            },
+            onError: () => {
+              setImageUploadMessage(null);
             },
           });
           setLoading(false);
@@ -57,6 +69,7 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
           setFilePath(data?.filePath);
           setImage(null);
         } else {
+          setImageUploadMessage(null);
           setLoading(false);
           setUtr(null);
           setImage(null);
@@ -114,6 +127,9 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
 
   return (
     <>
+      {imageUploadMessage && (
+        <ImageUploadMessage imageUploadMessage={imageUploadMessage} />
+      )}
       {!filePath && !loading && (
         <div className="w-full mt-2.5 rounded-md bg-bg_color_primary text-text_color_primary1 py-3.5 px-3">
           <div className="font-bold text-base leading-5">
