@@ -368,7 +368,9 @@ const Fancy = ({ data }) => {
                         </div>
                       </span>
                     </div>
-                    {runnerId === game?.id && <MobileBetSlip />}
+                    {runnerId === game?.id && (
+                      <MobileBetSlip currentPlaceBetEvent={game} />
+                    )}
                   </div>
                 </div>
               </div>

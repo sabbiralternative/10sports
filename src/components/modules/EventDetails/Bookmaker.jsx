@@ -601,7 +601,9 @@ const Bookmaker = ({ data }) => {
                           </div>
                         </div>
                       )}
-                      {runner?.id === runnerId && <MobileBetSlip />}
+                      {runner?.id === runnerId && (
+                        <MobileBetSlip currentPlaceBetEvent={game} />
+                      )}
                     </div>
                   );
                 })}

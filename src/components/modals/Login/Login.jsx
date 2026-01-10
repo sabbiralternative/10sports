@@ -44,7 +44,6 @@ const Login = () => {
     const result = await handleLogin(loginData).unwrap();
 
     if (result.success) {
-      console.log(result);
       const token = result?.result?.token;
       const bonusToken = result?.result?.bonusToken;
       const user = result?.result?.loginName;

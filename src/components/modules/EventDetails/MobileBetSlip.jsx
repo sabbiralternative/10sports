@@ -22,7 +22,7 @@ import {
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import BetLoading from "./BetLoading";
 
-const MobileBetSlip = () => {
+const MobileBetSlip = ({ currentPlaceBetEvent }) => {
   const [isCashOut, setIsCashOut] = useState(false);
   const [profit, setProfit] = useState(0);
   const { eventTypeId } = useParams();
@@ -66,7 +66,7 @@ const MobileBetSlip = () => {
         btype: placeBetValues?.btype,
         placeName: placeBetValues?.placeName,
         eventTypeId: placeBetValues?.eventTypeId,
-        betDelay: placeBetValues?.betDelay,
+        betDelay: currentPlaceBetEvent?.betDelay,
         marketId: placeBetValues?.marketId,
         maxLiabilityPerMarket: placeBetValues?.maxLiabilityPerMarket,
         maxLiabilityPerBet: placeBetValues?.maxLiabilityPerBet,
@@ -78,7 +78,7 @@ const MobileBetSlip = () => {
       };
     } else {
       payload = {
-        betDelay: placeBetValues?.betDelay,
+        betDelay: currentPlaceBetEvent?.betDelay,
         btype: placeBetValues?.btype,
         eventTypeId: placeBetValues?.eventTypeId,
         marketId: placeBetValues?.marketId,
@@ -125,8 +125,8 @@ const MobileBetSlip = () => {
     ) {
       delay = 9000;
     } else {
-      setBetDelay(placeBetValues?.betDelay);
-      delay = Settings.betDelay ? placeBetValues?.betDelay * 1000 : 0;
+      setBetDelay(currentPlaceBetEvent?.betDelay);
+      delay = Settings.betDelay ? currentPlaceBetEvent?.betDelay * 1000 : 0;
     }
 
     // Introduce a delay before calling the API
@@ -359,7 +359,7 @@ const MobileBetSlip = () => {
                     <Clock />
                   </span>
                   <span className="font-normal ">
-                    {placeBetValues?.betDelay}s
+                    {currentPlaceBetEvent?.betDelay}s
                   </span>
                 </div>
               </button>
@@ -389,7 +389,7 @@ const MobileBetSlip = () => {
                     <Clock />
                   </span>
                   <span className="font-normal ">
-                    {placeBetValues?.betDelay}s
+                    {currentPlaceBetEvent?.betDelay}s
                   </span>
                 </div>
               </button>

@@ -482,7 +482,9 @@ const HorseGreyhoundEventDetails = ({ data }) => {
                         </div>
                       </div>
                     </div>
-                    {runnerId === runner?.id && <MobileBetSlip />}
+                    {runnerId === runner?.id && (
+                      <MobileBetSlip currentPlaceBetEvent={game} />
+                    )}
                   </div>
                 );
               })}

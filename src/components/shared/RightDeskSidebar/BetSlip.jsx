@@ -1,10 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import useBalance from "../../../hooks/balance";
 import { useCurrentBets } from "../../../hooks/currentBets";
 import { useExposure } from "../../../hooks/exposure";
 import { useEffect, useState } from "react";
-import { useOrderMutation } from "../../../redux/features/events/events";
+import {
+  useGetEventDetailsQuery,
+  useOrderMutation,
+} from "../../../redux/features/events/events";
 import {
   setPlaceBetValues,
   setPredictOdd,
@@ -23,19 +26,30 @@ import BetLoading from "../../modules/EventDetails/BetLoading";
 import { Clock, Minus, Plus } from "../../../assets/Icon/BetSlip";
 
 const BetSlip = () => {
+  const { pathname } = useLocation();
   const [isCashOut, setIsCashOut] = useState(false);
   const [profit, setProfit] = useState(0);
-  const { eventTypeId } = useParams();
+  const { eventId, eventTypeId } = useParams();
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
   const { price, stake, placeBetValues } = useSelector((state) => state.event);
-  const { eventId } = useParams();
   const { refetch: refetchBalance } = useBalance();
   const { refetch: refetchCurrentBets } = useCurrentBets(eventId);
   const { refetch: refetchExposure } = useExposure(eventId);
   const [betDelay, setBetDelay] = useState(null);
   const [loading, setLoading] = useState(false);
   const [createOrder] = useOrderMutation();
+  const { data: eventData } = useGetEventDetailsQuery(
+    { eventTypeId, eventId },
+    {
+      pollingInterval: 1000,
+      skip: !pathname.includes("/event-details"),
+    }
+  );
+  const currentPlaceBetEvent = eventData?.result?.find(
+    (item) => item?.id === placeBetValues?.marketId
+  );
+
   const buttonValues = localStorage.getItem("buttonValue");
   let parseButtonValues = [];
   if (buttonValues) {
@@ -72,7 +86,7 @@ const BetSlip = () => {
         btype: placeBetValues?.btype,
         placeName: placeBetValues?.placeName,
         eventTypeId: placeBetValues?.eventTypeId,
-        betDelay: placeBetValues?.betDelay,
+        betDelay: currentPlaceBetEvent?.betDelay,
         marketId: placeBetValues?.marketId,
         maxLiabilityPerMarket: placeBetValues?.maxLiabilityPerMarket,
         maxLiabilityPerBet: placeBetValues?.maxLiabilityPerBet,
@@ -84,7 +98,7 @@ const BetSlip = () => {
       };
     } else {
       payload = {
-        betDelay: placeBetValues?.betDelay,
+        betDelay: currentPlaceBetEvent?.betDelay,
         btype: placeBetValues?.btype,
         eventTypeId: placeBetValues?.eventTypeId,
         marketId: placeBetValues?.marketId,
@@ -130,8 +144,8 @@ const BetSlip = () => {
     ) {
       delay = 9000;
     } else {
-      setBetDelay(placeBetValues?.betDelay);
-      delay = Settings.betDelay ? placeBetValues?.betDelay * 1000 : 0;
+      setBetDelay(currentPlaceBetEvent?.betDelay);
+      delay = Settings.betDelay ? currentPlaceBetEvent?.betDelay * 1000 : 0;
     }
 
     setTimeout(async () => {
@@ -363,7 +377,7 @@ const BetSlip = () => {
                     <Clock />
                   </span>
                   <span className="font-normal text-primary">
-                    {placeBetValues?.betDelay}s
+                    {currentPlaceBetEvent?.betDelay}s
                   </span>
                 </div>
               </button>
@@ -386,7 +400,7 @@ const BetSlip = () => {
                     <Clock />
                   </span>
                   <span className="font-normal text-text_color_tertiary3">
-                    {placeBetValues?.betDelay}s
+                    {currentPlaceBetEvent?.betDelay}s
                   </span>
                 </div>
               </button>

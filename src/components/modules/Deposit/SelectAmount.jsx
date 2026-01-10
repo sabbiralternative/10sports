@@ -18,7 +18,6 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
         { amount: floatAmount },
         {
           onSuccess: (data) => {
-            console.log(data);
             if (data?.minimumDeposit && floatAmount < data?.minimumDeposit) {
               toast.error(`Minimum deposit amount is ${data?.minimumDeposit}`);
             } else {

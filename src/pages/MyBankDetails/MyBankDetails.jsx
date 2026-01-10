@@ -171,7 +171,6 @@ const MyBankDetails = () => {
 
             {bankData?.length > 0 &&
               bankData?.map((bank, i) => {
-                console.log(bank);
                 return (
                   <div
                     className="bg-bg_color_primary text-white"

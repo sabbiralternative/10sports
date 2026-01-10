@@ -4,14 +4,18 @@ import LeftDeskSidebar from "../components/shared/LeftDeskSidebar/LeftDeskSideba
 import RightDeskSidebar from "../components/shared/RightDeskSidebar/RightDeskSidebar";
 import Footer from "../components/shared/Footer/Footer";
 import { hideSidebarRoutes } from "../static/hideSidebarRoutes";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import Banner from "../components/modals/Banner/Banner";
+import useWhatsApp from "../hooks/whatsapp";
+import BuildVersion from "../components/modals/BuildVersion/BuildVersion";
 
 const MainLayout = () => {
-  const { group, showNotification, showBanner, showAppPopUp } = useSelector(
-    (state) => state.global
-  );
+  const [showBuildVersion, setShowBuildVersion] = useState(false);
+  const stored_build_version = localStorage.getItem("build_version");
+  const { data: socialLink } = useWhatsApp();
+  const { group, showNotification, showBanner, showAppPopUp, showAPKModal } =
+    useSelector((state) => state.global);
   const location = useLocation();
   const ref = useRef();
 
@@ -23,8 +27,29 @@ const MainLayout = () => {
     }
   }, [location, group]);
 
+  useEffect(() => {
+    const newVersion = socialLink?.build_version;
+    if (!stored_build_version) {
+      if (newVersion) {
+        setShowBuildVersion(true);
+      }
+    }
+    if (stored_build_version && newVersion) {
+      const parseVersion = JSON.parse(stored_build_version);
+      if (newVersion > parseVersion) {
+        setShowBuildVersion(true);
+      }
+    }
+  }, [socialLink?.build_version, stored_build_version]);
+
   return (
     <div className="w-dvw app-bg h-screen  flex flex-col">
+      {showBuildVersion && !showAPKModal && (
+        <BuildVersion
+          build_version={socialLink?.build_version}
+          setShowBuildVersion={setShowBuildVersion}
+        />
+      )}
       {showBanner && <Banner />}
       {!location.pathname.includes("/casino/") && <Header />}
 
