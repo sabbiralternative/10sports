@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useCurrentBets } from "../../../hooks/currentBets";
 import useBalance from "../../../hooks/balance";
 import { useExposure } from "../../../hooks/exposure";
-import { useOrderMutation } from "../../../redux/features/events/events";
+// import { useOrderMutation } from "../../../redux/features/events/events";
 import {
   setPlaceBetValues,
   setPrice,
@@ -12,7 +12,7 @@ import {
   setStake,
 } from "../../../redux/features/events/eventSlice";
 import { v4 as uuidv4 } from "uuid";
-import { Settings } from "../../../api";
+import { API, Settings } from "../../../api";
 import toast from "react-hot-toast";
 import { Clock, Minus, Plus } from "../../../assets/Icon/BetSlip";
 import {
@@ -21,6 +21,7 @@ import {
 } from "../../../utils/editBetSlipPrice";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import BetLoading from "./BetLoading";
+import { AxiosJSEncrypt } from "../../../lib/AxiosJSEncrypt";
 
 const MobileBetSlip = ({ currentPlaceBetEvent }) => {
   const [isCashOut, setIsCashOut] = useState(false);
@@ -32,10 +33,12 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
   const { refetch: refetchCurrentBets } = useCurrentBets(eventId);
   const { refetch: refetchBalance } = useBalance();
   const { refetch: refetchExposure } = useExposure(eventId);
-  const { placeBetValues, price, stake } = useSelector((state) => state?.event);
+  const { placeBetValues, price, stake, predictOdd } = useSelector(
+    (state) => state?.event
+  );
   const { token } = useSelector((state) => state?.auth);
 
-  const [createOrder] = useOrderMutation();
+  // const [createOrder] = useOrderMutation();
   const buttonValues = localStorage.getItem("buttonValue");
   let parseButtonValues = [];
   if (buttonValues) {
@@ -132,8 +135,9 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
     // Introduce a delay before calling the API
     setTimeout(async () => {
       try {
-        const res = await createOrder(payloadData).unwrap();
-        if (res?.success) {
+        // const res = await createOrder(payloadData).unwrap();
+        const { data } = await AxiosJSEncrypt.post(API.order, payloadData);
+        if (data?.success) {
           setLoading(false);
           refetchExposure();
           refetchBalance();
@@ -142,11 +146,11 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
           refetchCurrentBets();
           setBetDelay("");
           dispatch(setStake(null));
-          toast.success(res?.result?.result?.placed?.[0]?.message);
+          toast.success(data?.result?.result?.placed?.[0]?.message);
         } else {
           setLoading(false);
           toast.error(
-            res?.error?.status?.[0]?.description || res?.error?.errorMessage
+            data?.error?.status?.[0]?.description || data?.error?.errorMessage
           );
           setBetDelay("");
           setBetDelay(false);
@@ -215,7 +219,9 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
       dispatch(setStake(buttonValue + prevStake));
     }
   };
-
+  const selectedEvent = predictOdd?.find(
+    (odd) => odd?.id === placeBetValues?.selectionId
+  );
   return (
     <>
       {loading && (
@@ -379,7 +385,9 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
                     <div className="  text-xs">
                       <span>Liability : </span>
                       <span>
-                        {placeBetValues?.btype === "FANCY" ? profit : stake}
+                        {placeBetValues?.btype === "FANCY"
+                          ? profit
+                          : selectedEvent?.exposure}
                       </span>
                     </div>
                   )}
@@ -389,7 +397,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
                     <Clock />
                   </span>
                   <span className="font-normal ">
-                    {currentPlaceBetEvent?.betDelay}s
+                    {placeBetValues?.betDelay}s
                   </span>
                 </div>
               </button>

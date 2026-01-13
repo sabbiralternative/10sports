@@ -4,7 +4,6 @@ import FAQ from "../../components/modules/Home/FAQ";
 import GameProvider from "../../components/modules/Home/GameProvider";
 import PopularGames from "../../components/modules/Home/PopularGames";
 import TrendingCasino from "../../components/modules/Home/TrendingCasino";
-
 import Group from "../../components/modules/Home/Group";
 import { useGroupQuery } from "../../redux/features/events/events";
 import { useLotusHomeLobby } from "../../hooks/lotusHomeLobby";

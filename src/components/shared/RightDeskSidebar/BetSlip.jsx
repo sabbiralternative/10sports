@@ -6,7 +6,7 @@ import { useExposure } from "../../../hooks/exposure";
 import { useEffect, useState } from "react";
 import {
   useGetEventDetailsQuery,
-  useOrderMutation,
+  // useOrderMutation,
 } from "../../../redux/features/events/events";
 import {
   setPlaceBetValues,
@@ -14,7 +14,7 @@ import {
   setPrice,
   setStake,
 } from "../../../redux/features/events/eventSlice";
-import { Settings } from "../../../api";
+import { API, Settings } from "../../../api";
 import { v4 as uuidv4 } from "uuid";
 import toast from "react-hot-toast";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
@@ -24,6 +24,7 @@ import {
 } from "../../../utils/editBetSlipPrice";
 import BetLoading from "../../modules/EventDetails/BetLoading";
 import { Clock, Minus, Plus } from "../../../assets/Icon/BetSlip";
+import { AxiosJSEncrypt } from "../../../lib/AxiosJSEncrypt";
 
 const BetSlip = () => {
   const { pathname } = useLocation();
@@ -32,13 +33,15 @@ const BetSlip = () => {
   const { eventId, eventTypeId } = useParams();
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
-  const { price, stake, placeBetValues } = useSelector((state) => state.event);
+  const { price, stake, placeBetValues, predictOdd } = useSelector(
+    (state) => state.event
+  );
   const { refetch: refetchBalance } = useBalance();
   const { refetch: refetchCurrentBets } = useCurrentBets(eventId);
   const { refetch: refetchExposure } = useExposure(eventId);
   const [betDelay, setBetDelay] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [createOrder] = useOrderMutation();
+  // const [createOrder] = useOrderMutation();
   const { data: eventData } = useGetEventDetailsQuery(
     { eventTypeId, eventId },
     {
@@ -149,22 +152,22 @@ const BetSlip = () => {
     }
 
     setTimeout(async () => {
-      const res = await createOrder(payloadData).unwrap();
+      const { data } = await AxiosJSEncrypt.post(API.order, payloadData);
 
-      if (res?.success) {
+      if (data?.success) {
         setLoading(false);
         refetchExposure();
         refetchBalance();
         refetchCurrentBets();
         dispatch(setShowLoginModal(false));
         setBetDelay("");
-        toast.success(res?.result?.result?.placed?.[0]?.message);
+        toast.success(data?.result?.result?.placed?.[0]?.message);
         dispatch(setPlaceBetValues(null));
         dispatch(setStake(null));
       } else {
         setLoading(false);
         toast.error(
-          res?.error?.status?.[0]?.description || res?.error?.errorMessage
+          data?.error?.status?.[0]?.description || data?.error?.errorMessage
         );
         setBetDelay(null);
       }
@@ -218,6 +221,10 @@ const BetSlip = () => {
       dispatch(setStake(buttonValue + prevStake));
     }
   };
+
+  const selectedEvent = predictOdd?.find(
+    (odd) => odd?.id === placeBetValues?.selectionId
+  );
 
   return (
     <div className="relative">
@@ -367,7 +374,9 @@ const BetSlip = () => {
                     <div className="  text-xs text-primary">
                       <span>Liability : </span>
                       <span>
-                        {placeBetValues?.btype === "FANCY" ? profit : stake}
+                        {placeBetValues?.btype === "FANCY"
+                          ? profit
+                          : selectedEvent?.exposure}
                       </span>
                     </div>
                   )}
@@ -400,7 +409,7 @@ const BetSlip = () => {
                     <Clock />
                   </span>
                   <span className="font-normal text-text_color_tertiary3">
-                    {currentPlaceBetEvent?.betDelay}s
+                    {placeBetValues?.betDelay}s
                   </span>
                 </div>
               </button>
