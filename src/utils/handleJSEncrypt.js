@@ -32,10 +32,13 @@ owIDAQAB
   // 3. Encrypt the Session Key with RSA (Public Key)
   const rsaEncryptor = new JSEncrypt();
   rsaEncryptor.setPublicKey(publicKey);
-  // const encryptedKey = rsaEncryptor.encrypt(sessionKey);
+  const encryptedKey = rsaEncryptor.encrypt(sessionKey);
 
   // 4. Send both pieces to the server
-  return encryptedData;
+  return {
+    key: encryptedKey, // RSA Encrypted Key (Safe)
+    data: encryptedData, // AES Encrypted Data
+  };
 };
 
 export default handleJSEncrypt;
