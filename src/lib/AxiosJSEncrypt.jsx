@@ -29,6 +29,7 @@ AxiosJSEncrypt.interceptors.request.use(
       }
 
       const encryptedData = handleJSEncrypt(payload);
+
       config.data = encryptedData;
     }
     return config;
