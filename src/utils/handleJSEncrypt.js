@@ -2,7 +2,6 @@ import CryptoJS from "crypto-js";
 import { JSEncrypt } from "jsencrypt";
 
 const handleJSEncrypt = (data) => {
-  //   const encryptor = new JSEncrypt();
   const publicKey = `-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1oPV6JCZUNzro3heK3II
 XmRp9LtFZvzzXBJK8l3U24tIZayZJ/ddcKf0jDR1tRW3mYnWRIuhF60kyOR5iDX3
@@ -13,31 +12,36 @@ qCPvTqH2RHDIT0WcXT7DDLOjwAJJHoCVfvBqmMptHir1a1izUlIPXHPYuZ5EMpLu
 owIDAQAB
 -----END PUBLIC KEY-----`;
 
-  //   encryptor.setPublicKey(publicKey);
+  const sessionKeyBytes = crypto.getRandomValues(new Uint8Array(32));
 
-  //   const encrypted = encryptor.encrypt(JSON.stringify(data));
+  const sessionKeyHex = Array.from(sessionKeyBytes)
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
 
-  //   return encrypted;
+  const iv = CryptoJS.lib.WordArray.random(16);
 
-  const sessionKey =
-    Math.random().toString(36).substring(2, 15) +
-    Math.random().toString(36).substring(2, 15);
-
-  // 2. Encrypt the Big Data with AES
-  const encryptedData = CryptoJS.AES.encrypt(
+  const encryptedPayload = CryptoJS.AES.encrypt(
     JSON.stringify(data),
-    sessionKey
+    CryptoJS.enc.Hex.parse(sessionKeyHex),
+    {
+      iv,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.Pkcs7,
+    }
   ).toString();
 
-  // 3. Encrypt the Session Key with RSA (Public Key)
-  const rsaEncryptor = new JSEncrypt();
-  rsaEncryptor.setPublicKey(publicKey);
-  const encryptedKey = rsaEncryptor.encrypt(sessionKey);
+  const rsa = new JSEncrypt();
+  rsa.setPublicKey(publicKey);
 
-  // 4. Send both pieces to the server
+  const encryptedKey = rsa.encrypt(sessionKeyHex);
+
+  if (!encryptedKey) {
+    throw new Error("RSA encryption failed");
+  }
   return {
-    key: encryptedKey, // RSA Encrypted Key (Safe)
-    data: encryptedData, // AES Encrypted Data
+    key: encryptedKey,
+    payload: encryptedPayload,
+    iv: iv.toString(CryptoJS.enc.Hex),
   };
 };
 
