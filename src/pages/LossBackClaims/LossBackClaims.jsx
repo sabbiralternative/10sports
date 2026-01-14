@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const LossBackClaims = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full h-full lg:w-[54%]">
       <div className="hidden lg:flex sticky top-0 z-[1000] app-bg font-lato-bold w-full flex-col gap-y-1.5 lg:pt-2">
@@ -118,6 +121,7 @@ const LossBackClaims = () => {
           </div>
         </div>
         <button
+          onClick={() => navigate("/")}
           className="relative overflow-hidden bg-bg_text_brand_primary py-2 px-4 rounded-lg active:scale-[99%] transition-all duration-300 text-primary  text-sm font-bold"
           type="button"
         >

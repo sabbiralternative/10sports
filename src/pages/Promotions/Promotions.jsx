@@ -1,8 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import images from "../../assets/images";
+import { useDispatch, useSelector } from "react-redux";
+import { setShowLoginModal } from "../../redux/features/global/globalSlice";
 
 const Promotions = () => {
+  const dispatch = useDispatch();
+  const { token } = useSelector((state) => state.auth);
   const navigate = useNavigate();
+
+  const handleNavigate = (link) => {
+    token ? navigate(link) : dispatch(setShowLoginModal(true));
+  };
   return (
     <div className="w-full h-full  lg:w-[54%] lg:pt-2">
       <div className="hidden lg:flex sticky top-0 z-[1000] app-bg font-lato-bold w-full flex-col gap-y-1.5 lg:pt-0">
@@ -77,6 +85,7 @@ const Promotions = () => {
           </div>
           <div className=" flex items-center justify-end gap-x-1.5 mt-1 z-10">
             <button
+              onClick={() => handleNavigate("/deposit")}
               title="Deposit"
               id="deposit"
               className="relative overflow-hidden text-text_color_primary2 pr-2.5 pl-1 py-0 h-[30px] rounded-md flex items-center justify-center  bg-bg_color_quaternary"
@@ -236,7 +245,7 @@ const Promotions = () => {
               </div>
             </div>
             <button
-              onClick={() => navigate("/lossback-claims")}
+              onClick={() => handleNavigate("/lossback-claims")}
               className="relative overflow-hidden bg-bg_color_lossbackSeeAll ml-auto active:scale-[99%] transition-all duration-300 text-text_color_primary2 whitespace-nowrap text-sm font-bold rounded px-4 py-2"
               type="button"
             >
@@ -291,7 +300,7 @@ const Promotions = () => {
               />
               <div className="flex-shrink-0 w-max">
                 <button
-                  disabled
+                  onClick={() => handleNavigate("/")}
                   className="relative overflow-hidden w-max px-2 py-1 font-lato text-text_color_primary2 bg-bg_color_redeemBtnBg text-xs md:text-sm font-bold leading-4 rounded-md flex items-center justify-center relative cursor-pointer disabled:opacity-70 flex items-center gap-x-1 shadow-sm"
                   type="button"
                 >
