@@ -25,6 +25,7 @@ import {
 import BetLoading from "../../modules/EventDetails/BetLoading";
 import { Clock, Minus, Plus } from "../../../assets/Icon/BetSlip";
 import { AxiosJSEncrypt } from "../../../lib/AxiosJSEncrypt";
+import useWhatsApp from "../../../hooks/whatsapp";
 
 const BetSlip = () => {
   const { pathname } = useLocation();
@@ -36,6 +37,7 @@ const BetSlip = () => {
   const { price, stake, placeBetValues, predictOdd } = useSelector(
     (state) => state.event
   );
+  const { data: socialLink } = useWhatsApp();
   const { refetch: refetchBalance } = useBalance();
   const { refetch: refetchCurrentBets } = useCurrentBets(eventId);
   const { refetch: refetchExposure } = useExposure(eventId);
@@ -126,7 +128,7 @@ const BetSlip = () => {
         ...payload,
         site: Settings.siteUrl,
         nounce: uuidv4(),
-        isbetDelay: Settings.betDelay,
+        isbetDelay: socialLink?.bet_delay,
       },
     ];
     setLoading(true);
@@ -148,7 +150,7 @@ const BetSlip = () => {
       delay = 9000;
     } else {
       setBetDelay(currentPlaceBetEvent?.betDelay);
-      delay = Settings.betDelay ? currentPlaceBetEvent?.betDelay * 1000 : 0;
+      delay = socialLink?.bet_delay ? currentPlaceBetEvent?.betDelay * 1000 : 0;
     }
 
     setTimeout(async () => {
