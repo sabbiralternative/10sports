@@ -14,6 +14,7 @@ import WhatsApp from "../../components/shared/WhatsApp/WhatsApp";
 import CryptoReferTab from "../../components/modules/Home/CryptoReferTab";
 import useWhatsApp from "../../hooks/whatsapp";
 import QuickButtons from "../../components/modules/Home/QuickButtons";
+import Promotion from "../../components/modules/Home/Promotion";
 
 const Home = () => {
   const { data: socialLink } = useWhatsApp();
@@ -36,6 +37,7 @@ const Home = () => {
         <WhatsApp />
         {!group && <Banner />}
         <QuickButtons />
+        <Promotion />
         {socialLink?.referral && <CryptoReferTab />}
 
         {!group && <TrendingCasino trendingGames={lotusLobby?.trendingGames} />}

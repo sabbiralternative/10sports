@@ -699,6 +699,67 @@ cursor-pointer
                   </a>
                 </div>
               )}
+              <div className="w-full">
+                <a
+                  title="Bonus Statement"
+                  onClick={() => handleNavigate("/promotions")}
+                >
+                  <div className="flex transition-all px-0.5 rounded-sm ease-in-out duration-150 hover:bg-bg_color_quaternary2  active:scale-[99%] items-center justify-start gap-3 w-full py-2 cursor-pointer">
+                    <span className="w-4 h-auto xs:w-5 text-text_color_primary1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                        height="20"
+                        width="20"
+                        fill="var(--bg-active-primary)"
+                        strokeWidth="2"
+                      >
+                        <path d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"></path>
+                      </svg>
+                    </span>
+                    <span className="font-medium text-sm xs:text-base text-text_color_primary1">
+                      Promos & Bonus
+                    </span>
+                  </div>
+                </a>
+              </div>
+              <div className="w-full">
+                <a
+                  title="Bonus Statement"
+                  onClick={() => handleNavigate("/lossback-claims")}
+                >
+                  <div className="flex transition-all px-0.5 rounded-sm ease-in-out duration-150 hover:bg-bg_color_quaternary2  active:scale-[99%] items-center justify-start gap-3 w-full py-2 cursor-pointer">
+                    <span className="w-4 h-auto xs:w-5 text-text_color_primary1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--bg-active-primary)"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path
+                          stroke="none"
+                          d="M0 0h24v24H0z"
+                          fill="none"
+                        ></path>
+                        <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+                        <path d="M12.25 18h-7.25a2 2 0 0 1 -2 -2v-8a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v4.5"></path>
+                        <path d="M18 12h.01"></path>
+                        <path d="M6 12h.01"></path>
+                        <path d="M16 19h6"></path>
+                        <path d="M19 16v6"></path>
+                      </svg>
+                    </span>
+                    <span className="font-medium text-sm xs:text-base text-text_color_primary1">
+                      Loss Back Claim
+                    </span>
+                  </div>
+                </a>
+              </div>
               {/* {socialLink?.referral && (
                 <div className="w-full">
                   <a

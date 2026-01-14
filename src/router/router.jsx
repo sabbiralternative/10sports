@@ -38,6 +38,8 @@ import Affiliate from "../pages/Affiliate/Affiliate";
 import APK from "../pages/APK/APK";
 import AffiliateUserProfitLoss from "../pages/AffiliateUserProfitLoss/AffiliateUserProfitLoss";
 import AffiliateUserStatement from "../pages/AffiliateUserStatement/AffiliateUserStatement";
+import Promotions from "../pages/Promotions/Promotions";
+import LossBackClaims from "../pages/LossBackClaims/LossBackClaims";
 
 export const router = createBrowserRouter(
   [
@@ -198,6 +200,14 @@ export const router = createBrowserRouter(
         {
           path: "/apk",
           element: <APK />,
+        },
+        {
+          path: "/promotions",
+          element: <Promotions />,
+        },
+        {
+          path: "/lossback-claims",
+          element: <LossBackClaims />,
         },
       ],
     },
