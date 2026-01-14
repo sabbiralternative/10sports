@@ -32,7 +32,7 @@ const Home = () => {
     <div className="w-full  h-max  lg:w-[54%] lg:pt-2">
       <div
         id="home"
-        className="pb-2 pt-1.5 flex flex-col items-start justify-start gap-y-[15px]"
+        className="pb-2 pt-1.5 flex flex-col items-start justify-start gap-y-[6px]"
       >
         <WhatsApp />
         {!group && <Banner />}
