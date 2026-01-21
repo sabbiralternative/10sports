@@ -107,7 +107,7 @@ const Bookmaker = ({ data }) => {
     exposureB,
     runner1,
     runner2,
-    gameId
+    gameId,
   ) => {
     let runner,
       largerExposure,
@@ -136,7 +136,7 @@ const Bookmaker = ({ data }) => {
     }
 
     if (exposureA > 0 && exposureB > 0) {
-      const difference = exposureA - exposureB;
+      const difference = Math.abs(exposureA - exposureB);
       if (difference <= 10) {
         speedCashOut = true;
       }
@@ -190,10 +190,10 @@ const Bookmaker = ({ data }) => {
           const runner1 = runners[0];
           const runner2 = runners[1];
           const pnl1 = pnlBySelection?.find(
-            (pnl) => pnl?.RunnerId === runner1?.id
+            (pnl) => pnl?.RunnerId === runner1?.id,
           )?.pnl;
           const pnl2 = pnlBySelection?.find(
-            (pnl) => pnl?.RunnerId === runner2?.id
+            (pnl) => pnl?.RunnerId === runner2?.id,
           )?.pnl;
 
           if (pnl1 && pnl2 && runner1 && runner2) {
@@ -202,7 +202,7 @@ const Bookmaker = ({ data }) => {
               pnl2,
               runner1,
               runner2,
-              game?.id
+              game?.id,
             );
             results.push(result);
           }
@@ -233,10 +233,10 @@ const Bookmaker = ({ data }) => {
         data?.map((game) => {
           const teamProfitForGame = teamProfit?.find(
             (profit) =>
-              profit?.gameId === game?.id && profit?.isOnePositiveExposure
+              profit?.gameId === game?.id && profit?.isOnePositiveExposure,
           );
           const speedCashOut = teamProfit?.find(
-            (profit) => profit?.gameId === game?.id && profit?.speedCashOut
+            (profit) => profit?.gameId === game?.id && profit?.speedCashOut,
           );
 
           return (
@@ -265,7 +265,7 @@ const Bookmaker = ({ data }) => {
                             dispatch,
                             pnlBySelection,
                             token,
-                            teamProfitForGame
+                            teamProfitForGame,
                           )
                         }
                         type="button"
@@ -327,10 +327,10 @@ const Bookmaker = ({ data }) => {
               <div className=" bg-bg_color_primary rounded-[3px] shadow-[0_8px_30px_rgb(0,0,0,0.12)] py-[1px] cursor-pointer">
                 {game?.runners?.map((runner) => {
                   const pnl = pnlBySelection?.find(
-                    (pnl) => pnl?.RunnerId === runner?.id
+                    (pnl) => pnl?.RunnerId === runner?.id,
                   );
                   const predictOddValues = predictOdd?.find(
-                    (val) => val?.id === runner?.id
+                    (val) => val?.id === runner?.id,
                   );
                   return (
                     <div
@@ -386,7 +386,7 @@ const Bookmaker = ({ data }) => {
                                       "back",
                                       game,
                                       runner,
-                                      runner?.back?.[2]?.price
+                                      runner?.back?.[2]?.price,
                                     )
                                   }
                                   className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue"
@@ -411,7 +411,7 @@ const Bookmaker = ({ data }) => {
                                     "back",
                                     game,
                                     runner,
-                                    runner?.back?.[1]?.price
+                                    runner?.back?.[1]?.price,
                                   )
                                 }
                                 className="w-full col-span-2 h-full"
@@ -437,7 +437,7 @@ const Bookmaker = ({ data }) => {
                                     "back",
                                     game,
                                     runner,
-                                    runner?.back?.[0]?.price
+                                    runner?.back?.[0]?.price,
                                   )
                                 }
                                 className="w-full col-span-2 h-full"
@@ -463,7 +463,7 @@ const Bookmaker = ({ data }) => {
                                     "lay",
                                     game,
                                     runner,
-                                    runner?.lay?.[0]?.price
+                                    runner?.lay?.[0]?.price,
                                   )
                                 }
                                 className="w-full col-span-2 h-full"
@@ -489,7 +489,7 @@ const Bookmaker = ({ data }) => {
                                     "lay",
                                     game,
                                     runner,
-                                    runner?.lay?.[1]?.price
+                                    runner?.lay?.[1]?.price,
                                   )
                                 }
                                 className="w-full col-span-2 h-full"
@@ -515,7 +515,7 @@ const Bookmaker = ({ data }) => {
                                     "lay",
                                     game,
                                     runner,
-                                    runner?.lay?.[2]?.price
+                                    runner?.lay?.[2]?.price,
                                   )
                                 }
                                 className="w-full col-span-2 h-full"
@@ -549,7 +549,7 @@ const Bookmaker = ({ data }) => {
                                       "back",
                                       game,
                                       runner,
-                                      runner?.back?.[0]?.price
+                                      runner?.back?.[0]?.price,
                                     )
                                   }
                                   className="w-full h-full"
@@ -575,7 +575,7 @@ const Bookmaker = ({ data }) => {
                                       "lay",
                                       game,
                                       runner,
-                                      runner?.lay?.[0]?.price
+                                      runner?.lay?.[0]?.price,
                                     )
                                   }
                                   className="w-full h-full"
