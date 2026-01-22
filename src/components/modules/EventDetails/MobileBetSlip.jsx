@@ -25,6 +25,7 @@ import { AxiosJSEncrypt } from "../../../lib/AxiosJSEncrypt";
 import useWhatsApp from "../../../hooks/whatsapp";
 
 const MobileBetSlip = ({ currentPlaceBetEvent }) => {
+  const closePopupForForever = localStorage.getItem("closePopupForForever");
   const [isCashOut, setIsCashOut] = useState(false);
   const [profit, setProfit] = useState(0);
   const { eventTypeId } = useParams();
@@ -36,7 +37,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
   const { refetch: refetchBalance } = useBalance();
   const { refetch: refetchExposure } = useExposure(eventId);
   const { placeBetValues, price, stake, predictOdd } = useSelector(
-    (state) => state?.event
+    (state) => state?.event,
   );
   const { token } = useSelector((state) => state?.auth);
 
@@ -55,8 +56,8 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
       setStake(
         placeBetValues?.totalSize > 0
           ? placeBetValues?.totalSize?.toFixed(2)
-          : null
-      )
+          : null,
+      ),
     );
     setIsCashOut(placeBetValues?.cashout || false);
   }, [placeBetValues, dispatch]);
@@ -111,6 +112,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
         site: Settings.siteUrl,
         nounce: uuidv4(),
         isbetDelay: socialLink?.bet_delay,
+        apk: closePopupForForever ? true : false,
       },
     ];
     let delay = 0;
@@ -152,7 +154,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
         } else {
           setLoading(false);
           toast.error(
-            data?.error?.status?.[0]?.description || data?.error?.errorMessage
+            data?.error?.status?.[0]?.description || data?.error?.errorMessage,
           );
           setBetDelay("");
           setBetDelay(false);
@@ -222,7 +224,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
     }
   };
   const selectedEvent = predictOdd?.find(
-    (odd) => odd?.id === placeBetValues?.selectionId
+    (odd) => odd?.id === placeBetValues?.selectionId,
   );
   return (
     <>
@@ -253,7 +255,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
                         price,
                         placeBetValues,
                         dispatch,
-                        setPrice
+                        setPrice,
                       );
                       setIsCashOut(false);
                     }}
@@ -280,7 +282,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
                         price,
                         placeBetValues,
                         dispatch,
-                        setPrice
+                        setPrice,
                       );
                       setIsCashOut(false);
                     }}

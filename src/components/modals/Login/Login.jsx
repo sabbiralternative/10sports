@@ -22,6 +22,7 @@ import { HiArrowNarrowDown } from "react-icons/hi";
 import { GrAndroid } from "react-icons/gr";
 
 const Login = () => {
+  const closePopupForForever = localStorage.getItem("closePopupForForever");
   const navigate = useNavigate();
   const [tab, setTab] = useState(Settings.registration ? "mobile" : "userId");
   const { valueByLanguage } = useLanguage();
@@ -40,6 +41,7 @@ const Login = () => {
       username: username,
       password: password,
       b2c: Settings.b2c,
+      apk: closePopupForForever ? true : false,
     };
     const result = await handleLogin(loginData).unwrap();
 
@@ -82,6 +84,7 @@ const Login = () => {
       username: "demo",
       password: "",
       b2c: Settings.b2c,
+      apk: closePopupForForever ? true : false,
     };
     const result = await handleLogin(loginData).unwrap();
 
