@@ -10,6 +10,7 @@ import useCloseModalClickOutside from "../../../hooks/closeModal";
 import { useIndex } from "../../../hooks";
 
 const SpeedCashOut = ({ speedCashOut, setSpeedCashOut }) => {
+  const closePopupForForever = localStorage.getItem("closePopupForForever");
   const { eventTypeId, eventId } = useParams();
   const { refetch: refetchCurrentBets } = useCurrentBets(eventId);
   const { refetch: refetchExposure } = useExposure(eventId);
@@ -22,7 +23,7 @@ const SpeedCashOut = ({ speedCashOut, setSpeedCashOut }) => {
 
   const lowestExposure = Math.min(
     speedCashOut?.exposureA,
-    speedCashOut?.exposureB
+    speedCashOut?.exposureB,
   );
 
   const amount = lowestExposure - lowestExposure * 0.03;
@@ -36,6 +37,7 @@ const SpeedCashOut = ({ speedCashOut, setSpeedCashOut }) => {
       event_type_id: eventTypeId,
       market_name: speedCashOut?.market_name,
       event_name: speedCashOut?.event_name,
+      apk: closePopupForForever ? true : false,
     };
     mutate(payload, {
       onSuccess: (data) => {
