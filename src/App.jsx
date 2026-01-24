@@ -1,7 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import { useEffect } from "react";
-import { Settings } from "./api";
 import { useDispatch } from "react-redux";
 import disableDevtool from "disable-devtool";
 import { logout } from "./redux/features/auth/authSlice";
@@ -10,7 +9,7 @@ import { setWindowWidth } from "./redux/features/global/globalSlice";
 
 function App() {
   const { data } = useWhatsApp();
-  const disabledDevtool = Settings.disabledDevtool;
+  const disabledDevtool = data?.disabledDevtool;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
