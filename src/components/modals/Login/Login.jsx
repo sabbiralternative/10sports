@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { useLogo } from "../../../context/ApiProvider";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLoginMutation } from "../../../redux/features/auth/authApi";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
 import {
@@ -22,7 +22,8 @@ import { HiArrowNarrowDown } from "react-icons/hi";
 import { GrAndroid } from "react-icons/gr";
 
 const Login = () => {
-  const closePopupForForever = localStorage.getItem("closePopupForForever");
+  const { closePopupForForever } = useSelector((state) => state.global);
+
   const navigate = useNavigate();
   const [tab, setTab] = useState(Settings.registration ? "mobile" : "userId");
   const { valueByLanguage } = useLanguage();

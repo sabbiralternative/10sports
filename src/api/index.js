@@ -93,4 +93,5 @@ export const Settings = {
   otpless: "",
   otpWhatsapp: "",
   complaint: "",
+  appOnly: "",
 };

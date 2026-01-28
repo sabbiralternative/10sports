@@ -6,10 +6,11 @@ import disableDevtool from "disable-devtool";
 import { logout } from "./redux/features/auth/authSlice";
 import useWhatsApp from "./hooks/whatsapp";
 import { setWindowWidth } from "./redux/features/global/globalSlice";
+import { Settings } from "./api";
 
 function App() {
   const { data } = useWhatsApp();
-  const disabledDevtool = data?.disabledDevtool;
+  const disabledDevtool = Settings?.disabledDevtool;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();

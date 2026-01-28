@@ -15,7 +15,7 @@ const RightDrawer = ({
   showRightDrawer,
   // setShowReferral,
 }) => {
-  const closePopupForForever = localStorage.getItem("closePopupForForever");
+  const { closePopupForForever } = useSelector((state) => state.global);
   const { user, token, memberId } = useSelector((state) => state.auth);
 
   const { data } = useBalance();

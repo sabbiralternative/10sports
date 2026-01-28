@@ -8,9 +8,10 @@ import { useExposure } from "../../../hooks/exposure";
 import useBalance from "../../../hooks/balance";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
 import { useIndex } from "../../../hooks";
+import { useSelector } from "react-redux";
 
 const SpeedCashOut = ({ speedCashOut, setSpeedCashOut }) => {
-  const closePopupForForever = localStorage.getItem("closePopupForForever");
+  const { closePopupForForever } = useSelector((state) => state.global);
   const { eventTypeId, eventId } = useParams();
   const { refetch: refetchCurrentBets } = useCurrentBets(eventId);
   const { refetch: refetchExposure } = useExposure(eventId);

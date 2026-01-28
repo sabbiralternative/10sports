@@ -28,7 +28,7 @@ import { AxiosJSEncrypt } from "../../../lib/AxiosJSEncrypt";
 import useWhatsApp from "../../../hooks/whatsapp";
 
 const BetSlip = () => {
-  const closePopupForForever = localStorage.getItem("closePopupForForever");
+  const { closePopupForForever } = useSelector((state) => state.global);
   const { pathname } = useLocation();
   const [isCashOut, setIsCashOut] = useState(false);
   const [profit, setProfit] = useState(0);
