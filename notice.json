@@ -48,7 +48,7 @@
       "otp": true,
       "otpless": true,
       "otpWhatsapp": true,
-      "appOnly": false
+      "appOnly": true
     },
 
     "endpoint": {
