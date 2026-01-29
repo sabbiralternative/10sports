@@ -251,11 +251,17 @@ const BankAccount = ({ amount }) => {
                     <PG amount={amount} depositData={depositData} />
                   )}
                 </div>
-                <UploadTransaction
-                  paymentId={paymentId}
-                  amount={amount}
-                  methodType={methodType}
-                />
+
+                {methodType &&
+                  methodType !== "upigateway" &&
+                  methodType !== "toitgateway" &&
+                  methodType !== "i100gateway" && (
+                    <UploadTransaction
+                      paymentId={paymentId}
+                      amount={amount}
+                      methodType={methodType}
+                    />
+                  )}
               </>
             )}
 
