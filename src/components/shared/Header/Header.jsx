@@ -102,7 +102,6 @@ const Header = () => {
       {Settings?.apkLink && showAPKModal && <DownloadAPK />}
       <header
         id="10sports-header"
-        title="10sports-header"
         className="w-full h-max fixed top-0  z-[100] bg-[var(--bg-color-headerBg)]"
       >
         <div className="flex flex-col">
@@ -146,10 +145,8 @@ const Header = () => {
                     <div className="relative overflow-hidden hidden sm:block ml-2">
                       <img
                         src={logo}
-                        alt="10sports"
                         className={`object-cover`}
                         loading="eager"
-                        title="10sports"
                         style={{
                           height: Settings.logoHeight,
                           width: Settings.logoWidth,
