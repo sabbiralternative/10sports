@@ -12,12 +12,11 @@ import InPlay from "../../components/modules/Home/InPlay";
 import UpcomingCricketEvent from "../../components/modules/Home/UpcomingCricketEvent";
 import WhatsApp from "../../components/shared/WhatsApp/WhatsApp";
 import CryptoReferTab from "../../components/modules/Home/CryptoReferTab";
-import useWhatsApp from "../../hooks/whatsapp";
 import QuickButtons from "../../components/modules/Home/QuickButtons";
 import Promotion from "../../components/modules/Home/Promotion";
+import { Settings } from "../../api";
 
 const Home = () => {
-  const { data: socialLink } = useWhatsApp();
   const { data: lotusLobby } = useLotusHomeLobby();
   const { group } = useSelector((state) => state.global);
 
@@ -25,7 +24,7 @@ const Home = () => {
     { sportsType: group },
     {
       pollingInterval: 1000,
-    }
+    },
   );
 
   return (
@@ -38,7 +37,7 @@ const Home = () => {
         {!group && <Banner />}
         <QuickButtons />
         <Promotion />
-        {socialLink?.referral && <CryptoReferTab />}
+        {Settings?.referral && <CryptoReferTab />}
 
         {!group && <TrendingCasino trendingGames={lotusLobby?.trendingGames} />}
         {group ? <Group data={data} /> : <InPlay />}

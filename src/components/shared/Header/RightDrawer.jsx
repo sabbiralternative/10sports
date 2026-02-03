@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../redux/features/auth/authSlice";
 import { useNavigate } from "react-router-dom";
 import useBalance from "../../../hooks/balance";
-import useWhatsApp from "../../../hooks/whatsapp";
 import { Settings } from "../../../api";
 import { FaCopy } from "react-icons/fa";
 import { handleCopyToClipBoard } from "../../../utils/handleCopyToClipBoard";
@@ -19,7 +18,6 @@ const RightDrawer = ({
   const { user, token, memberId } = useSelector((state) => state.auth);
 
   const { data } = useBalance();
-  const { data: socialLink } = useWhatsApp();
 
   const ref = useRef();
   const navigate = useNavigate();
@@ -49,10 +47,10 @@ const RightDrawer = ({
   };
 
   const openWhatsapp = () => {
-    if (token && socialLink?.branchWhatsapplink) {
-      window.open(socialLink?.branchWhatsapplink, "_blank");
+    if (token && Settings?.branchWhatsapplink) {
+      window.open(Settings?.branchWhatsapplink, "_blank");
     } else {
-      window.open(socialLink?.whatsapplink, "_blank");
+      window.open(Settings?.whatsapplink, "_blank");
     }
   };
 
@@ -333,10 +331,10 @@ cursor-pointer
                 Help &amp; Support
               </span>
               <div className="divide-y divide-divide_color_primary2 pl-5 flex items-start justify-start w-full flex-col">
-                {socialLink?.branchWhatsapplink && (
+                {Settings?.branchWhatsapplink && (
                   <div
                     onClick={() =>
-                      handleOpenSocialLink(socialLink?.branchWhatsapplink)
+                      handleOpenSocialLink(Settings?.branchWhatsapplink)
                     }
                     className="w-full"
                   >
@@ -380,10 +378,10 @@ cursor-pointer
                     </span>
                   </div>
                 </div>
-                {/* {socialLink?.whatsapplink && (
+                {/* {Settings?.whatsapplink && (
                   <div
                     onClick={() =>
-                      handleOpenSocialLink(socialLink?.whatsapplink)
+                      handleOpenSocialLink(Settings?.whatsapplink)
                     }
                     className="w-full"
                   >
@@ -663,7 +661,7 @@ cursor-pointer
                   </div>
                 </a>
               </div>
-              {socialLink?.referral && (
+              {Settings?.referral && (
                 <div className="w-full">
                   <a
                     title="Bonus Statement"
@@ -801,7 +799,7 @@ cursor-pointer
                 </div>
               )}
 
-              {/* {socialLink?.referral && (
+              {/* {Settings?.referral && (
                 <div className="w-full">
                   <a
                     title="Bonus Statement"
@@ -841,7 +839,7 @@ cursor-pointer
                   </a>
                 </div>
               )} */}
-              {/* {socialLink?.referral && (
+              {/* {Settings?.referral && (
                 <div className="w-full">
                   <a
                     title="Bonus Statement"
@@ -1134,10 +1132,10 @@ cursor-pointer
               </div>
             </div>
           </li>
-          {socialLink?.telegramLink ||
-          socialLink?.whatsapplink ||
-          socialLink?.branchWhatsapplink ||
-          socialLink?.instagramLink ? (
+          {Settings?.telegramLink ||
+          Settings?.whatsapplink ||
+          Settings?.branchWhatsapplink ||
+          Settings?.instagramLink ? (
             <>
               <li className=" px-3 py-2 flex items-center justify-start gap-x-2 flex-col">
                 <span className="flex text-center  bg-bg_text_brand_primary bg-clip-text text-transparent text-sm xs:text-base font-medium">
@@ -1150,8 +1148,7 @@ cursor-pointer
                     Contact Us
                   </span>
                   <div className="flex w-full items-center justify-center gap-1 ">
-                    {socialLink?.whatsapplink ||
-                    socialLink?.branchWhatsapplink ? (
+                    {Settings?.whatsapplink || Settings?.branchWhatsapplink ? (
                       <a
                         title="whatsapp"
                         onClick={openWhatsapp}
@@ -1194,10 +1191,10 @@ cursor-pointer
                       </a>
                     ) : null}
 
-                    {socialLink?.instagramLink && (
+                    {Settings?.instagramLink && (
                       <a
                         onClick={() =>
-                          handleOpenSocialLink(socialLink?.instagramLink)
+                          handleOpenSocialLink(Settings?.instagramLink)
                         }
                         title="Instagram"
                         className="flex items-center justify-center rounded-md bg-bg_color_secondary w-[45px] h-[45px] md:w-20 md:h-20"
@@ -1275,11 +1272,11 @@ cursor-pointer
                       </a>
                     )}
 
-                    {socialLink?.telegramLink && (
+                    {Settings?.telegramLink && (
                       <a
                         title="Telegram"
                         onClick={() =>
-                          handleOpenSocialLink(socialLink?.telegramLink)
+                          handleOpenSocialLink(Settings?.telegramLink)
                         }
                         className="flex items-center justify-center rounded-md bg-bg_color_secondary w-[45px] h-[45px] md:w-20 md:h-20"
                       >

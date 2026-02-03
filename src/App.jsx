@@ -4,12 +4,11 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import disableDevtool from "disable-devtool";
 import { logout } from "./redux/features/auth/authSlice";
-import useWhatsApp from "./hooks/whatsapp";
 import { setWindowWidth } from "./redux/features/global/globalSlice";
+import { Settings } from "./api";
 
 function App() {
-  const { data } = useWhatsApp();
-  const disabledDevtool = data?.disabledDevtool;
+  const disabledDevtool = Settings?.disabledDevtool;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
@@ -49,7 +48,7 @@ function App() {
   }, [location.pathname, navigate]);
 
   useEffect(() => {
-    if (data?.pixel) {
+    if (Settings?.pixel) {
       // Create fb pixel main script
       const script = document.createElement("script");
       script.innerHTML = `
@@ -61,7 +60,7 @@ function App() {
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', ${data?.pixel});
+      fbq('init', ${Settings?.pixel});
       fbq('track', 'PageView');
     `;
       document.head.appendChild(script);
@@ -72,7 +71,7 @@ function App() {
       img.height = 1;
       img.width = 1;
       img.style.display = "none";
-      img.src = `https://www.facebook.com/tr?id=${data?.pixel}&ev=PageView&noscript=1`;
+      img.src = `https://www.facebook.com/tr?id=${Settings?.pixel}&ev=PageView&noscript=1`;
       noscript.appendChild(img);
 
       document.body.appendChild(noscript);
@@ -83,7 +82,7 @@ function App() {
         noscript.remove();
       };
     }
-  }, [data?.pixel]);
+  }, []);
 
   return <MainLayout />;
 }

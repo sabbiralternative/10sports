@@ -22,11 +22,9 @@ import { languageValue } from "../../../utils/language";
 import { useState } from "react";
 import WarningCondition from "../WarningCondition/WarningCondition";
 import { AiFillHome } from "react-icons/ai";
-import useWhatsApp from "../../../hooks/whatsapp";
 import images from "../../../assets/images";
 
 const HeaderBottomNavItem = () => {
-  const { data: socialLink } = useWhatsApp();
   const { group } = useSelector((state) => state.global);
   const [showWarning, setShowWarning] = useState(false);
   const [gameInfo, setGameInfo] = useState({ gameName: "", gameId: "" });
@@ -121,7 +119,7 @@ const HeaderBottomNavItem = () => {
           </span>
           <span className="font font-lato text-[12px]  font-semibold">BBL</span>
         </Link> */}
-        {socialLink?.referral && (
+        {Settings?.referral && (
           <a
             onClick={() => {
               token

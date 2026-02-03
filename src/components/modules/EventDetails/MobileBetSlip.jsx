@@ -22,7 +22,6 @@ import {
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import BetLoading from "./BetLoading";
 import { AxiosJSEncrypt } from "../../../lib/AxiosJSEncrypt";
-import useWhatsApp from "../../../hooks/whatsapp";
 
 const MobileBetSlip = ({ currentPlaceBetEvent }) => {
   const { closePopupForForever } = useSelector((state) => state.global);
@@ -32,7 +31,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const { eventId } = useParams();
-  const { data: socialLink } = useWhatsApp();
+
   const { refetch: refetchCurrentBets } = useCurrentBets(eventId);
   const { refetch: refetchBalance } = useBalance();
   const { refetch: refetchExposure } = useExposure(eventId);
@@ -111,7 +110,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
         ...payload,
         site: Settings.siteUrl,
         nounce: uuidv4(),
-        isbetDelay: socialLink?.bet_delay,
+        isbetDelay: Settings?.bet_delay,
         apk: closePopupForForever ? true : false,
       },
     ];
@@ -133,7 +132,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
       delay = 9000;
     } else {
       setBetDelay(currentPlaceBetEvent?.betDelay);
-      delay = socialLink?.bet_delay ? currentPlaceBetEvent?.betDelay * 1000 : 0;
+      delay = Settings?.bet_delay ? currentPlaceBetEvent?.betDelay * 1000 : 0;
     }
 
     // Introduce a delay before calling the API

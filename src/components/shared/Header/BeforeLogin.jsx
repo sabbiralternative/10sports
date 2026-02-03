@@ -8,10 +8,8 @@ import {
 import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import { Settings } from "../../../api";
-import useWhatsApp from "../../../hooks/whatsapp";
 
 const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
-  const { data: socialLink } = useWhatsApp();
   const { language, valueByLanguage } = useLanguage();
   const dispatch = useDispatch();
 
@@ -112,9 +110,9 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
             </span>
           </button>
         )}
-        {Settings.registrationWhatsapp && socialLink?.whatsapplink && (
+        {Settings.registrationWhatsapp && Settings?.whatsapplink && (
           <button
-            onClick={() => getWhatsAppId(socialLink?.whatsapplink)}
+            onClick={() => getWhatsAppId(Settings?.whatsapplink)}
             title="loginButton"
             id="loginButton"
             className="relative flex rounded-full gap-1   hover:opacity-100 w-max font-extrabold items-center justify-center pr-4 pl-3 py-2 bg-bg_brand_secondary"
@@ -167,9 +165,9 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
             </span>
           </button>
         )}
-        {Settings.registrationWhatsapp && socialLink?.whatsapplink && (
+        {Settings.registrationWhatsapp && Settings?.whatsapplink && (
           <button
-            onClick={() => getWhatsAppId(socialLink?.whatsapplink)}
+            onClick={() => getWhatsAppId(Settings?.whatsapplink)}
             id="loginButton"
             className="flex  hover:opacity-100 w-max font-extrabold items-center justify-center  bg-bg_color_LoginBtnBgColor rounded-md px-2.5 py-1.5"
           >

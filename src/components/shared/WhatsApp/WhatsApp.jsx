@@ -1,29 +1,23 @@
 import { useSelector } from "react-redux";
-import useWhatsApp from "../../../hooks/whatsapp";
-import { useEffect } from "react";
 import images from "../../../assets/images";
+import { Settings } from "../../../api";
 
 const WhatsApp = () => {
-  const { data: socialLink, refetch } = useWhatsApp();
   const { token } = useSelector((state) => state.auth);
 
   const navigateWhatsApp = () => {
-    if (token && socialLink?.branchWhatsapplink) {
-      window.open(socialLink?.branchWhatsapplink, "_blank");
+    if (token && Settings?.branchWhatsapplink) {
+      window.open(Settings?.branchWhatsapplink, "_blank");
     } else {
-      window.open(socialLink?.whatsapplink, "_blank");
+      window.open(Settings?.whatsapplink, "_blank");
     }
   };
 
-  useEffect(() => {
-    refetch();
-  }, [token, refetch]);
-
   return (
     <>
-      {socialLink?.instagramLink ? (
+      {Settings?.instagramLink ? (
         <div
-          onClick={() => window.open(socialLink?.instagramLink, "_blank")}
+          onClick={() => window.open(Settings?.instagramLink, "_blank")}
           title="WhatsAppContact"
           className="fixed cursor-pointer top-[calc(100dvh-180px)] left-3 z-50 flex w-max h-max items-center justify-center rounded-full transition-all duration-500"
         >
@@ -32,9 +26,9 @@ const WhatsApp = () => {
           </div>
         </div>
       ) : null}
-      {socialLink?.telegramLink ? (
+      {Settings?.telegramLink ? (
         <div
-          onClick={() => window.open(socialLink?.telegramLink, "_blank")}
+          onClick={() => window.open(Settings?.telegramLink, "_blank")}
           title="WhatsAppContact"
           className="fixed cursor-pointer top-[calc(100dvh-120px)] left-3 z-50 flex w-max h-max items-center justify-center rounded-full transition-all duration-500"
         >
@@ -47,7 +41,7 @@ const WhatsApp = () => {
           </div>
         </div>
       ) : null}
-      {socialLink?.whatsapplink || socialLink?.branchWhatsapplink ? (
+      {Settings?.whatsapplink || Settings?.branchWhatsapplink ? (
         <div
           onClick={navigateWhatsApp}
           title="WhatsAppContact"

@@ -7,13 +7,12 @@ import { hideSidebarRoutes } from "../static/hideSidebarRoutes";
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import Banner from "../components/modals/Banner/Banner";
-import useWhatsApp from "../hooks/whatsapp";
 import BuildVersion from "../components/modals/BuildVersion/BuildVersion";
+import { Settings } from "../api";
 
 const MainLayout = () => {
   const [showBuildVersion, setShowBuildVersion] = useState(false);
   const stored_build_version = localStorage.getItem("build_version");
-  const { data: socialLink } = useWhatsApp();
   const { group, showNotification, showBanner, showAppPopUp, showAPKModal } =
     useSelector((state) => state.global);
   const location = useLocation();
@@ -28,7 +27,7 @@ const MainLayout = () => {
   }, [location, group]);
 
   useEffect(() => {
-    const newVersion = socialLink?.build_version;
+    const newVersion = Settings?.build_version;
     if (!stored_build_version) {
       if (newVersion) {
         localStorage.setItem("build_version", newVersion);
@@ -40,13 +39,13 @@ const MainLayout = () => {
         setShowBuildVersion(true);
       }
     }
-  }, [socialLink?.build_version, stored_build_version]);
+  }, [stored_build_version]);
 
   return (
     <div className="w-dvw app-bg h-screen  flex flex-col">
       {showBuildVersion && !showAPKModal && (
         <BuildVersion
-          build_version={socialLink?.build_version}
+          build_version={Settings?.build_version}
           setShowBuildVersion={setShowBuildVersion}
         />
       )}
@@ -59,12 +58,12 @@ const MainLayout = () => {
           location.pathname.includes("/casino/")
             ? "pt-0"
             : showNotification && showAppPopUp
-            ? "pt-[165px] lg:pt-[155px]"
-            : !showNotification && showAppPopUp
-            ? "pt-[140px] lg:pt-[130px]"
-            : showNotification && !showAppPopUp
-            ? "pt-[120px] lg:pt-[155px]"
-            : "pt-[100px] lg:pt-[128px]"
+              ? "pt-[165px] lg:pt-[155px]"
+              : !showNotification && showAppPopUp
+                ? "pt-[140px] lg:pt-[130px]"
+                : showNotification && !showAppPopUp
+                  ? "pt-[120px] lg:pt-[155px]"
+                  : "pt-[100px] lg:pt-[128px]"
         }`}
       >
         <main

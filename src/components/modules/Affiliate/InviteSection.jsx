@@ -5,12 +5,11 @@ import AddNewUser from "../../modals/Affiliate/AddNewUser";
 import useGetIndex from "../../../hooks/useGetIndex";
 import { LuCirclePlus } from "react-icons/lu";
 import { MdOutlineContentCopy } from "react-icons/md";
-import useWhatsApp from "../../../hooks/whatsapp";
+import { Settings } from "../../../api";
 
 const InviteSection = () => {
   const [showAddNewUserModal, setShowAddNewUserModal] = useState(false);
   const { data } = useGetIndex();
-  const { data: socialLink } = useWhatsApp();
 
   return (
     <Fragment>
@@ -31,7 +30,7 @@ const InviteSection = () => {
             />
           </div>
         </div>
-        {socialLink?.referral_create_account && (
+        {Settings?.referral_create_account && (
           <div className="nw-affi-add-new-user-btn-sec" data-v-4c49d924>
             <button
               onClick={() => setShowAddNewUserModal(true)}

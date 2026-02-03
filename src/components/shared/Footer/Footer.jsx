@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import images from "../../../assets/images";
 import { userToken } from "../../../redux/features/auth/authSlice";
-import useWhatsApp from "../../../hooks/whatsapp";
 import { Settings } from "../../../api";
 import OriginalCrashThumb from "./OriginaCrash/OriginalCrashThumb";
 import { useEffect, useState } from "react";
@@ -15,7 +14,6 @@ const Footer = () => {
   const [closeAnimation, setCloseAnimation] = useState(false);
   const [openAnimation, setOpenAnimation] = useState(false);
   const token = useSelector(userToken);
-  const { data: socialLink } = useWhatsApp();
   const handleOpenSocialLink = (link) => {
     if (link) {
       window.open(link, "_blank");
@@ -23,10 +21,10 @@ const Footer = () => {
   };
 
   const openWhatsapp = () => {
-    if (token && socialLink?.branchWhatsapplink) {
-      window.open(socialLink?.branchWhatsapplink, "_blank");
+    if (token && Settings?.branchWhatsapplink) {
+      window.open(Settings?.branchWhatsapplink, "_blank");
     } else {
-      window.open(socialLink?.whatsapplink, "_blank");
+      window.open(Settings?.whatsapplink, "_blank");
     }
   };
 
@@ -93,20 +91,18 @@ const Footer = () => {
           id="homeFooterMobile"
           className="w-full bg-bg_color_primary rounded-xl"
         >
-          {socialLink?.telegramLink ||
-          socialLink?.whatsapplink ||
-          socialLink?.branchWhatsapplink ||
-          socialLink?.instagramLink ? (
+          {Settings?.telegramLink ||
+          Settings?.whatsapplink ||
+          Settings?.branchWhatsapplink ||
+          Settings?.instagramLink ? (
             <div className="border-b-[0.5px] border-border_color_primary1 pl-2 py-4">
               <h3 className="hidden md:block text-text_color_primary1 font-normal text-start text-lg md:text-xl font-bold w-full">
                 Connect with us
               </h3>
               <div className="w-full flex justify-center items-center md:items-start md:justify-start gap-2 lg:gap-2.5">
-                {socialLink?.telegramLink && (
+                {Settings?.telegramLink && (
                   <div
-                    onClick={() =>
-                      handleOpenSocialLink(socialLink?.telegramLink)
-                    }
+                    onClick={() => handleOpenSocialLink(Settings?.telegramLink)}
                     className="flex items-center justify-center overflow-hidden rounded-md"
                   >
                     <a className="flex items-center justify-center rounded-md bg-bg_color_secondary size-[45px] md:size-[50px] hover:scale-[110%] transition-all duration-300 hover:shadow-lg hover:opacity-90 text-[var(--bg-active-primary)]">
@@ -115,7 +111,7 @@ const Footer = () => {
                   </div>
                 )}
 
-                {socialLink?.whatsapplink || socialLink?.branchWhatsapplink ? (
+                {Settings?.whatsapplink || Settings?.branchWhatsapplink ? (
                   <div
                     onClick={openWhatsapp}
                     className="flex items-center justify-center overflow-hidden rounded-md"
@@ -126,10 +122,10 @@ const Footer = () => {
                   </div>
                 ) : null}
 
-                {socialLink?.instagramLink && (
+                {Settings?.instagramLink && (
                   <div
                     onClick={() =>
-                      handleOpenSocialLink(socialLink?.instagramLink)
+                      handleOpenSocialLink(Settings?.instagramLink)
                     }
                     className="flex items-center justify-center overflow-hidden rounded-md"
                   >
