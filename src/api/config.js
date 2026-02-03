@@ -26,6 +26,8 @@ export const getSetApis = async (setNoticeLoaded, baseUrl) => {
     Settings.referral_create_account = rest.referral_create_account;
     Settings.bet_delay = rest.bet_delay;
     Settings.build_version = rest.build_version;
+    Settings.disabledDevtool = rest.disabledDevtool;
+    Settings.referral = rest.referral;
   }
 
   if (settingsResponse?.result) {

@@ -73,7 +73,6 @@ export const Settings = {
   deposit: "",
   siteUrl: "",
   balanceApiLoop: "",
-  disabledDevtool: "",
   casinoCurrency: "",
   interval: "",
   logoFormat: "",
@@ -85,7 +84,6 @@ export const Settings = {
   build: "",
   mac88: "",
   aura: "",
-  referral: "",
   b2c: "",
   slotWolf: "",
   liveCasinoWolf: "",
@@ -106,4 +104,6 @@ export const Settings = {
   referral_create_account: "",
   bet_delay: "",
   build_version: "",
+  disabledDevtool: "",
+  referral: "",
 };
