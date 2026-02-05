@@ -23,21 +23,25 @@ const Banner = () => {
           className="mySwiper"
         >
           <div
-            className="w-full px-[6px] rounded-md"
+            className="w-full px-[6px]"
             style={{
               aspectRatio: "2.00561 / 1",
               maxHeight: "350px",
             }}
           >
-            <div className="w-full  h-full z-10 rounded-md flex flex-row">
+            <div className="w-full  h-full z-10  flex flex-row">
               {data?.banner?.map((image, i) => {
                 return (
                   <SwiperSlide
-                    style={{ height: "auto", width: "auto" }}
+                    style={{
+                      height: "auto",
+                      width: "auto",
+                      borderRadius: "10px",
+                    }}
                     key={i}
                   >
-                    <div className="w-full h-full swiper-slide">
-                      <img src={image} alt="" />
+                    <div className="w-full h-full swiper-slide rounded-[10px]">
+                      <img className="rounded-[10px]" src={image} alt="" />
                     </div>
                   </SwiperSlide>
                 );
