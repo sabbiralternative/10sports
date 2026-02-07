@@ -75,15 +75,16 @@ const HeaderBottomNavItem = () => {
             {languageValue(valueByLanguage, LanguageKey.HOME)}
           </span>
         </Link>
-        {/* <Link
+
+        <Link
           title="Home"
           className={`cursor-pointer uppercase min-h-[28px]  min-w-[100px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
         ${
-          location.pathname === "/event-details/4/27996014"
+          location.pathname === "/event-details/4/33439271"
             ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
             : "text-text_headerDeskNav"
         }`}
-          to="/event-details/4/27996014"
+          to="/event-details/4/33439271"
         >
           <span className="">
             <svg
@@ -117,8 +118,11 @@ const HeaderBottomNavItem = () => {
               </defs>
             </svg>
           </span>
-          <span className="font font-lato text-[12px]  font-semibold">BBL</span>
-        </Link> */}
+          <span className="font font-lato text-[12px]  font-semibold">
+            T20 World Cup{" "}
+          </span>
+        </Link>
+
         {Settings?.referral && (
           <a
             onClick={() => {
