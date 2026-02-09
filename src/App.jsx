@@ -6,10 +6,8 @@ import disableDevtool from "disable-devtool";
 import { logout } from "./redux/features/auth/authSlice";
 import { setWindowWidth } from "./redux/features/global/globalSlice";
 import { Settings } from "./api";
-import { useSettingsMutation } from "./hooks/settings";
 
 function App() {
-  const { mutate } = useSettingsMutation();
   const disabledDevtool = Settings?.disabledDevtool;
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -34,7 +32,7 @@ function App() {
             const info = "devtool opened!; type =" + type;
             if (info) {
               dispatch(logout());
-              mutate();
+
               window.location.href = "https://www.google.com/";
             }
           },

@@ -8,14 +8,12 @@ import { Settings } from "../../../api";
 import { FaCopy } from "react-icons/fa";
 import { handleCopyToClipBoard } from "../../../utils/handleCopyToClipBoard";
 import images from "../../../assets/images";
-import { useSettingsMutation } from "../../../hooks/settings";
 
 const RightDrawer = ({
   setShowRightDrawer,
   showRightDrawer,
   // setShowReferral,
 }) => {
-  const { mutate } = useSettingsMutation();
   const { closePopupForForever } = useSelector((state) => state.global);
   const { user, token, memberId } = useSelector((state) => state.auth);
 
@@ -30,7 +28,6 @@ const RightDrawer = ({
 
   const handleLogout = () => {
     dispatch(logout());
-    mutate();
     closeRightDrawer();
   };
 

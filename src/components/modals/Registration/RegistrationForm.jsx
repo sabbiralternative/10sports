@@ -18,7 +18,6 @@ import { useLogo } from "../../../context/ApiProvider";
 import images from "../../../assets/images";
 import { LanguageKey } from "../../../const";
 import { languageValue } from "../../../utils/language";
-import { useSettingsMutation } from "../../../hooks/settings";
 
 const RegistrationForm = ({
   mobile,
@@ -29,7 +28,6 @@ const RegistrationForm = ({
   showLogin,
   setShowRegister,
 }) => {
-  const { mutate } = useSettingsMutation();
   const dispatch = useDispatch();
   const { logo } = useLogo();
   const [countDown, setCountDown] = useState(45);
@@ -92,7 +90,6 @@ const RegistrationForm = ({
     const result = await handleRegister(registerData).unwrap();
 
     if (result.success) {
-      mutate();
       if (window?.fbq) {
         window.fbq("track", "CompleteRegistration", {
           content_name: "User Signup",
