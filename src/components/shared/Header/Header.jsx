@@ -67,7 +67,6 @@ const Header = () => {
       localStorage.removeItem("installPromptExpiryTime");
     } else {
       if (!apk_modal_shown) {
-        console.log("ok");
         dispatch(setShowAPKModal(true));
       }
       if (!closePopupForForever) {

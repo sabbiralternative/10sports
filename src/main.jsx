@@ -21,14 +21,14 @@ createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <QueryClientProvider client={queryClient}>
-        <SettingsWrapper>
-          <ApiProvider>
+        <ApiProvider>
+          <SettingsWrapper>
             <LanguageProvider>
               <RouterProvider router={router} />
             </LanguageProvider>
             <Toaster containerStyle={{ zIndex: 9999999 }} />
-          </ApiProvider>
-        </SettingsWrapper>
+          </SettingsWrapper>
+        </ApiProvider>
       </QueryClientProvider>
     </PersistGate>
   </Provider>,
