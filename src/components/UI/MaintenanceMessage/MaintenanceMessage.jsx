@@ -1,4 +1,4 @@
-import { Settings } from "../../api";
+import { Settings } from "../../../api";
 import "./maintenance.css";
 
 const MaintenanceMessage = () => {

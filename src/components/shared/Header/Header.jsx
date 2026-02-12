@@ -67,13 +67,14 @@ const Header = () => {
       localStorage.removeItem("installPromptExpiryTime");
     } else {
       if (!apk_modal_shown) {
+        console.log("ok");
         dispatch(setShowAPKModal(true));
       }
       if (!closePopupForForever) {
         const expiryTime = localStorage.getItem("installPromptExpiryTime");
         const currentTime = new Date().getTime();
 
-        if ((!expiryTime || currentTime > expiryTime) && Settings?.apkLink) {
+        if ((!expiryTime || currentTime > expiryTime) && Settings.apk_link) {
           localStorage.removeItem("installPromptExpiryTime");
 
           dispatch(setShowAppPopUp(true));
@@ -99,7 +100,7 @@ const Header = () => {
       {showLoginModal && <Login />}
       {showRegisterModal && <Registration />}
       {showForgotPasswordModal && <ForgotPassword />}
-      {Settings?.apkLink && showAPKModal && <DownloadAPK />}
+      {Settings.apk_link && showAPKModal && <DownloadAPK />}
       <header
         id="10sports-header"
         className="w-full h-max fixed top-0  z-[100] bg-[var(--bg-color-headerBg)]"
@@ -107,7 +108,7 @@ const Header = () => {
         <div className="flex flex-col">
           <div className="flex flex-col shadow-lg autoAnimate">
             <Notification />
-            {Settings?.apkLink && showAppPopUp && windowWidth < 1040 && (
+            {Settings.apk_link && showAppPopUp && windowWidth < 1040 && (
               <AppPopup />
             )}
 
