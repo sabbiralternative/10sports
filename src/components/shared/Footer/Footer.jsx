@@ -30,8 +30,8 @@ const Footer = () => {
 
   const handleDownloadAPK = (e) => {
     e.preventDefault();
-    if (Settings.apkLink) {
-      const fileUrl = Settings.apkLink;
+    if (Settings.apk_link) {
+      const fileUrl = Settings.apk_link;
       const link = document.createElement("a");
       link.href = fileUrl;
       link.setAttribute("download", "site.apk");
@@ -281,7 +281,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          {Settings.apkLink && (
+          {Settings.apk_link && (
             <div
               onClick={handleDownloadAPK}
               className="border-b-[0.5px] border-border_color_primary1 w-full px-2 py-4 gap-4 justify-items-center items-center flex items-center justify-center"

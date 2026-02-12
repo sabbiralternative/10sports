@@ -1,20 +1,21 @@
 import { useEffect } from "react";
 import { useSettingsMutation } from "../hooks/settings";
 import { useSelector } from "react-redux";
+import { API } from "../api";
 
-const SettingsLayout = ({ children }) => {
+const SettingsWrapper = ({ children }) => {
   const { token } = useSelector((state) => state.auth);
-  const { mutate, isSuccess } = useSettingsMutation();
+  const { mutate } = useSettingsMutation();
 
   useEffect(() => {
     mutate();
   }, [token, mutate]);
 
-  if (!isSuccess) {
+  if (!API.login) {
     return null;
   }
 
   return children;
 };
 
-export default SettingsLayout;
+export default SettingsWrapper;

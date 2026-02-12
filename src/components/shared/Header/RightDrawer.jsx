@@ -56,8 +56,8 @@ const RightDrawer = ({
 
   const handleDownloadAPK = (e) => {
     e.preventDefault();
-    if (Settings.apkLink) {
-      const fileUrl = Settings.apkLink;
+    if (Settings.apk_link) {
+      const fileUrl = Settings.apk_link;
       const link = document.createElement("a");
       link.href = fileUrl;
       link.setAttribute("download", "site.apk");
@@ -325,7 +325,7 @@ cursor-pointer
               </div>
             </div>
           </li>
-          {Settings.apkLink && (
+          {Settings.apk_link && (
             <li className="divide-y divide-divide_color_primary2 flex items-start justify-start flex-col">
               <span className="font-lato-bold font-semibold px-3 py-1 w-full bg-bg_color_quaternary2 text-xs xs:text-sm text-text_color_primary1 ">
                 Help &amp; Support

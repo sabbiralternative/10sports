@@ -61,8 +61,8 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
 
   const handleDownloadAPK = (e) => {
     e.preventDefault();
-    if (Settings.apkLink) {
-      const fileUrl = Settings.apkLink;
+    if (Settings.apk_link) {
+      const fileUrl = Settings.apk_link;
       const link = document.createElement("a");
       link.href = fileUrl;
       link.setAttribute("download", "site.apk");
@@ -676,7 +676,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                 </span>
               </a>
             </li>
-            {Settings.apkLink && (
+            {Settings.apk_link && (
               <li>
                 <h3 className=" w-full h-max px-6 pt-4 pb-2 text-[13px] text-text_color_tertiary5 uppercase font-normal">
                   Others

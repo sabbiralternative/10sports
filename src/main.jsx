@@ -12,7 +12,7 @@ import { persistor, store } from "./redux/store.js";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import LanguageProvider from "./context/LanguageProvider.jsx";
-import SettingsLayout from "./layout/SettingsLayout.jsx";
+import SettingsWrapper from "./layout/SettingsWrapper.jsx";
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
@@ -21,14 +21,14 @@ createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <QueryClientProvider client={queryClient}>
-        <SettingsLayout>
+        <SettingsWrapper>
           <ApiProvider>
             <LanguageProvider>
               <RouterProvider router={router} />
             </LanguageProvider>
             <Toaster containerStyle={{ zIndex: 9999999 }} />
           </ApiProvider>
-        </SettingsLayout>
+        </SettingsWrapper>
       </QueryClientProvider>
     </PersistGate>
   </Provider>,
