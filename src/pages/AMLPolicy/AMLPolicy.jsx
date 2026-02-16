@@ -16,7 +16,7 @@ const AMLPolicy = () => {
             AML Policy
           </h2>
           <p className="text-sm sm:text-base">
-            It is {Settings.siteTitle} policy to actively prevent the companys
+            It is {Settings.site_name} policy to actively prevent the companys
             services from being used to facilitate financial crime, money
             laundering and terrorist financing.
           </p>
@@ -29,7 +29,7 @@ const AMLPolicy = () => {
             Strict compliance with all applicable regulations will also protect
             the companys management and employees, as individuals, from the
             risks of violations of law, regulations, and oversight requirements
-            and preserve {Settings.siteTitle} reputation against damage that
+            and preserve {Settings.site_name} reputation against damage that
             could be caused by being implicated in money laundering and
             terrorist financing activities.
           </p>
@@ -53,7 +53,7 @@ const AMLPolicy = () => {
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
                 Commercial considerations cannot take precedence over{" "}
-                {Settings.siteTitle}’s anti-money laundering commitment;
+                {Settings.site_name}’s anti-money laundering commitment;
               </p>
             </li>
             <li>
@@ -73,7 +73,7 @@ const AMLPolicy = () => {
           <h1 className="text-2xl font-bold text-text_color_primary1" />
           <h2 className=" font-extrabold text-lg text-text_color_secondary" />
           <p className="text-sm sm:text-base">
-            {Settings.siteTitle} will strictly comply with all applicable
+            {Settings.site_name} will strictly comply with all applicable
             AML/CFT rules and regulations, with an emphasis on:
           </p>
           <ul className="list-disc pl-5">
@@ -97,7 +97,7 @@ const AMLPolicy = () => {
                 Commitment to “know your customer” appropriately, both in
                 acceptance and throughout the business relationship, by taking
                 appropriate measures to verify the customer’s identity and
-                monitor their use of {Settings.siteTitle}’s services;
+                monitor their use of {Settings.site_name}’s services;
               </p>
             </li>
             <li>
@@ -216,7 +216,7 @@ const AMLPolicy = () => {
             Senior Management
           </h2>
           <p className="text-sm sm:text-base">
-            Senior Management is responsible for {Settings.siteTitle} overall
+            Senior Management is responsible for {Settings.site_name} overall
             compliance policy and ensures that adequate resources are provided
             for the proper training of employees and the implementation of risk
             systems. This includes computer software to help with supervision.
@@ -270,9 +270,9 @@ const AMLPolicy = () => {
             The Money Laundering Reporting Officer (MLRO)
           </h2>
           <p className="text-sm sm:text-base">
-            {Settings.siteTitle} has appointed an MLRO with full responsibility
+            {Settings.site_name} has appointed an MLRO with full responsibility
             for
-            {Settings.siteTitle} anti-money laundering compliance.
+            {Settings.site_name} anti-money laundering compliance.
           </p>
           <ul className="list-disc pl-5" />
         </div>
@@ -284,7 +284,7 @@ const AMLPolicy = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                Must monitor the day-to-day operation of {Settings.siteTitle}{" "}
+                Must monitor the day-to-day operation of {Settings.site_name}{" "}
                 Tradings AML/CFT policies and will respond to any reasonable
                 request made by the authorities and/or the Gaming Control Board,
                 Curaçao.
@@ -326,7 +326,7 @@ const AMLPolicy = () => {
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
                 At least annually, the MLRO will issue a report (the MLRO
-                Report) to {Settings.siteTitle} senior management on the
+                Report) to {Settings.site_name} senior management on the
                 operation and effectiveness of money laundering controls. This
                 report will cover improvements, remedial programs, the outcome
                 of any internal audit reviews of AML/CFT processes, and other
@@ -341,7 +341,7 @@ const AMLPolicy = () => {
           </h1>
           <h2 className=" font-extrabold text-lg text-text_color_secondary" />
           <p className="text-sm sm:text-base">
-            {Settings.siteTitle} has policies and procedures to assess risks
+            {Settings.site_name} has policies and procedures to assess risks
             related to money laundering and terrorist financing. These policies
             and procedures are:
           </p>
@@ -384,7 +384,7 @@ const AMLPolicy = () => {
                 While directors and senior officers may not be involved in
                 day-to-day compliance, they need to understand the statutory
                 duties imposed on them, their employees, and{" "}
-                {Settings.siteTitle} itself.
+                {Settings.site_name} itself.
               </p>
             </li>
           </ul>
@@ -545,7 +545,7 @@ const AMLPolicy = () => {
                 Implement an appropriate process to approve all relationships
                 identified as high-risk as part of the customer acceptance
                 process or refuse to do business with potential customers
-                because they exceed {Settings.siteTitle} level of risk
+                because they exceed {Settings.site_name} level of risk
                 tolerance;
               </p>
             </li>
@@ -553,7 +553,7 @@ const AMLPolicy = () => {
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
                 Implement a process to exit an existing high-risk relationship
-                that management considers exceeds {Settings.siteTitle} level of
+                that management considers exceeds {Settings.site_name} level of
                 risk tolerance;
               </p>
             </li>
@@ -565,7 +565,7 @@ const AMLPolicy = () => {
             Risk assessment
           </h2>
           <p className="text-sm sm:text-base">
-            {Settings.siteTitle} is obliged to analyze potential threats and
+            {Settings.site_name} is obliged to analyze potential threats and
             vulnerabilities to money laundering and terrorist financing to which
             the company may be exposed in a risk assessment.
           </p>
@@ -613,7 +613,7 @@ const AMLPolicy = () => {
           <h1 className="text-2xl font-bold text-text_color_primary1" />
           <h2 className=" font-extrabold text-lg text-text_color_secondary" />
           <p className="text-sm sm:text-base">
-            {Settings.siteTitle} shall conduct an initial risk assessment at the
+            {Settings.site_name} shall conduct an initial risk assessment at the
             beginning of a new customer relationship and for existing customers
             on an ongoing basis.
           </p>

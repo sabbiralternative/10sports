@@ -280,7 +280,7 @@ const FAQS = () => {
             >
               <p className="text-text_color_primary1">
                 You can contact our customer support team via email at support@f
-                {Settings.siteTitle}.com or through our 24/7 live chat on the
+                {Settings.site_name}.com or through our 24/7 live chat on the
                 website.
               </p>
             </div>
@@ -322,7 +322,7 @@ const FAQS = () => {
               }`}
             >
               <p className="text-text_color_primary1">
-                {Settings.siteTitle} offers a wide range of betting options,
+                {Settings.site_name} offers a wide range of betting options,
                 including sports betting on football, basketball, e-sports, and
                 more. We also offer live betting, casino games, and special
                 markets. Visit our Betting Options page for more details.

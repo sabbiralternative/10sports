@@ -246,7 +246,7 @@ const Bookmaker = ({ data }) => {
                   <span className=" capitalize  font-bold text-xs sm:text-sm md:text-[15px]">
                     {game?.name?.toUpperCase()}
                   </span>
-                  {Settings.betFairCashOut &&
+                  {Settings.cashout &&
                     game?.runners?.length !== 3 &&
                     game?.status === "OPEN" &&
                     game?.name !== "toss" &&
@@ -284,7 +284,7 @@ const Bookmaker = ({ data }) => {
                       </button>
                     )}
 
-                  {Settings.betFairCashOut &&
+                  {Settings.cashout &&
                     game?.runners?.length !== 3 &&
                     game?.status === "OPEN" &&
                     game?.name !== "toss" &&

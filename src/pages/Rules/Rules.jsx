@@ -16,8 +16,8 @@ const Rules = () => {
           </h2>
           <p className="text-sm sm:text-base">
             These Rules and Regulations (Rules) are part of the{" "}
-            {Settings.siteTitle} terms and conditions. The Rules apply to all
-            bets placed on this online betting platform ({Settings.siteTitle}).
+            {Settings.site_name} terms and conditions. The Rules apply to all
+            bets placed on this online betting platform ({Settings.site_name}).
             The Rules consist of the following:
           </p>
           <ul className="list-disc pl-5">
@@ -51,8 +51,8 @@ const Rules = () => {
           </h2>
           <p className="text-sm sm:text-base">
             These Rules and Regulations (Rules) are part of the{" "}
-            {Settings.siteTitle} terms and conditions. The Rules apply to all
-            bets placed on this online betting platform ({Settings.siteTitle}).
+            {Settings.site_name} terms and conditions. The Rules apply to all
+            bets placed on this online betting platform ({Settings.site_name}).
             The Rules consist of the following:
           </p>
           <ul className="list-disc pl-5" />

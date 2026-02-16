@@ -42,7 +42,7 @@ const LeftDeskSidebar = () => {
       if (bonusToken) {
         return toast.error("Bonus wallet is available only on sports.");
       }
-      if (Settings.casinoCurrency !== "AED") {
+      if (Settings.casino_currency !== "AED") {
         navigate(`/casino/${name}/${id}`);
       } else {
         setGameInfo({ gameName: "", gameId: "" });
@@ -172,23 +172,22 @@ const LeftDeskSidebar = () => {
             </a>
           </li>
 
-          {Settings.mac88 && (
-            <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav">
-              {" "}
-              <Link
-                title="Aura"
-                className="flex w-full items-center h-full px-6 justify-start gap-3"
-                to={`/mac88`}
-              >
-                <span className="text-text_headerDeskNav">
-                  <Aura />
-                </span>
-                <span className="font-medium text-start text-text_color_primary1">
-                  Mac88
-                </span>
-              </Link>
-            </li>
-          )}
+          <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav">
+            {" "}
+            <Link
+              title="Aura"
+              className="flex w-full items-center h-full px-6 justify-start gap-3"
+              to={`/mac88`}
+            >
+              <span className="text-text_headerDeskNav">
+                <Aura />
+              </span>
+              <span className="font-medium text-start text-text_color_primary1">
+                Mac88
+              </span>
+            </Link>
+          </li>
+
           {Settings.liveCasinoWolf && (
             <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav">
               {" "}

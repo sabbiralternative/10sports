@@ -39,7 +39,7 @@ const LiveSlotCrashFishing = ({ casinoType }) => {
   const getFilteredGamesByName = (games) =>
     games &&
     games?.filter((game) =>
-      game?.game_name?.toLowerCase().includes(searchQuery)
+      game?.game_name?.toLowerCase().includes(searchQuery),
     );
 
   const handleNavigate = (game) => {
@@ -47,9 +47,9 @@ const LiveSlotCrashFishing = ({ casinoType }) => {
       if (bonusToken) {
         return setError("Bonus wallet is available only on sports.");
       }
-      if (Settings.casinoCurrency !== "AED") {
+      if (Settings.casino_currency !== "AED") {
         navigate(
-          `/casino/${game?.game_name.replace(/ /g, "")}/${game?.game_id}`
+          `/casino/${game?.game_name.replace(/ /g, "")}/${game?.game_id}`,
         );
       } else {
         setGameInfo({ gameName: "", gameId: "" });
@@ -214,7 +214,7 @@ const LiveSlotCrashFishing = ({ casinoType }) => {
                               </div>
                             </div>
                           );
-                        }
+                        },
                       )}
                   </div>
                 </div>

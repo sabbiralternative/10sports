@@ -188,8 +188,8 @@ const Login = () => {
                 src={logo}
                 alt="10sports-Login"
                 style={{
-                  height: Settings.logoHeight,
-                  width: Settings.logoWidth,
+                  height: Settings.logo_height,
+                  width: Settings.logo_width,
                   objectFit: "contain",
                 }}
               />
@@ -370,7 +370,7 @@ const Login = () => {
                     {languageValue(valueByLanguage, LanguageKey.LOGIN)}
                   </button>
                 </div>
-                {Settings.demoLogin && (
+                {Settings.demo_login && (
                   <div title="loginButton" className=" w-full">
                     <button
                       onClick={loginWithDemo}

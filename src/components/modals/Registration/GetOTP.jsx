@@ -108,8 +108,8 @@ const GetOTP = ({
                   src={logo}
                   alt="10sports-Register"
                   style={{
-                    height: Settings.logoHeight,
-                    width: Settings.logoWidth,
+                    height: Settings.logo_height,
+                    width: Settings.logo_width,
                     objectFit: "contain",
                   }}
                 />
@@ -215,7 +215,7 @@ const GetOTP = ({
                     </div>
                   </form>
 
-                  {Settings?.whatsapplink && Settings.registrationWhatsapp && (
+                  {Settings?.whatsapplink && Settings.registration_whatsapp && (
                     <Fragment>
                       <div className="w-full flex items-center gap-4">
                         <div className="h-px flex-1 bg-bg_color_quaternary3" />

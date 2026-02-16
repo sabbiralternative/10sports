@@ -159,7 +159,7 @@ const RegistrationForm = ({
             </g>
           </svg>
         </button>
-        <h1 className="hidden">Register to {Settings.siteTitle}</h1>
+        <h1 className="hidden">Register to {Settings.site_name}</h1>
         <div className="relative z-10 h-max px-2 w-full">
           <div
             className="w-full flex flex-col justify-center items-center gap-y-6 h-max"
@@ -174,8 +174,8 @@ const RegistrationForm = ({
                   src={logo}
                   alt="10sports-Register"
                   style={{
-                    height: Settings.logoHeight,
-                    width: Settings.logoWidth,
+                    height: Settings.logo_height,
+                    width: Settings.logo_width,
                     objectFit: "contain",
                   }}
                 />

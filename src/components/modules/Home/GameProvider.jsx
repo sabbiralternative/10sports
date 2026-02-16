@@ -22,7 +22,7 @@ const GameProvider = ({ casinoProviders }) => {
     //   if (bonusToken) {
     //     return setError("Bonus wallet is available only on sports.");
     //   }
-    //   if (Settings.casinoCurrency !== "AED") {
+    //   if (Settings.casino_currency !== "AED") {
     //     navigate(
     //       `/casino/${game?.game_name.replace(/ /g, "")}/${game?.game_id}`
     //     );

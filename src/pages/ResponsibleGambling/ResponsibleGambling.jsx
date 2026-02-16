@@ -15,7 +15,7 @@ const ResponsibleGambling = () => {
             Responsibility to Our Players
           </h2>
           <p className="text-sm sm:text-base">
-            {Settings.siteTitle} values its players and is proud to be chosen as
+            {Settings.site_name} values its players and is proud to be chosen as
             a sportsbook and casino provider.
           </p>
           <ul className="list-disc pl-5" />
@@ -52,15 +52,15 @@ const ResponsibleGambling = () => {
           <h1 className="text-2xl font-bold text-text_color_primary1" />
           <h2 className=" font-extrabold text-lg text-text_color_secondary" />
           <p className="text-sm sm:text-base">
-            {Settings.siteTitle} recognizes that for a small portion of players,
+            {Settings.site_name} recognizes that for a small portion of players,
             wagering may lead to negative consequences in other areas of their
             lives.
-            {Settings.siteTitle} encourages responsible gaming for its players
-            and employees. For the players, {Settings.siteTitle} achieves this
+            {Settings.site_name} encourages responsible gaming for its players
+            and employees. For the players, {Settings.site_name} achieves this
             by offering limit-setting and cool-off capabilities, making problem
             gambling resources available in all sports books and online gaming,
             and helping with self-exclusion both in-house and in local
-            jurisdictions. For employees, {Settings.siteTitle} offers annual
+            jurisdictions. For employees, {Settings.site_name} offers annual
             mandatory training for ticket writers, customer service staff, and
             corporate employees
           </p>
@@ -117,7 +117,7 @@ const ResponsibleGambling = () => {
           <h2 className=" font-extrabold text-lg text-text_color_secondary" />
           <p className="text-sm sm:text-base">
             If you or someone you know is experiencing any of these warning
-            signs, {Settings.siteTitle} encourages you to measure your gambling
+            signs, {Settings.site_name} encourages you to measure your gambling
             risk level by taking a gambling risk test through the regulatory
             agencies available in your jurisdiction.
           </p>
@@ -129,7 +129,7 @@ const ResponsibleGambling = () => {
             Limit Setting
           </h2>
           <p className="text-sm sm:text-base">
-            {Settings.siteTitle} empowers its players by offering several
+            {Settings.site_name} empowers its players by offering several
             jurisdictionally-based limit options to enjoy their gaming
             experience responsibly.
           </p>
@@ -180,10 +180,10 @@ const ResponsibleGambling = () => {
             Commitment to Preventing Underage Gambling
           </h2>
           <p className="text-sm sm:text-base">
-            A core aspect of {Settings.siteTitle}’s Responsible Gaming program
+            A core aspect of {Settings.site_name}’s Responsible Gaming program
             is the prevention of underage gambling. Players must present either
             a valid driver’s license, national ID, passport, or any valid ID to
-            register and wager at the {Settings.siteTitle} sportsbook website.
+            register and wager at the {Settings.site_name} sportsbook website.
           </p>
           <ul className="list-disc pl-5" />
         </div>
@@ -191,12 +191,12 @@ const ResponsibleGambling = () => {
           <h1 className="text-2xl font-bold text-text_color_primary1" />
           <h2 className=" font-extrabold text-lg text-text_color_secondary" />
           <p className="text-sm sm:text-base">
-            {Settings.siteTitle} will verify the player’s identity using a Know
+            {Settings.site_name} will verify the player’s identity using a Know
             Your Customer (KYC) process. If data is validated and the customer
             is confirmed to not be on a self-exclusion list and is over the
             legal age to gamble in that jurisdiction, the account set up is
             approved. If the KYC process fails to validate the customer, an
-            alert message is sent to {Settings.siteTitle}’s customer service
+            alert message is sent to {Settings.site_name}’s customer service
             team, who will contact the requesting customer to provide the
             necessary information to validate their identity, etcetera.
           </p>
@@ -205,7 +205,7 @@ const ResponsibleGambling = () => {
         <div className="flex flex-col gap-2 text-text_color_primary1">
           <h1 className="text-2xl font-bold text-text_color_primary1" />
           <h2 className=" font-extrabold text-lg text-text_color_secondary">
-            3.1. {Settings.siteTitle} encourages parents and concerned adults to
+            3.1. {Settings.site_name} encourages parents and concerned adults to
             talk to kids early:
           </h2>
           <p className="text-sm sm:text-base">
@@ -220,7 +220,7 @@ const ResponsibleGambling = () => {
         <div className="flex flex-col gap-2 text-text_color_primary1">
           <h1 className="text-2xl font-bold text-text_color_primary1" />
           <h2 className=" font-extrabold text-lg text-text_color_secondary">
-            3.2. {Settings.siteTitle} advises the players to keep their login
+            3.2. {Settings.site_name} advises the players to keep their login
             information safe:
           </h2>
           <p className="text-sm sm:text-base">
@@ -235,7 +235,7 @@ const ResponsibleGambling = () => {
         <div className="flex flex-col gap-2 text-text_color_primary1">
           <h1 className="text-2xl font-bold text-text_color_primary1" />
           <h2 className=" font-extrabold text-lg text-text_color_secondary">
-            3.3. {Settings.siteTitle} suggests considering downloading computer
+            3.3. {Settings.site_name} suggests considering downloading computer
             safeguards:
           </h2>
           <p className="text-sm sm:text-base">
@@ -247,7 +247,7 @@ const ResponsibleGambling = () => {
         <div className="flex flex-col gap-2 text-text_color_primary1">
           <h1 className="text-2xl font-bold text-text_color_primary1" />
           <h2 className=" font-extrabold text-lg text-text_color_secondary">
-            3.4. {Settings.siteTitle} suggests considering downloading computer
+            3.4. {Settings.site_name} suggests considering downloading computer
             safeguards:
           </h2>
           <p className="text-sm sm:text-base">

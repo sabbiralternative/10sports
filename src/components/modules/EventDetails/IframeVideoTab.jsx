@@ -27,7 +27,7 @@ const IframeVideoTab = ({
       eventTypeId: eventTypeId,
       eventId: eventId,
       type: "video",
-      casinoCurrency: Settings.casinoCurrency,
+      casino_currency: Settings.casino_currency,
     };
     const res = await sportsVideo(payload).unwrap();
     if (res?.success) {

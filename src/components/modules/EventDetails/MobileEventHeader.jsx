@@ -27,7 +27,7 @@ const MobileEventHeader = ({ data, score, sportsBook }) => {
       eventTypeId: eventTypeId,
       eventId: eventId,
       type: "video",
-      casinoCurrency: Settings.casinoCurrency,
+      casino_currency: Settings.casino_currency,
     };
     const res = await sportsVideo(payload).unwrap();
     if (res?.success) {
@@ -42,7 +42,7 @@ const MobileEventHeader = ({ data, score, sportsBook }) => {
       (group) =>
         group?.Name !== "Bet Builder" &&
         group?.Name !== "Fast Markets" &&
-        group?.Name !== "Player Specials"
+        group?.Name !== "Player Specials",
     );
 
   const handleCashOut = ({ betHistory, sportsBook, price, cashout_value }) => {
@@ -56,7 +56,7 @@ const MobileEventHeader = ({ data, score, sportsBook }) => {
     });
 
     const column = item?.Items?.find(
-      (col) => col?.Id === betHistory?.selectionId
+      (col) => col?.Id === betHistory?.selectionId,
     );
 
     const payload = {
@@ -277,7 +277,7 @@ const MobileEventHeader = ({ data, score, sportsBook }) => {
                 group?.Items?.forEach((data) => {
                   if (bet?.marketId == data?.Id) {
                     column = data?.Items?.find(
-                      (col) => col?.Id === bet?.selectionId
+                      (col) => col?.Id === bet?.selectionId,
                     );
                   }
                 });

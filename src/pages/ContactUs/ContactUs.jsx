@@ -13,7 +13,7 @@ const ContactUs = () => {
         <div className="flex flex-col gap-2 text-text_color_primary1">
           <h1 className="text-2xl font-bold text-text_color_primary1" />
           <h2 className=" font-extrabold text-lg text-text_color_secondary">
-            At {Settings.siteTitle}, we are dedicated to providing our players
+            At {Settings.site_name}, we are dedicated to providing our players
             with the best possible experience. Your feedback, questions, and
             concerns are important to us. Our customer support team is here to
             help you every step of the way.
@@ -59,12 +59,12 @@ const ContactUs = () => {
               <h3 className=" text-base sm:text-lg font-bold">Instagram</h3>
               <p className="text-sm sm:text-base" />
               <a
-                href={`https://www.instagram.com/${Settings.siteTitle}/`}
+                href={`https://www.instagram.com/${Settings.site_name}/`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className=" bg-bg_text_brand_secondary bg-clip-text text-transparent underline"
               >
-                https://www.instagram.com/{Settings.siteTitle}/
+                https://www.instagram.com/{Settings.site_name}/
               </a>
             </li>
           </ul>
@@ -77,7 +77,7 @@ const ContactUs = () => {
             quickly as possible. Whether you have a question about our services,
             need assistance with your account, or want to share your feedback,
             dont hesitate to get in touch. Thank you for choosing{" "}
-            {Settings.siteTitle}!
+            {Settings.site_name}!
           </p>
           <ul className="list-disc pl-5" />
         </div>

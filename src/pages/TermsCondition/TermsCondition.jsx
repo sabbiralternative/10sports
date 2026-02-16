@@ -21,7 +21,7 @@ const TermsCondition = () => {
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
                 1.1. By using, visiting and/or accessing any part of the /www.
-                {Settings.siteTitle}.io website and or any sub-domain, website
+                {Settings.site_name}.io website and or any sub-domain, website
                 or mobile application that we own or operate (the “Website”)
                 and/or registering an account on the Website you agree to be
                 bound by these Terms and Conditions, our Privacy Policy, our
@@ -53,7 +53,7 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                1.4. https://www.{Settings.siteTitle}.io is operated by
+                1.4. https://www.{Settings.site_name}.io is operated by
                 Superstars Entertainment B.V, a company registered under the
                 laws of Curacao under registration number 163 508.
               </p>
@@ -285,7 +285,7 @@ const TermsCondition = () => {
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
                 2.4.5. All information that you provide to https://www.
-                {Settings.siteTitle}.io is true, complete, and correct, and that
+                {Settings.site_name}.io is true, complete, and correct, and that
                 you shall immediately notify us of any change of such
                 information.
               </p>
@@ -295,7 +295,7 @@ const TermsCondition = () => {
               <p className="text-sm sm:text-base">
                 2.4.6. You are solely responsible for reporting and accounting
                 for any taxes applicable to you under relevant laws for any
-                winnings that you receive from https://www.{Settings.siteTitle}
+                winnings that you receive from https://www.{Settings.site_name}
                 .io _.
               </p>
             </li>
@@ -322,7 +322,7 @@ const TermsCondition = () => {
                 parties’ participation in any of the Games and shall not use any
                 software-assisted methods or techniques or hardware devices for
                 your participation in any of the Games. https://www.
-                {Settings.siteTitle}.io hereby reserves the right to invalidate
+                {Settings.site_name}.io hereby reserves the right to invalidate
                 or close your Account or invalidate your participation in a Game
                 in the event of such behavior.
               </p>
@@ -353,7 +353,7 @@ const TermsCondition = () => {
                 2.4.12. Games played on the Website should be played in the same
                 manner as games played in any other setting. You shall be
                 courteous to other players and representatives of https://www.
-                {Settings.siteTitle}.io and shall avoid rude or obscene
+                {Settings.site_name}.io and shall avoid rude or obscene
                 comments, including in chat rooms.
               </p>
             </li>
@@ -408,7 +408,7 @@ const TermsCondition = () => {
               <p className="text-sm sm:text-base">
                 4.1. When the outcome of a Game you participate in becomes
                 determined or, where applicable, https://www.
-                {Settings.siteTitle}.io has confirmed the relevant result of an
+                {Settings.site_name}.io has confirmed the relevant result of an
                 event and settled the markets; all winnings will be available on
                 your Account.
               </p>
@@ -416,24 +416,24 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                4.2. If https://www.{Settings.siteTitle}.io mistakenly credits
+                4.2. If https://www.{Settings.site_name}.io mistakenly credits
                 your Account with winnings that do not belong to you, whether
                 due to a technical or human error or otherwise, the amount will
-                remain property of https://www.{Settings.siteTitle}.io and the
+                remain property of https://www.{Settings.site_name}.io and the
                 amount will be deducted from your Account. If prior to
-                https://www.{Settings.siteTitle}.io becoming aware of the error
+                https://www.{Settings.site_name}.io becoming aware of the error
                 you have withdrawn funds that do not belong to you, without
                 prejudice to other remedies and actions that may be available at
                 law, the mistakenly paid amount will constitute a debt owed by
-                you to https://www.{Settings.siteTitle}.io . In the event of an
+                you to https://www.{Settings.site_name}.io . In the event of an
                 incorrect crediting, you are obliged to notify https://www.
-                {Settings.siteTitle}.io immediately.
+                {Settings.site_name}.io immediately.
               </p>
             </li>
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                4.3. https://www.{Settings.siteTitle}.io will carry out
+                4.3. https://www.{Settings.site_name}.io will carry out
                 additional verification and identification procedures for any
                 withdrawal or reserves the right to carry such verification
                 procedures at any level of withdrawals. All transactions will be
@@ -466,7 +466,7 @@ const TermsCondition = () => {
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
                 5.2. We accept payments in various currencies. Any payment
-                received by https://www.{Settings.siteTitle}.io ncy of your
+                received by https://www.{Settings.site_name}.io ncy of your
                 Account, at the prevailing exchange rate. Please note that any
                 exchange premiums are payable by you.
               </p>
@@ -474,17 +474,17 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                5.3. https://www.{Settings.siteTitle}.io reserves the right to
+                5.3. https://www.{Settings.site_name}.io reserves the right to
                 use additional procedures and means to verify your identity
                 (KYC) when effecting deposits into an Account and to close an
                 Account if you fail to send these documents to https://www.
-                {Settings.siteTitle}.io{" "}
+                {Settings.site_name}.io{" "}
               </p>
             </li>
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                5.4. https://www.{Settings.siteTitle}.io does not grant any
+                5.4. https://www.{Settings.site_name}.io does not grant any
                 credit for the use of its services.
               </p>
             </li>
@@ -510,12 +510,12 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                5.7. https://www.{Settings.siteTitle}.io doesn’t allow making
+                5.7. https://www.{Settings.site_name}.io doesn’t allow making
                 3rd party deposits (by a friend, relative, partner, wife or
                 husband). All payments have to be made from an Account/system or
                 credit card that is registered on the Account holder. If the 3rd
                 party deposits are noticed all winnings will be forfeited and
-                sent back to https://www.{Settings.siteTitle}.io _, and the
+                sent back to https://www.{Settings.site_name}.io _, and the
                 deposit will be returned to the rightful owner of an
                 Account/credit card. If banking transfer requires a charge while
                 returning money back to the rightful owner it will be paid by a
@@ -548,7 +548,7 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                6.2. https://www.{Settings.siteTitle}.io reserves the right to
+                6.2. https://www.{Settings.site_name}.io reserves the right to
                 change the maximum allowed sum for each payment system per one
                 transaction at any time and without prior notification.
               </p>
@@ -570,7 +570,7 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                6.5. https://www.{Settings.siteTitle}.io has the right to refuse
+                6.5. https://www.{Settings.site_name}.io has the right to refuse
                 withdrawal if the total bet amount is less than the amount of
                 the last deposit. You have to turn over the initial deposit at
                 least one time before being able to withdraw.
@@ -606,7 +606,7 @@ const TermsCondition = () => {
               <p className="text-sm sm:text-base">
                 6.9. When a withdrawal is cancelled, the funds are returned back
                 to your Account and you can make use of those funds accordingly
-                on the Account. https://www.{Settings.siteTitle}.io does not
+                on the Account. https://www.{Settings.site_name}.io does not
                 assume any responsibility for any funds lost during gameplay
                 following a withdrawal cancellation either by you or by us.
               </p>
@@ -655,7 +655,7 @@ const TermsCondition = () => {
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
                 6.14. If you win more than Euro 50,000 (or the equivalent in
-                your Account currency), https://www.{Settings.siteTitle}.io
+                your Account currency), https://www.{Settings.site_name}.io
                 reserves the right to divide the payout into monthly instalments
                 of maximum Euro 50,000 (or the equivalent in your Account
                 currency), until the full amount is paid out. All progressive
@@ -703,10 +703,10 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                7.3. https://www.{Settings.siteTitle}.io reserves the right to
+                7.3. https://www.{Settings.site_name}.io reserves the right to
                 close your Account and to refund to you the Available to
                 withdrawal balance, subject to the deduction of relevant
-                withdrawal charges, at https://www.{Settings.siteTitle}.io _
+                withdrawal charges, at https://www.{Settings.site_name}.io _
                 absolute discretion and without any obligation to state a reason
                 or give prior notice.
               </p>
@@ -714,7 +714,7 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                7.4. https://www.{Settings.siteTitle}.io reserves the right to
+                7.4. https://www.{Settings.site_name}.io reserves the right to
                 cancel and remove any bonus amount awarded to you if not been
                 used within 1 month from the date awarded.
               </p>
@@ -722,7 +722,7 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                7.5. https://www.{Settings.siteTitle}.io reserves the right to
+                7.5. https://www.{Settings.site_name}.io reserves the right to
                 refuse a withdrawal claim in case of fraud, in which case an
                 Account will be suspended and the payment not processed.
               </p>
@@ -730,7 +730,7 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                7.6. https://www.{Settings.siteTitle}.io will review all player
+                7.6. https://www.{Settings.site_name}.io will review all player
                 Accounts and classify them at its discretion. Once a player is
                 classified as a “bonus hunter” or “bonus abuser”, all winnings
                 and bonuses will be void and the Account will be suspended and
@@ -771,7 +771,7 @@ const TermsCondition = () => {
               <p className="text-sm sm:text-base">
                 In the case when any irregularity (including a suspicion of
                 attempted money-laundering or fraud) has been noticed,
-                https://www.{Settings.siteTitle}.io reserves the right to close
+                https://www.{Settings.site_name}.io reserves the right to close
                 Accounts and/or report about criminal or other suspicious
                 activities provided through one or multi Accounts to the
                 relevant existing regulatory or law enforcement authorities. All
@@ -785,17 +785,17 @@ const TermsCondition = () => {
               </h3>
               <p className="text-sm sm:text-base">
                 {" "}
-                https://www.{Settings.siteTitle}.io is eligible to disable users
+                https://www.{Settings.site_name}.io is eligible to disable users
                 Accounts and forfeit their Account balances (including deposits
                 and winnings) if they will be noticed of gaining, attempting to
                 gain an advantage of trading information of their cards or
                 establishing a collusive agreement with other users to take an
                 unfair advantage. These advantages may consist of chip dumping
                 and transfer, discussing a hand during play, multiple using a
-                single Account, soft playing. https://www.{Settings.siteTitle}
+                single Account, soft playing. https://www.{Settings.site_name}
                 .io provides the rigorous examination of play by both manual and
                 automated ways and investigates all related user complaints. In
-                addition, https://www.{Settings.siteTitle}.io provides
+                addition, https://www.{Settings.site_name}.io provides
                 proactively and randomly examining gameplays and Accounts.
               </p>
             </li>
@@ -804,14 +804,14 @@ const TermsCondition = () => {
                 9.3. Fraudulent activity
               </h3>
               <p className="text-sm sm:text-base">
-                Once https://www.{Settings.siteTitle}.io noticed a fraudulent,
+                Once https://www.{Settings.site_name}.io noticed a fraudulent,
                 unlawful, dishonest or improper activity (including using the
                 VPN, proxy or similar service that masks or manipulates the
                 identification of your real location, or making bets, wagers or
                 poker play through a third party or on behalf of a third party)
                 on the Website, we are eligible to block user’s Account with
                 forfeiting of all Account balances without prior notification.
-                In such cases, https://www.{Settings.siteTitle}.io reserves the
+                In such cases, https://www.{Settings.site_name}.io reserves the
                 right to report fraudulent activity to existing regulatory and
                 law enforcement authorities including but not limited to banks,
                 credit card companies and/or any person or entity that has the
@@ -832,7 +832,7 @@ const TermsCondition = () => {
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
                 10.1. As part of your use of the Website, https://www.
-                {Settings.siteTitle}.io may provide you with a chat facility,
+                {Settings.site_name}.io may provide you with a chat facility,
                 which is moderated by us and subject to controls. We reserve the
                 right to review the chat and to keep a record of all statements
                 made on such a facility. Your use of the chat facility should be
@@ -853,7 +853,7 @@ const TermsCondition = () => {
               <p className="text-sm sm:text-base">
                 10.3. You shall not make statements that are abusive, defamatory
                 or harassing or insulting to the Website or https://www.
-                {Settings.siteTitle}.io .
+                {Settings.site_name}.io .
               </p>
             </li>
             <li>
@@ -867,10 +867,10 @@ const TermsCondition = () => {
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
                 10.5. You shall not make statements about https://www.
-                {Settings.siteTitle}.io __, the Website, or any other Internet
-                site(s) connected to https://www.{Settings.siteTitle}.io that
+                {Settings.site_name}.io __, the Website, or any other Internet
+                site(s) connected to https://www.{Settings.site_name}.io that
                 are untrue and/or malicious and/or damaging to https://www.
-                {Settings.siteTitle}.io _.
+                {Settings.site_name}.io _.
               </p>
             </li>
             <li>
@@ -885,10 +885,10 @@ const TermsCondition = () => {
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
                 10.7. In the event if you breach any of the above provisions
-                relating to the chat facility, https://www.{Settings.siteTitle}
+                relating to the chat facility, https://www.{Settings.site_name}
                 .io shall have the right to remove the chat room or immediately
                 terminate your Account. Upon such termination, https://www.
-                {Settings.siteTitle}.io shall refund to you any funds which may
+                {Settings.site_name}.io shall refund to you any funds which may
                 be in your Account over and above any amount which may be owing
                 to us at such time (if any).
               </p>
@@ -905,17 +905,17 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                11.1. https://www.{Settings.siteTitle}.io is not liable for any
+                11.1. https://www.{Settings.site_name}.io is not liable for any
                 downtime, server disruptions, lagging, or any technical or
                 political disturbance to the gameplay. Refunds may be given
-                solely at the discretion of https://www.{Settings.siteTitle}.io
+                solely at the discretion of https://www.{Settings.site_name}.io
                 __.
               </p>
             </li>
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                11.2. https://www.{Settings.siteTitle}.io shall accept no
+                11.2. https://www.{Settings.site_name}.io shall accept no
                 liability for any damages or losses which are deemed or alleged
                 to have arisen out of or in connection with Website or its
                 content, including without limitation, delays or interruptions
@@ -935,7 +935,7 @@ const TermsCondition = () => {
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
                 11.4. In the event a Game is started but miscarried because of a
-                failure of the system, https://www.{Settings.siteTitle}.io shall
+                failure of the system, https://www.{Settings.site_name}.io shall
                 refund the amount wagered in the Game to you by crediting it to
                 your Account or, if an Account no longer exists, by paying it to
                 you in an approved manner; and if you have an accrued credit at
@@ -956,7 +956,7 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                12.1. https://www.{Settings.siteTitle}.io reserves the right to
+                12.1. https://www.{Settings.site_name}.io reserves the right to
                 assign or otherwise lawfully transfer its rights and obligations
                 under the Terms. You shall not assign or otherwise transfer your
                 rights and obligations under these Terms.
@@ -981,7 +981,7 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                13.2. https://www.{Settings.siteTitle}.io will use best efforts
+                13.2. https://www.{Settings.site_name}.io will use best efforts
                 to resolve a reported matter promptly.
               </p>
             </li>
@@ -989,7 +989,7 @@ const TermsCondition = () => {
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
                 13.3. If you have a query with regard to any transaction you may
-                contact https://www.{Settings.siteTitle}.io at
+                contact https://www.{Settings.site_name}.io at
                 support@betr9.comwith details of the query. We will review any
                 queried or disputed transactions. Our judgment is final.
               </p>
@@ -1010,11 +1010,11 @@ const TermsCondition = () => {
                 14.1. These Terms, the Privacy Policy, the Cookies Policy and
                 any document expressly referred to in them and any guidelines or
                 rules posted on the Website constitute the entire agreement and
-                understanding between you and https://www.{Settings.siteTitle}
+                understanding between you and https://www.{Settings.site_name}
                 .io with respect to this Website and save in the case of fraud
                 it supersedes all prior or contemporaneous communications and
                 proposals, whether electronic, oral or written, between you and
-                https://www.{Settings.siteTitle}.io with respect to this
+                https://www.{Settings.site_name}.io with respect to this
                 Website.
               </p>
             </li>
@@ -1067,16 +1067,16 @@ const TermsCondition = () => {
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
                 15.1. We are the sole owners of the trademark https://www.
-                {Settings.siteTitle}.io and the https://www.{Settings.siteTitle}
+                {Settings.site_name}.io and the https://www.{Settings.site_name}
                 .io logo. Any unauthorized use of the https://www.
-                {Settings.siteTitle}.io trademark and the https://www.
-                {Settings.siteTitle}.io logo may result in prosecution.
+                {Settings.site_name}.io trademark and the https://www.
+                {Settings.site_name}.io logo may result in prosecution.
               </p>
             </li>
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                15.2. https://www. https://www.{Settings.siteTitle}.io ./ is the
+                15.2. https://www. https://www.{Settings.site_name}.io ./ is the
                 uniform resource locator of the Website operated by Superstars
                 Entertainment B.V. and no unauthorized use may be made of this
                 URL on another website or digital platform without our prior
@@ -1087,10 +1087,10 @@ const TermsCondition = () => {
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
                 15.4. The contents and structure of the https://www.
-                {Settings.siteTitle}.io ´s Website pages belong to https://www.
-                {Settings.siteTitle}.io ___, all rights reserved. The copyright
+                {Settings.site_name}.io ´s Website pages belong to https://www.
+                {Settings.site_name}.io ___, all rights reserved. The copyright
                 in this Website including all text, graphics, code, files, and
-                links belongs to https://www.{Settings.siteTitle}.io and the
+                links belongs to https://www.{Settings.site_name}.io and the
                 site may not be reproduced, transmitted or stored in whole or in
                 part without our written consent. Your registration and use of
                 our system do therefore not confer any rights whatsoever to the
@@ -1102,7 +1102,7 @@ const TermsCondition = () => {
               <p className="text-sm sm:text-base">
                 15.5. Links to the Website and any of the pages therein may not
                 be included in any other website without the prior written
-                consent of https://www.{Settings.siteTitle}.io ___.
+                consent of https://www.{Settings.site_name}.io ___.
               </p>
             </li>
             <li>
@@ -1173,7 +1173,7 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                16.6. https://www.{Settings.siteTitle}.io reserves the right to
+                16.6. https://www.{Settings.site_name}.io reserves the right to
                 terminate or cancel any current promotion without prior
                 notification. Any user who infringes the Promotional Terms will
                 be disqualified from any reward derived from said promotion.
@@ -1182,7 +1182,7 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                16.7. https://www.{Settings.siteTitle}.io has the rights to
+                16.7. https://www.{Settings.site_name}.io has the rights to
                 withhold any credits, bonuses, coupons, loyalty points or prizes
                 awarded as part of a promotion at its own discretion.
               </p>
@@ -1190,7 +1190,7 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                16.9. https://www.{Settings.siteTitle}.io disclaims any
+                16.9. https://www.{Settings.site_name}.io disclaims any
                 liability for inaccurate information, whether caused by the
                 Website, users equipment used in a promotion, or by human or
                 technical errors related to the submission of entries.
@@ -1276,7 +1276,7 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                17.1. https://www.{Settings.siteTitle}.io accepts bets or/and
+                17.1. https://www.{Settings.site_name}.io accepts bets or/and
                 wagers for sporting events that are presented on the Website.
                 All such bets/wagers are subject to the rules applicable to each
                 sport, e.g. Basketball, Tennis, E-Sports, etc.
@@ -1300,16 +1300,16 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                17.4. Before an event starts, https://www.{Settings.siteTitle}
+                17.4. Before an event starts, https://www.{Settings.site_name}
                 .io reserves, at its own discretion, the right to void or cancel
                 part or whole of a bet even after its acceptance without
                 providing any reason to the user. After the event start,
-                https://www.{Settings.siteTitle}.io reserves, at its own
+                https://www.{Settings.site_name}.io reserves, at its own
                 discretion, the right to void or cancel part or whole of a bet,
                 even after its acceptance if there is a valid reason for this,
                 such as: - a mistake in the wording (palpable error) of the
                 event, odds or starting time; - the user attempt to bypass
-                https://www.{Settings.siteTitle}.io limits (potential payout)
+                https://www.{Settings.site_name}.io limits (potential payout)
                 and risk management by placing multiple, identical or similar
                 bets or opening multiple Accounts; - the user is getting an
                 advantage of any public announcement or secret information he
@@ -1324,7 +1324,7 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                17.5. https://www.{Settings.siteTitle}.io reserves the right to
+                17.5. https://www.{Settings.site_name}.io reserves the right to
                 cancel all bets of an event, if there is any change regarding
                 the venue of the event.
               </p>
@@ -1332,7 +1332,7 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                17.6. https://www.{Settings.siteTitle}.io reserves the right to
+                17.6. https://www.{Settings.site_name}.io reserves the right to
                 cancel all bets if there are radical changes in the
                 circumstances of an event such as the length of playing time,
                 the distance in a race speed or the number of periods, etc.
@@ -1341,7 +1341,7 @@ const TermsCondition = () => {
             <li>
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
-                17.7. https://www.{Settings.siteTitle}.io reserves the right to
+                17.7. https://www.{Settings.site_name}.io reserves the right to
                 cancel all bets if there are radical changes in the
                 circumstances of an event such as the length of playing time,
                 the distance in a race speed or the number of periods, etc.
@@ -1351,7 +1351,7 @@ const TermsCondition = () => {
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
                 17.8. The outcome of a market is settled once this is
-                determined. https://www.{Settings.siteTitle}.io takes the right
+                determined. https://www.{Settings.site_name}.io takes the right
                 to settle the game results in case a market is not determined
                 earlier in the game. This rule works in terms of the normal
                 duration of the match being concluded and if no any conditions
@@ -1369,16 +1369,16 @@ const TermsCondition = () => {
                 beginning of the game is delayed for whatever reasons, the event
                 can be kept open and all bets can remain open 48 hours from the
                 official start time. Nevertheless, https://www.
-                {Settings.siteTitle}.io reserves the right to void such bets on
+                {Settings.site_name}.io reserves the right to void such bets on
                 its direction and refund the Users’ stakes back. All bets can
                 remain open and be calculated due to the game results by the
-                decision of https://www.{Settings.siteTitle}.io when the
+                decision of https://www.{Settings.site_name}.io when the
                 organizer continues the abandoned event within 48 hours after
                 starting time. In case the abandoned event does not continue
                 with the decision of the organizer within 48 hours after its
-                starting, https://www.{Settings.siteTitle}.io will settle all
+                starting, https://www.{Settings.site_name}.io will settle all
                 determined markets that were completed on the pitch. In
-                addition, https://www.{Settings.siteTitle}.io will cancel
+                addition, https://www.{Settings.site_name}.io will cancel
                 another and refund the stakes to players. There are exceptions
                 to the general rule: The 48 hours rule is not supported in the
                 Tennis games. All bets are available until the referee or
@@ -1471,12 +1471,12 @@ const TermsCondition = () => {
                 respective club/ organization is participating may not be placed
                 or commissioned by those persons considered to be participating
                 in the respective event. In the case of violation of these
-                regulations, https://www.{Settings.siteTitle}.io reserves the
+                regulations, https://www.{Settings.site_name}.io reserves the
                 right to refuse payment of any winnings and already invested
                 stakes as well as to cancel any bets. https://www.
-                {Settings.siteTitle}.io takes no responsibility for knowing if
+                {Settings.site_name}.io takes no responsibility for knowing if
                 the user is a member of one of the mentioned groups. This means
-                that https://www.{Settings.siteTitle}.io is entitled to
+                that https://www.{Settings.site_name}.io is entitled to
                 undertake any necessary measures at any time after the user has
                 become known as being a member of one of the mentioned groups.
               </p>
@@ -1485,7 +1485,7 @@ const TermsCondition = () => {
               <h3 className=" text-base sm:text-lg font-bold" />
               <p className="text-sm sm:text-base">
                 17.11. Live scoreboard details added on https://www.
-                {Settings.siteTitle}.io are for information purposes and are not
+                {Settings.site_name}.io are for information purposes and are not
                 a basis for settlement. All persons should ensure scoreboard
                 details are correct before placing their bets.
               </p>

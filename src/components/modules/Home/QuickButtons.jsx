@@ -24,7 +24,7 @@ const QuickButtons = () => {
 
   const handleNavigateToIFrame = (name, id) => {
     if (token) {
-      if (Settings.casinoCurrency !== "AED") {
+      if (Settings.casino_currency !== "AED") {
         navigate(`/casino/${name}/${id}`);
       } else {
         setGameInfo({ gameName: "", gameId: "" });

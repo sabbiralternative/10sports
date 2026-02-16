@@ -456,7 +456,7 @@ const Footer = () => {
             />
           </div>
           <div className="text-center text-sm py-3 text-text_color_tertiary1">
-            © {new Date().getFullYear()} {Settings.siteTitle}. All rights
+            © {new Date().getFullYear()} {Settings.site_name}. All rights
             reserved.
           </div>
         </div>

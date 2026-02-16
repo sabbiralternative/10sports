@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
           <h1 className="text-2xl font-bold text-text_color_primary1" />
           <h2 className=" font-extrabold text-lg text-text_color_secondary" />
           <p className="text-sm sm:text-base">
-            We are the flagship brand of {Settings.siteTitle} offering Our
+            We are the flagship brand of {Settings.site_name} offering Our
             Services to You wherein You can also participate in various Contests
             hosted on Our Platform. Any person utilizing the Platform or any of
             its features including participation in various Contests being

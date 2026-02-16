@@ -88,7 +88,7 @@ const Header = () => {
     location.pathname,
   ]);
 
-  if (Settings.appOnly && !closePopupForForever) {
+  if (Settings.app_only && !closePopupForForever) {
     return <Error />;
   }
 
@@ -148,8 +148,8 @@ const Header = () => {
                         className={`object-cover`}
                         loading="eager"
                         style={{
-                          height: Settings.logoHeight,
-                          width: Settings.logoWidth,
+                          height: Settings.logo_height,
+                          width: Settings.logo_width,
                           objectFit: "contain",
                         }}
                       />
@@ -161,8 +161,8 @@ const Header = () => {
                         loading="eager"
                         title="10sports"
                         style={{
-                          height: Settings.logoHeight,
-                          width: Settings.logoWidth,
+                          height: Settings.logo_height,
+                          width: Settings.logo_width,
                           objectFit: "contain",
                         }}
                       />

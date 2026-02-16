@@ -19,7 +19,7 @@ const FAQ = () => {
         >
           <h1 className="text-sm sm:text-base p-3 font-bold w-full flex items-center justify-between rounded-sm cursor-pointer">
             <span className="font-lato text-[14px]">
-              Best Online Betting Site in India | {Settings.siteTitle}
+              Best Online Betting Site in India | {Settings.site_name}
             </span>
             <svg
               fill="var(--icon-color-secondary)"
@@ -49,10 +49,10 @@ const FAQ = () => {
           </h1>
         </div>
         <h1 className="hidden">
-          Best Online Betting Site in India | {Settings.siteTitle}
+          Best Online Betting Site in India | {Settings.site_name}
         </h1>
         <h2 className="hidden">
-          {Settings.siteTitle} the top online betting platform in India. Bet on
+          {Settings.site_name} the top online betting platform in India. Bet on
           sports, play casino games, and enjoy exciting Bonuses
         </h2>
         <article
@@ -94,7 +94,7 @@ const FAQ = () => {
                 }}
               >
                 Unlock the Thrill: Top Features &amp; Turbo Games on{" "}
-                {Settings.siteTitle}
+                {Settings.site_name}
               </span>
             </span>
           </h1>
@@ -126,7 +126,7 @@ const FAQ = () => {
               >
                 In this fast world of cricket and sports, one has to update
                 himself constantly with information and involvement. This is the
-                beginning of {Settings.siteTitle}s role, as it is not just
+                beginning of {Settings.site_name}s role, as it is not just
                 updating scores during&nbsp;
               </span>
               <span
@@ -207,7 +207,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                What is {Settings.siteTitle}?
+                What is {Settings.site_name}?
               </span>
             </span>
           </h2>
@@ -446,7 +446,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                <strong>{Settings.siteTitle}</strong>
+                <strong>{Settings.site_name}</strong>
               </span>
               <span
                 style={{
@@ -596,7 +596,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                <strong>{Settings.siteTitle}</strong>
+                <strong>{Settings.site_name}</strong>
               </span>
               <span
                 style={{
@@ -949,7 +949,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                , {Settings.siteTitle} is well-placed to be an area of great
+                , {Settings.site_name} is well-placed to be an area of great
                 interest to fans looking for information on&nbsp;
               </span>
               <span
@@ -1190,7 +1190,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                {Settings.siteTitle} creates a tremendously supportive community
+                {Settings.site_name} creates a tremendously supportive community
                 for all of its cricket supporters. It is possible to interact
                 with other people, discuss information and even work together to
                 run some kind of strategy for, for example, fantasy teams. This
@@ -1269,7 +1269,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                <strong>{Settings.siteTitle} Turbo Games</strong>
+                <strong>{Settings.site_name} Turbo Games</strong>
               </span>
               <span
                 style={{
@@ -1563,7 +1563,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                <strong>{Settings.siteTitle}</strong>
+                <strong>{Settings.site_name}</strong>
               </span>
               <span
                 style={{
@@ -1635,7 +1635,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                <strong>{Settings.siteTitle}</strong>
+                <strong>{Settings.site_name}</strong>
               </span>
               <span
                 style={{
@@ -2066,7 +2066,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                <strong>{Settings.siteTitle}</strong>
+                <strong>{Settings.site_name}</strong>
               </span>
               <span
                 style={{
@@ -2141,7 +2141,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                In the end, {Settings.siteTitle} stands out among the&nbsp;
+                In the end, {Settings.site_name} stands out among the&nbsp;
               </span>
               <span
                 style={{
@@ -2263,7 +2263,7 @@ const FAQ = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://{Settings.siteTitle}.com/"
+              href="https://{Settings.site_name}.com/"
             >
               <span
                 style={{
@@ -2349,7 +2349,7 @@ const FAQ = () => {
                   whiteSpace: "pre-wrap",
                 }}
               >
-                <strong>{Settings.siteTitle}</strong>
+                <strong>{Settings.site_name}</strong>
               </span>
               <span
                 style={{
@@ -2368,7 +2368,7 @@ const FAQ = () => {
         </article>
         <h3 className="hidden" />
         <h4 className="hidden">
-          {Settings.siteTitle} the top online betting platform in India. Bet on
+          {Settings.site_name} the top online betting platform in India. Bet on
           sports, play casino games, and enjoy exciting Bonuses
         </h4>
       </article>
@@ -2380,7 +2380,7 @@ const FAQ = () => {
           >
             <h1 className="text-sm sm:text-base p-3 font-bold w-full flex items-center justify-between rounded-sm cursor-pointer">
               <span className="font-lato text-[14px]">
-                FAQs-{Settings.siteTitle}{" "}
+                FAQs-{Settings.site_name}{" "}
               </span>
               <svg
                 fill="var(--icon-color-secondary)"
@@ -2418,10 +2418,10 @@ const FAQ = () => {
           >
             <li className="py-2">
               <summary className="font-bold">
-                What are jackpot slots, and does {Settings.siteTitle} have them?
+                What are jackpot slots, and does {Settings.site_name} have them?
               </summary>
               <p>
-                Yes, {Settings.siteTitle}.com has dozens of jackpot slots,
+                Yes, {Settings.site_name}.com has dozens of jackpot slots,
                 varying in the mechanics and combination of winning
                 slots/combinations; it is one of the best choices for users
                 interested in casino games in India or gambling in the form of
@@ -2430,10 +2430,10 @@ const FAQ = () => {
             </li>
             <li className="py-2">
               <summary className="font-bold">
-                Does {Settings.siteTitle} offer sports live broadcasting?
+                Does {Settings.site_name} offer sports live broadcasting?
               </summary>
               <p>
-                Yes, {Settings.siteTitle}.com provides Live streaming of some
+                Yes, {Settings.site_name}.com provides Live streaming of some
                 sports. In an instant, the player can watch and bet, and that
                 leaves it one of the best live sports online betting apps in
                 India.
@@ -2445,7 +2445,7 @@ const FAQ = () => {
                 wrong?
               </summary>
               <p>
-                The support is super fast at {Settings.siteTitle}.com. The
+                The support is super fast at {Settings.site_name}.com. The
                 response comes within a few minutes with 24*7 live chat and
                 email.
               </p>

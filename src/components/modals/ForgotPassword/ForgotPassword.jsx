@@ -141,8 +141,8 @@ const ForgotPassword = () => {
                 src={logo}
                 alt="10sports-Login"
                 style={{
-                  height: Settings.logoHeight,
-                  width: Settings.logoWidth,
+                  height: Settings.logo_height,
+                  width: Settings.logo_width,
                   objectFit: "contain",
                 }}
               />
@@ -397,7 +397,7 @@ const ForgotPassword = () => {
                   >
                     {languageValue(
                       valueByLanguage,
-                      LanguageKey.CHANGE_PASSWORD
+                      LanguageKey.CHANGE_PASSWORD,
                     )}
                   </button>
                 </div>

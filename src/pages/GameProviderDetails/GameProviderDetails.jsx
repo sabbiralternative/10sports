@@ -23,9 +23,9 @@ const GameProviderDetails = () => {
       if (bonusToken) {
         return setError("Bonus wallet is available only on sports.");
       }
-      if (Settings.casinoCurrency !== "AED") {
+      if (Settings.casino_currency !== "AED") {
         navigate(
-          `/casino/${game?.game_name.replace(/ /g, "")}/${game?.game_id}`
+          `/casino/${game?.game_name.replace(/ /g, "")}/${game?.game_id}`,
         );
       } else {
         setGameInfo({ gameName: "", gameId: "" });
@@ -103,7 +103,7 @@ const GameProviderDetails = () => {
                                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
                                 className="  transition-all cursor-pointer hover:scale-105 w-full h-full duration-500 ease-in-out active:scale-105"
                                 loading="lazy"
-                                title="Lightning Storm - {Settings.siteTitle}"
+                                title="Lightning Storm - {Settings.site_name}"
                               />
                             </div>
                           </div>
@@ -120,7 +120,7 @@ const GameProviderDetails = () => {
               <div className="hidden">
                 <h1>Play Live Casino Games | Best Online Casino</h1>
                 <h2>
-                  Play live casino games on {Settings.siteTitle}. Enjoy classic
+                  Play live casino games on {Settings.site_name}. Enjoy classic
                   games like roulette, blackjack, and baccarat with top-notch
                   online casino games in India.
                 </h2>

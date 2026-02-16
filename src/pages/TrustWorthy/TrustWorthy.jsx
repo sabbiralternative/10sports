@@ -12,11 +12,11 @@ const TrustWorthy = () => {
       <article className="w-full px-2 py-2 sm:px-4 sm:py-4 block font-lato">
         <div className="flex flex-col gap-2 text-text_color_primary1">
           <h1 className="text-2xl font-bold text-text_color_primary1">
-            Is {Settings.siteTitle} Trustworthy?
+            Is {Settings.site_name} Trustworthy?
           </h1>
           <h2 className=" font-extrabold text-lg text-text_color_secondary" />
           <p className="text-sm sm:text-base">
-            At {Settings.siteTitle}, we prioritize the safety, security, and
+            At {Settings.site_name}, we prioritize the safety, security, and
             satisfaction of our customers above all else. We understand that
             trust is paramount when choosing a sportsbook and casino provider,
             and we are committed to maintaining the highest standards of
@@ -30,7 +30,7 @@ const TrustWorthy = () => {
             Licensing and Regulation
           </h2>
           <p className="text-sm sm:text-base">
-            {Settings.siteTitle} is fully licensed and regulated by reputable
+            {Settings.site_name} is fully licensed and regulated by reputable
             authorities in the gaming industry. Our compliance with stringent
             regulatory requirements ensures that we operate transparently and
             fairly. We adhere to all legal standards, providing a secure
@@ -58,7 +58,7 @@ const TrustWorthy = () => {
             Responsible Gaming
           </h2>
           <p className="text-sm sm:text-base">
-            {Settings.siteTitle} is dedicated to promoting responsible gaming.
+            {Settings.site_name} is dedicated to promoting responsible gaming.
             We provide tools and resources to help our players manage their
             gaming activities, including setting deposit limits, self-exclusion
             options, and access to support services. Our goal is to ensure that
@@ -99,7 +99,7 @@ const TrustWorthy = () => {
             Conclusion
           </h2>
           <p className="text-sm sm:text-base">
-            {Settings.siteTitle} is a trustworthy and reliable choice for your
+            {Settings.site_name} is a trustworthy and reliable choice for your
             gaming needs. Our commitment to security, fairness, and customer
             satisfaction sets us apart in the industry. Join us today and
             experience the peace of mind that comes with playing on a secure and

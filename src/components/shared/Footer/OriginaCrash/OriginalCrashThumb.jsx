@@ -42,7 +42,7 @@ const OriginalCrashThumb = ({
         gameId: game?.game_id,
         isHome: false,
         mobileOnly: true,
-        casinoCurrency: Settings.casinoCurrency,
+        casino_currency: Settings.casino_currency,
       };
       const res = await AxiosSecure.post(API.liveCasinoIframe, payload);
       const data = res?.data;

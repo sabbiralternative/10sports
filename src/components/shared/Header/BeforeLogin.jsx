@@ -110,7 +110,7 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
             </span>
           </button>
         )}
-        {Settings.registrationWhatsapp && Settings?.whatsapplink && (
+        {Settings.registration_whatsapp && Settings?.whatsapplink && (
           <button
             onClick={() => getWhatsAppId(Settings?.whatsapplink)}
             title="loginButton"
@@ -165,7 +165,7 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
             </span>
           </button>
         )}
-        {Settings.registrationWhatsapp && Settings?.whatsapplink && (
+        {Settings.registration_whatsapp && Settings?.whatsapplink && (
           <button
             onClick={() => getWhatsAppId(Settings?.whatsapplink)}
             id="loginButton"

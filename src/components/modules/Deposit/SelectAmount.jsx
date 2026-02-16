@@ -24,7 +24,7 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
               setTab("bankAccount");
             }
           },
-        }
+        },
       );
     }
   };
@@ -162,10 +162,10 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
       </div>
       <div className="hidden">
         <h1>
-          {Settings.siteTitle} Fast and Secure Payment Options for Betting
+          {Settings.site_name} Fast and Secure Payment Options for Betting
         </h1>
         <h2>
-          Enjoy fast and secure payment options at {Settings.siteTitle}. Deposit
+          Enjoy fast and secure payment options at {Settings.site_name}. Deposit
           funds easily and start betting on your favorite sports and casino
           games.
         </h2>
