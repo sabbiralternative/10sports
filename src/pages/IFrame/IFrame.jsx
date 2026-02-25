@@ -24,12 +24,13 @@ const IFrame = () => {
         gameId: gameId,
         isHome: false,
         mobileOnly: true,
-        casino_currency: Settings.casino_currency,
+        casinoCurrency: Settings.casino_currency,
       };
 
       try {
         setLoading(true);
         const res = await AxiosSecure.post(API.liveCasinoIframe, payload);
+
         const data = res?.data;
 
         setIFrame(data?.gameUrl);
