@@ -3,8 +3,11 @@ import { useAccountStatement } from "../../hooks/accountStatement";
 import ShowImage from "../../components/modals/ShowImage/ShowImage";
 import Complaint from "../../components/modals/Complaint/Complaint";
 import { Settings } from "../../api";
+import { useBankAccountMutation } from "../../redux/features/deposit/event.api";
+import toast from "react-hot-toast";
 
 const WithdrawStatement = () => {
+  const [deleteWithdraw] = useBankAccountMutation();
   const [complaintId, setComplaintId] = useState(null);
   const [category, setCategory] = useState([]);
   const [image, setImage] = useState("");
@@ -19,16 +22,31 @@ const WithdrawStatement = () => {
     type: "WITHDRAW",
     status: "ALL",
   };
-  const { data } = useAccountStatement(payload);
+  const { data, refetch } = useAccountStatement(payload);
 
   useEffect(() => {
     if (data?.result?.length > 0) {
       const categories = Array.from(
-        new Set(data?.result?.map((item) => item?.date?.split(" ")?.[0]))
+        new Set(data?.result?.map((item) => item?.date?.split(" ")?.[0])),
       );
       setCategory(categories);
     }
   }, [data]);
+
+  const handleDeleteWithdraw = async (withdraw_id) => {
+    const payload = {
+      type: "withdrawDelete",
+      withdraw_id,
+    };
+    const res = await deleteWithdraw(payload).unwrap();
+
+    if (res?.success) {
+      refetch();
+      toast.success(res?.result?.message);
+    } else {
+      toast.error(res?.error?.errorMessage);
+    }
+  };
 
   return (
     <>
@@ -78,14 +96,14 @@ const WithdrawStatement = () => {
                                 ? "bg-bg_color_transactionSuccessBg"
                                 : ""
                             } ${
-                                data?.status === "REJECTED"
-                                  ? "bg-bg_color_transactionFailedBg "
-                                  : ""
-                              } ${
-                                data?.status === "PENDING"
-                                  ? "bg-bg_color_transactionPendingBg"
-                                  : ""
-                              }
+                              data?.status === "REJECTED"
+                                ? "bg-bg_color_transactionFailedBg "
+                                : ""
+                            } ${
+                              data?.status === "PENDING"
+                                ? "bg-bg_color_transactionPendingBg"
+                                : ""
+                            }
                             `}
                             >
                               {data?.status}
@@ -129,17 +147,40 @@ const WithdrawStatement = () => {
                                 {data?.remark}
                               </span>
                             </div>
-                            {Settings.complaint && (
-                              <button
-                                style={{ backgroundColor: "rgb(255 131 46)" }}
-                                onClick={() =>
-                                  setComplaintId(data?.referenceNo)
-                                }
-                                className="px-2 py-1 text-xs xs:text-xs sm:text-sm font-semibold  text-text_color_primary2 rounded-tl tracking-normal"
-                              >
-                                Report Issue
-                              </button>
-                            )}
+                            <div className="flex gap-x-2">
+                              {data.status === "PENDING" &&
+                                data?.reject_request === 0 && (
+                                  <button
+                                    style={{
+                                      backgroundColor: "rgb(255 131 46)",
+                                    }}
+                                    onClick={() =>
+                                      handleDeleteWithdraw(data?.withdraw_id)
+                                    }
+                                    className="px-2 py-1 text-xs xs:text-xs sm:text-sm font-semibold text-text_color_primary2 rounded-tl rounded-tr h-fit tracking-normal"
+                                  >
+                                    Delete Withdraw
+                                  </button>
+                                )}
+
+                              {data.status === "PENDING" &&
+                                data?.reject_request === 1 && (
+                                  <p className="px-2 py-1 text-xs xs:text-xs sm:text-sm font-semibold text-text_color_primary2 rounded-tl rounded-tr h-fit tracking-normal">
+                                    Withdraw delete request sent.
+                                  </p>
+                                )}
+                              {Settings.complaint && (
+                                <button
+                                  style={{ backgroundColor: "rgb(255 131 46)" }}
+                                  onClick={() =>
+                                    setComplaintId(data?.referenceNo)
+                                  }
+                                  className="px-2 py-1 text-xs xs:text-xs sm:text-sm font-semibold  text-text_color_primary2 rounded-tl tracking-normal"
+                                >
+                                  Report Issue
+                                </button>
+                              )}
+                            </div>
                           </div>
                           <div className="text-xs py-1 text-center text-text_color_primary3 w-full border-t bg-bg_color_quaternary capitalize">
                             {data?.date}

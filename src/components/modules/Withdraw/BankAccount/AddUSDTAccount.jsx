@@ -8,7 +8,6 @@ import { jwtDecode } from "jwt-decode";
 
 const AddUSDTAccount = ({ setTab, refetchBankAccounts }) => {
   const [addNewUSDTAccount] = useBankAccountMutation();
-  // const
   const [isFormValid, setIsFormValid] = useState(false);
   const [mobile, setMobile] = useState(null);
   const { token } = useSelector((state) => state.auth);
