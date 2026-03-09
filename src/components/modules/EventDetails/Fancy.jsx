@@ -17,7 +17,7 @@ const Fancy = ({ data }) => {
     (fancy) =>
       fancy.btype === "FANCY" &&
       fancy.tabGroupName === "Normal" &&
-      fancy?.visible == true
+      fancy?.visible == true,
   );
   const [marketName, setMarketName] = useState("");
   const [ladderData, setLadderData] = useState([]);
@@ -65,7 +65,7 @@ const Fancy = ({ data }) => {
         eventTypeId = games?.marketId;
         games?.runners?.forEach((runner) => {
           const pnl = pnlBySelection?.find(
-            (p) => p?.RunnerId === runner?.selectionId
+            (p) => p?.RunnerId === runner?.selectionId,
           );
           if (pnl) {
             updatedPnl.push(pnl?.pnl);
@@ -191,7 +191,7 @@ const Fancy = ({ data }) => {
                     <div className="w-full  md:col-span-6 col-span-7 h-12 grid grid-cols-12 grid-flow-col pl-2.5 md:pl-2 py-0.5 pr-[3px]">
                       <div className=" col-span-8 md:col-span-10 flex items-start justify-center h-full flex-col">
                         <div className=" w-full flex flex-nowrap gap-x-2">
-                          <span className=" w-full truncate capitalize text-text_color_primary1  text-[13px] md:text-sm  font-semibold">
+                          <span className=" w-full  capitalize text-text_color_primary1  text-[11px] md:text-sm  font-semibold">
                             {game?.name}
                           </span>
                         </div>
@@ -296,7 +296,7 @@ const Fancy = ({ data }) => {
                                     game,
                                     game?.runners?.[0],
                                     game?.runners?.[0]?.lay?.[0]?.line,
-                                    game?.runners?.[0]?.lay?.[0]?.price
+                                    game?.runners?.[0]?.lay?.[0]?.price,
                                   )
                                 }
                                 className="w-full col-span-6 h-full"
@@ -323,7 +323,7 @@ const Fancy = ({ data }) => {
                                     game,
                                     game?.runners?.[0],
                                     game?.runners?.[0]?.back?.[0]?.line,
-                                    game?.runners?.[0]?.back?.[0]?.price
+                                    game?.runners?.[0]?.back?.[0]?.price,
                                   )
                                 }
                                 className="w-full col-span-6 h-full"

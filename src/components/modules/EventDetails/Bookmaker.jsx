@@ -342,7 +342,7 @@ const Bookmaker = ({ data }) => {
                       <div className="w-full  md:col-span-5  col-span-7 h-12 grid grid-cols-12 grid-flow-col pl-2.5 md:pl-2 py-0.5 pr-[3px]">
                         <div className="truncate col-span-12 flex items-start justify-center h-full flex-col">
                           <div className=" w-full flex flex-nowrap gap-x-2">
-                            <span className=" truncate w-full capitalize text-text_color_primary1  text-[13px] md:text-sm  font-semibold">
+                            <span className="  w-full capitalize text-text_color_primary1  text-[11px] md:text-sm  font-semibold">
                               {runner?.name}
                             </span>
                           </div>
