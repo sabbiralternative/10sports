@@ -41,15 +41,6 @@ const baseQuery = async (args, api, extraOptions) => {
       payload.site = siteURL;
     }
 
-    if (window.location.hostname === "localhost") {
-      if (Settings.siteUrl) {
-        payload.site = Settings.siteUrl;
-      }
-    }
-    if (window.location.hostname !== "localhost") {
-      payload.site = window.location.hostname;
-    }
-
     if (Settings.language) {
       payload.language = localStorage.getItem("language") || "english";
     }
