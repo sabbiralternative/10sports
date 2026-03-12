@@ -1975,6 +1975,42 @@ const Rules = () => {
         <div className="flex flex-col gap-2 text-text_color_primary1">
           <h1 className="text-2xl font-bold text-text_color_primary1" />
           <h2 className=" font-extrabold text-lg text-text_color_secondary">
+            Casino Maximum Win Limit (100× Cap)
+          </h2>
+          <p className="text-sm sm:text-base" />
+          <ul className="list-disc pl-5">
+            <li>
+              <h3 className=" text-base sm:text-lg font-bold" />
+              <p className="text-sm sm:text-base">
+                To manage risk and ensure fair play, a maximum win cap applies
+                to all casino games. The maximum payout per game round is capped
+                at 100× the original stake placed for that round. If a game
+                round generates winnings exceeding 100× the stake, only 100× the
+                stake amount will be credited to the user’s balance. <br />
+                Any winnings above the 100× cap will be automatically
+                removed/adjusted by the system.
+              </p>
+            </li>
+            <li>
+              <h3 className=" text-base sm:text-lg font-bold" />
+              <p className="text-sm sm:text-base">
+                Example: Stake: ₹100 <br /> Game Result: 250× win (₹25,000){" "}
+                <br /> Maximum allowed win: 100× (₹10,000) <br /> Amount
+                credited: ₹10,000
+              </p>
+            </li>
+            <li>
+              <h3 className=" text-base sm:text-lg font-bold" />
+              <p className="text-sm sm:text-base">
+                Remaining ₹15,000 will be voided. <br /> This rule applies to
+                all casino games unless otherwise stated.
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div className="flex flex-col gap-2 text-text_color_primary1">
+          <h1 className="text-2xl font-bold text-text_color_primary1" />
+          <h2 className=" font-extrabold text-lg text-text_color_secondary">
             How the Reductions are applied for Exchange markets
           </h2>
           <p className="text-sm sm:text-base" />
