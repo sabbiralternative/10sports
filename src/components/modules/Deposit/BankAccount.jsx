@@ -34,7 +34,8 @@ const BankAccount = ({ amount }) => {
     if (
       method?.type === "upigateway" ||
       method?.type === "toitgateway" ||
-      method?.type === "i100gateway"
+      method?.type === "i100gateway" ||
+      method?.type === "upiclick"
     ) {
       const depositDetailForPg = {
         paymentId: method?.paymentId,
@@ -75,7 +76,8 @@ const BankAccount = ({ amount }) => {
       methodType &&
       methodType !== "upigateway" &&
       methodType !== "toitgateway" &&
-      methodType !== "i100gateway"
+      methodType !== "i100gateway" &&
+      methodType !== "upiclick"
     ) {
       paymentMethodRef.current.scrollIntoView({
         behavior: "smooth",
@@ -215,7 +217,8 @@ const BankAccount = ({ amount }) => {
                             ) : null}
                             {method?.type == "upigateway" ||
                             method?.type === "toitgateway" ||
-                            method?.type === "i100gateway" ? (
+                            method?.type === "i100gateway" ||
+                            method?.type === "upiclick" ? (
                               <img
                                 style={{ height: "25px", width: "25px" }}
                                 src={images.bhim}
