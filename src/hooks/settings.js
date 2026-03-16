@@ -5,6 +5,7 @@ import { API, Settings } from "../api";
 import { useLogo } from "../context/ApiProvider";
 
 export const useSettingsMutation = () => {
+  const closePopupForForever = localStorage.getItem("closePopupForForever");
   const { setLogo } = useLogo();
 
   return useMutation({
@@ -22,6 +23,12 @@ export const useSettingsMutation = () => {
           Object.keys(settings).forEach((key) => {
             Settings[key] = settings[key];
           });
+        }
+
+        if (Settings.app_only && !closePopupForForever) {
+          document.title = window.location.hostname;
+        } else {
+          document.title = Settings.site_name;
         }
         if (Settings.build === "production") {
           const logo = `${API.assets}/${Settings.siteUrl}/logo.${Settings.logo_format}`;
