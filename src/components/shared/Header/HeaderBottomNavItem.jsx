@@ -300,42 +300,39 @@ const HeaderBottomNavItem = () => {
           <span className="font font-lato text-[12px]  font-normal">Mac88</span>
         </Link>
 
-        {Settings.liveCasinoWolf && (
-          <Link
-            title="Aura"
-            className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
-              location.pathname === "/wolf/liveCasinoWolf"
-                ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
-                : "text-text_headerDeskNav"
-            }`}
-            to={`/wolf/liveCasinoWolf`}
-          >
-            <span>
-              <Aura height={16} width={16} />
-            </span>
-            <span className="font font-lato text-[12px] font-normal">
-              Live Casino Wolf
-            </span>
-          </Link>
-        )}
-        {Settings.slotWolf && (
-          <Link
-            title="Aura"
-            className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
-              location.pathname === "/wolf/slotWolf"
-                ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
-                : "text-text_headerDeskNav"
-            }`}
-            to={`/wolf/slotWolf`}
-          >
-            <span>
-              <Aura height={16} width={16} />
-            </span>
-            <span className="font font-lato text-[12px] font-normal">
-              Slot Wolf
-            </span>
-          </Link>
-        )}
+        <Link
+          title="Aura"
+          className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+            location.pathname === "/wolf/liveCasinoWolf"
+              ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+              : "text-text_headerDeskNav"
+          }`}
+          to={`/wolf/liveCasinoWolf`}
+        >
+          <span>
+            <Aura height={16} width={16} />
+          </span>
+          <span className="font font-lato text-[12px] font-normal">
+            Live Casino Wolf
+          </span>
+        </Link>
+
+        <Link
+          title="Aura"
+          className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+            location.pathname === "/wolf/slotWolf"
+              ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+              : "text-text_headerDeskNav"
+          }`}
+          to={`/wolf/slotWolf`}
+        >
+          <span>
+            <Aura height={16} width={16} />
+          </span>
+          <span className="font font-lato text-[12px] font-normal">
+            Slot Wolf
+          </span>
+        </Link>
 
         <Link
           title="Live Casino"
