@@ -5,6 +5,7 @@ import { API, Settings } from "../api";
 import { useLogo } from "../context/ApiProvider";
 
 export const useSettingsMutation = () => {
+  const isLocalhost = window.location.hostname === "localhost";
   const closePopupForForever = localStorage.getItem("closePopupForForever");
   const { setLogo } = useLogo();
 
@@ -30,7 +31,7 @@ export const useSettingsMutation = () => {
         } else {
           document.title = Settings.site_name;
         }
-        if (Settings.build === "production") {
+        if (!isLocalhost) {
           const logo = `${API.assets}/${Settings.siteUrl}/logo.${Settings.logo_format}`;
           setLogo(logo);
         } else {
@@ -41,7 +42,7 @@ export const useSettingsMutation = () => {
         link.rel = "stylesheet";
         link.type = "text/css";
 
-        if (Settings.build === "production") {
+        if (!isLocalhost) {
           link.href = `${API.assets}/${Settings.siteUrl}/theme.css`;
           document.head.appendChild(link);
         } else {
