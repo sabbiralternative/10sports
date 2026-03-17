@@ -1,8 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
-import { AxiosSecure } from "../lib/AxiosSecure";
 import { settingsAPI } from "../const";
 import { API, Settings } from "../api";
 import { useLogo } from "../context/ApiProvider";
+import { getSiteURL } from "../utils/getSiteURL";
+import handleRandomToken from "../utils/handleRandomToken";
+import handleEncryptData from "../utils/handleEncryptData";
+import axios from "axios";
 
 export const useSettingsMutation = () => {
   const isLocalhost = window.location.hostname === "localhost";
@@ -12,7 +15,27 @@ export const useSettingsMutation = () => {
   return useMutation({
     mutationKey: ["settings"],
     mutationFn: async () => {
-      const { data } = await AxiosSecure.post(settingsAPI);
+      const token = localStorage.getItem("token");
+      const generatedToken = handleRandomToken();
+      let payload = {
+        token: generatedToken,
+      };
+      const { siteURL } = getSiteURL();
+
+      if (siteURL) {
+        payload.site = siteURL;
+      }
+      if (Settings.language) {
+        payload.language = localStorage.getItem("language") || "english";
+      }
+      const encryptedData = handleEncryptData(payload);
+
+      const { data } = await axios.post(settingsAPI, encryptedData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
       if (data?.success) {
         if (data?.result) {
           const { endpoint = {}, ...settings } = data.result;
