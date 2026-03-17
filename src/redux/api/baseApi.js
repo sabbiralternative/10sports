@@ -34,8 +34,11 @@ const baseQuery = async (args, api, extraOptions) => {
       ...body,
       token: generatedToken,
     };
-    if (Settings.site) {
-      payload.site = Settings.site;
+
+    if (!body?.site) {
+      if (Settings.site) {
+        payload.site = Settings.site;
+      }
     }
 
     if (Settings.language) {

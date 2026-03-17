@@ -210,14 +210,14 @@ const Login = () => {
                     Mobile Number
                   </div>
                   <div
-                    onClick={() => setTab("userId")}
+                    onClick={() => setTab("username")}
                     className={`min-w-[45%] cursor-pointer text-[13px] flex items-center justify-center py-2 md:text-sm lg:text-base font-bold leading-4  rounded-md  text-text_color_loginTextColor ${
                       tab === "userId"
                         ? "bg-bg_color_LoginBtnBgColor text-primary"
                         : "bg-transparent"
                     }`}
                   >
-                    User Id
+                    Username
                   </div>
                 </div>
               )}
@@ -265,7 +265,7 @@ const Login = () => {
                         placeholder={`${
                           tab === "mobile"
                             ? "Enter Mobile Number"
-                            : "Enter User Id"
+                            : "Enter Username"
                         }`}
                         aria-label="Mobile Number"
                         id="loginFormMobileUserIdInput"

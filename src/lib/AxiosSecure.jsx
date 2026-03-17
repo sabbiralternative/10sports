@@ -23,8 +23,10 @@ AxiosSecure.interceptors.request.use(
         token: generatedToken,
       };
 
-      if (Settings.site) {
-        payload.site = Settings.site;
+      if (!config.data?.site) {
+        if (Settings.site) {
+          payload.site = Settings.site;
+        }
       }
 
       console.log("posting site from settings api -->", Settings.site);
