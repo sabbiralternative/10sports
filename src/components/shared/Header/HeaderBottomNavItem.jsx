@@ -76,6 +76,36 @@ const HeaderBottomNavItem = () => {
           </span>
         </Link>
 
+        {Settings?.referral && (
+          <a
+            onClick={() => {
+              token
+                ? navigate("/affiliate")
+                : dispatch(setShowLoginModal(true));
+            }}
+            title="Home"
+            className={`cursor-pointer uppercase min-h-[28px]  min-w-[100px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
+        ${
+          location.pathname === "/affiliate"
+            ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+            : "text-text_headerDeskNav"
+        }`}
+          >
+            <span className="">
+              <img
+                src={images.affiliate}
+                alt="affiliate"
+                style={{
+                  height: "15px",
+                  filter: "invert(1)",
+                }}
+              />
+            </span>
+            <span className="font font-lato text-[12px]  font-semibold">
+              Affiliate
+            </span>
+          </a>
+        )}
         <Link
           title="Home"
           className={`cursor-pointer uppercase min-h-[28px]   max-w-fit px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
@@ -164,38 +194,6 @@ const HeaderBottomNavItem = () => {
           </span>
           <span className="font font-lato text-[12px]  font-semibold">PSL</span>
         </Link>
-
-        {Settings?.referral && (
-          <a
-            onClick={() => {
-              token
-                ? navigate("/affiliate")
-                : dispatch(setShowLoginModal(true));
-            }}
-            title="Home"
-            className={`cursor-pointer uppercase min-h-[28px]  min-w-[100px] px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
-        ${
-          location.pathname === "/affiliate"
-            ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
-            : "text-text_headerDeskNav"
-        }`}
-          >
-            <span className="">
-              <img
-                src={images.affiliate}
-                alt="affiliate"
-                style={{
-                  height: "15px",
-                  filter: "invert(1)",
-                }}
-              />
-            </span>
-            <span className="font font-lato text-[12px]  font-semibold">
-              Affiliate
-            </span>
-          </a>
-        )}
-
         <Link
           onClick={() => handleSetGroup(4)}
           title="Cricket"
