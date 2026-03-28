@@ -128,7 +128,7 @@ const BetSlip = () => {
         ...payload,
 
         nounce: uuidv4(),
-        isbetDelay: Settings?.bet_delay,
+        isbetDelay: placeBetValues?.isBetDelay || Settings?.bet_delay,
         apk: closePopupForForever ? true : false,
       },
     ];

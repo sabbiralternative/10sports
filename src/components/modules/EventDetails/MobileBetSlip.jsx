@@ -110,10 +110,11 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
         ...payload,
 
         nounce: uuidv4(),
-        isbetDelay: Settings?.bet_delay,
+        isbetDelay: placeBetValues?.isBetDelay || Settings?.bet_delay,
         apk: closePopupForForever ? true : false,
       },
     ];
+
     let delay = 0;
     if (
       (eventTypeId == 4 || eventTypeId == 2) &&
