@@ -108,7 +108,7 @@ const HeaderBottomNavItem = () => {
         )}
         <Link
           title="Home"
-          className={`cursor-pointer uppercase min-h-[28px]   max-w-fit px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
+          className={`cursor-pointer uppercase min-h-[28px] min-w-[60px]  max-w-fit px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
         ${
           location.pathname === "/event-details/4/28127348"
             ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
@@ -152,7 +152,7 @@ const HeaderBottomNavItem = () => {
         </Link>
         <Link
           title="Home"
-          className={`cursor-pointer uppercase min-h-[28px]   max-w-fit px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
+          className={`cursor-pointer uppercase min-h-[28px] min-w-[60px]  max-w-fit px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
         ${
           location.pathname === "/event-details/4/28102621"
             ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
