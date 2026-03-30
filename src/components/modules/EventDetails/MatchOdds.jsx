@@ -278,7 +278,7 @@ const MatchOdds = ({ data }) => {
                           {teamProfitForGame?.profit?.toString()?.length >
                             2 && <br className="lg:hidden" />}
                           {teamProfitForGame?.profit &&
-                            `(${teamProfitForGame.profit.toFixed(2)})`}
+                            `(${teamProfitForGame.profit.toFixed(0)})`}
                         </div>
                       </button>
                     )}
