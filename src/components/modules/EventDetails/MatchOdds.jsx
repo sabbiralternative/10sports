@@ -275,6 +275,8 @@ const MatchOdds = ({ data }) => {
                       >
                         <div className="text-[10px] md:text-sm text-text_color_primary2 whitespace-nowrap  font-semibold">
                           Cashout{" "}
+                          {teamProfitForGame?.profit?.toString()?.length >
+                            2 && <br className="lg:hidden" />}
                           {teamProfitForGame?.profit &&
                             `(${teamProfitForGame.profit.toFixed(2)})`}
                         </div>
@@ -303,7 +305,7 @@ const MatchOdds = ({ data }) => {
                         </div>
                       </button>
                     )}
-                  <span className="text-xs font-light">
+                  <span className="text-[9px] lg:text-xs font-light">
                     Max: {game?.maxLiabilityPerBet}
                   </span>
                 </div>
