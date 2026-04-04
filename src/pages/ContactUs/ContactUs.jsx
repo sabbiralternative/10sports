@@ -34,7 +34,7 @@ const ContactUs = () => {
                 Available 24/7 on our website
               </p>
             </li>
-            <li>
+            {/* <li>
               <h3 className=" text-base sm:text-lg font-bold">Phone</h3>
               <p className="text-sm sm:text-base" />
               <a
@@ -45,7 +45,7 @@ const ContactUs = () => {
               >
                 tel:18008896851
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="flex flex-col gap-2 text-text_color_primary1">
