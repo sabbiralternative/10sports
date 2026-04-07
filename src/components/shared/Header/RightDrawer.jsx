@@ -343,7 +343,7 @@ cursor-pointer
                         <img src={images.whatsApp} alt="" />
                       </span>
                       <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                        Deposit Support
+                        Customer Support
                       </span>
                     </div>
                   </div>
