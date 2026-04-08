@@ -68,69 +68,102 @@ const BonusStatement = () => {
                 title="Profit &amp; Loss Statement"
                 className="w-full px-1 my-1.5"
               >
-                <div
-                  title="Cricket - 1.232257782-3066645.FY"
-                  className="w-full flex  transition-all ease-in-out duration-200 flex-col rounded-[4px] items-center justify-start gap-y-1 bg-bg_color_primary my-1 shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
-                >
-                  <div className="w-full bg-bg_color_primary px-2.5 py-2 flex items-center justify-between  text-xs sm:text-sm">
-                    <span className="text-white w-1/2 border-r border-r-oddInputColor flex items-center justify-start gap-x-1">
-                      <span>Bonus Amount:</span>
-                      <span className="font-semibold text-text_Success">
-                        ₹ {item?.amount}
+                {item?.bonus_type === "wagering" ? (
+                  <div
+                    title="Cricket - 1.232257782-3066645.FY"
+                    className="w-full flex  transition-all ease-in-out duration-200 flex-col rounded-[4px] items-center justify-start gap-y-1 bg-bg_color_primary my-1 shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
+                  >
+                    <div className="w-full bg-bg_color_primary px-2.5 py-2 flex items-center justify-between  text-xs sm:text-sm">
+                      <span className="text-white w-1/2 border-r border-r-oddInputColor flex items-center justify-start gap-x-1">
+                        <span>Bonus Amount:</span>
+                        <span className="font-semibold text-text_Success">
+                          ₹ {item?.amount}
+                        </span>
                       </span>
-                    </span>
-                    <span className="text-white w-1/2 flex items-center justify-end gap-x-1">
-                      <span>Wagering Required:</span>
-                      <span
-                        className={`font-semibold ${
-                          item?.wagering_amount > 0
-                            ? "text-text_Success"
-                            : "text-text_Danger"
-                        }`}
-                      >
-                        ₹ {item?.wagering_amount}
+
+                      <span className="text-white w-1/2 flex items-center justify-end gap-x-1">
+                        <span>Wagering Required:</span>
+                        <span
+                          className={`font-semibold ${
+                            item?.wagering_amount > 0
+                              ? "text-text_Success"
+                              : "text-text_Danger"
+                          }`}
+                        >
+                          ₹ {item?.wagering_amount}
+                        </span>
                       </span>
-                    </span>
+                    </div>
+                    <div className="w-full bg-bg_Quaternary1 px-2.5 py-2 flex items-center justify-between  text-xs sm:text-sm">
+                      <span className="text-white w-1/2 border-r border-r-oddInputColor flex items-center justify-start gap-x-1">
+                        <span>Wagering Complete Amount:</span>
+                        <span
+                          className={`font-semibold ${
+                            item?.is_wagering_complete == 0
+                              ? "text-orange-500"
+                              : ""
+                          } ${
+                            item?.is_wagering_complete == 1
+                              ? "text-text_Success"
+                              : ""
+                          }`}
+                        >
+                          ₹ {item?.wagering_complete_amount}
+                        </span>
+                      </span>
+                      <span className="text-white w-1/2 flex items-center justify-end gap-x-1">
+                        <span>Date Added:</span>
+                        <span className={`font-semibold `}>
+                          {formateDate(item?.date_added)}
+                        </span>
+                      </span>
+                    </div>
+                    <div className="w-full bg-bg_Quaternary1 px-2.5 py-2 flex items-center justify-between  text-xs sm:text-sm">
+                      <span className="text-white w-1/2 border-r border-r-oddInputColor flex items-center justify-start gap-x-1">
+                        <span>Expiry Date:</span>
+                        <span className="font-semibold">
+                          {formateDate(item?.expiry_date)}
+                        </span>
+                      </span>
+                      <span className="text-text_Ternary w-1/2 flex items-center justify-end gap-x-1">
+                        <span></span>
+                        <span className={`font-semibold `}>
+                          {handleShowMessage(item)}
+                        </span>
+                      </span>
+                    </div>
                   </div>
-                  <div className="w-full bg-bg_Quaternary1 px-2.5 py-2 flex items-center justify-between  text-xs sm:text-sm">
-                    <span className="text-white w-1/2 border-r border-r-oddInputColor flex items-center justify-start gap-x-1">
-                      <span>Wagering Complete Amount:</span>
-                      <span
-                        className={`font-semibold ${
-                          item?.is_wagering_complete == 0
-                            ? "text-orange-500"
-                            : ""
-                        } ${
-                          item?.is_wagering_complete == 1
-                            ? "text-text_Success"
-                            : ""
-                        }`}
-                      >
-                        ₹ {item?.wagering_complete_amount}
+                ) : (
+                  <div
+                    title="Cricket - 1.232257782-3066645.FY"
+                    className="w-full flex  transition-all ease-in-out duration-200 flex-col rounded-[4px] items-center justify-start gap-y-1 bg-bg_color_primary my-1 shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
+                  >
+                    <div className="w-full bg-bg_color_primary px-2.5 py-2 flex items-center justify-between  text-xs sm:text-sm">
+                      <span className="text-white w-1/2 border-r border-r-oddInputColor flex items-center justify-start gap-x-1">
+                        <span>Bonus Amount:</span>
+                        <span className="font-semibold text-text_Success">
+                          ₹ {item?.amount}
+                        </span>
                       </span>
-                    </span>
-                    <span className="text-white w-1/2 flex items-center justify-end gap-x-1">
-                      <span>Date Added:</span>
-                      <span className={`font-semibold `}>
-                        {formateDate(item?.date_added)}
+
+                      <span className="text-white w-1/2 flex items-center justify-end gap-x-1">
+                        <span>Date Added:</span>
+                        <span className={`font-semibold `}>
+                          {formateDate(item?.date_added)}
+                        </span>
                       </span>
-                    </span>
+                    </div>
+
+                    <div className="w-full bg-bg_Quaternary1 px-2.5 py-2 flex items-center justify-end  text-xs sm:text-sm">
+                      <span className="text-text_Ternary w-1/2 flex items-center justify-end gap-x-1">
+                        <span></span>
+                        <span className={`font-semibold `}>
+                          {handleShowMessage(item)}
+                        </span>
+                      </span>
+                    </div>
                   </div>
-                  <div className="w-full bg-bg_Quaternary1 px-2.5 py-2 flex items-center justify-between  text-xs sm:text-sm">
-                    <span className="text-white w-1/2 border-r border-r-oddInputColor flex items-center justify-start gap-x-1">
-                      <span>Expiry Date:</span>
-                      <span className="font-semibold">
-                        {formateDate(item?.expiry_date)}
-                      </span>
-                    </span>
-                    <span className="text-text_Ternary w-1/2 flex items-center justify-end gap-x-1">
-                      <span></span>
-                      <span className={`font-semibold `}>
-                        {handleShowMessage(item)}
-                      </span>
-                    </span>
-                  </div>
-                </div>
+                )}
               </div>
             );
           })
