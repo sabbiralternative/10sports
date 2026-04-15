@@ -28,6 +28,7 @@ const RegistrationForm = ({
   showLogin,
   setShowRegister,
 }) => {
+  const affnook_token = localStorage.getItem("affnook_token");
   const dispatch = useDispatch();
   const { logo } = useLogo();
   const [countDown, setCountDown] = useState(45);
@@ -85,6 +86,7 @@ const RegistrationForm = ({
       referralCode: referralCode || data?.referralCode,
       orderId: OTP.orderId,
       otpMethod: OTP.otpMethod,
+      affnook_token: affnook_token || null,
     };
 
     const result = await handleRegister(registerData).unwrap();

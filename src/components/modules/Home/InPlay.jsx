@@ -11,7 +11,7 @@ const InPlay = () => {
     { sportsType: group },
     {
       pollingInterval: 1000,
-    }
+    },
   );
 
   const [categories, setCategories] = useState([]);
@@ -27,8 +27,8 @@ const InPlay = () => {
         new Set(
           Object.values(data)
             .filter((item) => item.visible)
-            .map((item) => item.eventTypeId)
-        )
+            .map((item) => item.eventTypeId),
+        ),
       );
       const sortedCategories = categories.sort((a, b) => {
         const order = { 4: 0, 1: 1, 2: 2 };
@@ -51,8 +51,9 @@ const InPlay = () => {
             const filteredData = Object.entries(data)
               .filter(
                 ([, value]) =>
-                  value.eventTypeId === category && value.visible === true
+                  value.eventTypeId === category && value.visible === true,
               )
+
               .reduce((obj, [key, value]) => {
                 obj[key] = value;
                 return obj;
