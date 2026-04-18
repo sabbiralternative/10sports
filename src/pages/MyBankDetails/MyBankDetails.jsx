@@ -116,12 +116,12 @@ const MyBankDetails = () => {
                 </span>
               </div>
               <div
-                onClick={() => setTab(2)}
+                onClick={() => setTab(0)}
                 className="cursor-pointer flex flex-row items-center justify-center"
               >
                 <span
                   className={`text-text_Ternary text-sm  rounded-full  px-[25px] py-2 text-[13px] md:text-sm lg:text-base font-bold leading-4 active:scale-95 block z-10 font-lato ${
-                    tab === 2 ? "text-text_Quaternary" : "bg-bg_color_primary"
+                    tab === 0 ? "text-text_Quaternary" : "bg-bg_color_primary"
                   }`}
                 >
                   Deleted
