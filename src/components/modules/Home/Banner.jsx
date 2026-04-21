@@ -7,6 +7,10 @@ import "swiper/css/navigation";
 const Banner = () => {
   const { data } = useBannerImage();
 
+  const nounce = crypto.randomUUID();
+
+  console.log(nounce);
+
   return (
     <div className="w-full">
       {data?.banner?.length > 0 && (
