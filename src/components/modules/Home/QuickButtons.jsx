@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Settings } from "../../../api";
-import {
+import { 
   setSelectedCategory,
   setShowLoginModal,
 } from "../../../redux/features/global/globalSlice";
@@ -68,14 +68,13 @@ const QuickButtons = () => {
                   <div
                     className="relative w-full active:scale-95 cursor-pointer  bg-bg_color_skeletonBgLoaderColor transition-all ease-in-out duration-150 shadow-quickAccessBtnBoxShadows min-h-9 bg-cover bg-center bg-no-repeat rounded-[4px] overflow-hidden undefined"
                     style={{
-                      backgroundImage:
-                        'url("https://promotions-material.s3.ap-south-1.amazonaws.com/quickButtons/Evolution-1766067973985?q=65&w=600&px=auto&auto=format")',
+                      backgroundImage: 'url("/evolution.avif")',
                     }}
                   >
                     <div className="flex justify-center w-full h-full min-h-9 relative z-10 items-center min-w-[175px] sm:min-w-[240px] md:min-w-[280px] pl-[5px] pt-[2px] pb-[2px] pr-1  opacity-100">
                       <div className="relative overflow-hidden   w-4 h-4 sm:w-5 sm:h-5  ml-1 autoAnimate flex justify-center items-center  ">
                         <img
-                          src="https://promotions-material.s3.ap-south-1.amazonaws.com/quickButtons/Evolution-1766067973987?q=65&w=625&ar=0.75&px=auto&auto=format&fit=fill&blur=0"
+                          src="/evolution1.svg"
                           alt="Evolution"
                           sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
                           className="  w-[16px] h-[16px] object-contain"
@@ -98,14 +97,13 @@ const QuickButtons = () => {
                   <div
                     className="relative w-full active:scale-95 cursor-pointer  bg-bg_color_skeletonBgLoaderColor transition-all ease-in-out duration-150 shadow-quickAccessBtnBoxShadows min-h-9 bg-cover bg-center bg-no-repeat rounded-[4px] overflow-hidden undefined"
                     style={{
-                      backgroundImage:
-                        'url("https://promotions-material.s3.ap-south-1.amazonaws.com/quickButtons/Aviator-1766070541485?q=65&w=600&px=auto&auto=format")',
+                      backgroundImage: 'url("/aviator.avif")',
                     }}
                   >
                     <div className="flex justify-center w-full h-full min-h-9 relative z-10 items-center min-w-[175px] sm:min-w-[240px] md:min-w-[280px] pl-[5px] pt-[2px] pb-[2px] pr-1  opacity-100">
                       <div className="relative overflow-hidden   w-4 h-4 sm:w-5 sm:h-5  ml-1 autoAnimate flex justify-center items-center  ">
                         <img
-                          src="https://promotions-material.s3.ap-south-1.amazonaws.com/quickButtons/Aviator-1766070541487?q=65&w=625&ar=0.75&px=auto&auto=format&fit=fill&blur=0"
+                          src="/aviator1.svg"
                           alt="Aviator"
                           sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
                           className="  w-[16px] h-[16px] object-contain"
@@ -132,14 +130,13 @@ const QuickButtons = () => {
                   <div
                     className="relative w-full active:scale-95 cursor-pointer  bg-bg_color_skeletonBgLoaderColor transition-all ease-in-out duration-150 shadow-quickAccessBtnBoxShadows min-h-9 bg-cover bg-center bg-no-repeat rounded-[4px] overflow-hidden undefined"
                     style={{
-                      backgroundImage:
-                        'url("https://promotions-material.s3.ap-south-1.amazonaws.com/quickButtons/Aura-1766067418600?q=65&w=600&px=auto&auto=format")',
+                      backgroundImage: 'url("/aura.avif")',
                     }}
                   >
                     <div className="flex justify-center w-full h-full min-h-9 relative z-10 items-center min-w-[175px] sm:min-w-[240px] md:min-w-[280px] pl-[5px] pt-[2px] pb-[2px] pr-1  opacity-100">
                       <div className="relative overflow-hidden   w-4 h-4 sm:w-5 sm:h-5  ml-1 autoAnimate flex justify-center items-center  ">
                         <img
-                          src="https://promotions-material.s3.ap-south-1.amazonaws.com/quickButtons/Aura-1766067418611?q=65&w=625&ar=0.75&px=auto&auto=format&fit=fill&blur=0"
+                          src="/aura1.svg"
                           alt="Aura"
                           sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
                           className="  w-[16px] h-[16px] object-contain"
@@ -162,14 +159,13 @@ const QuickButtons = () => {
                   <div
                     className="relative w-full active:scale-95 cursor-pointer  bg-bg_color_skeletonBgLoaderColor transition-all ease-in-out duration-150 shadow-quickAccessBtnBoxShadows min-h-9 bg-cover bg-center bg-no-repeat rounded-[4px] overflow-hidden undefined"
                     style={{
-                      backgroundImage:
-                        'url("https://promotions-material.s3.ap-south-1.amazonaws.com/quickButtons/Casino-1766067481768?q=65&w=600&px=auto&auto=format")',
+                      backgroundImage: 'url("/casino.png")',
                     }}
                   >
                     <div className="flex justify-center w-full h-full min-h-9 relative z-10 items-center min-w-[175px] sm:min-w-[240px] md:min-w-[280px] pl-[5px] pt-[2px] pb-[2px] pr-1  opacity-100">
                       <div className="relative overflow-hidden   w-4 h-4 sm:w-5 sm:h-5  ml-1 autoAnimate flex justify-center items-center  ">
                         <img
-                          src="https://promotions-material.s3.ap-south-1.amazonaws.com/quickButtons/Casino-1766067481771?q=65&w=625&ar=0.75&px=auto&auto=format&fit=fill&blur=0"
+                          src="/casino1.svg"
                           alt="Casino"
                           sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
                           className="  w-[16px] h-[16px] object-contain"
@@ -197,14 +193,13 @@ const QuickButtons = () => {
                   <div
                     className="relative w-full active:scale-95 cursor-pointer  bg-bg_color_skeletonBgLoaderColor transition-all ease-in-out duration-150 shadow-quickAccessBtnBoxShadows min-h-9 bg-cover bg-center bg-no-repeat rounded-[4px] overflow-hidden undefined"
                     style={{
-                      backgroundImage:
-                        'url("https://promotions-material.s3.ap-south-1.amazonaws.com/quickButtons/Slot-1766067198749?q=65&w=600&px=auto&auto=format")',
+                      backgroundImage: 'url("/slot.png")',
                     }}
                   >
                     <div className="flex justify-center w-full h-full min-h-9 relative z-10 items-center min-w-[175px] sm:min-w-[240px] md:min-w-[280px] pl-[5px] pt-[2px] pb-[2px] pr-1  opacity-100">
                       <div className="relative overflow-hidden   w-4 h-4 sm:w-5 sm:h-5  ml-1 autoAnimate flex justify-center items-center  ">
                         <img
-                          src="https://promotions-material.s3.ap-south-1.amazonaws.com/quickButtons/Slot-1766067198751?q=65&w=625&ar=0.75&px=auto&auto=format&fit=fill&blur=0"
+                          src="/slot1.svg"
                           alt="Slot"
                           sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
                           className="  w-[16px] h-[16px] object-contain"
@@ -230,14 +225,13 @@ const QuickButtons = () => {
                   <div
                     className="relative w-full active:scale-95 cursor-pointer  bg-bg_color_skeletonBgLoaderColor transition-all ease-in-out duration-150 shadow-quickAccessBtnBoxShadows min-h-9 bg-cover bg-center bg-no-repeat rounded-[4px] overflow-hidden undefined"
                     style={{
-                      backgroundImage:
-                        'url("https://promotions-material.s3.ap-south-1.amazonaws.com/quickButtons/LIMBO-1766070421382?q=65&w=600&px=auto&auto=format")',
+                      backgroundImage: 'url("/limbo.png")',
                     }}
                   >
                     <div className="flex justify-center w-full h-full min-h-9 relative z-10 items-center min-w-[175px] sm:min-w-[240px] md:min-w-[280px] pl-[5px] pt-[2px] pb-[2px] pr-1  opacity-100">
                       <div className="relative overflow-hidden   w-4 h-4 sm:w-5 sm:h-5  ml-1 autoAnimate flex justify-center items-center  ">
                         <img
-                          src="https://promotions-material.s3.ap-south-1.amazonaws.com/quickButtons/LIMBO-1766070421393?q=65&w=625&ar=0.75&px=auto&auto=format&fit=fill&blur=0"
+                          src="/limbo1.svg"
                           alt="LIMBO"
                           sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
                           className="  w-[16px] h-[16px] object-contain"
@@ -268,14 +262,13 @@ const QuickButtons = () => {
                   <div
                     className="relative w-full active:scale-95 cursor-pointer  bg-bg_color_skeletonBgLoaderColor transition-all ease-in-out duration-150 shadow-quickAccessBtnBoxShadows min-h-9 bg-cover bg-center bg-no-repeat rounded-[4px] overflow-hidden undefined"
                     style={{
-                      backgroundImage:
-                        'url("https://promotions-material.s3.ap-south-1.amazonaws.com/quickButtons/crashgames-1766067310457?q=65&w=600&px=auto&auto=format")',
+                      backgroundImage: 'url("/crashgames.png")',
                     }}
                   >
                     <div className="flex justify-center w-full h-full min-h-9 relative z-10 items-center min-w-[175px] sm:min-w-[240px] md:min-w-[280px] pl-[5px] pt-[2px] pb-[2px] pr-1  opacity-100">
                       <div className="relative overflow-hidden   w-4 h-4 sm:w-5 sm:h-5  ml-1 autoAnimate flex justify-center items-center  ">
                         <img
-                          src="https://promotions-material.s3.ap-south-1.amazonaws.com/quickButtons/crashgames-1766067310460?q=65&w=625&ar=0.75&px=auto&auto=format&fit=fill&blur=0"
+                          src="/crashgames1.svg"
                           alt="crash games"
                           sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
                           className="  w-[16px] h-[16px] object-contain"
@@ -301,14 +294,13 @@ const QuickButtons = () => {
                   <div
                     className="relative w-full active:scale-95 cursor-pointer  bg-bg_color_skeletonBgLoaderColor transition-all ease-in-out duration-150 shadow-quickAccessBtnBoxShadows min-h-9 bg-cover bg-center bg-no-repeat rounded-[4px] overflow-hidden undefined"
                     style={{
-                      backgroundImage:
-                        'url("https://promotions-material.s3.ap-south-1.amazonaws.com/quickButtons/TowerLegends-1766070672222?q=65&w=600&px=auto&auto=format")',
+                      backgroundImage: 'url("/towerlegend.png")',
                     }}
                   >
                     <div className="flex justify-center w-full h-full min-h-9 relative z-10 items-center min-w-[175px] sm:min-w-[240px] md:min-w-[280px] pl-[5px] pt-[2px] pb-[2px] pr-1  opacity-100">
                       <div className="relative overflow-hidden   w-4 h-4 sm:w-5 sm:h-5  ml-1 autoAnimate flex justify-center items-center  ">
                         <img
-                          src="https://promotions-material.s3.ap-south-1.amazonaws.com/quickButtons/TowerLegends-1766070672224?q=65&w=625&ar=0.75&px=auto&auto=format&fit=fill&blur=0"
+                          src="/towerlegend1.png"
                           alt="Tower Legends"
                           sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
                           className="  w-[16px] h-[16px] object-contain"
