@@ -370,7 +370,7 @@ const HeaderBottomNavItem = () => {
             <Aura height={16} width={16} />
           </span>
           <span className="font font-lato text-[12px] font-normal">
-            Live Casino Wolf
+            Live Casino
           </span>
         </Link>
 
