@@ -106,7 +106,7 @@ const HeaderBottomNavItem = () => {
             </span>
           </a>
         )}
-        <Link
+        {/* <Link
           title="Home"
           className={`cursor-pointer uppercase min-h-[28px] min-w-[60px]  max-w-fit px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm
         ${
@@ -193,7 +193,7 @@ const HeaderBottomNavItem = () => {
             </svg>
           </span>
           <span className="font font-lato text-[12px]  font-semibold">PSL</span>
-        </Link>
+        </Link> */}
         <Link
           onClick={() => handleSetGroup(4)}
           title="Cricket"
