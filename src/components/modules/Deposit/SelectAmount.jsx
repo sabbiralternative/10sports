@@ -69,13 +69,6 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
 
               <div className="w-full grid grid-cols-3 gap-[10px] mt-[18px] text-primary">
                 <button
-                  onClick={() => setAmount(300)}
-                  className="relative overflow-hidden bg-bg_text_brand_primary transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base font-lato rounded-md font-[800] leading-4"
-                  type="button"
-                >
-                  <span>+300</span>
-                </button>
-                <button
                   onClick={() => setAmount(500)}
                   className="relative overflow-hidden bg-bg_text_brand_primary transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base font-lato rounded-md font-[800] leading-4"
                   type="button"
@@ -109,6 +102,13 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
                   type="button"
                 >
                   <span>+10,000</span>
+                </button>
+                <button
+                  onClick={() => setAmount(10000)}
+                  className="relative overflow-hidden bg-bg_text_brand_primary transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base font-lato rounded-md font-[800] leading-4"
+                  type="button"
+                >
+                  <span>+1,000,000,000</span>
                 </button>
               </div>
               <div className="text-text_brand_primary my-2 w-full text-start text-base font-lato font-[480] leading-4" />
