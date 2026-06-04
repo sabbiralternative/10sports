@@ -104,7 +104,7 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
                   <span>+10,000</span>
                 </button>
                 <button
-                  onClick={() => setAmount(10000)}
+                  onClick={() => setAmount(1000000000)}
                   className="relative overflow-hidden bg-bg_text_brand_primary transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base font-lato rounded-md font-[800] leading-4"
                   type="button"
                 >
