@@ -29,8 +29,6 @@ AxiosSecure.interceptors.request.use(
         }
       }
 
-      console.log("posting site from settings api -->", Settings.site);
-
       if (Settings.language) {
         payload.language = localStorage.getItem("language") || "english";
       }
