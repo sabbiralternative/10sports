@@ -9,8 +9,10 @@ import { useSelector } from "react-redux";
 import Banner from "../components/modals/Banner/Banner";
 import BuildVersion from "../components/modals/BuildVersion/BuildVersion";
 import { Settings } from "../api";
+import { useLanguage } from "../context/LanguageProvider";
 
 const MainLayout = () => {
+  const { setLanguage } = useLanguage();
   const [showBuildVersion, setShowBuildVersion] = useState(false);
   const stored_build_version = localStorage.getItem("build_version");
   const { group, showNotification, showBanner, showAppPopUp, showAPKModal } =
@@ -40,6 +42,10 @@ const MainLayout = () => {
       }
     }
   }, [stored_build_version]);
+
+  useEffect(() => {
+    setLanguage(localStorage.getItem("language") || "english");
+  }, [setLanguage]);
 
   return (
     <div className="w-dvw app-bg h-screen  flex flex-col">

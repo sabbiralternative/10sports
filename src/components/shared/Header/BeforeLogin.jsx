@@ -23,6 +23,7 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
   const getWhatsAppId = (link) => {
     window.open(link, "_blank");
   };
+
   return (
     <div
       className={`flex items-center justify-end w-full lg:w-fit ${

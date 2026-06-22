@@ -9,12 +9,12 @@ import { setShowLanguageModal } from "../../../redux/features/global/globalSlice
 const Language = () => {
   const dispatch = useDispatch();
   const [selectedLan, setSelectedLag] = useState(
-    localStorage.getItem("language") || null
+    localStorage.getItem("language") || null,
   );
   const { setLanguage } = useLanguage();
   const { data } = useGetLanguage();
 
-  const languages = data?.[0]?.CRICKET;
+  const languages = data?.CRICKET;
 
   const handleSetLanguage = () => {
     if (!selectedLan) {
@@ -32,6 +32,7 @@ const Language = () => {
   const closeModal = () => {
     dispatch(setShowLanguageModal(false));
   };
+
   return (
     <div className="fixed bottom-0 left-0 right-0 top-0 overflow-hidden flex h-[100dvh] w-dvw items-center justify-center bg-bg_color_popUpParentBg overflow-y-hidden z-[10000]">
       <div
