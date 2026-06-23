@@ -149,7 +149,7 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
           className="flex  hover:opacity-100 w-max font-extrabold items-center justify-center  bg-bg_color_LoginBtnBgColor rounded-md px-2.5 py-1.5"
         >
           <span className=" text-x text-primary font-lato md:font-semibold xs:text-xs  md:text-sm font-[800]">
-            Log In
+            {languageValue(valueByLanguage, LanguageKey.LOGIN)}
           </span>
         </button>
         {Settings.registration && (
@@ -162,7 +162,7 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
                     "
           >
             <span className=" text-x   bg-bg_color_signUpTextColor bg-clip-text text-transparent  font-lato md:font-semibold xs:text-xs  md:text-sm font-[800]">
-              Sign Up
+              {languageValue(valueByLanguage, LanguageKey.REGISTER)}
             </span>
           </button>
         )}
@@ -181,7 +181,7 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
       {Settings.language && (
         <button
           onClick={() => dispatch(setShowLanguageModal(true))}
-          className="relative overflow-hidden hidden lg:flex items-center ml-2 text-text_color_primary2 justify-center text-xs py-2 px-2 rounded-full bg-bg_color_secondary border border-border_color_primary capitalize"
+          className="relative overflow-hidden flex items-center ml-2 text-text_color_primary2 justify-center text-xs py-2 px-2 rounded-full bg-bg_color_secondary border border-border_color_primary capitalize"
           type="button"
         >
           <svg
