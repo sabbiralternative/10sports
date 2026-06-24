@@ -21,8 +21,8 @@ import { languageValue } from "../../../utils/language";
 const ForgotPassword = () => {
   const { valueByLanguage } = useLanguage();
   const [handleForgotPassword] = useForgotPasswordMutation();
-  const [passType, setPassType] = useState(true);
-  const [confirmPassType, setConfirmPassType] = useState(true);
+  const [passType, setPassType] = useState(false);
+  const [confirmPassType, setConfirmPassType] = useState(false);
   const dispatch = useDispatch();
   const [mobile, setMobile] = useState("");
   const [OTP, setOTP] = useState({});

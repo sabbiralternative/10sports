@@ -27,7 +27,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [tab, setTab] = useState(Settings.registration ? "mobile" : "userId");
   const { valueByLanguage } = useLanguage();
-  const [passwordType, setPasswordType] = useState(true);
+  const [passwordType, setPasswordType] = useState(false);
   const { logo } = useLogo();
   const dispatch = useDispatch();
   const [handleLogin] = useLoginMutation();
@@ -142,7 +142,7 @@ const Login = () => {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 top-0 overflow-hidden flex h-[100dvh] w-dvw items-center justify-center bg-bg_color_popUpParentBg overflow-y-hidden z-[10000]">
+    <div className="absolute bottom-0 left-0 right-0 top-0 overflow-hidden flex h-[100dvh] w-dvw items-center justify-center bg-bg_color_popUpParentBg overflow-y-hidden z-[10000]">
       <div
         ref={loginRef}
         className="relative w-[90%]  sm:w-[85%] md:w-[70%] lg:w-[450px] max-w-[450px] rounded-[5px] max-h-[90%] overflow-y-auto  pt-6 pb-7 px-4 bg-bg_color_LoginPopUpBg popUpOpenAnimation max-h-[80%] overflow-y-auto"
@@ -227,7 +227,6 @@ const Login = () => {
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="w-full gap-y-4 flex flex-col"
-                id="loginForm"
               >
                 <div title="loginFormMonileUserIdInput" className=" w-full ">
                   <div
@@ -269,8 +268,6 @@ const Login = () => {
                             ? "Enter Mobile Number"
                             : "Enter Username"
                         }`}
-                        aria-label="Mobile Number"
-                        id="loginFormMobileUserIdInput"
                         type="text"
                       />
                     </div>
@@ -292,8 +289,6 @@ const Login = () => {
                         {...register("password", { required: true })}
                         className="text-text_color_loginInputTextColor bg-transparent px-1.5 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
                         placeholder="Enter your Password"
-                        aria-label="Password"
-                        id="loginFormPasswordInput"
                         type={passwordType ? "text" : "password"}
                       />
                       <div
