@@ -29,13 +29,15 @@ const BankAccount = ({ amount }) => {
   }, [amount, getPaymentMethod]);
 
   const handleVisibleBankMethod = async (method) => {
+    console.log(method);
     setMethodType(method?.type);
     setPaymentId(method?.paymentId);
     if (
       method?.type === "upigateway" ||
       method?.type === "toitgateway" ||
       method?.type === "i100gateway" ||
-      method?.type === "upiclick"
+      method?.type === "upiclick" ||
+      method?.gateway === 1
     ) {
       const depositDetailForPg = {
         paymentId: method?.paymentId,
