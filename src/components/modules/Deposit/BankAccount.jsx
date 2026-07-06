@@ -29,7 +29,6 @@ const BankAccount = ({ amount }) => {
   }, [amount, getPaymentMethod]);
 
   const handleVisibleBankMethod = async (method) => {
-    console.log(method);
     setMethodType(method?.type);
     setPaymentId(method?.paymentId);
     if (
