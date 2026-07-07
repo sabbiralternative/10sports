@@ -191,7 +191,9 @@ const BankAccount = ({ amount }) => {
                             {method?.type == "bank" && (
                               <CiBank size={25} color="gray" />
                             )}
-                            {method?.type == "upi" || method?.type == "pg" ? (
+                            {method?.type == "upi" ||
+                            method?.type == "pg" ||
+                            method?.gateway === 1 ? (
                               <img
                                 style={{ height: "25px", width: "25px" }}
                                 src={"/icon/upi.png"}
