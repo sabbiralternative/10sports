@@ -20,9 +20,9 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
     dispatch(setShowRegisterModal(true));
   };
 
-  const getWhatsAppId = (link) => {
-    window.open(link, "_blank");
-  };
+  // const getWhatsAppId = (link) => {
+  //   window.open(link, "_blank");
+  // };
 
   return (
     <div
@@ -111,7 +111,7 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
             </span>
           </button>
         )}
-        {Settings.registration_whatsapp && Settings?.whatsapplink && (
+        {/* {Settings.registration_whatsapp && Settings?.whatsapplink && (
           <button
             onClick={() => getWhatsAppId(Settings?.whatsapplink)}
             title="loginButton"
@@ -140,7 +140,7 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
               Get ID
             </span>
           </button>
-        )}
+        )} */}
       </div>
       <div className="w-max flex items-center gap-1 justify-center  rounded lg:hidden">
         <button
@@ -166,7 +166,7 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
             </span>
           </button>
         )}
-        {Settings.registration_whatsapp && Settings?.whatsapplink && (
+        {/* {Settings.registration_whatsapp && Settings?.whatsapplink && (
           <button
             onClick={() => getWhatsAppId(Settings?.whatsapplink)}
             id="loginButton"
@@ -176,7 +176,7 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
               Get ID
             </span>
           </button>
-        )}
+        )} */}
       </div>
       {Settings.language && (
         <button
