@@ -58,7 +58,7 @@ const HeaderBottomNavItem = () => {
         <WarningCondition gameInfo={gameInfo} setShowWarning={setShowWarning} />
       )}
       {/* no-scrollbar */}
-      <div className="flex w-full overflow-x-auto bg-bg_headerDeskNavMenu  py-[5px] px-3 items-start md:items-center md:justify-start max-w-[90%] mx-auto">
+      <div className="flex w-full overflow-x-auto bg-bg_headerDeskNavMenu  py-[5px] px-3 items-start md:items-center md:justify-start max-w-full lg:max-w-[90%]  mx-auto">
         <Link
           onClick={() => handleSetGroup(0)}
           title="Home"
