@@ -15,6 +15,7 @@ import MobileEventHeader from "../../components/modules/EventDetails/MobileEvent
 import TennisScore from "../../components/modules/EventDetails/TennisScore";
 import SportsBook from "./SportsBook/SportsBook";
 import MatchOdds from "../../components/modules/EventDetails/MatchOdds";
+import Premium from "../../components/modules/EventDetails/Premium";
 // import FootballScore from "../../components/modules/EventDetails/FootballScore";
 
 const EventDetails = () => {
@@ -142,9 +143,11 @@ const EventDetails = () => {
         <div className="no-scrollbar min-h-[calc(100dvh-56px)] md:mb-3">
           <DesktopEventHeader data={data} />
           <div className="hidden lg:block">
-            {eventTypeId == 2 && data?.score && (
-              <TennisScore score={data?.score} />
-            )}
+            {eventTypeId == 2 &&
+              data?.score &&
+              Object.keys(data?.score).length > 1 && (
+                <TennisScore score={data?.score} />
+              )}
           </div>
           {eventTypeId == 4 && data?.iscore && <Score iscore={data?.iscore} />}
 
@@ -171,6 +174,9 @@ const EventDetails = () => {
               /> */}
               {/* <Tracker score={data?.score} /> */}
               {matchOdds?.length > 0 && <MatchOdds data={matchOdds} />}
+              {data?.premium && data?.premium?.eventId && (
+                <Premium premium={data?.premium} />
+              )}
               {bookmaker?.length > 0 && <Bookmaker data={bookmaker} />}
               {data?.result?.length > 0 && <Fancy data={data?.result} />}
 
