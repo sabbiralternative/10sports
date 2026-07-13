@@ -23,6 +23,7 @@ import { LanguageKey } from "../../../const";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import WarningCondition from "../WarningCondition/WarningCondition";
+import { eventNameList } from "../../../static/event-name-list";
 
 const LeftDeskSidebar = () => {
   const { valueByLanguage } = useLanguage();
@@ -171,7 +172,25 @@ const LeftDeskSidebar = () => {
               </span>
             </a>
           </li>
-
+          {eventNameList.map((item) => {
+            return (
+              <li
+                key={item.id}
+                onClick={() => handleSetGroup(item.id)}
+                className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav"
+              >
+                <a
+                  title="Tennis"
+                  className="flex w-full items-center h-full px-6 justify-start gap-3"
+                >
+                  <img src={item?.image} className="size-5" alt="" />
+                  <span className="font-medium text-start text-text_color_primary1">
+                    {item.name}
+                  </span>
+                </a>
+              </li>
+            );
+          })}
           <li className="text-sm cursor-pointer py-4 text-nowrap whitespace-nowrap autoAnimate font-semibold w-full border-b border-border_color_primary hover:bg-bg_MenuHoverColor hover:scale-[102%] text-text_headerDeskNav">
             {" "}
             <Link

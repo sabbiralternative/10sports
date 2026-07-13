@@ -24,6 +24,7 @@ import WarningCondition from "../WarningCondition/WarningCondition";
 import { AiFillHome } from "react-icons/ai";
 import images from "../../../assets/images";
 import { latestEvent } from "../../../static/latest-event";
+import { eventNameList } from "../../../static/event-name-list";
 
 const HeaderBottomNavItem = () => {
   const { group } = useSelector((state) => state.global);
@@ -310,7 +311,28 @@ const HeaderBottomNavItem = () => {
             {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
           </span>
         </Link>
-
+        {eventNameList.map((item) => {
+          return (
+            <Link
+              key={item.id}
+              onClick={() => handleSetGroup(item.id)}
+              title="Tennis"
+              className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-fit px-[9px]  flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
+                location.pathname === "/" && group === item.id
+                  ? " bg-bg_headerDeskNavmenuEle text-text_brand_primary"
+                  : "text-text_headerDeskNav"
+              }`}
+              to="/"
+            >
+              <span>
+                <img className="size-4" src={item.image} alt="" />
+              </span>
+              <span className="font font-lato text-[12px]  font-normal">
+                {item.name}
+              </span>
+            </Link>
+          );
+        })}
         <Link
           className={`cursor-pointer uppercase min-h-[28px] text-nowrap whitespace-nowrap  min-w-[80px] px-[9px] flex items-center justify-center gap-x-1 py-1 rounded-md text-sm text-xs ${
             location.pathname === "/mac88"
