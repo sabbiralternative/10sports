@@ -15,8 +15,11 @@ import CryptoReferTab from "../../components/modules/Home/CryptoReferTab";
 import QuickButtons from "../../components/modules/Home/QuickButtons";
 import Promotion from "../../components/modules/Home/Promotion";
 import { Settings } from "../../api";
+import { useState } from "react";
+import MiniGames from "../../components/modals/MiniGames/MiniGames";
 
 const Home = () => {
+  const [showMiniGamesModal, setShowMiniGamesModal] = useState(false);
   const { data: lotusLobby } = useLotusHomeLobby();
   const { group } = useSelector((state) => state.global);
 
@@ -53,6 +56,27 @@ const Home = () => {
         )}
       </div>
       {!group && <FAQ />}
+      <div
+        onClick={() => setShowMiniGamesModal(true)}
+        style={{
+          position: "fixed",
+          top: "calc(100dvh - 80px)",
+          left: "0",
+          height: "fit-content",
+          cursor: "pointer",
+          // zIndex: 999999,
+        }}
+      >
+        <img
+          style={{
+            height: "70px",
+          }}
+          src="/uv_games-CkYT1PYz.gif"
+        />
+      </div>
+      {showMiniGamesModal && (
+        <MiniGames setShowMiniGamesModal={setShowMiniGamesModal} />
+      )}
     </div>
   );
 };

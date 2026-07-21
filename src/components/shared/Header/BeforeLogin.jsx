@@ -10,7 +10,7 @@ import { LanguageKey } from "../../../const";
 import { Settings } from "../../../api";
 
 const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
-  const { language, valueByLanguage } = useLanguage();
+  const { valueByLanguage } = useLanguage();
   const dispatch = useDispatch();
 
   const showLogin = () => {
@@ -203,7 +203,7 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
             <path d="M11.5 3a17 17 0 0 0 0 18" />
             <path d="M12.5 3a17 17 0 0 1 0 18" />
           </svg>
-          {language}
+
           <svg
             fill="currentColor"
             width={16}

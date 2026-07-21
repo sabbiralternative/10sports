@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Settings } from "../../../api";
-import { useLanguage } from "../../../context/LanguageProvider";
+// import { useLanguage } from "../../../context/LanguageProvider";
 import useBalance from "../../../hooks/balance";
 import { useDispatch } from "react-redux";
 import { setShowLanguageModal } from "../../../redux/features/global/globalSlice";
@@ -12,7 +12,7 @@ const AfterLogin = ({
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { language } = useLanguage();
+  // const { language } = useLanguage();
   const { data } = useBalance();
 
   const showRightDrawer = () => {
@@ -281,7 +281,7 @@ cursor-pointer
                   <path d="M11.5 3a17 17 0 0 0 0 18" />
                   <path d="M12.5 3a17 17 0 0 1 0 18" />
                 </svg>
-                {language}
+
                 <svg
                   fill="currentColor"
                   width={16}
