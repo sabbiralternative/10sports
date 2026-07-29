@@ -63,6 +63,7 @@ export const API = {
 
 export const Settings = {
   apk_link: "",
+  apk_banner: "",
   maintenance_message: "",
   otp: "",
   casino: "",
