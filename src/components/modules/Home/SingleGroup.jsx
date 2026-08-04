@@ -10,8 +10,16 @@ import { useLanguage } from "../../../context/LanguageProvider";
 import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import ScoreHome from "./ScoreHome";
+import LiveVirtual from "./LiveVirtual";
 
-const SingleGroup = ({ data, filterData, title, margin, defineGroup }) => {
+const SingleGroup = ({
+  data,
+  filterData,
+  title,
+  margin,
+  setLiveVirtual,
+  defineGroup,
+}) => {
   const { valueByLanguage } = useLanguage();
   const eventName = {
     4: languageValue(valueByLanguage, LanguageKey.CRICKET),
@@ -24,6 +32,7 @@ const SingleGroup = ({ data, filterData, title, margin, defineGroup }) => {
   const navigateGameList = (keys) => {
     navigate(`/event-details/${data[keys]?.eventTypeId}/${keys}`);
   };
+
   return (
     <div title="In Play" className={`px-[6px] w-full ${margin ? "mt-2" : ""}`}>
       <div className="w-full font-helvetica-neue">
@@ -37,11 +46,15 @@ const SingleGroup = ({ data, filterData, title, margin, defineGroup }) => {
         <div className="bg-bg_color_primary border border-border_color_primary border-b-0 shadow-lg border-t-0 rounded-b">
           <div className="eventHeadName grid grid-cols-12">
             <div className="text-text_color_primary1 px-2 h-full py-2.5 col-span-6 lg:col-span-5 pl-2 flex items-center justify-start w-full gap-x-2">
-              {group === 4 && <Cricket />}
+              {(group === 4 || defineGroup === 4) && <Cricket />}
               {group === 2 && <Tennis />}
               {group === 1 && <Tennis />}
-              <div className="text-text_color_primary1 mt-0.5 md:text-[18px] text-base font-semibold leading-3 tracking-wide text-center">
+              <div className="text-text_color_primary1 mt-0.5 md:text-[18px] text-base font-semibold leading-3 tracking-wide text-center flex items-center gap-x-4">
                 {eventName[defineGroup || group]}
+                <LiveVirtual
+                  category={defineGroup || group}
+                  setLiveVirtual={setLiveVirtual}
+                />
               </div>
             </div>
             <div className="col-span-6 py-2.5 lg:col-span-7 grid grid-cols-12 h-full">
@@ -56,7 +69,7 @@ const SingleGroup = ({ data, filterData, title, margin, defineGroup }) => {
               </span>
             </div>
             {data &&
-              filterData?.map((key) => {
+              filterData?.map(([key]) => {
                 return (
                   <>
                     <div

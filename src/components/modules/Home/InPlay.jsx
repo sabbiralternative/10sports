@@ -4,8 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { Cricket, InPlayIcon, Tennis } from "../../../assets/Icon/Index";
 import { useSelector } from "react-redux";
 import ScoreHome from "./ScoreHome";
+import LiveVirtual from "./LiveVirtual";
+import { FilterLiveVirtual } from "../../../utils/filter-live-virtual";
 
 const InPlay = () => {
+  const [liveVirtual, setLiveVirtual] = useState([]);
   const { group } = useSelector((state) => state.global);
   const { data } = useGroupQuery(
     { sportsType: group },
@@ -48,24 +51,24 @@ const InPlay = () => {
         </div>
         <div className="bg-bg_color_primary border border-border_color_primary border-b-0 shadow-lg border-t-0 rounded-b">
           {categories?.map((category) => {
-            const filteredData = Object.entries(data)
-              .filter(
-                ([, value]) =>
-                  value.eventTypeId === category && value.visible === true,
-              )
-
-              .reduce((obj, [key, value]) => {
-                obj[key] = value;
-                return obj;
-              }, {});
+            const groupedData = FilterLiveVirtual(
+              liveVirtual,
+              category,
+              data,
+              1,
+            );
             return (
               <div key={category} className="eventHeadName grid grid-cols-12">
                 <div className="text-text_color_primary1 px-2 h-full py-2.5 col-span-6 lg:col-span-5 pl-2 flex items-center justify-start w-full gap-x-2">
                   {eventName[category] === "Cricket" && <Cricket />}
                   {eventName[category] === "Tennis" && <Tennis />}
                   {eventName[category] === "Football" && <Tennis />}
-                  <div className="text-text_color_primary1 mt-0.5 md:text-[18px] text-base font-semibold leading-3 tracking-wide text-center">
+                  <div className="text-text_color_primary1 mt-0.5 md:text-[18px] text-base font-semibold leading-3 tracking-wide text-center flex items-center gap-x-4">
                     {eventName[category]}
+                    <LiveVirtual
+                      setLiveVirtual={setLiveVirtual}
+                      category={category}
+                    />
                   </div>
                 </div>
                 <div className="col-span-6 py-2.5 lg:col-span-7 grid grid-cols-12 h-full">
@@ -80,317 +83,310 @@ const InPlay = () => {
                   </span>
                 </div>
                 {data &&
-                  Object.values(data).length > 0 &&
-                  Object.keys(filteredData)
-                    .sort((keyA, keyB) => data[keyA].sort - data[keyB].sort)
-                    .map((keys, index) => {
-                      if (!data?.[keys]?.visible) {
-                        return null;
-                      }
+                  groupedData.map(([keys], index) => {
+                    const lastElement =
+                      Object.keys(groupedData)?.length - 1 === index;
 
-                      const lastElement =
-                        Object.keys(filteredData)?.length - 1 === index;
-
-                      return (
-                        <>
-                          <div
-                            onClick={() => navigateGameList(keys)}
-                            className={`col-span-6 h-12 lg:col-span-5 grid grid-cols-7 border-t border-border_color_primary1 ${
-                              lastElement ? "border-b" : ""
-                            }`}
-                          >
-                            {/* <span
+                    return (
+                      <>
+                        <div
+                          onClick={() => navigateGameList(keys)}
+                          className={`col-span-6 h-12 lg:col-span-5 grid grid-cols-7 border-t border-border_color_primary1 ${
+                            lastElement ? "border-b" : ""
+                          }`}
+                        >
+                          {/* <span
                               id="inPlayTime"
                               className="flex items-center justify-center flex-col col-span-2 pl-[1px] pr-[1px] active:scale-[94%] transition-all ease-in-out duration-100"
                             >
                               <span className="text-text_color_InPlayEventsScoreAndTime text-[8px] xs:text-[9px] md:text-[10px] font-semibold w-full text-center">
-                                {data[keys]?.date}
+                                {data[key]?.date}
                               </span>
                             </span> */}
-                            <ScoreHome data={data} keys={keys} />
-                            <div
-                              id="inPlayTeamName"
-                              className="cursor-pointer text-selection-none flex items-center justify-start col-span-5 px-1 relative border-l border-r border-border_color_primary active:scale-[94%] transition-all ease-in-out duration-100"
-                            >
-                              <span className="flex flex-col items-center justify-start w-[92%] md:w-[89%] mr-1">
-                                <div className="text-selection-none w-full flex items-center justify-start">
-                                  <span className="w-[5px] h-[5px] p-[1px] mr-[2px]" />
-                                  <span className="text-[11px] font-bold text-text_color_primary1 truncate sm:text-xs md:text-sm">
-                                    {data[keys]?.player1}
-                                  </span>
-                                </div>
-                                <div className="text-selection-none w-full flex items-center justify-start">
-                                  <span className="w-[5px] h-[5px] p-[1px] mr-[2px]" />
-                                  <span className="text-[11px] font-bold text-text_color_primary1 truncate sm:text-xs md:text-sm">
-                                    {data[keys]?.player2}
-                                  </span>
-                                </div>
-                              </span>
-                              {data?.[keys]?.isTv === 1 && (
-                                <span className="absolute top-0.5 right-0.5">
-                                  <svg
-                                    width="13"
-                                    height="11"
-                                    viewBox="0 0 13 11"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M11.8182 0H1.18182C0.525909 0 0 0.543889 0 1.22222V8.55556C0 9.22778 0.525909 9.77778 1.18182 9.77778H4.13636V11H8.86364V9.77778H11.8182C12.4682 9.77778 12.9941 9.22778 12.9941 8.55556L13 1.22222C13 0.543889 12.4682 0 11.8182 0ZM11.8182 8.55556H1.18182V1.22222H11.8182V8.55556ZM8.86364 4.88889L4.72727 7.33333V2.44444L8.86364 4.88889Z"
-                                      fill="#257B24"
-                                    ></path>
-                                  </svg>
+                          <ScoreHome data={data} keys={keys} />
+                          <div
+                            id="inPlayTeamName"
+                            className="cursor-pointer text-selection-none flex items-center justify-start col-span-5 px-1 relative border-l border-r border-border_color_primary active:scale-[94%] transition-all ease-in-out duration-100"
+                          >
+                            <span className="flex flex-col items-center justify-start w-[92%] md:w-[89%] mr-1">
+                              <div className="text-selection-none w-full flex items-center justify-start">
+                                <span className="w-[5px] h-[5px] p-[1px] mr-[2px]" />
+                                <span className="text-[11px] font-bold text-text_color_primary1 truncate sm:text-xs md:text-sm">
+                                  {data[keys]?.player1}
                                 </span>
-                              )}
+                              </div>
+                              <div className="text-selection-none w-full flex items-center justify-start">
+                                <span className="w-[5px] h-[5px] p-[1px] mr-[2px]" />
+                                <span className="text-[11px] font-bold text-text_color_primary1 truncate sm:text-xs md:text-sm">
+                                  {data[keys]?.player2}
+                                </span>
+                              </div>
+                            </span>
+                            {data?.[keys]?.isTv === 1 && (
+                              <span className="absolute top-0.5 right-0.5">
+                                <svg
+                                  width="13"
+                                  height="11"
+                                  viewBox="0 0 13 11"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M11.8182 0H1.18182C0.525909 0 0 0.543889 0 1.22222V8.55556C0 9.22778 0.525909 9.77778 1.18182 9.77778H4.13636V11H8.86364V9.77778H11.8182C12.4682 9.77778 12.9941 9.22778 12.9941 8.55556L13 1.22222C13 0.543889 12.4682 0 11.8182 0ZM11.8182 8.55556H1.18182V1.22222H11.8182V8.55556ZM8.86364 4.88889L4.72727 7.33333V2.44444L8.86364 4.88889Z"
+                                    fill="#257B24"
+                                  ></path>
+                                </svg>
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        <span
+                          onClick={() => navigateGameList(keys)}
+                          className="col-span-6 h-12 lg:col-span-7 w-full overflow-auto border-t border-border_color_primary1"
+                        >
+                          {/* Desktop start */}
+                          <div className="w-full sm:grid grid-cols-12 grid-flow-col overflow-auto h-full gap-x-0.5 py-[1px] pr-[2px] hidden">
+                            <div className="col-span-4 grid grid-cols-2 h-full">
+                              <div className="w-full h-full">
+                                <div className="overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {data?.[keys]?.[0]?.ex?.availableToBack[0]
+                                      ?.price || "-"}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px] leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {data?.[keys]?.[0]?.ex?.availableToBack?.[0]
+                                      ?.size || "-"}
+                                  </span>
+                                </div>
+                              </div>
+                              <div className="w-full h-full">
+                                <div className="overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {data?.[keys]?.[0]?.ex?.availableToLay?.[0]
+                                      ?.price || "-"}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px] leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {data?.[keys]?.[0]?.ex?.availableToLay?.[0]
+                                      ?.size || "-"}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="col-span-4 grid grid-cols-2 h-full">
+                              <div className="w-full h-full">
+                                <div className="overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {data?.[keys]?.[2]?.ex?.availableToBack?.[0]
+                                      ?.price || "-"}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px] leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {data?.[keys]?.[2]?.ex?.availableToBack?.[0]
+                                      ?.size || "-"}
+                                  </span>
+                                </div>
+                              </div>
+                              <div className="w-full h-full">
+                                <div className="overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {data?.[keys]?.[2]?.ex?.availableToLay?.[0]
+                                      ?.price || "-"}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px] leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {data?.[keys]?.[2]?.ex?.availableToLay?.[0]
+                                      ?.size || "-"}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="col-span-4 grid grid-cols-2 h-full">
+                              <div className="w-full h-full">
+                                <div className="overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {data?.[keys]?.[1]?.ex?.availableToBack?.[0]
+                                      ?.price || "-"}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px] leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {data?.[keys]?.[1]?.ex?.availableToBack?.[0]
+                                      ?.size || "-"}
+                                  </span>
+                                </div>
+                              </div>
+                              <div className="w-full h-full">
+                                <div className="overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {data?.[keys]?.[1]?.ex?.availableToLay?.[0]
+                                      ?.price || "-"}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px] leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {data?.[keys]?.[1]?.ex?.availableToLay?.[0]
+                                      ?.size || "-"}
+                                  </span>
+                                </div>
+                              </div>
                             </div>
                           </div>
-                          <span
-                            onClick={() => navigateGameList(keys)}
-                            className="col-span-6 h-12 lg:col-span-7 w-full overflow-auto border-t border-border_color_primary1"
+                          {/* Desktop end */}
+                          {/* Mobile */}
+                          <div
+                            id="hideScrollBar"
+                            className="w-full overflow-x-auto flex h-full sm:px-[2px] sm:hidden"
                           >
-                            {/* Desktop start */}
-                            <div className="w-full sm:grid grid-cols-12 grid-flow-col overflow-auto h-full gap-x-0.5 py-[1px] pr-[2px] hidden">
-                              <div className="col-span-4 grid grid-cols-2 h-full">
-                                <div className="w-full h-full">
-                                  <div className="overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
-                                    <span
-                                      id="oddBtnPrice"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full leading-5 text-sm md:text-[15px] font-semibold"
-                                    >
-                                      {data?.[keys]?.[0]?.ex?.availableToBack[0]
-                                        ?.price || "-"}
-                                    </span>
-                                    <span
-                                      id="oddBtnSize"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px] leading-3 text-center whitespace-normal font-normal"
-                                    >
-                                      {data?.[keys]?.[0]?.ex
-                                        ?.availableToBack?.[0]?.size || "-"}
-                                    </span>
-                                  </div>
-                                </div>
-                                <div className="w-full h-full">
-                                  <div className="overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
-                                    <span
-                                      id="oddBtnPrice"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full leading-5 text-sm md:text-[15px] font-semibold"
-                                    >
-                                      {data?.[keys]?.[0]?.ex
-                                        ?.availableToLay?.[0]?.price || "-"}
-                                    </span>
-                                    <span
-                                      id="oddBtnSize"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px] leading-3 text-center whitespace-normal font-normal"
-                                    >
-                                      {data?.[keys]?.[0]?.ex
-                                        ?.availableToLay?.[0]?.size || "-"}
-                                    </span>
-                                  </div>
+                            <div className="grid grid-cols-12 grid-flow-col overflow-auto h-full min-w-[100%] gap-x-[1px] px-[1px] py-[1px]">
+                              <div className="col-span-4 w-full h-full">
+                                <div className=" overflow-hidden relative  cursor-not-allowed w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {data?.[keys]?.[0]?.ex?.availableToBack[0]
+                                      ?.price || "-"}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {" "}
+                                    {data?.[keys]?.[0]?.ex?.availableToBack[0]
+                                      ?.size || "-"}
+                                  </span>
                                 </div>
                               </div>
-                              <div className="col-span-4 grid grid-cols-2 h-full">
-                                <div className="w-full h-full">
-                                  <div className="overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
-                                    <span
-                                      id="oddBtnPrice"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full leading-5 text-sm md:text-[15px] font-semibold"
-                                    >
-                                      {data?.[keys]?.[2]?.ex
-                                        ?.availableToBack?.[0]?.price || "-"}
-                                    </span>
-                                    <span
-                                      id="oddBtnSize"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px] leading-3 text-center whitespace-normal font-normal"
-                                    >
-                                      {data?.[keys]?.[2]?.ex
-                                        ?.availableToBack?.[0]?.size || "-"}
-                                    </span>
-                                  </div>
-                                </div>
-                                <div className="w-full h-full">
-                                  <div className="overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
-                                    <span
-                                      id="oddBtnPrice"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full leading-5 text-sm md:text-[15px] font-semibold"
-                                    >
-                                      {data?.[keys]?.[2]?.ex
-                                        ?.availableToLay?.[0]?.price || "-"}
-                                    </span>
-                                    <span
-                                      id="oddBtnSize"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px] leading-3 text-center whitespace-normal font-normal"
-                                    >
-                                      {data?.[keys]?.[2]?.ex
-                                        ?.availableToLay?.[0]?.size || "-"}
-                                    </span>
-                                  </div>
+                              <div className="col-span-4 w-full h-full">
+                                <div className=" overflow-hidden relative  cursor-not-allowed w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {data?.[keys]?.[2]?.ex?.availableToBack[0]
+                                      ?.price || "-"}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {" "}
+                                    {data?.[keys]?.[2]?.ex?.availableToBack[0]
+                                      ?.size || "-"}
+                                  </span>
                                 </div>
                               </div>
-                              <div className="col-span-4 grid grid-cols-2 h-full">
-                                <div className="w-full h-full">
-                                  <div className="overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
-                                    <span
-                                      id="oddBtnPrice"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full leading-5 text-sm md:text-[15px] font-semibold"
-                                    >
-                                      {data?.[keys]?.[1]?.ex
-                                        ?.availableToBack?.[0]?.price || "-"}
-                                    </span>
-                                    <span
-                                      id="oddBtnSize"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px] leading-3 text-center whitespace-normal font-normal"
-                                    >
-                                      {data?.[keys]?.[1]?.ex
-                                        ?.availableToBack?.[0]?.size || "-"}
-                                    </span>
-                                  </div>
-                                </div>
-                                <div className="w-full h-full">
-                                  <div className="overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
-                                    <span
-                                      id="oddBtnPrice"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full leading-5 text-sm md:text-[15px] font-semibold"
-                                    >
-                                      {data?.[keys]?.[1]?.ex
-                                        ?.availableToLay?.[0]?.price || "-"}
-                                    </span>
-                                    <span
-                                      id="oddBtnSize"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px] leading-3 text-center whitespace-normal font-normal"
-                                    >
-                                      {data?.[keys]?.[1]?.ex
-                                        ?.availableToLay?.[0]?.size || "-"}
-                                    </span>
-                                  </div>
+                              <div className="col-span-4 w-full h-full">
+                                <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {data?.[keys]?.[1]?.ex?.availableToBack[0]
+                                      ?.price || "-"}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {data?.[keys]?.[1]?.ex?.availableToBack[0]
+                                      ?.size || "-"}
+                                  </span>
                                 </div>
                               </div>
                             </div>
-                            {/* Desktop end */}
-                            {/* Mobile */}
-                            <div
-                              id="hideScrollBar"
-                              className="w-full overflow-x-auto flex h-full sm:px-[2px] sm:hidden"
-                            >
-                              <div className="grid grid-cols-12 grid-flow-col overflow-auto h-full min-w-[100%] gap-x-[1px] px-[1px] py-[1px]">
-                                <div className="col-span-4 w-full h-full">
-                                  <div className=" overflow-hidden relative  cursor-not-allowed w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
-                                    <span
-                                      id="oddBtnPrice"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
-                                    >
-                                      {data?.[keys]?.[0]?.ex?.availableToBack[0]
-                                        ?.price || "-"}
-                                    </span>
-                                    <span
-                                      id="oddBtnSize"
-                                      className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
-                                    >
-                                      {" "}
-                                      {data?.[keys]?.[0]?.ex?.availableToBack[0]
-                                        ?.size || "-"}
-                                    </span>
-                                  </div>
-                                </div>
-                                <div className="col-span-4 w-full h-full">
-                                  <div className=" overflow-hidden relative  cursor-not-allowed w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
-                                    <span
-                                      id="oddBtnPrice"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
-                                    >
-                                      {data?.[keys]?.[2]?.ex?.availableToBack[0]
-                                        ?.price || "-"}
-                                    </span>
-                                    <span
-                                      id="oddBtnSize"
-                                      className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
-                                    >
-                                      {" "}
-                                      {data?.[keys]?.[2]?.ex?.availableToBack[0]
-                                        ?.size || "-"}
-                                    </span>
-                                  </div>
-                                </div>
-                                <div className="col-span-4 w-full h-full">
-                                  <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
-                                    <span
-                                      id="oddBtnPrice"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
-                                    >
-                                      {data?.[keys]?.[1]?.ex?.availableToBack[0]
-                                        ?.price || "-"}
-                                    </span>
-                                    <span
-                                      id="oddBtnSize"
-                                      className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
-                                    >
-                                      {data?.[keys]?.[1]?.ex?.availableToBack[0]
-                                        ?.size || "-"}
-                                    </span>
-                                  </div>
+                            <div className="grid grid-cols-12 grid-flow-col overflow-auto h-full min-w-[100%] gap-x-[1px] px-[1px] py-[1px]">
+                              <div className="col-span-4 w-full h-full">
+                                <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {data?.[keys]?.[0]?.ex?.availableToLay[0]
+                                      ?.price || "-"}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {data?.[keys]?.[0]?.ex?.availableToLay[0]
+                                      ?.size || "-"}
+                                  </span>
                                 </div>
                               </div>
-                              <div className="grid grid-cols-12 grid-flow-col overflow-auto h-full min-w-[100%] gap-x-[1px] px-[1px] py-[1px]">
-                                <div className="col-span-4 w-full h-full">
-                                  <div className=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
-                                    <span
-                                      id="oddBtnPrice"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
-                                    >
-                                      {data?.[keys]?.[0]?.ex?.availableToLay[0]
-                                        ?.price || "-"}
-                                    </span>
-                                    <span
-                                      id="oddBtnSize"
-                                      className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
-                                    >
-                                      {data?.[keys]?.[0]?.ex?.availableToLay[0]
-                                        ?.size || "-"}
-                                    </span>
-                                  </div>
+                              <div className="col-span-4 w-full h-full">
+                                <div className=" overflow-hidden relative   cursor-not-allowed w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {data?.[keys]?.[2]?.ex?.availableToLay[0]
+                                      ?.price || "-"}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {data?.[keys]?.[2]?.ex?.availableToLay[0]
+                                      ?.size || "-"}
+                                  </span>
                                 </div>
-                                <div className="col-span-4 w-full h-full">
-                                  <div className=" overflow-hidden relative   cursor-not-allowed w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
-                                    <span
-                                      id="oddBtnPrice"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
-                                    >
-                                      {data?.[keys]?.[2]?.ex?.availableToLay[0]
-                                        ?.price || "-"}
-                                    </span>
-                                    <span
-                                      id="oddBtnSize"
-                                      className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
-                                    >
-                                      {data?.[keys]?.[2]?.ex?.availableToLay[0]
-                                        ?.size || "-"}
-                                    </span>
-                                  </div>
-                                </div>
-                                <div className="col-span-4 w-full h-full">
-                                  <div className=" overflow-hidden relative   cursor-not-allowed w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
-                                    <span
-                                      id="oddBtnPrice"
-                                      className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
-                                    >
-                                      {data?.[keys]?.[1]?.ex?.availableToLay[0]
-                                        ?.price || "-"}
-                                    </span>
-                                    <span
-                                      id="oddBtnSize"
-                                      className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
-                                    >
-                                      {data?.[keys]?.[1]?.ex?.availableToLay[0]
-                                        ?.size || "-"}
-                                    </span>
-                                  </div>
+                              </div>
+                              <div className="col-span-4 w-full h-full">
+                                <div className=" overflow-hidden relative   cursor-not-allowed w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                  <span
+                                    id="oddBtnPrice"
+                                    className="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold"
+                                  >
+                                    {data?.[keys]?.[1]?.ex?.availableToLay[0]
+                                      ?.price || "-"}
+                                  </span>
+                                  <span
+                                    id="oddBtnSize"
+                                    className=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal"
+                                  >
+                                    {data?.[keys]?.[1]?.ex?.availableToLay[0]
+                                      ?.size || "-"}
+                                  </span>
                                 </div>
                               </div>
                             </div>
-                            {/* Mobile end */}
-                          </span>
-                        </>
-                      );
-                    })}
+                          </div>
+                          {/* Mobile end */}
+                        </span>
+                      </>
+                    );
+                  })}
               </div>
             );
           })}
