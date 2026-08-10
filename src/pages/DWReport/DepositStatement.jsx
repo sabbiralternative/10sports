@@ -3,8 +3,11 @@ import { useAccountStatement } from "../../hooks/accountStatement";
 import ShowImage from "../../components/modals/ShowImage/ShowImage";
 import { Settings } from "../../api";
 import Complaint from "../../components/modals/Complaint/Complaint";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const DepositStatement = () => {
+  const { getLanguage } = useLanguage();
   const [complaintId, setComplaintId] = useState(null);
   const [category, setCategory] = useState([]);
   const [image, setImage] = useState("");
@@ -24,7 +27,7 @@ const DepositStatement = () => {
   useEffect(() => {
     if (data?.result?.length > 0) {
       const categories = Array.from(
-        new Set(data?.result?.map((item) => item?.date?.split(" ")?.[0]))
+        new Set(data?.result?.map((item) => item?.date?.split(" ")?.[0])),
       );
       setCategory(categories);
     }
@@ -67,7 +70,7 @@ const DepositStatement = () => {
                           <div className="flex justify-between items-start text-[10px] font-bold h-full">
                             <div className="flex items-center justify-center px-3 py-1 gap-x-2">
                               <span className="text-base text-text_color_primary1">
-                                Deposit
+                                {getLanguage(LanguageKey.DEPOSIT)}
                               </span>
                             </div>
                             <div
@@ -78,14 +81,14 @@ const DepositStatement = () => {
                                 ? "bg-bg_color_transactionSuccessBg"
                                 : ""
                             } ${
-                                data?.status === "REJECTED"
-                                  ? "bg-bg_color_transactionFailedBg "
-                                  : ""
-                              } ${
-                                data?.status === "PENDING"
-                                  ? "bg-bg_color_transactionPendingBg"
-                                  : ""
-                              }
+                              data?.status === "REJECTED"
+                                ? "bg-bg_color_transactionFailedBg "
+                                : ""
+                            } ${
+                              data?.status === "PENDING"
+                                ? "bg-bg_color_transactionPendingBg"
+                                : ""
+                            }
                             `}
                             >
                               {data?.status}
@@ -137,7 +140,7 @@ const DepositStatement = () => {
                                 }
                                 className="px-3 py-1 text-x xs:text-xs sm:text-sm font-semibold  text-text_color_primary2 rounded-tl"
                               >
-                                Report Issue
+                                {getLanguage(LanguageKey.REPORT_ISSUE)}
                               </button>
                             )}
                           </div>

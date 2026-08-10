@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
-import { useLanguage } from "../../../context/LanguageProvider";
 import { useGetLanguage } from "../../../hooks/language.hook";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { setShowLanguageModal } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
 
 const Language = () => {
   const dispatch = useDispatch();

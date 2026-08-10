@@ -4,6 +4,8 @@ import images from "../../../assets/images";
 import { AxiosSecure } from "../../../lib/AxiosSecure";
 // import getOtpOnWhatsapp from "../../../hooks/getOtpOnWhatsapp";
 import { Fragment } from "react";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const GetOTP = ({
   registerRef,
@@ -15,6 +17,7 @@ const GetOTP = ({
   setOrderId,
   setMobileNo,
 }) => {
+  const { getLanguage } = useLanguage();
   const getOtp = async (e) => {
     e.preventDefault();
     /* Get Otp based on settings*/
@@ -101,7 +104,7 @@ const GetOTP = ({
           >
             <div className="w-full max-h-[35px] flex items-center justify-between">
               <p className="text-text_color_loginTextColor font-bold text-[22px]">
-                Sign Up
+                {getLanguage(LanguageKey.REGISTER)}
               </p>
               <div className="relative overflow-hidden max-h-[60px] max-w-[141.428571429px] h-auto flex items-center justify-end">
                 <img
@@ -128,7 +131,7 @@ const GetOTP = ({
                       className="flex flex-col w-full relative"
                     >
                       <p className="text-sm font-medium text-text_color_primary ml-1">
-                        Mobile Number
+                        {getLanguage(LanguageKey.MOBILE_NUMBER)}
                       </p>
                       <div className="flex items-center w-full text-text_color_loginInputTextColor text-sm bg-bg_color_input_bg rounded-lg border w-full focus-within:border-border_color_activeInput px-1 py-2 border-border_color_primary1">
                         <div className="flex-shrink-0 w-max">
@@ -192,7 +195,9 @@ const GetOTP = ({
                           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                         </svg>
                         <span>
-                          {Settings.otp ? "Get OTP on SMS" : "Proceed"}
+                          {Settings.otp
+                            ? getLanguage(LanguageKey.GET_OTP_ON_MESSAGE)
+                            : "Proceed"}
                         </span>
                         <span className="shimmer" />
                       </button>
@@ -230,7 +235,10 @@ const GetOTP = ({
                         className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden text-text_color_loginTextColor bg-bg_color_LoginBtnBgColor border-border_color_brand_secondary1 relative text-primary"
                       >
                         <img className="size-5" src={images.whatsApp2} alt="" />
-                        <span>Get ID on Whatsapp</span>
+                        <span>
+                          {" "}
+                          {getLanguage(LanguageKey.GET_ID_ON_WHATSAPP)}
+                        </span>
                         <span className="shimmer" />
                       </button>
                     </Fragment>
@@ -245,7 +253,7 @@ const GetOTP = ({
                         onClick={showLogin}
                         className="font-lato-bold font-semibold underline ml-1 cursor-pointer text-text_color_loginButtonTextColor"
                       >
-                        Login
+                        {getLanguage(LanguageKey.LOGIN)}
                       </span>
                     </div>
                   </div>

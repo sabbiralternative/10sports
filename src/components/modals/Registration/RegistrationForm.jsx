@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { useLanguage } from "../../../context/LanguageProvider";
 
 import {
   useGetOtpMutation,
@@ -17,7 +16,7 @@ import {
 import { useLogo } from "../../../context/ApiProvider";
 import images from "../../../assets/images";
 import { LanguageKey } from "../../../const";
-import { languageValue } from "../../../utils/language";
+import useLanguage from "../../../hooks/use-language";
 
 const RegistrationForm = ({
   mobile,
@@ -32,7 +31,7 @@ const RegistrationForm = ({
   const dispatch = useDispatch();
   const { logo } = useLogo();
   const [countDown, setCountDown] = useState(45);
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const referralCode = localStorage.getItem("referralCode");
   const [passType, setPassType] = useState(false);
   const [confirmPassType, setConfirmPassType] = useState(false);
@@ -169,7 +168,7 @@ const RegistrationForm = ({
           >
             <div className="w-full max-h-[35px] flex items-center justify-between">
               <p className="text-text_color_loginTextColor font-bold text-[22px]">
-                {languageValue(valueByLanguage, LanguageKey.REGISTER)}
+                {getLanguage(LanguageKey.REGISTER)}
               </p>
               <div className="relative overflow-hidden max-h-[60px] max-w-[141.428571429px] h-auto flex items-center justify-end">
                 <img
@@ -196,7 +195,7 @@ const RegistrationForm = ({
                       className="flex flex-col w-full relative"
                     >
                       <p className="text-sm font-medium text-text_color_primary ml-1">
-                        Mobile Number
+                        {getLanguage(LanguageKey.MOBILE_NUMBER)}
                       </p>
                       <div className="flex items-center w-full text-text_color_loginInputTextColor text-sm bg-bg_color_input_bg rounded-lg border w-full focus-within:border-border_color_activeInput px-1 py-1 border-border_color_activeInput">
                         <div className="flex-shrink-0 w-max">
@@ -273,7 +272,7 @@ const RegistrationForm = ({
                     </div>
                     <div className="mt-1 w-full flex flex-col gap-y-0.5 relative">
                       <h1 className="text-sm font-medium text-text_color_primary ml-1">
-                        Enter OTP
+                        {getLanguage(LanguageKey.ENTER_OTP)}
                       </h1>
                       <div className="grid grid-cols-4 gap-4">
                         {[...Array(4)].map((_, index) => (
@@ -300,7 +299,7 @@ const RegistrationForm = ({
                           className="flex justify-end mt-1"
                         >
                           <div className="bg-bg_text_brand_primary font-bold text-transparent text-xs sm:text-sm bg-clip-text opacity-70 cursor-not-allowed">
-                            Resend
+                            {getLanguage(LanguageKey.RESEND)}
                           </div>
                         </div>
                       ) : (
@@ -317,7 +316,7 @@ const RegistrationForm = ({
                         className="flex flex-col w-full relative"
                       >
                         <span className="text-text_color_loginTextColor font-normal text-sm w-full px-1 pb-1">
-                          Password
+                          {getLanguage(LanguageKey.PASSWORD)}
                         </span>
                         <div className="flex items-center w-full text-text_color_loginInputTextColor text-sm  bg-bg_color_input_bg rounded-lg border w-full focus-within:border-border_color_activeInput px-1.5 border-border_color_primary1 py-1.5">
                           <input
@@ -389,7 +388,7 @@ const RegistrationForm = ({
                         className="flex flex-col w-full relative"
                       >
                         <span className="text-text_color_loginTextColor font-normal text-sm w-full px-1 pb-1">
-                          Confirm Password
+                          {getLanguage(LanguageKey.CONFIRM_PASSWORD)}
                         </span>
                         <div className="flex items-center w-full text-text_color_loginInputTextColor text-sm  bg-bg_color_input_bg rounded-lg border w-full focus-within:border-border_color_activeInput px-1.5 border-border_color_primary1 py-1.5">
                           <input
@@ -461,7 +460,7 @@ const RegistrationForm = ({
                         className="flex flex-col w-full relative"
                       >
                         <span className="text-text_color_loginTextColor font-normal text-sm w-full px-1 pb-1">
-                          Referral Code
+                          {getLanguage(LanguageKey.REFERRAL_CODE)}
                         </span>
                         <div className="flex items-center w-full text-text_color_loginInputTextColor text-sm  bg-bg_color_input_bg rounded-lg border w-full focus-within:border-border_color_activeInput px-1.5 border-border_color_primary1 py-1.5">
                           <input
@@ -484,7 +483,7 @@ const RegistrationForm = ({
                       type="submit"
                       className="mt-5 w-full h-fit bg-bg_color_LoginBtnBgColor text-text_color_loginButtonTextColor transition-all ease-in-out text-sm whitespace-nowrap p-2 rounded-lg active:scale-[0.98] active:opacity-95 disabled:opacity-70 font-medium relative flex items-center justify-center font-bold text-primary"
                     >
-                      Register
+                      {getLanguage(LanguageKey.REGISTER)}
                     </button>
                   </form>
                   <div className="w-full flex items-center gap-4">
@@ -574,7 +573,7 @@ const RegistrationForm = ({
                         onClick={showLogin}
                         className="font-lato-bold font-semibold underline ml-1 cursor-pointer text-text_color_loginButtonTextColor"
                       >
-                        Login
+                        {getLanguage(LanguageKey.LOGIN)}
                       </span>
                     </div>
                   </div>

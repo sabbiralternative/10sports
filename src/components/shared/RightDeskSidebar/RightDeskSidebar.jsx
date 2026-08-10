@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import OpenBet from "./OpenBet";
 import BetSlip from "./BetSlip";
 import { useSelector } from "react-redux";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const RightDeskSidebar = () => {
+  const { getLanguage } = useLanguage();
   const { placeBetValues } = useSelector((state) => state.event);
   const [tab, setTab] = useState("openBet");
 
@@ -30,7 +33,7 @@ const RightDeskSidebar = () => {
                     : "bg-bg_color_primary text-text_color_primary1"
                 }`}
               >
-                Betslip
+                {getLanguage(LanguageKey.BET_SLIP)}
               </button>
               <button
                 onClick={() => setTab("openBet")}
@@ -40,7 +43,7 @@ const RightDeskSidebar = () => {
                     : "bg-bg_color_primary text-text_color_primary1"
                 }`}
               >
-                Open Bets
+                {getLanguage(LanguageKey.OPEN_BETS)}
               </button>
             </div>
           </div>

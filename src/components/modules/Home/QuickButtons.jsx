@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Settings } from "../../../api";
-import { 
+import {
   setSelectedCategory,
   setShowLoginModal,
 } from "../../../redux/features/global/globalSlice";
@@ -11,8 +11,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const QuickButtons = () => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const [showWarning, setShowWarning] = useState(false);
   const [gameInfo, setGameInfo] = useState({ gameName: "", gameId: "" });
@@ -83,7 +86,7 @@ const QuickButtons = () => {
                         />
                       </div>
                       <span className=" ml-2 autoAnimate text-text_color_primary2 text-xs capitalize pr-[2px] md:text-sm text-nowrap w-full truncate font-lato-bold  font-semibold md:font-semibold">
-                        Evolution
+                        {getLanguage(LanguageKey.EVOLUTION)}
                       </span>
                     </div>
                     <div className="absolute top-0 left-0 w-full h-full  min-h-9 rounded-[4px] " />
@@ -112,7 +115,7 @@ const QuickButtons = () => {
                         />
                       </div>
                       <span className=" ml-2 autoAnimate text-text_color_primary2 text-xs capitalize pr-[2px] md:text-sm text-nowrap w-full truncate font-lato-bold  font-semibold md:font-semibold">
-                        Aviator
+                        {getLanguage(LanguageKey.AVIATOR)}
                       </span>
                     </div>
                     <div className="absolute top-0 left-0 w-full h-full  min-h-9 rounded-[4px] " />
@@ -145,7 +148,7 @@ const QuickButtons = () => {
                         />
                       </div>
                       <span className=" ml-2 autoAnimate text-text_color_primary2 text-xs capitalize pr-[2px] md:text-sm text-nowrap w-full truncate font-lato-bold  font-semibold md:font-semibold">
-                        Mac88
+                        {getLanguage(LanguageKey.MAC88)}
                       </span>
                     </div>
                     <div className="absolute top-0 left-0 w-full h-full  min-h-9 rounded-[4px] " />
@@ -174,7 +177,7 @@ const QuickButtons = () => {
                         />
                       </div>
                       <span className=" ml-2 autoAnimate text-text_color_primary2 text-xs capitalize pr-[2px] md:text-sm text-nowrap w-full truncate font-lato-bold  font-semibold md:font-semibold">
-                        Casino
+                        {getLanguage(LanguageKey.CASINO)}
                       </span>
                     </div>
                     <div className="absolute top-0 left-0 w-full h-full  min-h-9 rounded-[4px] " />
@@ -208,7 +211,7 @@ const QuickButtons = () => {
                         />
                       </div>
                       <span className=" ml-2 autoAnimate text-text_color_primary2 text-xs capitalize pr-[2px] md:text-sm text-nowrap w-full truncate font-lato-bold  font-semibold md:font-semibold">
-                        Slot
+                        {getLanguage(LanguageKey.SLOTS)}
                       </span>
                     </div>
                     <div className="absolute top-0 left-0 w-full h-full  min-h-9 rounded-[4px] " />
@@ -240,7 +243,7 @@ const QuickButtons = () => {
                         />
                       </div>
                       <span className=" ml-2 autoAnimate text-text_color_primary2 text-xs capitalize pr-[2px] md:text-sm text-nowrap w-full truncate font-lato-bold  font-semibold md:font-semibold">
-                        Table Games
+                        {getLanguage(LanguageKey.TABLE_GAMES)}
                       </span>
                     </div>
                     <div className="absolute top-0 left-0 w-full h-full  min-h-9 rounded-[4px] " />
@@ -277,7 +280,7 @@ const QuickButtons = () => {
                         />
                       </div>
                       <span className=" ml-2 autoAnimate text-text_color_primary2 text-xs capitalize pr-[2px] md:text-sm text-nowrap w-full truncate font-lato-bold  font-semibold md:font-semibold">
-                        crash games
+                        {getLanguage(LanguageKey.CRASH_GAMES)}
                       </span>
                     </div>
                     <div className="absolute top-0 left-0 w-full h-full  min-h-9 rounded-[4px] " />
@@ -309,7 +312,7 @@ const QuickButtons = () => {
                         />
                       </div>
                       <span className=" ml-2 autoAnimate text-text_color_primary2 text-xs capitalize pr-[2px] md:text-sm text-nowrap w-full truncate font-lato-bold  font-semibold md:font-semibold">
-                        Game Show
+                        {getLanguage(LanguageKey.GAME_SHOW)}
                       </span>
                     </div>
                     <div className="absolute top-0 left-0 w-full h-full  min-h-9 rounded-[4px] " />

@@ -13,20 +13,19 @@ import { useForm } from "react-hook-form";
 import { Settings } from "../../../api";
 import { setUser } from "../../../redux/features/auth/authSlice";
 import toast from "react-hot-toast";
-import { useLanguage } from "../../../context/LanguageProvider";
 import { LanguageKey } from "../../../const";
-import { languageValue } from "../../../utils/language";
 import images from "../../../assets/images";
 import { useNavigate } from "react-router-dom";
 import { HiArrowNarrowDown } from "react-icons/hi";
 import { GrAndroid } from "react-icons/gr";
+import useLanguage from "../../../hooks/use-language";
 
 const Login = () => {
   const { closePopupForForever } = useSelector((state) => state.global);
 
   const navigate = useNavigate();
   const [tab, setTab] = useState(Settings.registration ? "mobile" : "userId");
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const [passwordType, setPasswordType] = useState(false);
   const { logo } = useLogo();
   const dispatch = useDispatch();
@@ -176,19 +175,19 @@ const Login = () => {
             </g>
           </svg>
         </button>
-        <h1 className="hidden">Login to 10sports</h1>
+        <h1 className="hidden">Login to {Settings.site_name}</h1>
         <div
           className="w-full  flex flex-col justify-center items-center py-2  gap-y-6 h-max"
           id="loginRegLayOut"
         >
           <div className="w-full max-h-[35px] flex items-center justify-between">
             <p className=" text-text_color_loginTextColor font-bold text-[22px]">
-              {languageValue(valueByLanguage, LanguageKey.LOGIN)}
+              {getLanguage(LanguageKey.LOGIN)}
             </p>
             <div className="relative overflow-hidden max-h-[60px] max-w-[141.428571429px] h-auto ">
               <img
                 src={logo}
-                alt="10sports-Login"
+                alt="logo"
                 style={{
                   height: Settings.logo_height,
                   width: Settings.logo_width,
@@ -209,7 +208,7 @@ const Login = () => {
                         : "bg-transparent"
                     }`}
                   >
-                    Mobile Number
+                    {getLanguage(LanguageKey.MOBILE_NUMBER)}
                   </div>
                   <div
                     onClick={() => setTab("username")}
@@ -219,7 +218,7 @@ const Login = () => {
                         : "bg-transparent"
                     }`}
                   >
-                    Username
+                    {getLanguage(LanguageKey.USERNAME)}
                   </div>
                 </div>
               )}
@@ -234,7 +233,9 @@ const Login = () => {
                     className="flex flex-col w-full relative"
                   >
                     <span className="text-text_color_loginTextColor font-normal text-sm w-full px-1 pb-1">
-                      {tab === "mobile" ? "Mobile Number" : "User Id"}
+                      {tab === "mobile"
+                        ? getLanguage(LanguageKey.MOBILE_NUMBER)
+                        : getLanguage(LanguageKey.USER_ID)}
                     </span>
                     <div className="flex items-center w-full text-text_color_loginInputTextColor text-sm bg-bg_color_input_bg rounded-lg border w-full focus-within:border-border_color_activeInput px-1.5 border-border_color_primary1 py-2.5">
                       {tab === "mobile" && (
@@ -282,7 +283,7 @@ const Login = () => {
                     className="flex flex-col w-full relative"
                   >
                     <span className="text-text_color_loginTextColor font-normal text-sm w-full px-1 pb-1">
-                      Password
+                      {getLanguage(LanguageKey.PASSWORD)}
                     </span>
                     <div className="flex items-center w-full text-text_color_loginInputTextColor text-sm  bg-bg_color_input_bg rounded-lg border w-full focus-within:border-border_color_activeInput px-1.5 border-border_color_primary1 py-1.5">
                       <input
@@ -353,7 +354,7 @@ const Login = () => {
                         title="forgotPassword"
                         className=" w-max text-xs cursor-pointer  underline text-text_color_loginTextColor  mt-1.5 font-lato md:text-xs lg:text-sm"
                       >
-                        Forgot Password?
+                        {getLanguage(LanguageKey.FORGOT_PASSWORD)}?
                       </button>
                     </div>
                   )}
@@ -364,7 +365,7 @@ const Login = () => {
                     className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out w-full text-text_color_loginButtonTextColor  bg-bg_color_LoginBtnBgColor shadow-lg rounded-md xs:text-[15px] px-5 py-2 flex items-center justify-center gap-x-2 font-lato-bold font-semibold text-base 
                     cursor-pointer text-primary"
                   >
-                    {languageValue(valueByLanguage, LanguageKey.LOGIN)}
+                    {getLanguage(LanguageKey.LOGIN)}
                   </button>
                 </div>
                 {Settings.demo_login && (
@@ -376,7 +377,7 @@ const Login = () => {
         cursor-pointer text-primary
         "
                     >
-                      Demo
+                      {getLanguage(LanguageKey.DEMO_LOGIN)}
                     </button>
                   </div>
                 )}
@@ -389,7 +390,8 @@ const Login = () => {
         cursor-pointer text-primary
         "
                     >
-                      <GrAndroid /> Download .apk <HiArrowNarrowDown />
+                      <GrAndroid /> {getLanguage(LanguageKey.DOWNLOAD_APK)}{" "}
+                      <HiArrowNarrowDown />
                     </button>
                   </div>
                 )}
@@ -478,12 +480,12 @@ const Login = () => {
                   className=" w-full flex justify-center items-center text-xs md:text-sm lg:text-base"
                 >
                   <div className="text-text_color_loginTextColor ">
-                    New User?
+                    {getLanguage(LanguageKey.NEW_USER)}?
                     <span
                       onClick={showRegister}
                       className="font-lato-bold font-semibold underline ml-1 cursor-pointer text-text_color_loginButtonTextColor cursor-pointer"
                     >
-                      Create an account
+                      {getLanguage(LanguageKey.REGISTER)}
                     </span>
                   </div>
                 </div>

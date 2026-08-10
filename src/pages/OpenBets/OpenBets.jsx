@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useCurrentBets } from "../../hooks/currentBets";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const OpenBets = () => {
+  const { getLanguage } = useLanguage();
   const navigate = useNavigate();
   const { data: currentBets } = useCurrentBets();
 
@@ -17,7 +20,10 @@ const OpenBets = () => {
             id="matched_1"
             className="px-3 py-2 cursor-pointer w-full flex items-center justify-between bg-bg_text_brand_primary rounded "
           >
-            <span className=" text-primary text-xs">Matched Bets</span>
+            <span className=" text-primary text-xs">
+              {" "}
+              {getLanguage(LanguageKey.MATCHED_BETS)}
+            </span>
             <div className=" flex items-center justify-center autoAnimate ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +54,7 @@ const OpenBets = () => {
                         <div
                           onClick={() => {
                             navigate(
-                              `/event-details/${bet?.eventTypeId}/${bet?.eventId}`
+                              `/event-details/${bet?.eventTypeId}/${bet?.eventId}`,
                             );
                           }}
                           className={`font-medium underline capitalize text-sm cursor-pointer   ${
@@ -82,7 +88,7 @@ const OpenBets = () => {
           ) : (
             <div className="w-full origin-top scaleVerticalOpen">
               <div className="w-full font-medium text-sm bg-bg_color_primary rounded px-4  py-3 shadow text-text_color_primary1 ">
-                You have no matched Bets.
+                {getLanguage(LanguageKey.YOU_HAVE_NO_MATCHED_BETS)}
               </div>
             </div>
           )}

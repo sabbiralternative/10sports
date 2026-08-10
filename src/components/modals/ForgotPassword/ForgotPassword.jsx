@@ -14,12 +14,11 @@ import { useForm } from "react-hook-form";
 import { Settings } from "../../../api";
 import toast from "react-hot-toast";
 import images from "../../../assets/images";
-import { useLanguage } from "../../../context/LanguageProvider";
 import { LanguageKey } from "../../../const";
-import { languageValue } from "../../../utils/language";
+import useLanguage from "../../../hooks/use-language";
 
 const ForgotPassword = () => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const [handleForgotPassword] = useForgotPasswordMutation();
   const [passType, setPassType] = useState(false);
   const [confirmPassType, setConfirmPassType] = useState(false);
@@ -395,10 +394,7 @@ const ForgotPassword = () => {
                     className="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out w-full text-text_color_loginButtonTextColor  bg-bg_color_LoginBtnBgColor shadow-lg rounded-md xs:text-[15px] px-5 py-2 flex items-center justify-center gap-x-2 font-lato-bold font-semibold text-base 
                     cursor-pointer text-primary"
                   >
-                    {languageValue(
-                      valueByLanguage,
-                      LanguageKey.CHANGE_PASSWORD,
-                    )}
+                    {getLanguage(LanguageKey.CHANGE_PASSWORD)}
                   </button>
                 </div>
               </form>

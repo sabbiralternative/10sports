@@ -6,11 +6,10 @@ import {
   Upcoming,
 } from "../../../assets/Icon/Index";
 import { useSelector } from "react-redux";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import ScoreHome from "./ScoreHome";
 import LiveVirtual from "./LiveVirtual";
+import useLanguage from "../../../hooks/use-language";
 
 const SingleGroup = ({
   data,
@@ -20,12 +19,12 @@ const SingleGroup = ({
   setLiveVirtual,
   defineGroup,
 }) => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const eventName = {
-    4: languageValue(valueByLanguage, LanguageKey.CRICKET),
-    2: languageValue(valueByLanguage, LanguageKey.TENNIS),
-    1: languageValue(valueByLanguage, LanguageKey.FOOTBALL),
-    5: languageValue(valueByLanguage, LanguageKey.KABADDI),
+    4: getLanguage(LanguageKey.CRICKET),
+    2: getLanguage(LanguageKey.TENNIS),
+    1: getLanguage(LanguageKey.FOOTBALL),
+    5: getLanguage(LanguageKey.KABADDI),
   };
   const { group } = useSelector((state) => state.global);
   const navigate = useNavigate();
@@ -40,7 +39,7 @@ const SingleGroup = ({
           <div className="flex items-center text-text_color_primary2 font-semibold text-[18px] tracking-wide justify-start w-full gap-[5px]">
             {title === "In Play" ? <InPlayIcon /> : <Upcoming />}
 
-            <span>{title}</span>
+            <span>{getLanguage(title)}</span>
           </div>
         </div>
         <div className="bg-bg_color_primary border border-border_color_primary border-b-0 shadow-lg border-t-0 rounded-b">

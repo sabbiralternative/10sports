@@ -6,8 +6,11 @@ import { useState } from "react";
 import { useGetEventDetailsQuery } from "../../../redux/features/events/events";
 import useSBCashOut from "../../../hooks/sb_cashout";
 import toast from "react-hot-toast";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const OpenBet = () => {
+  const { getLanguage } = useLanguage();
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [showBets, setShowBets] = useState(true);
@@ -19,7 +22,7 @@ const OpenBet = () => {
     {
       pollingInterval: 1000,
       skip: !pathname.includes("/event-details"),
-    }
+    },
   );
   const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -37,7 +40,7 @@ const OpenBet = () => {
       (group) =>
         group?.Name !== "Bet Builder" &&
         group?.Name !== "Fast Markets" &&
-        group?.Name !== "Player Specials"
+        group?.Name !== "Player Specials",
     );
 
   const handleCashOut = ({ betHistory, sportsBook, price, cashout_value }) => {
@@ -51,7 +54,7 @@ const OpenBet = () => {
     });
 
     const column = item?.Items?.find(
-      (col) => col?.Id === betHistory?.selectionId
+      (col) => col?.Id === betHistory?.selectionId,
     );
 
     const payload = {
@@ -96,7 +99,9 @@ const OpenBet = () => {
             id="matched_1"
             className="px-3 py-2 cursor-pointer w-full flex items-center justify-between bg-bg_text_brand_primary rounded "
           >
-            <span className="text-primary text-xs">Matched Bets</span>
+            <span className="text-primary text-xs">
+              {getLanguage(LanguageKey.MATCHED_BETS)}
+            </span>
             <div className=" flex items-center justify-center autoAnimate ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +125,7 @@ const OpenBet = () => {
                     group?.Items?.forEach((data) => {
                       if (bet?.marketId == data?.Id) {
                         column = data?.Items?.find(
-                          (col) => col?.Id === bet?.selectionId
+                          (col) => col?.Id === bet?.selectionId,
                         );
                       }
                     });
@@ -217,7 +222,7 @@ const OpenBet = () => {
               {showBets && data?.length === 0 && (
                 <div className="w-full origin-top scaleVerticalOpen">
                   <div className="w-full font-medium text-sm bg-bg_color_primary rounded px-4  py-3 shadow text-text_color_primary1 ">
-                    You have no matched Bets.
+                    {getLanguage(LanguageKey.YOU_HAVE_NO_MATCHED_BETS)}
                   </div>
                 </div>
               )}

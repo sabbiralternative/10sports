@@ -8,17 +8,16 @@ import {
 } from "../../../redux/features/global/globalSlice";
 import { useNavigate } from "react-router-dom";
 import { Settings } from "../../../api";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import WarningCondition from "../WarningCondition/WarningCondition";
 import { KABBADI } from "../../../assets/Icon/SidebarIcon";
 import { eventNameList } from "../../../static/event-name-list";
+import useLanguage from "../../../hooks/use-language";
 
 const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
   const [showWarning, setShowWarning] = useState(false);
   const [gameInfo, setGameInfo] = useState({ gameName: "", gameId: "" });
-  const { language, valueByLanguage } = useLanguage();
+  const { getLanguage, language } = useLanguage();
   const { token } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -108,12 +107,12 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                     fill="#fff"
                   />
                 </svg>
-                <span>Aviator</span>
+                <span>{getLanguage(LanguageKey.AVIATOR)}</span>
               </a>
             </li>
             <li>
               <h3 className=" w-full h-max px-6 pt-4 pb-2 text-[13px] text-text_color_tertiary5 uppercase font-normal">
-                Sports
+                {getLanguage(LanguageKey.SPORTS)}
               </h3>
 
               <a
@@ -140,10 +139,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                     fill="#fff"
                   />
                 </svg>
-                <span>
-                  {" "}
-                  {languageValue(valueByLanguage, LanguageKey.CRICKET)}
-                </span>
+                <span> {getLanguage(LanguageKey.CRICKET)}</span>
               </a>
               <a
                 onClick={() => setGroupType(1, "/")}
@@ -202,10 +198,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                     fill="white"
                   />
                 </svg>
-                <span>
-                  {" "}
-                  {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
-                </span>
+                <span> {getLanguage(LanguageKey.FOOTBALL)}</span>
               </a>
               <a
                 className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
@@ -232,10 +225,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                     fill="#fff"
                   />
                 </svg>
-                <span>
-                  {" "}
-                  {languageValue(valueByLanguage, LanguageKey.TENNIS)}
-                </span>
+                <span> {getLanguage(LanguageKey.TENNIS)}</span>
               </a>
               <a
                 className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
@@ -251,7 +241,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                 >
                   <path d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64 0 74.7 0 88c0 92.6 33.5 157 78.5 200.7c44.3 43.1 98.3 64.8 138.1 75.8c23.4 6.5 39.4 26 39.4 45.6c0 20.9-17 37.9-37.9 37.9L192 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l192 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-26.1 0C337 448 320 431 320 410.1c0-19.6 15.9-39.2 39.4-45.6c39.9-11 93.9-32.7 138.2-75.8C542.5 245 576 180.6 576 88c0-13.3-10.7-24-24-24L446.4 64c.3-5.2 .5-10.4 .7-15.8C448.1 21.8 426.5 0 400 0zM48.9 112l84.4 0c9.1 90.1 29.2 150.3 51.9 190.6c-24.9-11-50.8-26.5-73.2-48.3c-32-31.1-58-76-63-142.3zM464.1 254.3c-22.4 21.8-48.3 37.3-73.2 48.3c22.7-40.3 42.8-100.5 51.9-190.6l84.4 0c-5.1 66.3-31.1 111.2-63 142.3z"></path>
                 </svg>
-                <span> Sportsbook</span>
+                <span> {getLanguage(LanguageKey.SPORTSBOOK)}</span>
               </a>
               <a
                 className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
@@ -259,10 +249,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                 onClick={() => setGroupType(5, "/")}
               >
                 <KABBADI />
-                <span>
-                  {" "}
-                  {languageValue(valueByLanguage, LanguageKey.KABADDI)}
-                </span>
+                <span> {getLanguage(LanguageKey.KABADDI)}</span>
               </a>
               <a
                 className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
@@ -289,10 +276,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                     />
                   </g>
                 </svg>
-                <span>
-                  {" "}
-                  {languageValue(valueByLanguage, LanguageKey.HORSE)}
-                </span>
+                <span> {getLanguage(LanguageKey.HORSE)}</span>
               </a>
               <a
                 onClick={() => handleNavigate("/greyhound-racing")}
@@ -324,10 +308,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                     />
                   </g>
                 </svg>
-                <span>
-                  {" "}
-                  {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
-                </span>
+                <span> {getLanguage(LanguageKey.GREYHOUND)}</span>
               </a>
               {eventNameList.map((item) => {
                 return (
@@ -338,7 +319,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                     onClick={() => setGroupType(item.id, "/")}
                   >
                     <img src={item.image} alt="" className="size-5" />
-                    <span> {item?.name}</span>
+                    <span> {getLanguage(item?.name)}</span>
                   </a>
                 );
               })}
@@ -406,7 +387,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                     d="M24.5 12.9h-.9l-1.7 5h.9l.5-1.5h1.5l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2zM42.7 38.8h-.9l-1.7 5h.9l.5-1.5H43l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2z"
                   />
                 </svg>
-                <span>Mac88</span>
+                <span>{getLanguage(LanguageKey.MAC88)}</span>
               </a>
 
               <a
@@ -466,7 +447,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                     d="M24.5 12.9h-.9l-1.7 5h.9l.5-1.5h1.5l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2zM42.7 38.8h-.9l-1.7 5h.9l.5-1.5H43l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2z"
                   />
                 </svg>
-                <span>Live Casino Wolf</span>
+                <span>{getLanguage(LanguageKey.LIVE_CASINO_WOLF)}</span>
               </a>
 
               <a
@@ -526,7 +507,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                     d="M24.5 12.9h-.9l-1.7 5h.9l.5-1.5h1.5l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2zM42.7 38.8h-.9l-1.7 5h.9l.5-1.5H43l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2z"
                   />
                 </svg>
-                <span>Slot Wolf</span>
+                <span>{getLanguage(LanguageKey.SLOT_WOLF)}</span>
               </a>
 
               <a
@@ -586,10 +567,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                     d="M24.5 12.9h-.9l-1.7 5h.9l.5-1.5h1.5l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2zM42.7 38.8h-.9l-1.7 5h.9l.5-1.5H43l.5 1.5h1l-1.8-5zm.1 2.8h-1l.4-1.2c0-.1.1-.2.1-.4 0 .1.1.2.1.4l.4 1.2z"
                   />
                 </svg>
-                <span>
-                  {" "}
-                  {languageValue(valueByLanguage, LanguageKey.LIVE_CASINO)}
-                </span>
+                <span> {getLanguage(LanguageKey.LIVE_CASINO)}</span>
               </a>
               {/* {Settings.aura && (
                 <a
@@ -681,16 +659,13 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                     </clipPath>
                   </defs>
                 </svg>
-                <span>
-                  {" "}
-                  {languageValue(valueByLanguage, LanguageKey.SLOTS)}
-                </span>
+                <span> {getLanguage(LanguageKey.SLOTS)}</span>
               </a>
             </li>
             {Settings.apk_link && (
               <li>
                 <h3 className=" w-full h-max px-6 pt-4 pb-2 text-[13px] text-text_color_tertiary5 uppercase font-normal">
-                  Others
+                  {getLanguage(LanguageKey.OTHERS)}
                 </h3>
 
                 <a
@@ -734,14 +709,14 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                       fill="#fff"
                     />
                   </svg>
-                  <span>Download APK</span>
+                  <span>{getLanguage(LanguageKey.DOWNLOAD_APK)}</span>
                 </a>
               </li>
             )}
 
             <li>
               <h3 className=" w-full h-max px-6 pt-4 pb-2 text-[13px] text-text_color_tertiary5 uppercase font-normal">
-                Help &amp; Support
+                {getLanguage(LanguageKey.HELP_AND_SUPPORT)}
               </h3>
               <a
                 onClick={() => handleNavigate("/responsible-gambling")}
@@ -758,7 +733,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path d="M11.884 2.007l.114 -.007l.118 .007l.059 .008l.061 .013l.111 .034a.993 .993 0 0 1 .217 .112l.104 .082l.255 .218a11 11 0 0 0 7.189 2.537l.342 -.01a1 1 0 0 1 1.005 .717a13 13 0 0 1 -9.208 16.25a1 1 0 0 1 -.502 0a13 13 0 0 1 -9.209 -16.25a1 1 0 0 1 1.005 -.717a11 11 0 0 0 7.531 -2.527l.263 -.225l.096 -.075a.993 .993 0 0 1 .217 -.112l.112 -.034a.97 .97 0 0 1 .119 -.021z" />
                 </svg>
-                <span>Responsible Gambling</span>
+                <span>{getLanguage(LanguageKey.RESPONSIBLE_GAMBLING)}</span>
               </a>
               <a
                 className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
@@ -775,7 +750,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-2.5 9.66a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0 -3m1.207 -4.707a1 1 0 0 0 -1.414 0l-6 6a1 1 0 0 0 1.414 1.414l6 -6a1 1 0 0 0 0 -1.414m-6.207 -.293a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0 -3" />
                 </svg>
-                <span>Privacy Policy</span>
+                <span>{getLanguage(LanguageKey.PRIVACY_POLICY)}</span>
               </a>
               <a
                 className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
@@ -806,7 +781,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                     </clipPath>
                   </defs>
                 </svg>
-                <span>Exclusion Policy</span>
+                <span>{getLanguage(LanguageKey.EXCLUSION_POLICY)}</span>
               </a>
               <a
                 className="flex items-center h-full justify-start gap-x-2 w-full pl-6 pr-2 py-[11px] text-base text-text_color_primary1 whitespace-nowrap font-bold"
@@ -853,7 +828,7 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
                     </clipPath>
                   </defs>
                 </svg>
-                <span>Rules &amp; Regulations</span>
+                <span>{getLanguage(LanguageKey.RULES_AND_REGULATION)}</span>
               </a>
             </li>
             <span
@@ -881,11 +856,11 @@ const MobileLeftDrawer = ({ setShowDrawer, showDrawer }) => {
               </svg>
               <span>{language}</span>
             </span>
-            <li className=" px-3 py-2">
+            {/* <li className=" px-3 py-2">
               <span className="flex text-center bg-bg_text_brand_primary bg-clip-text text-transparent text-sm xs:text-base font-medium">
                 Register online and play online
               </span>
-            </li>
+            </li> */}
             <li className="p-1" />
           </ul>
         </div>

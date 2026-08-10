@@ -29,7 +29,7 @@ const Group = ({ data }) => {
       <SingleGroup
         data={data}
         filterData={groupedInPlay}
-        title="In Play"
+        title="IN_PLAY"
         setLiveVirtual={setLiveVirtualInPlay}
       />
       {groupedInPlay?.length === 0 && (
@@ -41,7 +41,7 @@ const Group = ({ data }) => {
         margin={true}
         data={data}
         filterData={groupedUpcoming}
-        title="Upcoming Events"
+        title="UPCOMING"
         setLiveVirtual={setLiveVirtualUpcoming}
       />
       {groupedUpcoming?.length === 0 && (

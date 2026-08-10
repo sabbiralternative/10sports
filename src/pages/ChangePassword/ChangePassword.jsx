@@ -3,8 +3,11 @@ import { useChangePasswordMutation } from "../../redux/features/auth/authApi";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useState } from "react";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const ChangePassword = () => {
+  const { getLanguage } = useLanguage();
   const [showPassword, setShowPassword] = useState(false);
   const [showNewPass, setShowNewPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
@@ -43,7 +46,7 @@ const ChangePassword = () => {
           <div className="flex flex-col gap-2 font-lato">
             <div className="flex flex-col w-full">
               <div className="text-text_color_primary1 text-sm">
-                Old Password{" "}
+                {getLanguage(LanguageKey.OLD_PASSWORD)}
               </div>
               <div className=" relative undefined">
                 <span className="px-2 absolute top-1/2 -translate-y-1/2 w-max">
@@ -142,7 +145,7 @@ const ChangePassword = () => {
               <div className="w-full h-full">
                 <div className="flex flex-col w-full">
                   <div className="text-text_color_primary1 text-sm">
-                    New Password{" "}
+                    {getLanguage(LanguageKey.NEW_PASSWORD)}
                   </div>
                   <div className=" relative undefined">
                     <span className="px-2 absolute top-1/2 -translate-y-1/2 w-max">
@@ -243,7 +246,7 @@ const ChangePassword = () => {
               <div className="w-full h-full">
                 <div className="flex flex-col w-full">
                   <div className="text-text_color_primary1 text-sm">
-                    Confirm Password{" "}
+                    {getLanguage(LanguageKey.CONFIRM_PASSWORD)}
                   </div>
                   <div className=" relative undefined">
                     <span className="px-2 absolute top-1/2 -translate-y-1/2 w-max">
@@ -347,7 +350,7 @@ const ChangePassword = () => {
                 "
                 type="button"
               >
-                Cancel
+                {getLanguage(LanguageKey.CANCEL)}
               </button>
               <button
                 type="submit"
@@ -355,7 +358,7 @@ const ChangePassword = () => {
                 cursor-pointer text-primary
                 "
               >
-                <span>Save</span>
+                <span> {getLanguage(LanguageKey.SAVE)}</span>
               </button>
             </div>
           </div>

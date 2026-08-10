@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { Settings } from "../../../api";
-// import { useLanguage } from "../../../context/LanguageProvider";
 import useBalance from "../../../hooks/balance";
 import { useDispatch } from "react-redux";
 import { setShowLanguageModal } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const AfterLogin = ({
   setShowRightDrawer,
@@ -12,7 +13,7 @@ const AfterLogin = ({
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const { language } = useLanguage();
+  const { getLanguage } = useLanguage();
   const { data } = useBalance();
 
   const showRightDrawer = () => {
@@ -87,7 +88,7 @@ const AfterLogin = ({
                       fill="var(--icon-color-secondary)"
                     ></path>
                   </svg>
-                  Deposit
+                  {getLanguage(LanguageKey.DEPOSIT)}
                 </span>
               </button>
             )}
@@ -136,7 +137,7 @@ cursor-pointer
                       fill="var(--icon-color-secondary)"
                     ></path>
                   </svg>
-                  Withdraw
+                  {getLanguage(LanguageKey.WITHDRAW)}
                 </span>
               </button>
             )}
@@ -187,7 +188,7 @@ cursor-pointer
                   </svg>
                 </span>
                 <span className=" text-xxs text-primary  font-normal font-lato md:font-semibold md:text-xs xs:text-xs ">
-                  Account
+                  {getLanguage(LanguageKey.ACCOUNT)}
                 </span>
               </button>
             </div>
@@ -222,7 +223,9 @@ cursor-pointer
             "
                 >
                   <span className="  font-semibold flex flex-row font-lato md:font-normal sm:text-base xs:text-sm">
-                    <span className="text-primary">Deposit</span>
+                    <span className="text-primary">
+                      {getLanguage(LanguageKey.DEPOSIT)}
+                    </span>
                   </span>
                   <span className="shimmer" />
                 </button>

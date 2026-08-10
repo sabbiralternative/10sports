@@ -8,6 +8,8 @@ import { Settings } from "../../../api";
 import { FaCopy } from "react-icons/fa";
 import { handleCopyToClipBoard } from "../../../utils/handleCopyToClipBoard";
 import images from "../../../assets/images";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const RightDrawer = ({
   setShowRightDrawer,
@@ -16,7 +18,7 @@ const RightDrawer = ({
 }) => {
   const { closePopupForForever } = useSelector((state) => state.global);
   const { user, token, memberId } = useSelector((state) => state.auth);
-
+  const { getLanguage } = useLanguage();
   const { data } = useBalance();
 
   const ref = useRef();
@@ -145,7 +147,7 @@ const RightDrawer = ({
                   <path d="M12 17v.01"></path>
                 </svg>
                 <span className="font-lato-bold font-semibold text-sm xs:text-base text-text_color_primary1">
-                  User ID : {memberId}
+                  {getLanguage(LanguageKey.USER_ID)} : {memberId}
                 </span>
               </div>
               <button
@@ -186,12 +188,14 @@ const RightDrawer = ({
                 </svg>
               </span>
               <span className="font-lato-bold font-semibold text-sm xs:text-base text-text_color_primary1 ">
-                Balance Information
+                {getLanguage(LanguageKey.BALANCE_INFORMATION)}
               </span>
             </div>
             <div className=" grid grid-cols-2 gap-0.5 w-full">
               <div className="flex w-full flex-col rounded items-start bg-bg_color_quaternary3 border px-2 py-1 col-span-2">
-                <span className="uppercase font-normal text-xxs">Balance</span>
+                <span className="uppercase font-normal text-xxs">
+                  {getLanguage(LanguageKey.BALANCE)}
+                </span>
                 <span className=" font-lato text-sm font-medium text-text_color_success">
                   ₹ {data?.availBalance}
                 </span>
@@ -206,7 +210,7 @@ const RightDrawer = ({
               </div>
               <div className="flex w-full flex-col rounded items-start bg-bg_color_quaternary3 border px-2 py-1 col-span-1">
                 <span className="uppercase font-normal text-xxs">
-                  Net Exposure
+                  {getLanguage(LanguageKey.EXPOSURE)}
                 </span>
                 <span
                   className={`font-lato text-sm font-medium  ${
@@ -269,7 +273,7 @@ const RightDrawer = ({
                           fill="var(--icon-color-secondary)"
                         ></path>
                       </svg>
-                      deposit
+                      {getLanguage(LanguageKey.DEPOSIT)}
                     </span>
                   </button>
                 )}
@@ -318,7 +322,7 @@ cursor-pointer
                           fill="var(--icon-color-secondary)"
                         ></path>
                       </svg>
-                      withdraw
+                      {getLanguage(LanguageKey.WITHDRAW)}
                     </span>
                   </button>
                 )}
@@ -328,7 +332,7 @@ cursor-pointer
           {Settings.apk_link && (
             <li className="divide-y divide-divide_color_primary2 flex items-start justify-start flex-col">
               <span className="font-lato-bold font-semibold px-3 py-1 w-full bg-bg_color_quaternary2 text-xs xs:text-sm text-text_color_primary1 ">
-                Help &amp; Support
+                {getLanguage(LanguageKey.HELP_AND_SUPPORT)}
               </span>
               <div className="divide-y divide-divide_color_primary2 pl-5 flex items-start justify-start w-full flex-col">
                 {Settings?.branchWhatsapplink && (
@@ -343,7 +347,7 @@ cursor-pointer
                         <img src={images.whatsApp} alt="" />
                       </span>
                       <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                        Customer Support
+                        {getLanguage(LanguageKey.CUSTOMER_SUPPORT)}
                       </span>
                     </div>
                   </div>
@@ -374,7 +378,7 @@ cursor-pointer
                       </svg>
                     </span>
                     <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                      Download APK
+                      {getLanguage(LanguageKey.DOWNLOAD_APK)}
                     </span>
                   </div>
                 </div>
@@ -401,7 +405,7 @@ cursor-pointer
 
           <li className="divide-y divide-divide_color_primary2 flex items-start justify-start flex-col">
             <span className="font-lato-bold font-semibold px-3 py-1 w-full bg-bg_color_quaternary2 text-xs xs:text-sm text-text_color_primary1 ">
-              Statements
+              {getLanguage(LanguageKey.STATEMENTS)}
             </span>
             <div className="divide-y divide-divide_color_primary2 pl-5 flex items-start justify-start w-full flex-col">
               <div className="w-full">
@@ -436,7 +440,7 @@ cursor-pointer
                       </svg>
                     </span>
                     <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                      Deposit Report
+                      {getLanguage(LanguageKey.DEPOSIT_STATEMENT)}
                     </span>
                   </div>
                 </a>
@@ -473,7 +477,7 @@ cursor-pointer
                       </svg>
                     </span>
                     <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                      Withdraw Report
+                      {getLanguage(LanguageKey.WITHDRAW_STATMENT)}
                     </span>
                   </div>
                 </a>
@@ -508,7 +512,7 @@ cursor-pointer
                       </svg>
                     </span>
                     <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                      Open Bets
+                      {getLanguage(LanguageKey.OPEN_BETS)}
                     </span>
                   </div>
                 </a>
@@ -548,7 +552,7 @@ cursor-pointer
                       </svg>
                     </span>
                     <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                      Betting Profit &amp; Loss
+                      {getLanguage(LanguageKey.BETTING_PROFIT_AND_LOSS)}
                     </span>
                   </div>
                 </a>
@@ -585,7 +589,7 @@ cursor-pointer
                       </svg>
                     </span>
                     <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                      My Bank Details
+                      {getLanguage(LanguageKey.MY_BANK_DETAILS)}
                     </span>
                   </div>
                 </a>
@@ -656,7 +660,7 @@ cursor-pointer
                       </svg>
                     </span>
                     <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                      Bonus Statement
+                      {getLanguage(LanguageKey.BONUS_STATEMENT)}
                     </span>
                   </div>
                 </a>
@@ -692,7 +696,7 @@ cursor-pointer
                         </svg>
                       </span>
                       <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                        Affiliate
+                        {getLanguage(LanguageKey.AFFILIATE)}
                       </span>
                     </div>
                   </a>
@@ -717,7 +721,7 @@ cursor-pointer
                       </svg>
                     </span>
                     <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                      Promos & Bonus
+                      {getLanguage(LanguageKey.PROMOTION_AND_BONUSES)}
                     </span>
                   </div>
                 </a>
@@ -754,7 +758,7 @@ cursor-pointer
                       </svg>
                     </span>
                     <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                      Lossback Bonus
+                      {getLanguage(LanguageKey.LOSSBACK_BONUS)}
                     </span>
                   </div>
                 </a>
@@ -792,7 +796,7 @@ cursor-pointer
                         </svg>
                       </span>
                       <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                        App Only Bonus
+                        {getLanguage(LanguageKey.APP_ONLY_BONUS)}
                       </span>
                     </div>
                   </a>
@@ -880,7 +884,7 @@ cursor-pointer
           </li>
           <li className="divide-y divide-divide_color_primary2 flex items-start justify-start flex-col">
             <span className="font-lato-bold font-semibold px-3 py-1 w-full bg-bg_color_quaternary2 text-xs xs:text-sm text-text_color_primary1 ">
-              Account Settings
+              {getLanguage(LanguageKey.ACCOUNT_SETTINGS)}
             </span>
             <div className="divide-y divide-divide_color_primary2 pl-5 flex items-start justify-start w-full flex-col">
               {/* <div className="w-full">
@@ -945,7 +949,7 @@ cursor-pointer
                       </svg>
                     </span>
                     <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                      Settings
+                      {getLanguage(LanguageKey.STAKE_SETTINGS)}
                     </span>
                   </div>
                 </a>
@@ -954,7 +958,7 @@ cursor-pointer
           </li>
           <li className="divide-y divide-divide_color_primary2 flex items-start justify-start flex-col">
             <span className="font-lato-bold font-semibold px-3 py-1 w-full bg-bg_color_quaternary2 text-xs xs:text-sm text-text_color_primary1 ">
-              Legal &amp; Compliance
+              {getLanguage(LanguageKey.LEGAL_AND_COMPLIANCE)}
             </span>
             <div className="divide-y divide-divide_color_primary2 pl-5 flex items-start justify-start w-full flex-col">
               <div
@@ -981,7 +985,7 @@ cursor-pointer
                   </svg>
                 </span>
                 <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                  Rules &amp; Regulations
+                  {getLanguage(LanguageKey.RULES_AND_REGULATION)}
                 </span>
               </div>
               <div
@@ -1008,7 +1012,7 @@ cursor-pointer
                   </svg>
                 </span>
                 <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                  Exclusion Policy
+                  {getLanguage(LanguageKey.EXCLUSION_POLICY)}
                 </span>
               </div>
               <div
@@ -1033,7 +1037,7 @@ cursor-pointer
                   </svg>
                 </span>
                 <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                  Responsible Gambling
+                  {getLanguage(LanguageKey.RESPONSIBLE_GAMBLING)}
                 </span>
               </div>
               <div
@@ -1059,7 +1063,7 @@ cursor-pointer
                   </svg>
                 </span>
                 <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                  Privacy Policy
+                  {getLanguage(LanguageKey.PRIVACY_POLICY)}
                 </span>
               </div>
             </div>
@@ -1067,7 +1071,7 @@ cursor-pointer
 
           <li className="divide-y divide-divide_color_primary2 flex items-start justify-start flex-col">
             <span className="font-lato-bold font-semibold px-3 py-1 w-full bg-bg_color_quaternary2 text-xs xs:text-sm text-text_color_primary1 ">
-              Account actions
+              {getLanguage(LanguageKey.ACCOUNT_ACTIONS)}
             </span>
             <div className="divide-y divide-divide_color_primary2 pl-5 flex items-start justify-start w-full flex-col">
               <div
@@ -1099,7 +1103,7 @@ cursor-pointer
                       </svg>
                     </span>
                     <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                      Change Password
+                      {getLanguage(LanguageKey.CHANGE_PASSWORD)}
                     </span>
                   </div>
                 </a>
@@ -1126,7 +1130,7 @@ cursor-pointer
                     </svg>
                   </span>
                   <span className="font-medium text-sm xs:text-base text-text_color_primary1">
-                    Sign Out
+                    {getLanguage(LanguageKey.LOGOUT)}
                   </span>
                 </div>
               </div>
@@ -1137,15 +1141,15 @@ cursor-pointer
           Settings?.branchWhatsapplink ||
           Settings?.instagramLink ? (
             <>
-              <li className=" px-3 py-2 flex items-center justify-start gap-x-2 flex-col">
+              {/* <li className=" px-3 py-2 flex items-center justify-start gap-x-2 flex-col">
                 <span className="flex text-center  bg-bg_text_brand_primary bg-clip-text text-transparent text-sm xs:text-base font-medium">
                   Register online and play online
                 </span>
-              </li>
+              </li> */}
               <li className="p-1">
                 <div className="flex flex-col gap-1 p-3 items-center bg-bg_color_primary rounded">
                   <span className="text-text_color_primary1 font-semibold">
-                    Contact Us
+                    {getLanguage(LanguageKey.CONTACT_US)}
                   </span>
                   <div className="flex w-full items-center justify-center gap-1 ">
                     {Settings?.whatsapplink || Settings?.branchWhatsapplink ? (

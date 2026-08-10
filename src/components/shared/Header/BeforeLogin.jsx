@@ -1,16 +1,15 @@
-import { useLanguage } from "../../../context/LanguageProvider";
 import { useDispatch } from "react-redux";
 import {
   setShowLanguageModal,
   setShowLoginModal,
   setShowRegisterModal,
 } from "../../../redux/features/global/globalSlice";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import { Settings } from "../../../api";
+import useLanguage from "../../../hooks/use-language";
 
 const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
 
   const showLogin = () => {
@@ -77,7 +76,7 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
             </svg>
           </span>
           <span className="text-xxs text-primary  font-normal font-lato md:font-semibold md:text-xs xs:text-xs">
-            {languageValue(valueByLanguage, LanguageKey.LOGIN)}
+            {getLanguage(LanguageKey.LOGIN)}
           </span>
         </button>
         {Settings.registration && (
@@ -107,7 +106,7 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
               </svg>
             </span>
             <span className="text-xxs text-text_brand_secondary md:text-text_color_primary1 font-lato md:font-semibold md:text-xs xs:text-xs">
-              {languageValue(valueByLanguage, LanguageKey.REGISTER)}
+              {getLanguage(LanguageKey.REGISTER)}
             </span>
           </button>
         )}
@@ -149,7 +148,7 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
           className="flex  hover:opacity-100 w-max font-extrabold items-center justify-center  bg-bg_color_LoginBtnBgColor rounded-md px-2.5 py-1.5"
         >
           <span className=" text-x text-primary font-lato md:font-semibold xs:text-xs  md:text-sm font-[800]">
-            {languageValue(valueByLanguage, LanguageKey.LOGIN)}
+            {getLanguage(LanguageKey.LOGIN)}
           </span>
         </button>
         {Settings.registration && (
@@ -162,7 +161,7 @@ const BeforeLogin = ({ showMobileSearch, setShowMobileSearch }) => {
                     "
           >
             <span className=" text-x   bg-bg_color_signUpTextColor bg-clip-text text-transparent  font-lato md:font-semibold xs:text-xs  md:text-sm font-[800]">
-              {languageValue(valueByLanguage, LanguageKey.REGISTER)}
+              {getLanguage(LanguageKey.REGISTER)}
             </span>
           </button>
         )}

@@ -2,8 +2,11 @@ import { useNavigate } from "react-router-dom";
 import { useEditButtonValuesMutation } from "../../redux/features/events/events";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const StakeSetting = () => {
+  const { getLanguage } = useLanguage();
   const [editButtonValue] = useEditButtonValuesMutation();
   const navigate = useNavigate();
   const stakes = JSON.parse(localStorage.getItem("buttonValue"));
@@ -62,7 +65,7 @@ const StakeSetting = () => {
                 type="submit"
                 className="flex items-center justify-center gap-1 p-2 bg-[var(--bg-active-primary)] mt-2 w-full sm:max-w-[350px] rounded font-semibold text-text_color_primary2 disabled:opacity-80 text-primary"
               >
-                Edit
+                {getLanguage(LanguageKey.EDIT)}
               </button>
             </div>
           </div>

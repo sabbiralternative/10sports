@@ -5,8 +5,11 @@ import Complaint from "../../components/modals/Complaint/Complaint";
 import { Settings } from "../../api";
 import { useBankAccountMutation } from "../../redux/features/deposit/event.api";
 import toast from "react-hot-toast";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const WithdrawStatement = () => {
+  const { getLanguage } = useLanguage();
   const [deleteWithdraw] = useBankAccountMutation();
   const [complaintId, setComplaintId] = useState(null);
   const [category, setCategory] = useState([]);
@@ -85,7 +88,7 @@ const WithdrawStatement = () => {
                           <div className="flex justify-between items-start text-[10px] font-bold h-full">
                             <div className="flex items-center justify-center px-3 py-1 gap-x-2">
                               <span className="text-base text-text_color_primary1">
-                                Withdraw{" "}
+                                {getLanguage(LanguageKey.WITHDRAW)}{" "}
                               </span>
                             </div>
                             <div
@@ -159,7 +162,7 @@ const WithdrawStatement = () => {
                                     }
                                     className="px-2 py-1 text-xs xs:text-xs sm:text-sm font-semibold text-text_color_primary2 rounded-tl rounded-tr h-fit tracking-normal"
                                   >
-                                    Cancel Withdraw
+                                    {getLanguage(LanguageKey.CANCEL_WITHDRAWAL)}
                                   </button>
                                 )}
 
@@ -177,7 +180,7 @@ const WithdrawStatement = () => {
                                   }
                                   className="px-2 py-1 text-xs xs:text-xs sm:text-sm font-semibold  text-text_color_primary2 rounded-tl tracking-normal"
                                 >
-                                  Report Issue
+                                  {getLanguage(LanguageKey.REPORT_ISSUE)}
                                 </button>
                               )}
                             </div>
@@ -195,7 +198,7 @@ const WithdrawStatement = () => {
         )}
         {data?.result?.length === 0 && (
           <div className="flex items-center justify-center pt-20 text-white">
-            <p>No transaction yet!</p>
+            <p> {getLanguage(LanguageKey.NO_TRANSACTION_YET)}!</p>
           </div>
         )}
       </div>

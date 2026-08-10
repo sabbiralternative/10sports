@@ -17,16 +17,15 @@ import {
   Tennis,
 } from "../../../assets/Icon/SidebarIcon";
 import { Settings } from "../../../api";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import WarningCondition from "../WarningCondition/WarningCondition";
 import { eventNameList } from "../../../static/event-name-list";
+import useLanguage from "../../../hooks/use-language";
 
 const LeftDeskSidebar = () => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [showWarning, setShowWarning] = useState(false);
@@ -75,7 +74,7 @@ const LeftDeskSidebar = () => {
             >
               <Cricket />
               <span className="font-medium text-start text-text_color_primary1">
-                {languageValue(valueByLanguage, LanguageKey.CRICKET)}
+                {getLanguage(LanguageKey.CRICKET)}
               </span>
             </a>
           </li>
@@ -89,7 +88,7 @@ const LeftDeskSidebar = () => {
             >
               <Football />
               <span className="font-medium text-start text-text_color_primary1">
-                {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
+                {getLanguage(LanguageKey.FOOTBALL)}
               </span>
             </a>
           </li>
@@ -104,7 +103,7 @@ const LeftDeskSidebar = () => {
             >
               <Tennis />
               <span className="font-medium text-start text-text_color_primary1">
-                {languageValue(valueByLanguage, LanguageKey.TENNIS)}
+                {getLanguage(LanguageKey.TENNIS)}
               </span>
             </a>
           </li>
@@ -140,7 +139,7 @@ const LeftDeskSidebar = () => {
             >
               <KABBADI />
               <span className="font-medium text-start text-text_color_primary1">
-                {languageValue(valueByLanguage, LanguageKey.KABADDI)}
+                {getLanguage(LanguageKey.KABADDI)}
               </span>
             </a>
           </li>
@@ -154,7 +153,7 @@ const LeftDeskSidebar = () => {
             >
               <HorseRacing />
               <span className="font-medium text-start text-text_color_primary1">
-                {languageValue(valueByLanguage, LanguageKey.HORSE)}
+                {getLanguage(LanguageKey.HORSE)}
               </span>
             </a>
           </li>
@@ -168,7 +167,7 @@ const LeftDeskSidebar = () => {
             >
               <GreyhoundRacing />
               <span className="font-medium text-start text-text_color_primary1">
-                {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
+                {getLanguage(LanguageKey.GREYHOUND)}
               </span>
             </a>
           </li>
@@ -247,7 +246,7 @@ const LeftDeskSidebar = () => {
             >
               <LiveCasino />
               <span className="font-medium text-start text-text_color_primary1">
-                {languageValue(valueByLanguage, LanguageKey.LIVE_CASINO)}
+                {getLanguage(LanguageKey.LIVE_CASINO)}
               </span>
             </Link>
           </li>
@@ -276,7 +275,7 @@ const LeftDeskSidebar = () => {
             >
               <SlotGame />
               <span className="font-medium text-start text-text_color_primary1">
-                {languageValue(valueByLanguage, LanguageKey.SLOTS)}
+                {getLanguage(LanguageKey.SLOTS)}
               </span>
             </Link>
           </li>

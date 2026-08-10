@@ -26,8 +26,11 @@ import BetLoading from "../../modules/EventDetails/BetLoading";
 import { Clock, Minus, Plus } from "../../../assets/Icon/BetSlip";
 import { AxiosJSEncrypt } from "../../../lib/AxiosJSEncrypt";
 import { isBetDelay, isDelay } from "../../../utils/isBetDelay";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const BetSlip = () => {
+  const { getLanguage } = useLanguage();
   const { closePopupForForever } = useSelector((state) => state.global);
   const { pathname } = useLocation();
   const [isCashOut, setIsCashOut] = useState(false);
@@ -251,7 +254,7 @@ const BetSlip = () => {
           <div className=" w-full grid grid-cols-12 gap-2">
             <div title="Odds: 1.47" className="col-span-5 flex flex-col gap-1">
               <label className="text-text_color_primary1 sm:text-xs text-[10px] font-normal">
-                ODDS
+                {getLanguage(LanguageKey.ODDS)}
               </label>
               <div className="flex items-center justify-center">
                 {!placeBetValues?.isWeak && (
@@ -308,7 +311,7 @@ const BetSlip = () => {
                 htmlFor="stakeInput"
                 className="text-text_color_primary1 sm:text-xs text-[10px] font-normal flex items-center justify-between"
               >
-                <span>STAKE</span>
+                <span> {getLanguage(LanguageKey.STAKE)}</span>
                 {/* <span>Max mkt : 0</span> */}
               </label>
               <input
@@ -360,7 +363,7 @@ const BetSlip = () => {
       "
             >
               <span className=" text-text_brand_primary font-bold text-sm md:text-base leading-5">
-                Cancel Bet
+                {getLanguage(LanguageKey.CANCEL_BET)}
               </span>
             </button>
             {token ? (
@@ -370,7 +373,7 @@ const BetSlip = () => {
               >
                 <div className=" flex items-start justify-start flex-col">
                   <span className=" text-text_color_primary2 text-sm font-bold text-primary">
-                    Place Bet
+                    {getLanguage(LanguageKey.PLACE_BET)}
                   </span>
                   {placeBetValues?.back ? (
                     <div className="  text-xs text-primary">
@@ -404,7 +407,7 @@ const BetSlip = () => {
               >
                 <div className=" flex items-start justify-start flex-col">
                   <span className=" text-text_color_primary2 text-sm font-bold">
-                    Login
+                    {getLanguage(LanguageKey.LOGIN)}
                   </span>
                   <div className=" text-text_color_primary2 text-xs">
                     <span>Profit : </span>

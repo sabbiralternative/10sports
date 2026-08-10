@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import images from "../../../assets/images";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const Promotion = () => {
+  const { getLanguage } = useLanguage();
   const navigate = useNavigate();
   return (
     <div
@@ -15,7 +18,7 @@ const Promotion = () => {
         }}
       >
         <h3 className="w-full text-text_color_primary2 font-bold text-[13px] tracking-[0.219px] leading-normal">
-          Promotions &amp; Bonuses
+          {getLanguage(LanguageKey.PROMOTION_AND_BONUSES)}
         </h3>
       </div>
     </div>

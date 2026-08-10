@@ -2,8 +2,11 @@ import { useNavigate } from "react-router-dom";
 import images from "../../../assets/images";
 import { useDispatch, useSelector } from "react-redux";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const CryptoReferTab = () => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
   const navigate = useNavigate();
@@ -16,7 +19,7 @@ const CryptoReferTab = () => {
         <div
           onClick={() => {
             window.open(
-              "https://onramp.money/main/buy/?appId=1&mode=overlay&origin=https://onramp.money&defaultCoinCode=USDT"
+              "https://onramp.money/main/buy/?appId=1&mode=overlay&origin=https://onramp.money&defaultCoinCode=USDT",
             );
           }}
           id="add Crypto"
@@ -40,7 +43,7 @@ const CryptoReferTab = () => {
             </div>
             <div className="flex-1 min-w-0">
               <div className="text-sm font-bold text-text_color_primary leading-tight truncate">
-                Buy Crypto
+                {getLanguage(LanguageKey.BUY_CRYPTO)}
               </div>
               <div className="text-x  xs1:text-xs text-text_color_primary truncate">
                 USDT, BTC, etc.
@@ -78,10 +81,10 @@ const CryptoReferTab = () => {
             </div>
             <div className="flex-1 min-w-0">
               <div className="text-sm font-bold text-text_color_primary1 leading-tight truncate">
-                Refer &amp; Earn
+                {getLanguage(LanguageKey.REFER_AND_EARN)}
               </div>
               <div className="text-x  xs1:text-xs text-text_color_primary truncate">
-                Earn commissions
+                {getLanguage(LanguageKey.EARN_COMMISSIONS)}
               </div>
             </div>
           </div>

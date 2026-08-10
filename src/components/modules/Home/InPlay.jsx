@@ -6,8 +6,11 @@ import { useSelector } from "react-redux";
 import ScoreHome from "./ScoreHome";
 import LiveVirtual from "./LiveVirtual";
 import { FilterLiveVirtual } from "../../../utils/filter-live-virtual";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const InPlay = () => {
+  const { getLanguage } = useLanguage();
   const [liveVirtual, setLiveVirtual] = useState([]);
   const { group } = useSelector((state) => state.global);
   const { data } = useGroupQuery(
@@ -18,7 +21,11 @@ const InPlay = () => {
   );
 
   const [categories, setCategories] = useState([]);
-  const eventName = { 4: "Cricket", 2: "Tennis", 1: "Football" };
+  const eventName = {
+    4: getLanguage(LanguageKey.CRICKET),
+    2: getLanguage(LanguageKey.TENNIS),
+    1: getLanguage(LanguageKey.FOOTBALL),
+  };
   const navigate = useNavigate();
   const navigateGameList = (keys) => {
     navigate(`/event-details/${data[keys]?.eventTypeId}/${keys}`);
@@ -46,7 +53,7 @@ const InPlay = () => {
         <div className="w-full flex items-center justify-between border-b border-border_color_primary rounded-t-[10px] py-1.5 px-[7px] bg-bg_inPlayBlockBg">
           <div className="flex items-center text-text_color_primary2 font-semibold text-[18px] tracking-wide justify-start w-full gap-[5px]">
             <InPlayIcon />
-            <span>In Play</span>
+            <span>{getLanguage(LanguageKey.IN_PLAY)}</span>
           </div>
         </div>
         <div className="bg-bg_color_primary border border-border_color_primary border-b-0 shadow-lg border-t-0 rounded-b">

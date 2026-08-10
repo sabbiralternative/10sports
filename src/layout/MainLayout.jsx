@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import Banner from "../components/modals/Banner/Banner";
 import BuildVersion from "../components/modals/BuildVersion/BuildVersion";
 import { Settings } from "../api";
-import { useLanguage } from "../context/LanguageProvider";
+import useLanguage from "../hooks/use-language";
 
 const MainLayout = () => {
   const { setLanguage } = useLanguage();
