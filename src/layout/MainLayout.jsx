@@ -49,6 +49,8 @@ const MainLayout = () => {
 
   return (
     <div className="w-dvw app-bg h-screen  flex flex-col">
+      <meta name="description" content={Settings.metaDescription} />
+      <meta name="keywords" content={Settings.metaKeywords} />
       {showBuildVersion && !showAPKModal && (
         <BuildVersion
           build_version={Settings?.build_version}
