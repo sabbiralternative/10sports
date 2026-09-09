@@ -17,7 +17,7 @@ const BettingProfitLoss = () => {
     to: toDate,
     type: "GR",
   };
-
+  console.log(payload);
   const { data } = useAccountStatement(payload);
   const navigate = useNavigate();
   const token = useSelector((state) => state.auth);

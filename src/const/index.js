@@ -159,5 +159,7 @@ export const LanguageKey = {
   REFERRAL_CODE: "REFERRAL_CODE",
   PENDING: "PENDING",
   PROMOTIONS: "PROMOTIONS",
+  BY_PHONE: "BY_PHONE",
+  BY_USERNAME: "BY_USERNAME",
 };
 export const settingsAPI = "https://api7.live/api/exchange/diamond/settings";

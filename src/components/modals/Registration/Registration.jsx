@@ -11,10 +11,14 @@ import GetOTP from "./GetOTP";
 import RegistrationForm from "./RegistrationForm";
 
 const Registration = () => {
+  const [tab, setTab] = useState(
+    Settings.registration_mobile ? "mobile" : "username",
+  );
   const [showRegister, setShowRegister] = useState(false);
   const { logo } = useLogo();
   const dispatch = useDispatch();
   const [mobile, setMobile] = useState("");
+  const [user, setUser] = useState("");
   const [OTP, setOTP] = useState({});
 
   const registerRef = useRef();
@@ -43,6 +47,10 @@ const Registration = () => {
           logo={logo}
           registerRef={registerRef}
           showLogin={showLogin}
+          setUser={setUser}
+          user={user}
+          setTab={setTab}
+          tab={tab}
         />
       ) : (
         <RegistrationForm
@@ -54,6 +62,8 @@ const Registration = () => {
           mobile={mobile}
           setMobile={setMobile}
           setOTP={setOTP}
+          user={user}
+          tab={tab}
         />
       )}
     </>

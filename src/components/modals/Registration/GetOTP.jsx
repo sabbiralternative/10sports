@@ -6,6 +6,7 @@ import { AxiosSecure } from "../../../lib/AxiosSecure";
 import { Fragment } from "react";
 import useLanguage from "../../../hooks/use-language";
 import { LanguageKey } from "../../../const";
+import { FaMobileAlt, FaRegUser } from "react-icons/fa";
 
 const GetOTP = ({
   registerRef,
@@ -16,6 +17,10 @@ const GetOTP = ({
   mobileNo,
   setOrderId,
   setMobileNo,
+  setUser,
+  user,
+  tab,
+  setTab,
 }) => {
   const { getLanguage } = useLanguage();
   const getOtp = async (e) => {
@@ -126,82 +131,144 @@ const GetOTP = ({
                     className="w-full h-max"
                     id="signUpForm"
                   >
-                    <div
-                      title="Mobile Number"
-                      className="flex flex-col w-full relative"
-                    >
-                      <p className="text-sm font-medium text-text_color_primary ml-1">
-                        {getLanguage(LanguageKey.MOBILE_NUMBER)}
-                      </p>
-                      <div className="flex items-center w-full text-text_color_loginInputTextColor text-sm bg-bg_color_input_bg rounded-lg border w-full focus-within:border-border_color_activeInput px-1 py-2 border-border_color_primary1">
-                        <div className="flex-shrink-0 w-max">
-                          <div className="w-max transition-none h-full">
-                            <button
-                              type="button"
-                              className="flex w-max items-center h-full justify-between px-1 text-text_color_loginInputTextColor"
-                              disabled
+                    {Settings.registration_mobile &&
+                      Settings.registration_username && (
+                        <div className=" w-full bg-[color-mix(in_srgb,var(--bg-active-primary)_30%,transparent)] mb-3">
+                          <div className="flex flex-row items-center justify-start gap-6 relative w-full">
+                            <div
+                              onClick={() => setTab("mobile")}
+                              className={`cursor-pointer flex flex-row items-center justify-center px-[25px] py-2 text-[13px] md:text-sm lg:text-base  font-bold leading-4 active:scale-95 z-10 w-full gap-x-1.5 ${
+                                tab === "mobile"
+                                  ? "text-primary bg-bg_color_LoginBtnBgColor"
+                                  : ""
+                              }`}
                             >
-                              <div className="flex items-center justify-center h-full">
-                                +91
-                                <div className="relative overflow-hidden mt-[1.5px] ml-1">
-                                  <img
-                                    src={images.india}
-                                    alt="India"
-                                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
-                                    className="w-[18px] h-[18px]"
-                                  />
-                                </div>
-                              </div>
-                            </button>
+                              <FaMobileAlt />
+                              <span className={`   `}>
+                                {getLanguage(LanguageKey.BY_PHONE)}
+                              </span>
+                            </div>
+                            <div
+                              onClick={() => setTab("username")}
+                              className={`w-full cursor-pointer flex flex-row items-center justify-center px-[25px] py-2 text-[13px] md:text-sm lg:text-base  font-bold leading-4 active:scale-95 z-10 gap-x-1.5  ${
+                                tab === "username"
+                                  ? "text-primary bg-bg_color_LoginBtnBgColor"
+                                  : ""
+                              }`}
+                            >
+                              <FaRegUser />
+                              <span className={`   `}>
+                                {getLanguage(LanguageKey.BY_USERNAME)}
+                              </span>
+                            </div>
                           </div>
                         </div>
-                        <input
-                          onChange={(e) => handleMobileNo(e)}
-                          value={mobileNo}
-                          className="px-2 bg-transparent flex-grow min-w-0 border-none focus:outline-none bg-transparent"
-                          placeholder="Phone Number"
-                          autoComplete="tel"
-                          aria-label="Mobile Number"
-                          id="mobile-no-input"
-                          type="tel"
-                          defaultValue
-                        />
-                      </div>
-                      <div className="flex items-start w-full justify-between leading-normal px-1">
-                        <div className="w-max min-h-[18px] h-max" />
-                        <span className="text-xs bg-bg_color_LoginBtnBgColor text-transparent bg-clip-text text-end">
-                          0/10
-                        </span>
-                      </div>
-                    </div>
-                    <div className="w-full py-2 grid grid-cols-1 xs:grid-cols-2 gap-2 overflow-hidden mt-2">
-                      <button
-                        disabled={Settings.otp && mobileNo?.length < 10}
-                        type="submit"
-                        className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden bg-bg_color_input_bg border-border_color_primary1 text-text_color_loginInputTextColor relative"
+                      )}
+                    {tab === "mobile" && Settings.registration_mobile && (
+                      <div
+                        title="Mobile Number"
+                        className="flex flex-col w-full relative"
                       >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={18}
-                          height={18}
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="var(--icon-color-secondary)"
-                          strokeWidth={2}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="h-[18px] w-[18px]"
+                        <p className="text-sm font-medium text-text_color_primary ml-1">
+                          {getLanguage(LanguageKey.MOBILE_NUMBER)}
+                        </p>
+                        <div className="flex items-center w-full text-text_color_loginInputTextColor text-sm bg-bg_color_input_bg rounded-lg border w-full focus-within:border-border_color_activeInput px-1 py-2 border-border_color_primary1">
+                          <div className="flex-shrink-0 w-max">
+                            <div className="w-max transition-none h-full">
+                              <button
+                                type="button"
+                                className="flex w-max items-center h-full justify-between px-1 text-text_color_loginInputTextColor"
+                                disabled
+                              >
+                                <div className="flex items-center justify-center h-full">
+                                  +91
+                                  <div className="relative overflow-hidden mt-[1.5px] ml-1">
+                                    <img
+                                      src={images.india}
+                                      alt="India"
+                                      sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 625px"
+                                      className="w-[18px] h-[18px]"
+                                    />
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+                          </div>
+                          <input
+                            onChange={(e) => handleMobileNo(e)}
+                            value={mobileNo}
+                            className="px-2 bg-transparent flex-grow min-w-0 border-none focus:outline-none bg-transparent"
+                            placeholder="Phone Number"
+                            autoComplete="tel"
+                            aria-label="Mobile Number"
+                            id="mobile-no-input"
+                            type="tel"
+                            defaultValue
+                          />
+                        </div>
+                        <div className="flex items-start w-full justify-between leading-normal px-1">
+                          <div className="w-max min-h-[18px] h-max" />
+                          <span className="text-xs bg-bg_color_LoginBtnBgColor text-transparent bg-clip-text text-end">
+                            0/10
+                          </span>
+                        </div>
+                      </div>
+                    )}
+                    {tab === "username" && Settings.registration_username && (
+                      <div className="flex flex-col gap-1">
+                        <div
+                          title="Password"
+                          className="flex flex-col w-full relative"
                         >
-                          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                        </svg>
-                        <span>
-                          {Settings.otp
-                            ? getLanguage(LanguageKey.GET_OTP_ON_MESSAGE)
-                            : "Proceed"}
-                        </span>
-                        <span className="shimmer" />
-                      </button>
-                      {/* {Settings.otpWhatsapp && (
+                          <span className="text-text_color_loginTextColor font-normal text-sm w-full px-1 pb-1">
+                            {getLanguage(LanguageKey.USERNAME)}
+                          </span>
+                          <div className="flex items-center w-full text-text_color_loginInputTextColor text-sm  bg-bg_color_input_bg rounded-lg border w-full focus-within:border-border_color_activeInput px-1.5 border-border_color_primary1 py-1.5">
+                            <input
+                              className="text-text_color_loginInputTextColor bg-transparent px-1.5 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
+                              placeholder="Enter your Username"
+                              aria-label="Password"
+                              id="loginFormPasswordInput"
+                              type={"text"}
+                              onChange={(e) => setUser(e.target.value)}
+                            />
+                          </div>
+                          <div className="flex items-start w-full justify-between leading-normal px-1">
+                            <div className=" w-max  h-max"></div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {Settings.registration_mobile && tab === "mobile" && (
+                      <div className="w-full py-2 grid grid-cols-1 xs:grid-cols-2 gap-2 overflow-hidden mt-2">
+                        <button
+                          disabled={Settings.otp && mobileNo?.length < 10}
+                          type="submit"
+                          className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden bg-bg_color_input_bg border-border_color_primary1 text-text_color_loginInputTextColor relative"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width={18}
+                            height={18}
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--icon-color-secondary)"
+                            strokeWidth={2}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="h-[18px] w-[18px]"
+                          >
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                          </svg>
+                          <span>
+                            {Settings.otp
+                              ? getLanguage(LanguageKey.GET_OTP_ON_MESSAGE)
+                              : "Proceed"}
+                          </span>
+                          <span className="shimmer" />
+                        </button>
+                        {/* {Settings.otpWhatsapp && (
                         <button
                           onClick={handleGetOtpOnWhatsapp}
                           disabled={mobileNo?.length < 10}
@@ -217,7 +284,21 @@ const GetOTP = ({
                           <span className="shimmer" />
                         </button>
                       )} */}
-                    </div>
+                      </div>
+                    )}
+                    {Settings.registration_username && tab === "username" && (
+                      <div className="w-full py-2 grid grid-cols-1 xs:grid-cols-2 gap-2 overflow-hidden mt-2">
+                        <button
+                          disabled={!user}
+                          onClick={() => setShowRegister(true)}
+                          type="button"
+                          className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden bg-bg_color_input_bg border-border_color_primary1 text-text_color_loginInputTextColor relative"
+                        >
+                          <span>Next</span>
+                          <span className="shimmer" />
+                        </button>
+                      </div>
+                    )}
                   </form>
 
                   {Settings?.whatsapplink && Settings.registration_whatsapp && (
