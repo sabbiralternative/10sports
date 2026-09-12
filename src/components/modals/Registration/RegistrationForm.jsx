@@ -27,6 +27,7 @@ const RegistrationForm = ({
   setShowRegister,
   user,
   tab,
+  setUserName,
 }) => {
   const affnook_token = localStorage.getItem("affnook_token");
   const dispatch = useDispatch();
@@ -77,7 +78,7 @@ const RegistrationForm = ({
 
   const onSubmit = async (data) => {
     const registerData = {
-      username: data?.username,
+      username: user,
       password: data?.password,
       confirmPassword: data?.confirmPassword,
       mobile: mobile,
@@ -332,12 +333,12 @@ const RegistrationForm = ({
                           </span>
                           <div className="flex items-center w-full text-text_color_loginInputTextColor text-sm  bg-bg_color_input_bg rounded-lg border w-full focus-within:border-border_color_activeInput px-1.5 border-border_color_primary1 py-1.5">
                             <input
+                              onChange={(e) => setUserName(e.target.value)}
                               className="text-text_color_loginInputTextColor bg-transparent px-1.5 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
                               placeholder="Enter your Username"
                               aria-label="Password"
                               id="loginFormPasswordInput"
                               type={"text"}
-                              readOnly
                               value={user}
                             />
                             <div className="flex-shrink-0 w-max">

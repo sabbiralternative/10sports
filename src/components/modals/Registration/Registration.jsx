@@ -64,6 +64,7 @@ const Registration = () => {
           setOTP={setOTP}
           user={user}
           tab={tab}
+          setUserName={setUser}
         />
       )}
     </>
