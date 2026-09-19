@@ -59,6 +59,7 @@ const MainLayout = () => {
         <meta name="google-site-verification" content={Settings.gscTag} />
       )}
       {Settings.metaTitle && <title>{Settings.metaTitle}</title>}
+      <meta name="robots" content="index, follow" />
 
       {showBuildVersion && !showAPKModal && (
         <BuildVersion

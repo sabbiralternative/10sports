@@ -62,14 +62,14 @@ export const API = {
 };
 
 export const Settings = {
-  registration_mobile: "",
-  registration_username: "",
   gscTag: "",
   metaTitle: "",
   metaKeywords: "",
   metaDescription: "",
   apk_banner: "",
   apk_link: "",
+  registration_mobile: "",
+  registration_username: "",
   maintenance_message: "",
   otp: "",
   casino: "",
