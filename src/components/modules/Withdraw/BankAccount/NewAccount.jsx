@@ -5,8 +5,12 @@ import toast from "react-hot-toast";
 import { AxiosSecure } from "../../../../lib/AxiosSecure";
 import { API, Settings } from "../../../../api";
 import { jwtDecode } from "jwt-decode";
+import useLanguage from "../../../../hooks/use-language";
+import { LanguageKey } from "../../../../const";
+import images from "../../../../assets/images";
 
 const NewAccount = ({ setTab, refetchBankAccounts }) => {
+  const { getLanguage } = useLanguage();
   const [addNewBank] = useBankAccountMutation();
   const [isFormValid, setIsFormValid] = useState(false);
   const [mobile, setMobile] = useState(null);
@@ -95,6 +99,24 @@ const NewAccount = ({ setTab, refetchBankAccounts }) => {
     if (data?.success) {
       setTimer(60);
       setOrderId(data?.result?.orderId);
+      toast.success(data?.result?.message);
+    } else {
+      toast.error(data?.error?.errorMessage);
+    }
+  };
+
+  const getOtpOnWhatsapp = async () => {
+    const otpData = {
+      mobile: mobile,
+      type: "otpsend",
+    };
+
+    const res = await AxiosSecure.post(API.otpless, otpData);
+    const data = res.data;
+
+    if (data?.success) {
+      setTimer(60);
+
       toast.success(data?.result?.message);
     } else {
       toast.error(data?.error?.errorMessage);
@@ -274,7 +296,7 @@ const NewAccount = ({ setTab, refetchBankAccounts }) => {
                 type="text"
                 value={mobile}
               />{" "}
-              <div className="w-max">
+              {/* <div className="w-max">
                 {timer ? (
                   <button
                     onClick={getOtp}
@@ -282,11 +304,11 @@ const NewAccount = ({ setTab, refetchBankAccounts }) => {
                     type="button"
                   >
                     <span className=" ">Retry in {timer}</span>
-                    {/* <span className="shimmer"></span> */}
+                    <span className="shimmer"></span>
                   </button>
                 ) : (
                   <div className="flex items-center gap-2">
-                    {/* {Settings.otpWhatsapp && (
+                    {Settings.otpWhatsapp && (
                       <button
                         onClick={getOtpOnWhatsapp}
                         className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out font-lato-bold h-fit bg-bg_Primary text-text_Quaternary transition-all ease-in-out text-xs whitespace-nowrap mr-1 py-1 px-3 rounded active:scale-[0.98] active:opacity-95 disabled:bg-bg_Slate500 disabled:opacity-50 font-medium relative flex items-center justify-center cursor-pointer bg-bg_text_brand_primary"
@@ -295,7 +317,7 @@ const NewAccount = ({ setTab, refetchBankAccounts }) => {
                         <span className="text-primary">Get OTP Whatsapp</span>
                         <span className="shimmer"></span>
                       </button>
-                    )} */}
+                    )}
 
                     <button
                       onClick={getOtp}
@@ -307,7 +329,58 @@ const NewAccount = ({ setTab, refetchBankAccounts }) => {
                     </button>
                   </div>
                 )}
-              </div>
+              </div> */}
+            </div>
+            <div className="w-full  flex items-center gap-2 overflow-hidden mt-4">
+              {Settings.otp_method?.includes("sms") && !timer && (
+                <button
+                  onClick={getOtp}
+                  disabled={mobile?.length < 10}
+                  type="button"
+                  className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden bg-bg_color_input_bg border-border_color_primary1 text-text_color_loginInputTextColor relative"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={18}
+                    height={18}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--icon-color-secondary)"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-[18px] w-[18px]"
+                  >
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                  <span>{getLanguage(LanguageKey.GET_OTP_ON_MESSAGE)}</span>
+                  <span className="shimmer" />
+                </button>
+              )}
+
+              {Settings.otp_method?.includes("whatsapp") && !timer && (
+                <button
+                  onClick={getOtpOnWhatsapp}
+                  disabled={mobile?.length < 10}
+                  type="button"
+                  className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden text-text_color_loginTextColor bg-bg_color_LoginBtnBgColor border-border_color_brand_secondary1 relative text-primary"
+                >
+                  <img className="size-5" src={images.whatsApp2} alt="" />
+                  <span>{getLanguage(LanguageKey.GET_OTP_ON_WHATSAPP)}</span>
+                  <span className="shimmer" />
+                </button>
+              )}
+              {timer && (
+                <button
+                  type="button"
+                  className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden text-text_color_loginTextColor bg-bg_color_LoginBtnBgColor border-border_color_brand_secondary1 relative text-primary"
+                >
+                  <span>
+                    {getLanguage(LanguageKey.RETRY_IN)} {timer}s
+                  </span>
+                  <span className="shimmer" />
+                </button>
+              )}
             </div>
             <div className="flex items-start w-full justify-between leading-normal px-1">
               <div className="w-max min-h-[18px] h-max" />

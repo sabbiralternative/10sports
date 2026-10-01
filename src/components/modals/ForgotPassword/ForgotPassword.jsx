@@ -11,11 +11,12 @@ import {
   setShowLoginModal,
 } from "../../../redux/features/global/globalSlice";
 import { useForm } from "react-hook-form";
-import { Settings } from "../../../api";
+import { API, Settings } from "../../../api";
 import toast from "react-hot-toast";
 import images from "../../../assets/images";
 import { LanguageKey } from "../../../const";
 import useLanguage from "../../../hooks/use-language";
+import { AxiosSecure } from "../../../lib/AxiosSecure";
 
 const ForgotPassword = () => {
   const { getLanguage } = useLanguage();
@@ -53,6 +54,27 @@ const ForgotPassword = () => {
       } else {
         toast.error(res?.error?.errorMessage);
       }
+    }
+  };
+
+  const getOtpOnWhatsapp = async () => {
+    const otpData = {
+      mobile: mobile,
+      type: "otpsend",
+    };
+
+    const res = await AxiosSecure.post(API.otpless, otpData);
+    const data = res.data;
+
+    if (data?.success) {
+      setTimer(60);
+      setOTP({
+        orderId: data?.result?.orderId,
+        otpMethod: "whatsapp",
+      });
+      toast.success(data?.result?.message);
+    } else {
+      toast.error(data?.error?.errorMessage);
     }
   };
 
@@ -162,8 +184,22 @@ const ForgotPassword = () => {
                     <span className="text-text_color_loginTextColor font-normal text-sm w-full px-1 pb-1">
                       Mobile Number
                     </span>
-                    <div className="flex items-center w-full text-text_color_loginInputTextColor text-sm bg-bg_color_input_bg rounded-lg border w-full focus-within:border-border_color_activeInput px-1.5 border-border_color_primary1 py-2.5">
-                      <div className="flex-shrink-0 w-max">
+                    <div className="flex items-center w-full">
+                      {" "}
+                      <select
+                        id="dropdown-phone-button"
+                        className="rounded-l-lg border py-2  px-3 bg-bg_color_input_bg border-border_color_primary1 text-white focus:outline-none"
+                      >
+                        {Settings.country_code?.map((item) => {
+                          return (
+                            <option key={item} value={item}>
+                              {item}
+                            </option>
+                          );
+                        })}
+                      </select>
+                      <div className="flex items-center w-full text-text_color_loginInputTextColor text-sm bg-bg_color_input_bg rounded-r-lg border w-full focus-within:border-border_color_activeInput px-1.5 border-border_color_primary1 py-2.5 border-l-0">
+                        {/* <div className="flex-shrink-0 w-max">
                         <div className="w-max  transition-none h-full">
                           <button
                             type="button"
@@ -183,17 +219,17 @@ const ForgotPassword = () => {
                             </div>
                           </button>
                         </div>
-                      </div>
-                      <input
-                        onChange={(e) => handleMobileInputChange(e)}
-                        className="text-text_color_loginInputTextColor bg-transparent px-1.5 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
-                        placeholder="Enter  Mobile/Username"
-                        aria-label="Mobile Number"
-                        id="loginFormMobileUserIdInput"
-                        type="text"
-                        required
-                      />
-                      <div className="flex-shrink-0 w-max">
+                      </div> */}
+                        <input
+                          onChange={(e) => handleMobileInputChange(e)}
+                          className="text-text_color_loginInputTextColor bg-transparent px-1.5 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
+                          placeholder="Enter  Mobile/Username"
+                          aria-label="Mobile Number"
+                          id="loginFormMobileUserIdInput"
+                          type="text"
+                          required
+                        />
+                        {/* <div className="flex-shrink-0 w-max">
                         <div className="w-max  transition-none h-full">
                           {timer ? (
                             <button
@@ -212,12 +248,66 @@ const ForgotPassword = () => {
                             </button>
                           )}
                         </div>
+                      </div> */}
                       </div>
                     </div>
                     <div className="flex items-start w-full justify-between leading-normal px-1">
                       <div className=" w-max  h-max"></div>
                     </div>
                   </div>
+                </div>
+                <div className="w-full py-2 flex items-center gap-2 overflow-hidden ">
+                  {Settings.otp_method?.includes("sms") && !timer && (
+                    <button
+                      onClick={handleOTP}
+                      disabled={mobile?.length < 10}
+                      type="button"
+                      className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden bg-bg_color_input_bg border-border_color_primary1 text-text_color_loginInputTextColor relative"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width={18}
+                        height={18}
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--icon-color-secondary)"
+                        strokeWidth={2}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-[18px] w-[18px]"
+                      >
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                      </svg>
+                      <span>{getLanguage(LanguageKey.GET_OTP_ON_MESSAGE)}</span>
+                      <span className="shimmer" />
+                    </button>
+                  )}
+
+                  {Settings.otp_method?.includes("whatsapp") && !timer && (
+                    <button
+                      onClick={getOtpOnWhatsapp}
+                      disabled={mobile?.length < 10}
+                      type="button"
+                      className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden text-text_color_loginTextColor bg-bg_color_LoginBtnBgColor border-border_color_brand_secondary1 relative text-primary"
+                    >
+                      <img className="size-5" src={images.whatsApp2} alt="" />
+                      <span>
+                        {getLanguage(LanguageKey.GET_OTP_ON_WHATSAPP)}
+                      </span>
+                      <span className="shimmer" />
+                    </button>
+                  )}
+                  {timer && (
+                    <button
+                      type="button"
+                      className="w-full h-fit text-xs sm:text-sm transition-all ease-in-out whitespace-nowrap p-2 rounded-lg disabled:opacity-70 font-medium flex gap-x-2.5 items-center justify-center font-bold overflow-hidden text-text_color_loginTextColor bg-bg_color_LoginBtnBgColor border-border_color_brand_secondary1 relative text-primary"
+                    >
+                      <span>
+                        {getLanguage(LanguageKey.RETRY_IN)} {timer}s
+                      </span>
+                      <span className="shimmer" />
+                    </button>
+                  )}
                 </div>
                 <div className="flex flex-col gap-1">
                   <div

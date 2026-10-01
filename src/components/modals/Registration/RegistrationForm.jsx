@@ -14,7 +14,6 @@ import {
   setShowRegisterModal,
 } from "../../../redux/features/global/globalSlice";
 import { useLogo } from "../../../context/ApiProvider";
-import images from "../../../assets/images";
 import { LanguageKey } from "../../../const";
 import useLanguage from "../../../hooks/use-language";
 const RegistrationForm = ({
@@ -204,7 +203,7 @@ const RegistrationForm = ({
                             {getLanguage(LanguageKey.MOBILE_NUMBER)}
                           </p>
                           <div className="flex items-center w-full text-text_color_loginInputTextColor text-sm bg-bg_color_input_bg rounded-lg border w-full focus-within:border-border_color_activeInput px-1 py-1 border-border_color_activeInput">
-                            <div className="flex-shrink-0 w-max">
+                            {/* <div className="flex-shrink-0 w-max">
                               <div className="w-max transition-none h-full">
                                 <button
                                   type="button"
@@ -224,7 +223,7 @@ const RegistrationForm = ({
                                   </div>
                                 </button>
                               </div>
-                            </div>
+                            </div> */}
                             <input
                               className="px-2 bg-transparent flex-grow min-w-0 border-none focus:outline-none bg-transparent"
                               placeholder="Phone Number"
@@ -275,9 +274,9 @@ const RegistrationForm = ({
                             <div className="w-max min-h-[18px] h-max">
                               <div className="text-x text-text_color_error_message" />
                             </div>
-                            <span className="text-xs bg-bg_color_LoginBtnBgColor text-transparent bg-clip-text text-end">
+                            {/* <span className="text-xs bg-bg_color_LoginBtnBgColor text-transparent bg-clip-text text-end">
                               {mobile?.length}/10
-                            </span>
+                            </span> */}
                           </div>
                         </div>
                         <div className="mt-1 w-full flex flex-col gap-y-0.5 relative">

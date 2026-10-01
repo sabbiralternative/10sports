@@ -162,5 +162,7 @@ export const LanguageKey = {
   BY_PHONE: "BY_PHONE",
   BY_USERNAME: "BY_USERNAME",
   FANTASY_11: "FANTASY_11",
+  GET_OTP_ON_WHATSAPP: "GET_OTP_ON_WHATSAPP",
+  RETRY_IN: "RETRY_IN",
 };
 export const settingsAPI = "https://api7.live/api/exchange/diamond/settings";

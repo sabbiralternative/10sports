@@ -62,6 +62,8 @@ export const API = {
 };
 
 export const Settings = {
+  country_code: [],
+  otp_method: [],
   gscTag: "",
   metaTitle: "",
   metaKeywords: "",
